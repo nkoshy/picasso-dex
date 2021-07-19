@@ -1,6 +1,11 @@
-import { BigNumberInBase, BigNumberInWei } from '@injectivelabs/utils'
+import {
+  BigNumberInBase,
+  BigNumberInWei,
+  DEFAULT_BRIDGE_FEE_PRICE
+} from '@injectivelabs/utils'
 import { actionTree, getterTree } from 'typed-vuex'
 import {
+  withdraw,
   getTokenBalanceAndAllowance,
   setTokenAllowance,
   transfer,
@@ -8,7 +13,7 @@ import {
 } from '~/app/services/tokens'
 import { backupPromiseCall } from '~/app/utils/async'
 import { UNLIMITED_ALLOWANCE } from '~/app/utils/constants'
-import { TokenWithBalance } from '~/types'
+import { Token, TokenWithBalance } from '~/types'
 
 const initialStateFactory = () => ({
   baseTokenWithBalance: (undefined as unknown) as TokenWithBalance,
@@ -163,6 +168,46 @@ export const actions = actionTree(
         address,
         denom: token.denom,
         gasPrice: new BigNumberInBase(gasPrice).toWei(),
+        amount: amount.toWei(token.decimals)
+      })
+
+      await backupPromiseCall(() => this.app.$accessor.bank.fetchBalances())
+      await this.app.$accessor.token.getTokenBalanceAndAllowanceForMarket()
+      await this.app.$accessor.token.getTokenBalanceAndAllowanceForDerivativeMarket()
+    },
+
+    async withdraw(
+      _,
+      {
+        amount,
+        token
+      }: {
+        amount: BigNumberInBase
+        token: Token
+      }
+    ) {
+      const {
+        address,
+        injectiveAddress,
+        isUserWalletConnected
+      } = this.app.$accessor.wallet
+
+      if (!address || !isUserWalletConnected) {
+        return
+      }
+
+      await this.app.$accessor.wallet.validate()
+
+      await withdraw({
+        address,
+        injectiveAddress,
+        denom: token.denom,
+        feePrice: new BigNumberInBase(
+          new BigNumberInWei(DEFAULT_BRIDGE_FEE_PRICE).toBase()
+        )
+          .toWei(token.decimals)
+          .toFixed(),
+        destinationAddress: address,
         amount: amount.toWei(token.decimals)
       })
 

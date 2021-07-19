@@ -15,7 +15,7 @@ class App {
   }
 
   get appUrlEndpoint(): UrlEndpoint {
-      return getUrlEndpointForNetwork(this.network)
+    return getUrlEndpointForNetwork(this.network)
   }
 
   get wallet(): Wallet {

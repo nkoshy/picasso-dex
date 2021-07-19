@@ -1,9 +1,17 @@
 import { AccountAddress } from '@injectivelabs/ts-types'
 import { Web3Exception } from '@injectivelabs/exceptions'
-import { BigNumberInBase, BigNumberInWei } from '@injectivelabs/utils'
+import {
+  BigNumberInBase,
+  BigNumberInWei,
+  DEFAULT_GAS_LIMIT
+} from '@injectivelabs/utils'
 import { BaseCurrencyContract } from '@injectivelabs/contracts/dist/contracts/BaseCurrency'
-import { peggyDenomToContractAddress } from '../transformers/peggy'
-import { coinGeckoConsumer } from '../singletons/CoinGeckoConsumer'
+import { contractAddresses } from '@injectivelabs/contracts'
+import { PeggyComposer } from '@injectivelabs/chain-consumer'
+import { TxProvider } from '~/app/providers/TxProvider'
+import { peggyDenomToContractAddress } from '~/app/transformers/peggy'
+import { coinGeckoConsumer } from '~/app/singletons/CoinGeckoConsumer'
+import { alchemyApi } from '~/app/singletons/AlchemyApi'
 import { getContracts } from '~/app/singletons/Contracts'
 import {
   CHAIN_ID,
@@ -15,6 +23,7 @@ import {
 import { getTransactionOptions } from '~/app/utils/transaction'
 import { getWeb3Strategy, transactionReceiptAsync } from '~/app/web3'
 import { Token, TokenWithBalance } from '~/types'
+import { AccountMetrics } from '~/types/metrics'
 
 export const getTokenBalanceAndAllowance = async ({
   address,
@@ -148,6 +157,46 @@ export const transfer = async ({
   }
 }
 
+export const withdraw = async ({
+  address,
+  denom,
+  amount,
+  feePrice,
+  injectiveAddress,
+  destinationAddress
+}: {
+  amount: BigNumberInWei
+  address: AccountAddress
+  denom: string
+  feePrice: string
+  destinationAddress: string
+  injectiveAddress: AccountAddress
+}) => {
+  const message = PeggyComposer.withdraw({
+    denom,
+    amount,
+    bridgeFeeAmount: new BigNumberInBase(feePrice)
+      .times(DEFAULT_GAS_LIMIT)
+      .toFixed(),
+    bridgeFeeDenom: denom,
+    address: destinationAddress,
+    cosmosAddress: injectiveAddress
+  })
+
+  try {
+    const txProvider = new TxProvider({
+      address,
+      message,
+      bucket: AccountMetrics.SendToEth,
+      chainId: CHAIN_ID
+    })
+
+    await txProvider.broadcast()
+  } catch (error) {
+    throw new Web3Exception(error.message)
+  }
+}
+
 export const validateTransferRestrictions = async (
   amount: BigNumberInBase,
   token: TokenWithBalance
@@ -166,11 +215,11 @@ export const validateTransferRestrictions = async (
   )
 
   if (!coin) {
-    throw new Error(`The ${token.symbol} couldn't be found.`)
+    throw new Error(`Asset's data couldn't be fetched.`)
   }
 
   if (!coin.id) {
-    throw new Error(`The ${token.symbol} couldn't be found.`)
+    throw new Error(`Asset's data couldn't be fetched.`)
   }
 
   const {
@@ -178,17 +227,17 @@ export const validateTransferRestrictions = async (
   } = await coinGeckoConsumer.fetchCoin(coin.id)
 
   if (!marketData) {
-    throw new Error(`The ${token.symbol} data couldn't be found.`)
+    throw new Error(`Asset's market data couldn't be fetched.`)
   }
 
   const { current_price: currentPrice } = marketData
 
   if (!currentPrice) {
-    throw new Error(`The ${token.symbol} prices couldn't be found.`)
+    throw new Error(`Asset's prices couldn't be fetched.`)
   }
 
   if (!currentPrice.usd) {
-    throw new Error(`The ${token.symbol} USD price couldn't be found.`)
+    throw new Error(`Asset's USD price couldn't be fetched.`)
   }
 
   const usdPrice = currentPrice.usd
@@ -197,5 +246,28 @@ export const validateTransferRestrictions = async (
     throw new Error(
       `You cannot transfer more than $${MAXIMUM_TRANSFER_ALLOWED.toFixed()} worth of assets to our Canary Chain.`
     )
+  }
+}
+
+export const fetchTokenMetaData = async (denom: string): Promise<Token> => {
+  const address = denom.startsWith('peggy') ? denom.replace('peggy', '') : denom
+  const contractAddress =
+    address.toLowerCase() === 'inj'
+      ? contractAddresses[CHAIN_ID].injective
+      : address
+
+  const meta = await alchemyApi.fetchTokenMetadata(contractAddress)
+
+  if (!meta.symbol) {
+    throw new Error(`Metadata cant be fetched for ${denom.toUpperCase()}`)
+  }
+
+  return {
+    name: meta.name as string,
+    decimals: meta.decimals as number,
+    symbol: meta.symbol as string,
+    icon: meta.logo as string,
+    denom,
+    address
   }
 }

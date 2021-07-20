@@ -38,7 +38,7 @@
                   >injectiveprotocol.com</a
                 ></span
               ><span class="c2"
-                >&nbsp;and picasso.exchange (the &ldquo;Sites&rdquo;) is
+                >&nbsp;and injective.exchange (the &ldquo;Sites&rdquo;) is
                 copyrighted work belonging to Injective Labs Inc.
                 (&ldquo;Company&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;, and
                 &ldquo;we&rdquo;). Certain features of the Sites may be subject

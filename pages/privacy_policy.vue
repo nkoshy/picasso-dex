@@ -37,7 +37,7 @@
                 >Injective Labs Inc. respects and protects the privacy of its
                 users. This Privacy Policy explains how we collect, use, and
                 share information gathered through our websites
-                (www.injectiveprotocol.com, www.picasso.exchange, and any
+                (www.injectiveprotocol.com, www.injective.exchange, and any
                 other site that links to this Privacy Policy), and downloadable
                 software applications (the &ldquo;Platform&rdquo;)
                 (collectively, including the website and the Platform, the

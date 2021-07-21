@@ -54,5 +54,25 @@ body {
       padding-top: 3rem;
       min-height: calc(100vh - 3.3rem);
     }
+
+    .hero-section {
+      margin-left: 135px;
+      margin-top: 240px;
+      margin-bottom: 180px;
+      width: 590px;
+    }
+    .primary-btn {
+      background: linear-gradient(102.23deg, #3617E2 -45.68%, #FC69FB 147.51%);
+      width: 170px;
+      padding: 16px;
+      font-size: 18px;
+    }
+    .secondary-btn  {
+      width: 170px;
+      padding: 16px;
+      margin-left: 30px;
+      font-size: 18px;
+      background: #262456;
+    }
   }
 }

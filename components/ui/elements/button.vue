@@ -37,6 +37,18 @@ export default Vue.extend({
       type: Boolean
     },
 
+    heroPrimary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroSecondary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     text: {
       required: false,
       default: false,
@@ -201,6 +213,10 @@ export default Vue.extend({
         )
       } else if (this.ghost) {
         classes.push('border border-dark-600 text-gray-500 hover:text-gray-300')
+      } else if(this.heroPrimary) {
+        classes.push('text-white primary-btn')
+      } else if(this.heroSecondary) {
+        classes.push('text-white secondary-btn')
       }
 
       if (this.status.isLoading()) {

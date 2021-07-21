@@ -5,7 +5,6 @@
       class="
         items-center
         justify-start
-        sm:justify-center
         select-none
         cursor-pointer
         flex
@@ -13,19 +12,19 @@
       "
       @click.stop="toggleDropdown"
     >
-      <v-ui-icon
+      <!-- <v-ui-icon
         :class="isUserWalletConnected ? 'text-primary-500' : 'text-white'"
         :icon="Icon.Wallet"
         lg
         class="mr-4 hidden md:block"
-      />
+      /> -->
       <div class="whitespace-nowrap">
         <div v-if="!isUserWalletConnected" class="w-full">
-          <p class="text-gray-500 text-2xs leading-none">
-            {{ $t('not_connected') }}
-          </p>
-          <p class="font-semibold text-white">
-            {{ $t('connect_to_wallet') }}
+            <!-- <p class="text-gray-500 text-2xs leading-none">
+              {{ $t('not_connected') }}
+            </p> -->
+          <p class="text-white text-md font-sora">
+            {{ $t('connect_wallet') }}
           </p>
         </div>
         <div v-else>

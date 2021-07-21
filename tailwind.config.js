@@ -109,12 +109,14 @@ module.exports = {
 
       fontSize: {
         '2xs': '0.7rem',
-        footer: '0.85rem'
+        footer: '0.85rem',
+        'md': '18px'
       },
 
       fontFamily: {
         sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono]
+        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono],
+        sora: ['Sora']
       },
 
       opacity: {

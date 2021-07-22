@@ -8,15 +8,14 @@
       <span
         class="
           mr-2
-          uppercase
           tracking-wider
-          text-xs
+          text-md
           flex
           items-center
           select-none
         "
       >
-        <span class="text-gray-300 group-hover:text-gray-200 font-semibold">
+        <span class="text-white group-hover:text-gray-200 font-sora">
           {{ $t('spot') }}
         </span>
       </span>

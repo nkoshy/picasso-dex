@@ -9,10 +9,10 @@ body {
 
   #pro {
     header {
-      @apply h-12 fixed;
+      @apply fixed;
 
       .header-nav {
-        @apply h-full font-semibold cursor-pointer;
+        @apply h-full cursor-pointer;
 
         & > div,
         & > span {

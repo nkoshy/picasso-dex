@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-4 block lg:hidden relative pt-4">
+  <div class="ml-4 block xl:hidden relative pt-2">
     <button
       :class="isMenuOpen ? 'is-active' : ''"
       class="
@@ -7,7 +7,7 @@
         outline-none
         focus:outline-none
         block
-        lg:hidden
+        xl:hidden
       "
       type="button"
       @click.stop="toggleMenu"

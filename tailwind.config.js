@@ -119,13 +119,16 @@ module.exports = {
 
       fontSize: {
         '2xs': '0.7rem',
-        powered: '1.3rem',
-        footer: '0.85rem'
+        footer: '0.85rem',
+        'md': '18px',
+        powered: '1.3rem'
       },
 
       fontFamily: {
         sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono]
+        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono],
+        sora: ['Sora', ...defaultTheme.fontFamily.sans],
+        poppins: ['Poppins', ...defaultTheme.fontFamily.sans]
       },
 
       opacity: {

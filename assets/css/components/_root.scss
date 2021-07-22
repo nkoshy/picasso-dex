@@ -54,5 +54,17 @@ body {
       padding-top: 3rem;
       min-height: calc(100vh - 3.3rem);
     }
+
+    .primary-btn {
+      background: linear-gradient(102.23deg, #3617E2 -45.68%, #FC69FB 147.51%);      
+    }
+    .secondary-btn  {
+      @apply ml-6;
+      background: #262456;
+    }
+    .tertiary-btn {
+      @apply ml-6;
+      background: #EEEEEE;
+    }
   }
 }

@@ -174,5 +174,6 @@ export default {
   not_valid_number: 'Not a valid number',
   mark_price_invalid: 'The mark price is not valid',
   order_insufficient_margin: 'Order has insufficient margin',
-  date: 'Date'
+  date: 'Date',
+  small_bridge_fee_note: 'Bridge fee: {fee}{asset}'
 }

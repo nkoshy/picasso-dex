@@ -37,6 +37,30 @@ export default Vue.extend({
       type: Boolean
     },
 
+    home: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroPrimary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroSecondary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroTertiary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     text: {
       required: false,
       default: false,
@@ -165,6 +189,8 @@ export default Vue.extend({
         }
       } else if (this.lg) {
         classes.push('h-12', 'text-lg', 'px-6', 'leading-normal')
+      } else if(this.home) {
+        classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');
       } else {
         classes.push('h-12', 'px-6', 'text-xs')
       }
@@ -201,6 +227,12 @@ export default Vue.extend({
         )
       } else if (this.ghost) {
         classes.push('border border-dark-600 text-gray-500 hover:text-gray-300')
+      } else if(this.heroPrimary) {
+        classes.push('primary-btn')
+      } else if(this.heroSecondary) {
+        classes.push('secondary-btn')
+      } else if(this.heroTertiary) {
+        classes.push('tertiary-btn text-home')
       }
 
       if (this.status.isLoading()) {

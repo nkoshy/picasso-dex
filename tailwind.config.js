@@ -127,7 +127,8 @@ module.exports = {
       fontFamily: {
         sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
         mono: ['Droid Sans', ...defaultTheme.fontFamily.mono],
-        sora: ['Sora']
+        sora: ['Sora', ...defaultTheme.fontFamily.sans],
+        poppins: ['Poppins', ...defaultTheme.fontFamily.sans]
       },
 
       opacity: {

@@ -15,7 +15,13 @@ class App {
   }
 
   get appUrlEndpoint(): UrlEndpoint {
-    return getUrlEndpointForNetwork(this.network)
+    return {
+      ...getUrlEndpointForNetwork(this.network),
+      baseUrl: 'https://exchange-api.picasso.exchange:4444/api',
+      chainUrl: 'https://core-lcd.picasso.exchange',
+      exchangeUrl: 'https://exchange-api.picasso.exchange:4444',
+      explorerUrl: 'https://explorer-api.injective.network/v1',
+  }
   }
 
   get wallet(): Wallet {

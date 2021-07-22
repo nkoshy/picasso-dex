@@ -9,10 +9,10 @@ body {
 
   #pro {
     header {
-      @apply h-12 fixed;
+      @apply relative;
 
       .header-nav {
-        @apply h-full font-semibold cursor-pointer;
+        @apply h-full cursor-pointer;
 
         & > div,
         & > span {
@@ -20,7 +20,7 @@ body {
 
           &:hover,
           &.is-active {
-            @apply bg-dark-700;
+            // @apply bg-dark-700;
           }
 
           &.is-active {
@@ -30,7 +30,7 @@ body {
           .light & {
             &:hover,
             &.is-active {
-              @apply bg-primary-500;
+              // @apply bg-primary-500;
             }
 
             &.is-active {
@@ -51,8 +51,20 @@ body {
     }
 
     main {
-      padding-top: 3rem;
-      min-height: calc(100vh - 3.3rem);
+      padding-top: 0rem;
+      min-height: calc(100vh - 0.3rem);
+    }
+
+    .primary-btn {
+      background: linear-gradient(102.23deg, #3617E2 -45.68%, #FC69FB 147.51%);      
+    }
+    .secondary-btn  {
+      @apply ml-6;
+      background: #262456;
+    }
+    .tertiary-btn {
+      @apply ml-6;
+      background: #EEEEEE;
     }
   }
 }

@@ -1,8 +1,8 @@
-# 🌟 Injective Protocol
+# 🌟 Picasso Exchange 
 
-_Decentralized Derivatives Trading. Any Market. Anytime. Anywhere._
+_Decentralized Derivatives Trading Powered by Injective Protocol. Any Market. Anytime. Anywhere.._
 
-[Get a taste of our UI](https://testnet.injective.exchange)
+[Get a taste of our UI](https://testnet.picasso.exchange)
 
 ## ✨ Features
 

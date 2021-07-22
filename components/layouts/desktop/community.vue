@@ -15,8 +15,8 @@
           select-none
         "
       >
-        <span class="group-hover:text-gray-200 font-sora">
-          {{ $t('derivatives') }}
+        <span class="text-white group-hover:text-gray-200 font-sora">
+          {{ $t('community') }}
         </span>
       </span>
       <v-ui-icon
@@ -39,7 +39,6 @@
           flex-wrap
           top-12
           left-0
-          min-w-2xl
           mt-12
           rounded rounded-tl-none
           bg-dark-700
@@ -47,7 +46,12 @@
           overflow-y-auto
         "
       >
-        <v-derivatives @selected="closeDropdown" />
+        <div class="bg-dark-700 px-6 py-2.5">
+            <ul>
+                <li>Twitter</li>
+                <li>Discord</li>
+            </ul>
+        </div>
       </div>
     </transition>
   </div>
@@ -56,16 +60,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { directive as onClickaway } from 'vue-clickaway'
-import VDerivatives from '~/components/partials/derivatives/markets/index.vue'
 import { Icon } from '~/types'
 
 export default Vue.extend({
   directives: {
     onClickaway
-  },
-
-  components: {
-    VDerivatives
   },
 
   data() {

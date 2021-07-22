@@ -8,7 +8,6 @@
             <main class="overflow-y-auto">
               <nuxt />
             </main>
-            <app-footer />
             <egg />
           </client-only>
         </div>
@@ -21,7 +20,6 @@
 import Vue from 'vue'
 import { Status, StatusType } from '@injectivelabs/utils'
 import Header from '~/components/layouts/desktop/header.vue'
-import Footer from '~/components/layouts/desktop/footer/index.vue'
 import Egg from '~/components/elements/egg.vue'
 import HOCLoading from '~/components/elements/with-loading.vue'
 
@@ -29,7 +27,6 @@ export default Vue.extend({
   components: {
     HOCLoading,
     'app-header': Header,
-    'app-footer': Footer,
     Egg
   },
 

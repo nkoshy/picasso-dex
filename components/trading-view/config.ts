@@ -62,7 +62,7 @@ export default function ({
       'save_chart_properties_to_local_storage',
       'use_localstorage_for_settings'
     ],
-    client_id: 'injective.exchange',
+    client_id: 'trade.picasso.exchange',
     loading_screen: {
       backgroundColor: theme.colors.dark[800],
       foregroundColor: theme.colors.gray[200]

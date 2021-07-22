@@ -6,7 +6,7 @@ export default {
   injective: 'Injective',
   not_connected: 'Not Connected',
   connect: 'Connect',
-  connect_to_wallet: 'Connect to wallet',
+  connect_wallet: 'Connect Wallet',
   connected: 'Connected',
   metamask: 'Metamask',
   spot_markets: 'Spot Markets',
@@ -14,10 +14,10 @@ export default {
     'Picasso Exchange - Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.',
   welcome_to_ip_sub:
     'Picasso Exchange - The unmatched layer-2 trading platform. Access any financial market on Injective’s fast, multi-chain, secure, and zero gas fee exchange protocol.',
-  maintenance_header: 'The Injective Canary Chain is now live!',
+  maintenance_header: 'Picasso Exchange is Launching soon!',
   maintenance_subheader:
-    'Please propose and vote on new listings via the staking dashboard <a href="https://staking.injective.network" class="text-primary-500">here</a>. Markets that receive sufficient votes will be tradable on the Injective Exchange.',
-  maintenance_body: '',
+    'Picasso Exchange - The unmatched layer-2 trading platform. Access any financial market on Injective’s fast, multi-chain, secure, and zero gas fee exchange',
+  maintenance_body: 'Picasso Exchange is Launching soon!',
   token_allowance_successful: 'Token allowance set successful',
   logout: 'Logout',
   success_connect: 'Successfully Connected',
@@ -174,6 +174,8 @@ export default {
   not_valid_number: 'Not a valid number',
   mark_price_invalid: 'The mark price is not valid',
   order_insufficient_margin: 'Order has insufficient margin',
+  community: 'Community',
+  about: 'About',
   date: 'Date',
   small_bridge_fee_note: 'Bridge fee: {fee}{asset}'
 }

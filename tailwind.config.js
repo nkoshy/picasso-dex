@@ -15,7 +15,7 @@ const extraSizings = {
   '3xl': '48rem',
   '4xl': '56rem',
   '5xl': '64rem',
-  '6xl': '72rem'
+  '6xl': '72rem' 
 }
 
 module.exports = {
@@ -33,7 +33,8 @@ module.exports = {
       white: '#fff',
       black: '#04070a',
       leaderboard: '#00000d',
-      transparent: 'transparent',
+      transparent: 'transparent',      
+      home: '#1B1616',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -43,7 +44,8 @@ module.exports = {
         600: '#262b3b',
         700: '#1d1f2b',
         800: '#15171e',
-        900: '#14151a'
+        900: '#14151a',
+        hero: "#1C1A45"
       },
 
       primary: {
@@ -91,6 +93,14 @@ module.exports = {
     },
 
     extend: {
+      backgroundColor: {
+        home: '#F7F7F5'
+      },
+
+      borderColor: {
+        home: "#6992FC"
+      },
+
       flex: {
         2: '2 2 0%',
         3: '3 3 0%',
@@ -109,12 +119,16 @@ module.exports = {
 
       fontSize: {
         '2xs': '0.7rem',
-        footer: '0.85rem'
+        footer: '0.85rem',
+        'md': '18px',
+        powered: '1.3rem'
       },
 
       fontFamily: {
         sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono]
+        mono: ['Droid Sans', ...defaultTheme.fontFamily.mono],
+        sora: ['Sora', ...defaultTheme.fontFamily.sans],
+        poppins: ['Poppins', ...defaultTheme.fontFamily.sans]
       },
 
       opacity: {
@@ -157,6 +171,14 @@ module.exports = {
 
       minWidth: {
         ...extraSizings
+      },
+
+      spacing: {
+        ...extraSizings
+      },
+
+      letterSpacing: {
+        loose: '0.005em'
       }
     }
   },

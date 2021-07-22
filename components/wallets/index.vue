@@ -66,7 +66,7 @@
         justify-center
         border
         flex-wrap
-        top-0
+        top-12
         left-auto
         mr-0
         -mx-px

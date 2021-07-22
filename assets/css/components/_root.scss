@@ -9,7 +9,7 @@ body {
 
   #pro {
     header {
-      @apply fixed;
+      @apply relative;
 
       .header-nav {
         @apply h-full cursor-pointer;
@@ -20,7 +20,7 @@ body {
 
           &:hover,
           &.is-active {
-            @apply bg-dark-700;
+            // @apply bg-dark-700;
           }
 
           &.is-active {
@@ -30,7 +30,7 @@ body {
           .light & {
             &:hover,
             &.is-active {
-              @apply bg-primary-500;
+              // @apply bg-primary-500;
             }
 
             &.is-active {
@@ -51,8 +51,8 @@ body {
     }
 
     main {
-      padding-top: 3rem;
-      min-height: calc(100vh - 3.3rem);
+      padding-top: 0rem;
+      min-height: calc(100vh - 0.3rem);
     }
 
     .primary-btn {

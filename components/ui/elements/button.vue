@@ -228,11 +228,11 @@ export default Vue.extend({
       } else if (this.ghost) {
         classes.push('border border-dark-600 text-gray-500 hover:text-gray-300')
       } else if(this.heroPrimary) {
-        classes.push('primary-btn')
+        classes.push('primary-btn text-sora')
       } else if(this.heroSecondary) {
-        classes.push('secondary-btn')
+        classes.push('secondary-btn text-sora')
       } else if(this.heroTertiary) {
-        classes.push('tertiary-btn text-home')
+        classes.push('tertiary-btn text-home text-sora')
       }
 
       if (this.status.isLoading()) {

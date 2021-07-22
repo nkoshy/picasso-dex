@@ -37,7 +37,7 @@
           border
           max-h-xs
           flex-wrap
-          top-0
+          top-12
           left-0
           min-w-2xl
           mt-12

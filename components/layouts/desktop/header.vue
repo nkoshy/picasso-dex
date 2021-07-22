@@ -5,7 +5,6 @@
       flex
       z-20
       relative
-      pt-4
       pl-32
       pr-8
       pb-4
@@ -13,7 +12,7 @@
     "
   >
     <div class="pt-12 pr-20">
-        <img :src="`/home/header-logo.svg`" />
+        <img :src="`/home/header-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
     </div>
     <div class="hidden xl:flex">
       <div class="header-nav relative px-6 py-2.5 flex">
@@ -27,7 +26,7 @@
           select-none
         "
       >
-        <span class="text-white group-hover:text-gray-200 font-sora">
+        <span class="text-white group-hover:text-gray-200 font-sora" @click.stop="handleGoToMarket">
           {{ $t('market') }}
         </span>
       </span>
@@ -80,6 +79,9 @@ export default Vue.extend({
   methods: {
     goHome() {
       this.$router.push({ name: 'index' })
+    },
+    handleGoToMarket() {
+      this.$router.push({ name: 'market' })
     }
   }
 })

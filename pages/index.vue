@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full flex flex-wrap bg-home">
       <div class="flex w-full bg-dark-hero">
-        <div class="flex flex-col tracking-loose ml-32 mt-48 mb-48 w-xl">
+        <div class="flex flex-col tracking-loose ml-32 mt-24 mb-48 w-xl">
           <div class="flex items-center">
             <p class="opacity-50 text-powered uppercase">Powered By</p> 
             <img
@@ -30,7 +30,7 @@
             <home-card top icon="/home/zero-fee.svg">Zero gas fees and no front running</home-card>
           </div>
         </div>
-        <div class="flex flex-col mt-48 ml-12">
+        <div class="flex flex-col mt-48 ml-16">
           <h1 class="text-home text-5xl font-bold w-96 font-sora">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 w-md font-poppins">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex mt-8">
@@ -41,7 +41,7 @@
       </div>
 
       <div class="conatiner w-full bg-dark-hero">
-        <div class=" text-white text-center pt-16 text-2xl">Our Supporter</div>
+        <div class=" text-white text-center pt-16 text-2xl font-sora font-bold">Our Supporters</div>
         <div class=" flex justify-center mt-10 opacity-60">
             <div class="h-24 mr-32">
                 <img src="/images/injective.svg" alt="" class="h-full"/>
@@ -50,18 +50,18 @@
                 <img src="/images/polygon.svg" alt="" class="h-full" />
             </div>
         </div>
-        <div class="flex justify-center mb-10 mt-24 ">
+        <div class="flex justify-center pb-24 mt-24 ">
             <div class="mr-16 h-8">
-                <img src="/images/twitter.svg" alt="" class="h-full"/>
+                <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"/>
             </div>
             <div class="mr-16 h-8 ">
-                <img src="/images/medium.svg" alt="" class="h-full">
+                <img src="/images/medium.svg" alt="" class="h-full cursor-pointer">
             </div>
             <div class="mr-16 h-8">
-                <img src="/images/github.svg" alt="" class="h-full">
+                <img src="/images/github.svg" alt="" class="h-full cursor-pointer">
             </div>
             <div class="mr-16 h-8">
-                <img src="/images/discord.svg" alt="" class="h-full">
+                <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
     </div>

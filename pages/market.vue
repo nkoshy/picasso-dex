@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full flex flex-wrap py-4">
-    <div class="w-full">
+    <!-- <div class="w-full">
       <div class="container">
         <div class="text-center w-full lg:w-2/3 mx-auto pt-10 lg:pt-16">
           <h1 class="font-black text-white text-3xl uppercase tracking-wide">
@@ -20,7 +20,7 @@
           </h4>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
       <div class="mt-12 w-full mx-auto lg:w-3/4">
         <v-panel :title="$t('spot_markets')">

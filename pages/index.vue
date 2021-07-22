@@ -32,23 +32,131 @@
         </div>
         <div class="flex flex-col mt-48 ml-12">
           <h1 class="text-home text-5xl font-bold w-96">Why Picasso Exchange?</h1>
-          <p class="text-home opacity-70 text-xl mt-8 w-md">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
+          <p class="text-home opacity-70 text-xl mt-8 w-md">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex mt-8">
             <v-ui-button home full hero-primary>Trade</v-ui-button>
             <v-ui-button home full hero-tertiary>Read More</v-ui-button>
           </div>
         </div>
       </div>
-  </div>
-</template>
 
+      <div class="conatiner w-full bg-dark-hero">
+        <div class=" text-white text-center pt-16 text-2xl">Our Supporter</div>
+        <div class=" flex justify-center mt-10 opacity-60">
+            <div class="h-24 mr-32">
+                <img src="/images/injective.svg" alt="" class="h-full"/>
+            </div>
+            <div class="h-24 mt-4">
+                <img src="/images/polygon.svg" alt="" class="h-full" />
+            </div>
+        </div>
+        <div class="flex justify-center mb-10 mt-24 ">
+            <div class="mr-16 h-8">
+                <img src="/images/twitter.svg" alt="" class="h-full"/>
+            </div>
+            <div class="mr-16 h-8 ">
+                <img src="/images/medium.svg" alt="" class="h-full">
+            </div>
+            <div class="mr-16 h-8">
+                <img src="/images/github.svg" alt="" class="h-full">
+            </div>
+            <div class="mr-16 h-8">
+                <img src="/images/discord.svg" alt="" class="h-full">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</template>
 <script lang="ts">
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
-
 export default Vue.extend({
   components: {
     HomeCard
   }
 })
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

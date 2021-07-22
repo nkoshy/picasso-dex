@@ -175,5 +175,7 @@ export default {
   mark_price_invalid: 'The mark price is not valid',
   order_insufficient_margin: 'Order has insufficient margin',
   community: 'Community',
-  about: 'About'
+  about: 'About',
+  date: 'Date',
+  small_bridge_fee_note: 'Bridge fee: {fee}{asset}'
 }

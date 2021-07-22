@@ -1,17 +1,13 @@
-import { AccountAddress } from '@injectivelabs/ts-types'
+import { AccountAddress, ChainId } from '@injectivelabs/ts-types'
 import { Web3Exception } from '@injectivelabs/exceptions'
-import {
-  BigNumberInBase,
-  BigNumberInWei,
-  DEFAULT_GAS_LIMIT
-} from '@injectivelabs/utils'
+import { BigNumberInBase, BigNumberInWei } from '@injectivelabs/utils'
 import { BaseCurrencyContract } from '@injectivelabs/contracts/dist/contracts/BaseCurrency'
 import { contractAddresses } from '@injectivelabs/contracts'
 import { PeggyComposer } from '@injectivelabs/chain-consumer'
+import { Erc20TokenMeta, TokenMeta } from '@injectivelabs/token-metadata'
 import { TxProvider } from '~/app/providers/TxProvider'
 import { peggyDenomToContractAddress } from '~/app/transformers/peggy'
 import { coinGeckoConsumer } from '~/app/singletons/CoinGeckoConsumer'
-import { alchemyApi } from '~/app/singletons/AlchemyApi'
 import { getContracts } from '~/app/singletons/Contracts'
 import {
   CHAIN_ID,
@@ -161,23 +157,21 @@ export const withdraw = async ({
   address,
   denom,
   amount,
-  feePrice,
+  bridgeFee,
   injectiveAddress,
   destinationAddress
 }: {
   amount: BigNumberInWei
   address: AccountAddress
   denom: string
-  feePrice: string
+  bridgeFee: BigNumberInWei
   destinationAddress: string
   injectiveAddress: AccountAddress
 }) => {
   const message = PeggyComposer.withdraw({
     denom,
-    amount,
-    bridgeFeeAmount: new BigNumberInBase(feePrice)
-      .times(DEFAULT_GAS_LIMIT)
-      .toFixed(),
+    amount: amount.minus(bridgeFee),
+    bridgeFeeAmount: bridgeFee.toFixed(),
     bridgeFeeDenom: denom,
     address: destinationAddress,
     cosmosAddress: injectiveAddress
@@ -249,25 +243,27 @@ export const validateTransferRestrictions = async (
   }
 }
 
-export const fetchTokenMetaData = async (denom: string): Promise<Token> => {
+export const getTokenMetaData = (denom: string): TokenMeta | undefined => {
   const address = denom.startsWith('peggy') ? denom.replace('peggy', '') : denom
-  const contractAddress =
+  const erc20Address =
     address.toLowerCase() === 'inj'
       ? contractAddresses[CHAIN_ID].injective
       : address
 
-  const meta = await alchemyApi.fetchTokenMetadata(contractAddress)
+  const meta =
+    CHAIN_ID === ChainId.Mainnet
+      ? Erc20TokenMeta.getMetaByAddress(erc20Address)
+      : Erc20TokenMeta.getMetaByKovanAddress(erc20Address)
 
-  if (!meta.symbol) {
-    throw new Error(`Metadata cant be fetched for ${denom.toUpperCase()}`)
+  if (!meta) {
+    return
   }
 
-  return {
-    name: meta.name as string,
-    decimals: meta.decimals as number,
-    symbol: meta.symbol as string,
-    icon: meta.logo as string,
-    denom,
-    address
-  }
+  return meta
+}
+
+export const getTokenMetaDataBySymbol = (
+  symbol: string
+): TokenMeta | undefined => {
+  return Erc20TokenMeta.getMetaBySymbol(symbol)
 }

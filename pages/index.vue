@@ -1,7 +1,8 @@
 <template>
   <div class="h-full w-full flex flex-wrap bg-home">
+      <egg-component position='absolute' top='0px' left='100px' zIndex='25' icon="/images/Vector26.svg"></egg-component>
       <div class="flex w-full bg-dark-hero">
-        <div class="flex flex-col tracking-loose ml-32 mt-24 mb-48 w-xl">
+        <div class="flex flex-col z-30 tracking-loose ml-32 mt-24 mb-48 w-xl">
           <div class="flex items-center">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
@@ -19,8 +20,14 @@
           </div>
         </div>
       </div>
-      <div class="flex w-full pl-32 pt-48 pb-48">
-        <div class="flex">
+
+      <div class="relative flex w-full pl-32 pt-48 pb-48">
+        <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
+        <egg-component position='absolute' top='968px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-273px' height='26rem' icon="/images/vector27.svg"></egg-component>
+        <egg-component position='absolute' top='1493px' left='30px' height='26rem' icon="/images/Group3538.svg"></egg-component>
+
+
+        <div class="flex z-30">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
             <home-card top icon="/home/new-market-new.svg">New market listing by community governance</home-card>
@@ -39,6 +46,15 @@
           </div>
         </div>
       </div>
+
+
+        <egg-component position='absolute' top='12 rem' right='0px' height='25rem'  zIndex='25' icon="/images/environment.svg"></egg-component>
+        <egg-component position='absolute' top='7 rem' left='0px' height='28rem' background='#2811af' zIndex='25' filter='blur(13rem)' icon="/images/Vector1.svg"></egg-component>
+        <egg-component position='absolute' top='-6rem' right='-16rem' background='#43f2ff' height='34rem' zIndex='25' transform='rotate(-74.77deg)' filter='blur(13rem)' icon="/images/Vector2.svg"></egg-component>
+        <egg-component position='absolute' top='-27px' right='152px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' noneright='152px' height='34rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector31.svg"></egg-component>
+        <egg-component position='absolute' top='-197px' right='14px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' noneright='152px' height='23rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector30.svg"></egg-component>
+        
+
 
       <div class="conatiner w-full bg-dark-hero">
         <div class=" text-white text-center pt-16 text-2xl font-sora font-bold">Our Supporters</div>
@@ -71,9 +87,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
+import EggComponent from '~/components/ui/elements/egg-component.vue'
 export default Vue.extend({
   components: {
-    HomeCard
+    HomeCard,
+    EggComponent
+
   }
 })
 </script>

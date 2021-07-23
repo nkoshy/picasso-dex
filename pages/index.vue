@@ -1,7 +1,8 @@
 <template>
   <div class="h-full w-full flex flex-wrap bg-home">
-      
-      <div class="flex relative w-full bg-dark-hero">
+    <div class="flex relative flex-col w-full overflow-hidden">
+      <app-header />
+      <div class="flex w-full bg-dark-hero">
         <div class="flex flex-col z-30 tracking-loose ml-32 mt-24 mb-48 w-xl">
           <div class="flex items-center">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
@@ -26,15 +27,17 @@
         <egg-component position='absolute' top='-6rem' right='-16rem' background='#43f2ff' height='34rem' zIndex='25' transform='rotate(-74.77deg)' filter='blur(13rem)' icon="/images/Vector2.svg"></egg-component>
         <egg-component position='absolute' top='-27px' right='152px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='34rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector31.svg"></egg-component>
         <egg-component position='absolute' top='-197px' right='14px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='23rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='-56px' left='-1133px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='142px' left='-1187px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
+        <egg-component position='absolute' top='-56px' left='-1133px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='24' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
+        <egg-component position='absolute' top='142px' left='-1187px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='24' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
       </div>
-
-      <div class="relative flex w-full pl-32 pt-48 pb-48">
+    </div>
+      <div class="relative flex w-full pl-32 pt-48 pb-48  overflow-hidden">
         <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
         <egg-component position='absolute' top='916px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-3px' height='11rem' icon="/images/vector27.svg"></egg-component>
         <egg-component position='absolute'  left='0px' top='564px' height='33rem' icon="/images/Group.svg"></egg-component>
-        
+        <egg-component position='absolute' top='9px' right='-234px' width='30rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='19rem' zIndex='24' transform='rotate(223deg)' icon="/images/vector30.svg"></egg-component>
+        <egg-component position='absolute' top='40px' right='-232px' width='23rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='24rem' zIndex='24' transform='rotate(223deg)' icon="/images/vector31.svg"></egg-component>
+
         <div class="flex z-30">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
@@ -55,7 +58,7 @@
         </div>
       </div>
     
-      <div class="conatiner relative w-full bg-dark-hero">
+      <div class="conatiner relative w-full bg-dark-hero overflow-hidden">
         <div class=" text-white text-center pt-16 text-2xl font-sora font-bold">Our Supporters</div>
         <div class=" flex justify-center mt-10 opacity-60">
             <div class="h-24 mr-32">
@@ -79,7 +82,7 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
-        <egg-component position='absolute' top='0' right='53px' height='20rem'  zIndex='25' icon="/images/Group3532.svg"></egg-component>
+        <egg-component position='absolute' top='-0' right='53px' height='20rem'  zIndex='25' icon="/images/Group3532.svg"></egg-component>
         <egg-component position='absolute' top='0' right='0px' height='12rem'  icon="/images/Group3531.svg"></egg-component>
         <egg-component position='absolute' bottom='0' left='50px' height='155px' icon="/images/Group3533.svg"></egg-component>
         <egg-component position='absolute' bottom='0' height='77px' zIndex='25' icon="/images/Group3534.svg"></egg-component>
@@ -95,11 +98,12 @@
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import EggComponent from '~/components/ui/elements/egg-component.vue'
+import Header from '~/components/layouts/desktop/header.vue' 
 export default Vue.extend({
   components: {
     HomeCard,
-    EggComponent
-
+    EggComponent,
+    'app-header': Header
   }
 })
 </script>

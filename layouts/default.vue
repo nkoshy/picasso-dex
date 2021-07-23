@@ -4,7 +4,7 @@
       <HOCLoading :status="status">
         <div>
           <client-only>
-            <app-header />
+            <!-- <app-header /> -->
             <main class="overflow-y-auto">
               <nuxt />
             </main>

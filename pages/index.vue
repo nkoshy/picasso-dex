@@ -24,7 +24,7 @@
       <div class="relative flex w-full pl-32 pt-48 pb-48">
         <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
         <egg-component position='absolute' top='968px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-273px' height='26rem' icon="/images/vector27.svg"></egg-component>
-        <egg-component position='absolute' top='1493px' left='30px' height='26rem' icon="/images/Group3538.svg"></egg-component>
+        <!-- <egg-component position='absolute' top='1493px' left='30px' height='26rem' icon="/images/Group3538.svg"></egg-component> -->
 
 
         <div class="flex z-30">

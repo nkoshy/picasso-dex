@@ -8,7 +8,6 @@
       pl-32
       pr-8
       pb-4
-      bg-dark-hero
     "
   >
     <div class="pt-12 pr-20">

@@ -1,9 +1,18 @@
 <template>
   <div class="h-full w-full flex flex-wrap bg-home">
-    <div class="flex relative flex-col w-full overflow-hidden">
+    <div class="flex relative flex-col  bg-dark-hero w-full overflow-hidden">
+      <egg-component position='absolute' top='0px' left='204px' height='329px' zIndex='15' icon="/images/Vector26.svg"></egg-component>
+      <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.svg"></egg-component>
+      <egg-component position='absolute' top='12 rem' right='0px' height='25rem'  zIndex='15' icon="/images/environment.svg"></egg-component>
+      <egg-component position='absolute' top='7 rem' left='0px' height='28rem' background='#2811af' zIndex='15' filter='blur(13rem)' icon="/images/Vector1.svg"></egg-component>
+      <egg-component position='absolute' top='-6rem' right='-16rem' background='#43f2ff' height='34rem' zIndex='15' transform='rotate(-74.77deg)' filter='blur(13rem)' icon="/images/Vector2.svg"></egg-component>
+      <egg-component position='absolute' top='-27px' right='152px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='34rem' zIndex='10' transform='rotate(40deg)' icon="/images/vector31.svg"></egg-component>
+      <egg-component position='absolute' top='-197px' right='14px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='23rem' zIndex='10' transform='rotate(40deg)' icon="/images/vector30.svg"></egg-component>
+      <egg-component position='absolute' top='-56px' left='-1133px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='10' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
+      <egg-component position='absolute' top='142px' left='-1187px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='10' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
       <app-header />
-      <div class="flex w-full bg-dark-hero">
-        <div class="flex flex-col z-30 tracking-loose ml-32 mt-24 mb-48 w-xl">
+      <div class="flex w-full">
+        <div class="flex flex-col z-18 tracking-loose ml-32 mt-24 mb-48 w-xl">
           <div class="flex items-center">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
@@ -19,16 +28,7 @@
             <v-ui-button home full hero-primary>Trade</v-ui-button>
             <v-ui-button home full hero-secondary>Read More</v-ui-button>
           </div>
-        </div>
-        <egg-component position='absolute' top='0px' left='204px' height='329px' zIndex='25' icon="/images/Vector26.svg"></egg-component>
-        <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='25' icon="/images/Vector13.svg"></egg-component>
-        <egg-component position='absolute' top='12 rem' right='0px' height='25rem'  zIndex='25' icon="/images/environment.svg"></egg-component>
-        <egg-component position='absolute' top='7 rem' left='0px' height='28rem' background='#2811af' zIndex='25' filter='blur(13rem)' icon="/images/Vector1.svg"></egg-component>
-        <egg-component position='absolute' top='-6rem' right='-16rem' background='#43f2ff' height='34rem' zIndex='25' transform='rotate(-74.77deg)' filter='blur(13rem)' icon="/images/Vector2.svg"></egg-component>
-        <egg-component position='absolute' top='-27px' right='152px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='34rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector31.svg"></egg-component>
-        <egg-component position='absolute' top='-197px' right='14px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='23rem' zIndex='24' transform='rotate(40deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='-56px' left='-1133px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='24' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='142px' left='-1187px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='24' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
+        </div>        
       </div>
     </div>
       <div class="relative flex w-full pl-32 pt-48 pb-48  overflow-hidden">

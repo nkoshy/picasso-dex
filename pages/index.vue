@@ -34,7 +34,9 @@
         <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
         <egg-component position='absolute' top='916px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-3px' height='11rem' icon="/images/vector27.svg"></egg-component>
         <egg-component position='absolute'  left='0px' top='564px' height='33rem' icon="/images/Group.svg"></egg-component>
-        
+        <egg-component position='absolute' top='9px' right='-234px' width='30rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='19rem' zIndex='24' transform='rotate(223deg)' icon="/images/vector30.svg"></egg-component>
+        <egg-component position='absolute' top='40px' right='-232px' width='23rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='24rem' zIndex='24' transform='rotate(223deg)' icon="/images/vector31.svg"></egg-component>
+
         <div class="flex z-30">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody.svg">Self-custody of your assets for full control</home-card>
@@ -79,7 +81,7 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
-        <egg-component position='absolute' top='0' right='53px' height='20rem'  zIndex='25' icon="/images/Group3532.svg"></egg-component>
+        <egg-component position='absolute' top='0' right='53px' height='20rem' icon="/images/Group3532.svg"></egg-component>
         <egg-component position='absolute' top='0' right='0px' height='12rem'  icon="/images/Group3531.svg"></egg-component>
         <egg-component position='absolute' bottom='0' left='50px' height='155px' icon="/images/Group3533.svg"></egg-component>
         <egg-component position='absolute' bottom='0' height='77px' zIndex='25' icon="/images/Group3534.svg"></egg-component>

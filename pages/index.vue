@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full w-full flex flex-wrap bg-home">
-    <div class="flex relative flex-col  bg-dark-hero w-full overflow-hidden">
+  <div class="h-full w-full flex flex-wrap bg-home-pattern bg-dark-hero bg-blend-overlay">
+    <div class="flex relative flex-col w-full overflow-hidden">
       <egg-component position='absolute' top='0px' left='204px' height='329px' zIndex='15' icon="/images/Vector26.svg"></egg-component>
       <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.svg"></egg-component>
       <egg-component position='absolute' top='10rem' right='0px' height='25rem'  zIndex='15' icon="/images/environment.svg"></egg-component>
@@ -31,7 +31,7 @@
         </div>        
       </div>
     </div>
-      <div class="relative flex w-full pl-32 pt-48 pb-48  overflow-hidden">
+      <div class="relative flex w-full pl-32 pt-48 pb-48 overflow-hidden bg-home bg-curve-pattern bg-blend-overlay">
         <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
         <egg-component position='absolute' top='916px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-3px' height='11rem' icon="/images/vector27.svg"></egg-component>
         <egg-component position='absolute'  left='0px' top='564px' height='33rem' icon="/images/Group.svg"></egg-component>

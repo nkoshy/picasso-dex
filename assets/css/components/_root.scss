@@ -66,5 +66,8 @@ body {
       @apply ml-6;
       background: #EEEEEE;
     }
+    .bg-blend-overlay {
+      background-blend-mode: overlay;
+    }
   }
 }

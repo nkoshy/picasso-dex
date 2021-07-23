@@ -97,6 +97,11 @@ module.exports = {
         home: '#F7F7F5'
       },
 
+      backgroundImage: {
+        'home-pattern': "url('/home/background.svg')",
+        'curve-pattern': "url('/home/rectange-curve.svg')"
+       },
+
       borderColor: {
         home: "#6992FC"
       },

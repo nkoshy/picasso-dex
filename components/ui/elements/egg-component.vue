@@ -13,7 +13,9 @@
       borderRadius,
       border,
       borderLeft,
-      borderBottom
+      borderBottom, 
+      bottom,
+      left
       }">
     <img :src="icon" class="h-full"/>
     

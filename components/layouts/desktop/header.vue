@@ -15,7 +15,7 @@
         <img :src="`/home/header-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
     </div>
     <div class="hidden xl:flex">
-      <div class="header-nav relative px-6 py-2.5 flex">
+      <div class="header-nav relative px-3 py-2.5 flex">
       <span
         class="
           mr-2

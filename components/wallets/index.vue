@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center relative px-4 xl:w-64 py-2">
+  <div class="flex justify-between items-center relative px-3 xl:w-64 py-2">
     <div
       id="wallet-dropdown"
       class="

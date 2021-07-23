@@ -3,11 +3,11 @@
       <div class="flex w-full bg-dark-hero">
         <div class="flex flex-col tracking-loose ml-32 mt-24 mb-48 w-xl">
           <div class="flex items-center">
-            <p class="opacity-50 text-powered uppercase">Powered By</p> 
+            <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
               src="powered-by-icon.svg"
               alt="Injective Protocol"
-              class="h-5 ml-2 w-auto"
+              class="h-6 ml-3 w-auto"
             /> 
           </div>
           <h1 class="text-white text-5xl font-bold font-sora">Trading is an Art</h1>

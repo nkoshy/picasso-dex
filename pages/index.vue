@@ -31,7 +31,7 @@
         </div>        
       </div>
     </div>
-      <div class="relative flex w-full pl-32 pt-48 pb-48 overflow-hidden bg-home bg-curve-pattern bg-blend-overlay">
+      <div class="relative flex w-full pl-32 pt-48 pb-48 overflow-hidden bg-curve-pattern">
         <egg-component position='absolute' top='8px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='185px' height='15rem' icon="/images/vector28.svg"></egg-component>
         <egg-component position='absolute' top='916px' background='#527ffa' filter='blur(214px)' transform='rotate(90.87deg)' right='-3px' height='11rem' icon="/images/vector27.svg"></egg-component>
         <egg-component position='absolute'  left='0px' top='564px' height='33rem' icon="/images/Group.svg"></egg-component>
@@ -58,7 +58,7 @@
         </div>
       </div>
     
-      <div class="conatiner relative w-full bg-dark-hero overflow-hidden">
+      <div class="conatiner relative w-full pt-16 overflow-hidden">
         <div class=" text-white text-center pt-16 text-2xl font-sora font-bold">Our Supporters</div>
         <div class=" flex justify-center mt-10 opacity-60">
             <div class="h-24 mr-32">

@@ -99,7 +99,7 @@ module.exports = {
 
       backgroundImage: {
         'home-pattern': "url('/home/background.svg')",
-        'curve-pattern': "url('/home/rectange-curve.svg')"
+        'curve-pattern': "url('/home/curve-pattern.svg')"
        },
 
       borderColor: {

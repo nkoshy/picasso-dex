@@ -31,7 +31,7 @@ export default Vue.extend({
   props: {
     zIndex: {
       required: false,
-      type: Number
+      type: String
     },
     border: {
       required: false,
@@ -72,19 +72,19 @@ export default Vue.extend({
     },
     top: {
       required: false,
-      type: Number
+      type: String
     },
     left: {
       required: false,
-      type: Number
+      type: String
     },
     right: {
       required: false,
-      type: Number
+      type: String
     },
     bottom: {
       required: false,
-      type: Number
+      type: String
     },
     position: {
       required: false,

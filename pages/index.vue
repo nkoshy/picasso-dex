@@ -22,12 +22,12 @@
       <div class="flex w-full pl-32 pt-48 pb-48">
         <div class="flex">
           <div class="flex flex-col font-sora">
-            <home-card icon="/home/self-custody.svg">Self-custody of your assets for full control</home-card>
-            <home-card top icon="/home/new-market.svg">New market listing by community governance</home-card>
+            <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
+            <home-card top icon="/home/new-market-new.svg">New market listing by community governance</home-card>
           </div>
           <div class="flex flex-col mt-24 ml-9 font-sora">
-            <home-card icon="/home/efficient.svg">Efficient on-chain order book trading with 20X leverage</home-card>
-            <home-card top icon="/home/zero-fee.svg">Zero gas fees and no front running</home-card>
+            <home-card icon="/home/efficient-new.svg">Efficient on-chain order book trading with 20X leverage</home-card>
+            <home-card top icon="/home/zero-fee-new.svg">Zero gas fees and no front running</home-card>
           </div>
         </div>
         <div class="flex flex-col mt-48 ml-16">

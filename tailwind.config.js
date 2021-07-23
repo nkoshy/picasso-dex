@@ -120,8 +120,7 @@ module.exports = {
       fontSize: {
         '2xs': '0.7rem',
         footer: '0.85rem',
-        'md': '18px',
-        powered: '1.3rem'
+        'md': '18px'
       },
 
       fontFamily: {

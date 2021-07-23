@@ -2,7 +2,7 @@
   <div class="header-nav relative">
     <div
       :class="isDropdownOpen ? 'is-active' : ''"
-      class="w-full h-full py-2 flex px-6 items-center cursor-pointer group"
+      class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
       @click="toggleDropdown"
     >
       <span

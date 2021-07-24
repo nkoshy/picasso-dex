@@ -6,8 +6,8 @@
           v-bind="{
             value: lastPrice,
             class: {
-              'text-primary-500': lastPriceChange === Change.Increase,
-              'text-accent-500': lastPriceChange === Change.Decrease
+              'font-sora font-bold': lastPriceChange === Change.Increase,
+              'text-accent-500 font-sora font-bold': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"

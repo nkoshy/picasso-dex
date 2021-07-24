@@ -36,8 +36,7 @@ module.exports = {
       transparent: 'transparent',      
       home: '#1B1616',
       'dark-blue': '#211F5199',
-      'light-blue': '#27255E;',
-      'white': '#FFFFFF',
+      'light-blue': '#27255E',
       'blue-main': '#3617E2',
       'blue-light': '#2351D0',
       'light-blue-main': '#79E9F1',
@@ -51,6 +50,7 @@ module.exports = {
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
       'light-green': '#31DD80',
+      'dark-red': '#FF5252',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -121,12 +121,15 @@ module.exports = {
       backgroundImage: {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
-        'border-pattern': "url('/home/rectangle-border.svg')"
-      },
+        'common-pattern': "url('/home/rectangle-border.svg')",
+        'about-pattern': "url('/home/about-border.svg')"
+       },
 
       borderColor: {
         home: "#6992FC",
-        'commuity': '#302E6F'
+        'commuity': '#302E6F',
+        'white': '#F7F7F5',
+        'lightBlue': '#79E9F1'
       },
 
       flex: {
@@ -150,8 +153,10 @@ module.exports = {
         '3xs': '0.81rem',
         footer: '0.85rem',
         'xsm': '0.625rem',
+        'small': '0.875rem',
         'sm': '0.9rem',
-        'md': '18px'
+        'md': '18px',
+        'large': '2rem'
       },
 
       fontFamily: {

@@ -29,21 +29,9 @@
       <div
         v-if="isDropdownOpen"
         v-on-clickaway="closeDropdown"
-        class="
-          absolute
-          -mx-px
-          flex
-          justify-center
-          flex-wrap
-          top-12
-          left-0
-          mt-12
-          bg-border-pattern
-          bg-no-repeat
-          bg-contain
-        "
+        :class="classes"
       >
-        <div class="pt-8 pr-4 pb-4 p-3.5 w-48 flex flex-col">
+        <div class="pt-8 pr-4 pb-2 pl-3.5 w-48 flex flex-col">
           <div class="flex mb-3">
             <div>
               <img :src="'/home/twitter-community.svg'" />
@@ -79,10 +67,41 @@ export default Vue.extend({
     onClickaway
   },
 
+  props: {
+    landingPage: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+
   data() {
     return {
       Icon,
       isDropdownOpen: false
+    }
+  },
+
+  computed: {
+    classes(): string {
+      const classes = [
+          'absolute',
+          '-mx-px',
+          'flex',
+          'justify-center',
+          'flex-wrap',
+          'bg-common-pattern',
+          'bg-no-repeat',
+          'bg-contain'
+      ];
+
+      if(!this.landingPage) {
+        classes.push('mt-6', 'top-20', 'left-2.5')
+      } else {
+        classes.push('bg-dark-main', 'top-16', 'mt-2.5')
+      }
+
+      return classes.join(' ')
     }
   },
 

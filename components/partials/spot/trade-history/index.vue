@@ -7,26 +7,26 @@
     >
       <table class="table">
         <thead class="border-b">
-          <tr>
-            <th is="v-ui-table-th" right paddingLeft>
+          <tr background>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('price') }}</span>
             </th>
-            <th is="v-ui-table-th" right paddingleft>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('size') }}</span>
             </th>
-            <th is="v-ui-table-th" right paddingleft>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('notional_size') }}</span>
             </th>
-            <th is="v-ui-table-th" right paddingleft>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('fee') }}</span>
             </th>
-            <th is="v-ui-table-th" center paddingleft>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('direction') }}</span>
             </th>
-            <th is="v-ui-table-th" center paddingleft>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('execution_type') }}</span>
             </th>
-            <th is="v-ui-table-th" right paddingleft paddingRight>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('time') }}</span>
             </th>
           </tr>

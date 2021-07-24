@@ -7,7 +7,7 @@
           class="w-6 h-6 mr-4"
         /> -->
         <div class="pb-2">
-          <p class="text-gray-100 font-semibold text-sm">{{ market.ticker }}</p>
+          <p class="text-gray-100 font-bold font-sora text-sm">{{ market.ticker }}</p>
           <p class="text-gray-500 text-xs">
             {{ market.baseToken.name }}
           </p>

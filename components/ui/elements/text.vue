@@ -139,7 +139,7 @@ export default Vue.extend({
       // }
 
       if (this.emp) {
-        classes.push('text-white', 'font-bold')
+        classes.push('text-white', 'font-normal')
       }
 
       if (this.semibold) {

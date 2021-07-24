@@ -85,6 +85,22 @@
 }
 
 @font-face {
+  font-family: 'Sora';
+  src: url('./../fonts/Sora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('./../fonts/Sora-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Poppins';
   src: url('./../fonts/Poppins-Regular.ttf') format('truetype');
   font-weight: normal;

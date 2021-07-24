@@ -12,10 +12,12 @@
           h-12
           w-full
           v-panel-title
+          bg-light-blue
+          rounded-md
         "
       >
         <h4
-          class="uppercase text-xs font-semibold text-gray-300"
+          class="text-small font-sora text-white"
           :class="!$slots['context'] ? 'w-full' : ''"
         >
           <slot name="title">{{ title }}</slot>
@@ -23,7 +25,7 @@
         <slot name="title-context" />
       </div>
       <slot name="context" class="items-center flex justify-between w-full" />
-      <div class="flex-1 overflow-y-auto v-panel-content">
+      <div class="flex-1 overflow-y-auto v-panel-content bg-light-purple">
         <slot ref="content" />
       </div>
     </div>

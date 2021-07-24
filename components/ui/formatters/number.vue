@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="$attrs['class'] ? $attrs['class'] : 'text-white'"
-    class="font-sora text-white text-3xs"
+    :class="$attrs['class'] ? $attrs['class'] : ''"
+    class="font-sora text-3xs"
   >
     <span>{{ prefix || '' }}{{ formattedNumber[0] }}</span
     ><span v-if="formattedNumber[1]" class="text-gray-600 opacity-50">{{

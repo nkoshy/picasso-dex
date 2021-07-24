@@ -1,14 +1,14 @@
 <template>
   <li v-if="market" class="flex h-6 items-center last:mb-0 first:mt-0 relative">
     <span class="size-col" :class="newTradeClass"></span>
-    <span class="w-1/3 text-xs px-2 cursor-pointer">
+    <span class="w-1/3 text-xs px-4 cursor-pointer">
       <v-ui-format-order-price
         v-bind="{
           value: price,
           type: trade.tradeDirection,
           decimals: market.priceDecimals
         }"
-        class="block text-right"
+        class="block font-sora text-dark-red text-xs text-left"
       />
     </span>
     <span class="w-1/3 text-xs px-2">
@@ -17,11 +17,11 @@
           value: quantity.toBase(market.baseToken.decimals),
           decimals: market.quantityDecimals
         }"
-        class="block text-right"
+        class="block text-right font-sora text-xs text-white"
       />
     </span>
     <span class="w-1/3 text-xs px-2">
-      <v-ui-text muted class="font-mono block text-right">
+      <v-ui-text muted class="font-sora block text-center text-xs text-white opacity-40">
         {{ time }}
       </v-ui-text>
     </span>

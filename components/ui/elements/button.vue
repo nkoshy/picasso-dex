@@ -43,6 +43,12 @@ export default Vue.extend({
       type: Boolean
     },
 
+    homeSection: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     heroPrimary: {
       required: false,
       default: false,
@@ -190,8 +196,12 @@ export default Vue.extend({
       } else if (this.lg) {
         classes.push('h-12', 'text-lg', 'px-6', 'leading-normal')
       } else if(this.home) {
+        classes.push('h-14', 'text-white', 'xl:w-40', 'w-60', 'text-lg', 'px-6', 'leading-normal');
+      }
+        else if(this.homeSection) {
         classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');
-      } else {
+      }
+      else {
         classes.push('h-12', 'px-6', 'text-xs')
       }
 

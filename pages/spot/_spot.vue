@@ -1,8 +1,8 @@
 <template>
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
     <!-- <app-header /> -->
-    <div class="h-full w-full">
-      <app-header aboutHeader=true />
+    <div class="h-full w-full bg-dark-main">
+      <app-header landingPage=true />
       <grid-layout
         :layout="layout"
         :row-height="grid.rowHeight"

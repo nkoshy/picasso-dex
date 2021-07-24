@@ -81,8 +81,8 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
-        <egg-component position='absolute' top='-34px' right='93px' height='26rem'  zIndex='25' icon="/images/Group3532.svg"></egg-component>
-        <egg-component position='absolute' top='-73px' right='0px' height='21rem'  icon="/images/Group3531.svg"></egg-component>
+        <egg-component position='absolute' top='-34px' right='93px' height='26rem' icon="/images/Group3532.svg"></egg-component>
+        <egg-component position='absolute' top='-73px' right='0px' height='21rem' icon="/images/Group3531.svg"></egg-component>
         <egg-component position='absolute' bottom='0' left='50px' height='226px' icon="/images/Group3533.svg"></egg-component>
         <egg-component position='absolute' bottom='0' height='119px' zIndex='25' icon="/images/Group3534.svg"></egg-component>
         <egg-component position='absolute' top='52px' right='78px' width='43rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='29rem' zIndex='30' transform='rotate(49deg)' icon="/images/vector31.svg"></egg-component>

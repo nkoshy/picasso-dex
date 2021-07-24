@@ -56,6 +56,7 @@
           </div>
         </div>
       </div>
+    
       <div class="conatiner relative w-full pt-16 bg-dark-hero overflow-hidden">
         <div class=" text-white text-center pt-16 text-2xl font-sora font-bold">Our Supporters</div>
         <div class=" flex justify-center mt-10 opacity-60">

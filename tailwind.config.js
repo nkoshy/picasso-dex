@@ -97,6 +97,10 @@ module.exports = {
         home: '#F7F7F5'
       },
 
+      zIndex: {
+        '19': 19
+      },
+
       backgroundImage: {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",

@@ -101,8 +101,6 @@ export default Vue.extend({
       type:String
 
     },
-    
-    
   }
 })
 </script>

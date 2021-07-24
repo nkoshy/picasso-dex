@@ -3,7 +3,7 @@
     class="
       w-full
       flex
-      z-20
+      z-30
       relative
       pl-32
       pr-8

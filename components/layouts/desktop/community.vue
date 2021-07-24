@@ -34,23 +34,35 @@
           -mx-px
           flex
           justify-center
-          border
-          max-h-xs
           flex-wrap
           top-12
           left-0
           mt-12
-          rounded rounded-tl-none
-          bg-dark-700
-          shadow-md
-          overflow-y-auto
+          bg-border-pattern
+          bg-no-repeat
+          bg-contain
         "
       >
-        <div class="bg-dark-700 px-6 py-2.5">
-            <ul>
-                <li>Twitter</li>
-                <li>Discord</li>
-            </ul>
+        <div class="pt-8 pr-4 pb-4 p-3.5 w-48 flex flex-col">
+          <div class="flex mb-3">
+            <div>
+              <img :src="'/home/twitter-community.svg'" />
+            </div>
+            <div class="ml-3">
+              <p class="font-sora text-sm text-white">Twitter</p>
+              <p class="font-sora text-xsm mt-1 text-white opacity-40">Stay in the pulse</p>
+            </div>
+          </div>
+          <hr class="border border-solid border-commuity" />
+          <div class="flex mt-4">
+            <div>
+              <img :src="'/home/discord-community.svg'" />
+            </div>
+            <div class="ml-3">
+              <p class="font-sora text-sm text-white">Discord</p>
+              <p class="font-sora text-xsm mt-1 text-white opacity-40">Meet the community</p>
+            </div>
+          </div>
         </div>
       </div>
     </transition>

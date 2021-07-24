@@ -99,11 +99,13 @@ module.exports = {
 
       backgroundImage: {
         'home-pattern': "url('/home/background.svg')",
-        'curve-pattern': "url('/home/curve-pattern.svg')"
+        'curve-pattern': "url('/home/curve-pattern.svg')",
+        'border-pattern': "url('/home/rectangle-border.svg')"
        },
 
       borderColor: {
-        home: "#6992FC"
+        home: "#6992FC",
+        'commuity': '#302E6F'
       },
 
       flex: {
@@ -125,6 +127,8 @@ module.exports = {
       fontSize: {
         '2xs': '0.7rem',
         footer: '0.85rem',
+        'xsm': '0.625rem',
+        'sm': '0.9rem',
         'md': '18px'
       },
 

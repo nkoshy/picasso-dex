@@ -12,9 +12,10 @@
       type="button"
       @click.stop="toggleMenu"
     >
-      <span class="hamburger-box">
+      <img :src="!isMenuOpen ? `/home/hamburger-logo.svg` : `/home/hamburger-close.svg`" class="cursor-pointer" />
+      <!-- <span class="hamburger-box">
         <span class="hamburger-inner"></span>
-      </span>
+      </span> -->
     </button>
 
     <div
@@ -27,7 +28,6 @@
         border
         flex-wrap
         top-0
-        left-0
         mr-0
         min-w-2xs
         -ml-4

@@ -1,14 +1,17 @@
 <template>
-  <div class="flex justify-between items-center relative px-3 xl:w-64 py-2">
+  <div class="flex justify-between items-center relative px-3 xl:w-52 py-2">
     <div
       id="wallet-dropdown"
       class="
-        items-center
-        justify-start
         select-none
         cursor-pointer
-        flex
+        block
         w-full
+        border-2
+        border-solid
+        rounded-md
+        border-lightBlue
+        p-4
       "
       @click.stop="toggleDropdown"
     >
@@ -53,46 +56,40 @@
       <v-ui-icon
         :icon="Icon.Dropdown"
         xs
-        class="text-gray-500 group-hover:text-gray-300 ml-4"
+        class="text-gray-500 group-hover:text-gray-300 ml-4 hidden"
       />
     </div>
-
+    <transition name="fade">
     <div
+      v-if="isDropdownOpen"
       v-on-clickaway="closeDropdown"
-      :class="isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'"
       class="
         absolute
-        flex
-        justify-center
-        border
-        flex-wrap
-        top-12
+        top-14
         left-auto
         mr-0
         -mx-px
-        right-0
-        min-w-xs
+        -right-4
         mt-12
-        rounded rounded-tl-none
-        bg-dark-700
-        shadow-md
+        bg-common-pattern
+        bg-no-repeat
+        bg-contain
       "
     >
-      <ul v-if="!isUserWalletConnected" class="py-2">
+      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-4 pl-3.5 w-48">
         <v-metamask />
-        <v-ledger class="mt-2" />
-      </ul>
+        <hr class="border border-solid border-commuity" />
+        <v-ledger />
+      </div>
       <div v-else class="flex flex-wrap w-full">
         <div
           class="
             w-full
-            bg-dark-700
             font-semibold
             py-2
             px-4
             text-sm
             cursor-pointer
-            hover:bg-hover300
           "
           @click.stop="handleClickOnLogout"
         >
@@ -100,6 +97,7 @@
         </div>
       </div>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -157,6 +155,7 @@ export default Vue.extend({
 
   methods: {
     closeDropdown() {
+      console.log('click1');
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }

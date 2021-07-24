@@ -38,9 +38,11 @@
           top-12
           -left-20
           mt-12
+          bg-about-pattern
+          bg-no-repeat
         "
       >
-        <div class="pt-8 pr-10 pb-20 p-3.5 w-48 flex bg-border-pattern bg-no-repeat">
+        <div class="pt-8 pr-10 pb-20 p-3.5 w-48 flex">
           <div>
             <img :src="'/home/blog.svg'" />
           </div>

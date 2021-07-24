@@ -35,15 +35,15 @@
           flex
           justify-center
           flex-wrap
-          top-12
+          top-14
           left-0
           mt-12
-          bg-border-pattern
+          bg-common-pattern
           bg-no-repeat
           bg-contain
         "
       >
-        <div class="pt-8 pr-4 pb-4 p-3.5 w-48 flex flex-col">
+        <div class="pt-8 pr-4 pb-4 pl-3.5 w-48 flex flex-col">
           <div class="flex mb-3">
             <div>
               <img :src="'/home/twitter-community.svg'" />

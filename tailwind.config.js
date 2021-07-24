@@ -121,12 +121,15 @@ module.exports = {
       backgroundImage: {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
-        'border-pattern': "url('/home/rectangle-border.svg')"
-      },
+        'common-pattern': "url('/home/rectangle-border.svg')",
+        'about-pattern': "url('/home/about-border.svg')"
+       },
 
       borderColor: {
         home: "#6992FC",
-        'commuity': '#302E6F'
+        'commuity': '#302E6F',
+        'white': '#F7F7F5',
+        'lightBlue': '#79E9F1'
       },
 
       flex: {
@@ -150,8 +153,10 @@ module.exports = {
         '3xs': '0.81rem',
         footer: '0.85rem',
         'xsm': '0.625rem',
+        'small': '0.875rem',
         'sm': '0.9rem',
-        'md': '18px'
+        'md': '18px',
+        'large': '2rem'
       },
 
       fontFamily: {

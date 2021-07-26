@@ -35,6 +35,18 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'blue-main': '#3617E2',
+      'blue-light': '#2351D0',
+      'light-blue-main': '#79E9F1',
+      'light-blue-dark': '#A3D8E7',
+      'pink-main': '#F62BD6',
+      'pink-light': '#FC69FB',
+      'neon-green-main': '#00F1B6',
+      'neon-green-light': '#8AF9DD',
+      'dark-main': '#0C0A31',
+      'dark-light': '#18154E',
+      'dark-grey-main': '#152630',
+      'dark-grey-light': '#28495B',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',

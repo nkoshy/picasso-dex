@@ -1,17 +1,9 @@
 <template>
   <header
-    class="
-      w-full
-      flex
-      z-30
-      relative
-      pl-32
-      pr-8
-      pb-4
-    "
+    :class="classes"
   >
-    <div class="pt-12 pr-20">
-        <img :src="`/home/header-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
+    <div :class="aboutHeader ? 'pt-2.5 mr-12' : 'pt-12 pr-20'">
+        <img :src="aboutHeader ? `/home/about-header_logo.svg` : `/home/header-logo.svg` " class="cursor-pointer" @click.stop="goHome" />
     </div>
     <div class="hidden xl:flex">
       <div class="header-nav relative px-3 py-2.5 flex">
@@ -71,8 +63,32 @@ export default Vue.extend({
     VCommunity
   },
 
+  props: {
+    aboutHeader: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+
   computed: {
-    //
+    classes(): string {
+      const classes = [
+      'w-full',
+      'flex',
+      'z-30',
+      'relative',
+      'pl-32',
+      'pr-8',
+      'pb-4'
+      ];
+
+      if(this.aboutHeader) {
+        classes.push('pt-4', 'pl-8')
+      }
+
+      return classes.join(' ')
+    }
   },
 
   methods: {

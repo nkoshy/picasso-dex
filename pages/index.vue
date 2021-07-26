@@ -97,7 +97,7 @@
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import EggComponent from '~/components/ui/elements/egg-component.vue'
-import Header from '~/components/layouts/desktop/header.vue' 
+import Header from '~/components/layouts/desktop/header.vue'
 export default Vue.extend({
   components: {
     HomeCard,

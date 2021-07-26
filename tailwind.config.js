@@ -47,6 +47,7 @@ module.exports = {
       'dark-light': '#18154E',
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
+      'light-green': '#31DD80',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -106,7 +107,8 @@ module.exports = {
 
     extend: {
       backgroundColor: {
-        home: '#F7F7F5'
+        home: '#F7F7F5',
+        'light-purple': 'rgba(33, 31, 81, 0.6)'
       },
 
       zIndex: {
@@ -117,7 +119,7 @@ module.exports = {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'border-pattern': "url('/home/rectangle-border.svg')"
-       },
+      },
 
       borderColor: {
         home: "#6992FC",
@@ -142,6 +144,7 @@ module.exports = {
 
       fontSize: {
         '2xs': '0.7rem',
+        '3xs': '0.81rem',
         footer: '0.85rem',
         'xsm': '0.625rem',
         'sm': '0.9rem',

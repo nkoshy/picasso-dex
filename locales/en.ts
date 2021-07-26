@@ -24,7 +24,7 @@ export default {
   market: 'Market',
   last_traded_price: 'Last Traded Price',
   last_traded_price_tooltip: 'Last Traded Price',
-  market_change_24h: 'Change (24h)',
+  market_change_24h: '24 Change',
   market_volume_24h: 'Volume (24h)',
   filter_markets: 'Filter Markets',
   spot: 'Spot',

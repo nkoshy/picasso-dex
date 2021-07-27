@@ -62,8 +62,12 @@ table {
     tbody {
       tr {
         &:nth-child(odd) {
-          background-color: theme('colors.dark.hover300');
+          background-color:rgba(33, 31, 81, 0.6);
         }
+        &:nth-child(even) {
+          background-color: #26245F;
+        }
+
 
         &:hover {
           background-color: theme('colors.dark.hover200') !important;

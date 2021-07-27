@@ -64,8 +64,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { BigNumber } from '@injectivelabs/utils'
-import Order from './order.vue'
-import OrderEmpty from './order-empty.vue'
+import Order from './order-history.vue'
+import OrderEmpty from './order-history-empty.vue'
 import { UiSpotMarket, UiSpotLimitOrder } from '~/types'
 
 export default Vue.extend({

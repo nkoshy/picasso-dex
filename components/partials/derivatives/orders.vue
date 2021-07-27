@@ -1,7 +1,7 @@
 <template>
   <v-panel>
     <div slot="context">
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between bg-yello-500">
         <div class="tabs">
           <ul role="tablist" class="tablist">
             <li

@@ -8,25 +8,25 @@
       <table class="table">
         <thead class="border-b">
           <tr>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" right paddingLeft>
               <span>{{ $t('price') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" right paddingleft>
               <span>{{ $t('size') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" right paddingleft>
               <span>{{ $t('notional_size') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" right paddingleft>
               <span>{{ $t('fee') }}</span>
             </th>
-            <th is="v-ui-table-th" center>
+            <th is="v-ui-table-th" center paddingleft>
               <span>{{ $t('direction') }}</span>
             </th>
-            <th is="v-ui-table-th" center>
+            <th is="v-ui-table-th" center paddingleft>
               <span>{{ $t('execution_type') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" right paddingleft paddingRight>
               <span>{{ $t('time') }}</span>
             </th>
           </tr>

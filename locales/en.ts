@@ -58,6 +58,8 @@ export default {
   direction: 'Direction',
   execution_type: 'Execution Type',
   open_orders: 'Open Orders',
+  order_history: 'Order History',
+  funds:'Funds',
   trade_history: 'Trade History',
   trading: 'Trading',
   buy_asset: 'Buy {asset}',

@@ -26,6 +26,22 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
+    
+    paddingLeft:{
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    paddingleft:{
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    paddingRight:{
+      required: false,
+      default: false,
+      type: Boolean
+    },
 
     width: {
       required: false,
@@ -37,16 +53,19 @@ export default Vue.extend({
     classes(): string {
       const classes = [
         'text-gray-400',
-        'text-sm',
-        'font-light',
+        'text-xs',
+        'font-noraml',
         'align-middle',
         'leading-tight',
         'bg-transparent',
         'border-none',
         'select-none',
-        'px-3',
-        'py-2',
-        'whitespace-nowrap'
+        'whitespace-nowrap',
+        'pt-6',
+        'pb-3.5',
+        'opacity-70',
+        'font-sora',
+        'bg-dark-blue',
       ]
 
       if (this.right) {
@@ -55,6 +74,18 @@ export default Vue.extend({
         classes.push('text-center')
       } else if (this.left) {
         classes.push('text-left')
+      }
+      
+      if (this.paddingLeft) {
+        classes.push('pl-7')
+      }
+
+      if (this.paddingleft) {
+        classes.push('pl-16')
+      }
+
+      if (this.paddingRight) {
+        classes.push('pr-9')
       }
 
       if (this.width) {

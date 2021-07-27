@@ -35,6 +35,22 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'dark-blue': '#211F5199',
+      'light-blue': '#27255E;',
+      'white': '#FFFFFF',
+      'blue-main': '#3617E2',
+      'blue-light': '#2351D0',
+      'light-blue-main': '#79E9F1',
+      'light-blue-dark': '#A3D8E7',
+      'pink-main': '#F62BD6',
+      'pink-light': '#FC69FB',
+      'neon-green-main': '#00F1B6',
+      'neon-green-light': '#8AF9DD',
+      'dark-main': '#0C0A31',
+      'dark-light': '#18154E',
+      'dark-grey-main': '#152630',
+      'dark-grey-light': '#28495B',
+      'light-green': '#31DD80',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -94,11 +110,26 @@ module.exports = {
 
     extend: {
       backgroundColor: {
-        home: '#F7F7F5'
+        home: '#F7F7F5',
+        'light-purple': 'rgba(33, 31, 81, 0.6)'
       },
 
+      zIndex: {
+        '19': 19
+      },
+
+      backgroundImage: {
+        'home-pattern': "url('/home/background.svg')",
+        'curve-pattern': "url('/home/curve-pattern.svg')",
+        'common-pattern': "url('/home/rectangle-border.svg')",
+        'about-pattern': "url('/home/about-border.svg')"
+       },
+
       borderColor: {
-        home: "#6992FC"
+        home: "#6992FC",
+        'commuity': '#302E6F',
+        'white': '#F7F7F5',
+        'lightBlue': '#79E9F1'
       },
 
       flex: {
@@ -119,8 +150,13 @@ module.exports = {
 
       fontSize: {
         '2xs': '0.7rem',
+        '3xs': '0.81rem',
         footer: '0.85rem',
-        'md': '18px'
+        'xsm': '0.625rem',
+        'small': '0.875rem',
+        'sm': '0.9rem',
+        'md': '18px',
+        'large': '2rem'
       },
 
       fontFamily: {

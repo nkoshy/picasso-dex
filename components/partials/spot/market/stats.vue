@@ -1,7 +1,7 @@
 <template>
-  <div v-if="market" class="flex flex-wrap justify-start -mx-2">
+  <div v-if="market" class="flex flex-wrap justify-evenly -mx-2">
     <v-market-info :title="$t('last_traded_price')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-order-price
           v-bind="{
             value: lastPrice,
@@ -15,42 +15,31 @@
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('market_change_24h')" class="">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,
             precision: 2,
             value: change.toString(),
-            class: change.gte(0) ? 'text-primary-500' : 'text-accent-500'
-          }"
-        />
-      </v-ui-text>
-    </v-market-info>
-    <v-market-info
-      :title="$t('volume_asset', { asset: market.quoteToken.symbol })"
-    >
-      <v-ui-text sm class="flex items-center justify-end w-full">
-        <v-ui-format-price
-          v-bind="{
-            dontGroupValues: true,
-            value: volume
+            class: change.gte(0) ? 'text-light-green' : 'text-accent-500'
           }"
         />
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('high')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
           v-bind="{
             value: high
           }"
+          class="font-sora text-white"
         />
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('low')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
           v-bind="{
@@ -58,6 +47,18 @@
           }"
         />
         <span v-else class="text-gray-500">&mdash;</span>
+      </v-ui-text>
+    </v-market-info>
+    <v-market-info
+      :title="$t('volume_asset', { asset: market.quoteToken.symbol })"
+    >
+      <v-ui-text sm class="w-full">
+        <v-ui-format-price
+          v-bind="{
+            dontGroupValues: true,
+            value: volume
+          }"
+        />
       </v-ui-text>
     </v-market-info>
   </div>

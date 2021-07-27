@@ -1,6 +1,8 @@
 <template>
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
-    <div class="h-full w-full">
+    <!-- <app-header /> -->
+    <div class="h-full w-full bg-dark-main">
+      <app-header aboutHeader=true />
       <grid-layout
         :layout="layout"
         :row-height="grid.rowHeight"
@@ -58,6 +60,7 @@ import OrdersPanel from '~/components/partials/spot/orders.vue'
 import HOCLoading from '~/components/elements/with-loading.vue'
 import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
+import Header from '~/components/layouts/desktop/header.vue'
 
 const GRID_ROW_HEIGHT = 54
 
@@ -78,7 +81,8 @@ export default Vue.extend({
     GridItem,
     ModalTransfer,
     ModalDeposit,
-    SubaccountBalancePanel
+    SubaccountBalancePanel,
+    'app-header': Header
   },
 
   data() {

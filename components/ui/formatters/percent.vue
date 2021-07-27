@@ -48,7 +48,7 @@ export default Vue.extend({
 
   render(createElement): VNode {
     const parentAttributes = {
-      class: 'font-mono',
+      class: 'font-sora',
       attrs: this.$attrs,
       on: this.$listeners
     }

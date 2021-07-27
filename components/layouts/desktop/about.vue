@@ -34,20 +34,22 @@
           -mx-px
           flex
           justify-center
-          border
-          max-h-xs
           flex-wrap
           top-12
-          left-0
+          -left-20
           mt-12
-          rounded rounded-tl-none
-          bg-dark-700
-          shadow-md
-          overflow-y-auto
+          bg-about-pattern
+          bg-no-repeat
         "
       >
-        <div class="bg-dark-700 px-6 py-2.5">
-            <span>Blog</span>
+        <div class="pt-8 pr-10 pb-20 p-3.5 w-48 flex">
+          <div>
+            <img :src="'/home/blog.svg'" />
+          </div>
+          <div class="ml-3">
+            <p class="font-sora text-sm text-white">Blog</p>
+            <p class="font-sora text-xsm mt-2 text-white opacity-40">Read more about us</p>
+          </div>
         </div>
       </div>
     </transition>

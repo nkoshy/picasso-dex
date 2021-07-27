@@ -13,7 +13,9 @@
       borderRadius,
       border,
       borderLeft,
-      borderBottom
+      borderBottom, 
+      bottom,
+      left
       }">
     <img :src="icon" class="h-full"/>
     
@@ -29,7 +31,7 @@ export default Vue.extend({
   props: {
     zIndex: {
       required: false,
-      type: Number
+      type: String
     },
     border: {
       required: false,
@@ -53,7 +55,6 @@ export default Vue.extend({
     },
     opacity: {
       required: false,
-      default: false,
       type: String
     },
     background: {
@@ -70,19 +71,19 @@ export default Vue.extend({
     },
     top: {
       required: false,
-      type: Number
+      type: String
     },
     left: {
       required: false,
-      type: Number
+      type: String
     },
     right: {
       required: false,
-      type: Number
+      type: String
     },
     bottom: {
       required: false,
-      type: Number
+      type: String
     },
     position: {
       required: false,
@@ -100,8 +101,6 @@ export default Vue.extend({
       type:String
 
     },
-    
-    
   }
 })
 </script>

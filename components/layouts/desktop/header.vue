@@ -1,18 +1,12 @@
 <template>
   <header
-    class="
-      w-full
-      flex
-      z-20
-      relative
-      pl-32
-      pr-8
-      pb-4
-      bg-dark-hero
-    "
+    :class="classes"
   >
-    <div class="pt-12 pr-20">
-        <img :src="`/home/header-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
+    <div class="xl:hidden flex mr-10 pt-1">
+        <img :src="`/home/header-mobile-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
+    </div>
+    <div :class="aboutHeader ? 'xl:pt-6 xl:mr-12 xl:block hidden' : 'xl:pt-12 pr-20 xl:block hidden'">
+        <img :src="aboutHeader ? `/home/about-header_logo.svg` : `/home/header-desktop-logo.svg` " class="cursor-pointer" @click.stop="goHome" />
     </div>
     <div class="hidden xl:flex">
       <div class="header-nav relative px-3 py-2.5 flex">
@@ -45,7 +39,7 @@
     <div class="hidden xl:flex">
       <v-community />
     </div>
-    <div class="flex sm:ml-auto xl:ml-0">
+    <div class="hidden xl:flex sm:ml-auto xl:ml-0">
       <wallet-connect />
     </div>
   </header>
@@ -72,8 +66,35 @@ export default Vue.extend({
     VCommunity
   },
 
+  props: {
+    aboutHeader: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+
   computed: {
-    //
+    classes(): string {
+      const classes = [
+      'w-full',
+      'flex',
+      'z-30',
+      'relative',
+      'xl:pb-4',
+      'pb-20',
+      'pl-24',
+      'justify-evenly'
+      ];
+
+      if(this.aboutHeader) {
+        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-8', 'pt-4')
+      } else {
+        classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-20', 'pr-4')
+      }
+
+      return classes.join(' ')
+    }
   },
 
   methods: {

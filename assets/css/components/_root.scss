@@ -59,12 +59,15 @@ body {
       background: linear-gradient(102.23deg, #3617E2 -45.68%, #FC69FB 147.51%);      
     }
     .secondary-btn  {
-      @apply ml-6;
+      @apply xl:ml-6 mt-4 xl:mt-0;
       background: #262456;
     }
     .tertiary-btn {
       @apply ml-6;
       background: #EEEEEE;
+    }
+    .bg-blend-overlay {
+      background-blend-mode: overlay;
     }
   }
 }

@@ -32,11 +32,13 @@
           v-for="(order, index) in orders"
           :key="`orders-${index}-${order.orderHash}`"
           :order="order"
+          :class="index%2==0 ? 'bg-red-900' : 'bg-red-900'"
         ></tr>
         <tr
           is="v-order-empty"
           v-for="(order, index) in emptyOrders"
           :key="`empty-orders-${index}`"
+          :class="index%2==0 ? 'bg-red-900' : 'bg-red-900'"
         ></tr>
       </tbody>
       <tbody v-else>

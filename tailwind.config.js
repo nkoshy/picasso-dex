@@ -51,7 +51,6 @@ module.exports = {
       'dark-light': '#18154E',
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
-      'light-green': '#31DD80',
       'dark-red': '#FF5252',
 
       dark: {

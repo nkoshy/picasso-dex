@@ -70,7 +70,7 @@ export default Vue.extend({
         'border-none',
         'select-none',
         'whitespace-nowrap',
-        'font-sora',
+        'font-sora'
       ]
 
       if (this.right) {

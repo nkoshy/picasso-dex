@@ -79,17 +79,17 @@
 .depth-col {
   @apply absolute right-0 top-0 h-full;
 
-  &.longs,
-  &.buys {
-    background: theme('colors.primary.500');
-    opacity: 0.2;
-  }
+  // &.longs,
+  // &.buys {
+  //   background: theme('colors.primary.500');
+  //   opacity: 0.2;
+  // }
 
-  &.shorts,
-  &.sells {
-    background: theme('colors.accent.500');
-    opacity: 0.2;
-  }
+  // &.shorts,
+  // &.sells {
+  //   background: theme('colors.accent.500');
+  //   opacity: 0.2;
+  // }
 }
 
 .size-col {

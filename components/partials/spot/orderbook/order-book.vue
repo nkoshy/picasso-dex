@@ -23,16 +23,13 @@
       v-if="market"
       class="
         h-14
-        bg-dark-800
         flex flex-col
         items-center
         justify-center
-        bg-light-purple
-        border-t border-b
       "
     >
       <div class="w-full flex justify-between px-2 ">
-        <span class="text-white font-bold text-sm w-2/3 text-right text-light-green pr-2">
+        <span class="font-bold text-sm w-2/3 text-right text-base text-light-green pr-2">
           <div class="inline-block mr-1">
             <v-ui-icon
               v-if="

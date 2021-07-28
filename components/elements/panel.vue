@@ -14,7 +14,7 @@
         <slot name="title-context" />
       </div>
       <slot name="context" class="items-center flex justify-between w-full" />
-      <div class="flex-1 overflow-y-auto v-panel-content bg-light-purple">
+      <div :class="tableClasses">
         <slot ref="content" />
       </div>
     </div>
@@ -42,6 +42,12 @@ export default Vue.extend({
       required: false,
       default: '',
       type: String
+    },
+
+    orderBook: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
   computed: {
@@ -54,7 +60,8 @@ export default Vue.extend({
         'px-4',
         'h-12',
         'w-full',
-        'v-panel-title'
+        'v-panel-title',
+        'bg-light-blue'
       ];
       // eslint-disable-next-line no-console
       console.log("extraClasses", this.title, this.extraClasses);
@@ -62,6 +69,22 @@ export default Vue.extend({
         classes.push(this.extraClasses);
       }
       return classes.join(' ');
+    },
+
+    tableClasses(): string {
+      const tableClasses = [
+        'flex-1',
+        'v-panel-content',
+        'bg-light-purple'
+      ];
+
+      if(this.orderBook) {
+        tableClasses.push('overflow-y-hidden');
+      } else {
+        tableClasses.push('overflow-y-auto');
+      }
+
+      return tableClasses.join(' ');
     }
   }
 })

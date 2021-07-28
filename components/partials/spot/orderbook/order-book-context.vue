@@ -1,25 +1,25 @@
 <template>
-  <div v-if="market" class="table-compact border-b h-8">
-    <table class="table border-t">
+  <div v-if="market" class="table-compact border-b">
+    <table class="table border-t bg-light-purple">
       <thead>
         <tr>
-          <th is="v-ui-table-th" class="w-1/3" right>
-            <span>{{ $t('price') }}</span>
-            <span class="font-bold text-white uppercase">
-              {{ market.quoteToken.symbol }}
+          <th is="v-ui-table-th" class="w-1/3" left trades>
+            <span class="font-sora text-xs font-normal text-white">{{ $t('price') }}</span>
+            <span class="text-white uppercase font-normal text-xs font-sora">
+              ({{ market.quoteToken.symbol }})
             </span>
           </th>
-          <th is="v-ui-table-th" class="w-1/3" right>
-            <span>{{ $t('amount') }}</span>
-            <span class="font-bold text-white uppercase">
-              {{ market.baseToken.symbol }}
+          <th is="v-ui-table-th" class="w-1/3" right trades>
+            <span class="font-sora text-xs font-normal text-white">{{ $t('amount') }}</span>
+            <span class="font-bold text-white font-normal uppercase text-xs font-sora">
+              ({{ market.baseToken.symbol }})
             </span>
           </th>
-          <th is="v-ui-table-th" class="w-1/3" right>
-            <span>{{ $t('sum') }}</span>
-            <span class="font-bold text-white uppercase">
+          <th is="v-ui-table-th" class="w-1/3" center trades>
+            <span class="font-sora text-xs font-normal text-white">{{ $t('total') }}</span>
+            <!-- <span class="font-bold text-white font-normal uppercase text-xs font-sora">
               {{ market.baseToken.symbol }}
-            </span>
+            </span> -->
           </th>
         </tr>
       </thead>

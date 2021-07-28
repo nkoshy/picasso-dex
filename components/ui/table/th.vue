@@ -28,7 +28,7 @@ export default Vue.extend({
     },
     xs: {
       required: false,
-      default: true,
+      default: false,
       type: Boolean
     },
     '2xs': {
@@ -39,12 +39,12 @@ export default Vue.extend({
 
     background:{
       required: false,
-      default: true,
+      default: false,
       type: Boolean
     },
     padding:{
       required: false,
-      default: true,
+      default: false,
       type: Boolean
     },
     width: {
@@ -70,9 +70,7 @@ export default Vue.extend({
         'border-none',
         'select-none',
         'whitespace-nowrap',
-        //'pt-6',
-        //'pb-3.5',
-        'font-sora'
+        'font-sora',
       ]
 
       if (this.right) {

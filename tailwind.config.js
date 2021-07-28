@@ -36,6 +36,8 @@ module.exports = {
       transparent: 'transparent',      
       home: '#1B1616',
       'dark-blue': '#211F5199',
+      'light-light-blue': '#26245F',
+      'light-green': '#31DD80',
       'light-blue': '#27255E',
       'blue-main': '#3617E2',
       'blue-light': '#2351D0',

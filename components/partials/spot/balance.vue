@@ -30,7 +30,7 @@
     </div>
     <div v-if="isUserWalletConnected" slot="title-context">
       
-       <div
+    <div
       class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
       @click="toggleDropdown"
     >
@@ -42,6 +42,11 @@
           flex
           items-center
           select-none
+          border-2
+        border-pink-main
+          rounded-lg
+          py-1.5
+          px-2
         "
       >
         <span class="text-white text-xs group-hover:text-gray-200 font-sora">
@@ -59,25 +64,28 @@
         v-if="isDropdownOpen"
         v-on-clickaway="closeDropdown"
         class="
+          absolute
           -mx-px
           flex
           justify-center
           flex-wrap
           top-12
-          left-0
-          mt-12
-          bg-border-pattern
+          left-64
+          bg-common-pattern
           bg-no-repeat
           bg-contain
+        bg-dark-main
         "
       >
-        <div class="pt-8 pr-4 pb-4 flex flex-col">
-          <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
+        <div class="py-2.5 px-2.5 flex flex-col">
+          <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
             $t('deposit')
           }}</v-ui-button>
           <v-ui-button xs primary @click.stop="openTakeOutModal">{{
             $t('withdraw')
-          }}</v-ui-button>
+          }}</v-ui-button> -->
+            <p class="font-sora mb-2 text-sm text-white cursor-pointer" @click.stop="openTransferModal">{{$t('deposit')}}</p>
+            <p class="font-sora text-sm text-white cursor-pointer" @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
         </div>  
       </div>
     </transition>

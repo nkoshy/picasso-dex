@@ -35,7 +35,7 @@ export default Vue.extend({
   
     background: {
       required: false,
-      default: true,
+      default: false,
       type: Boolean
     },
     center: {

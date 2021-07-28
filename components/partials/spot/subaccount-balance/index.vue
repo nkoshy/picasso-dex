@@ -42,6 +42,11 @@
           flex
           items-center
           select-none
+          border-2
+          border-pink-main
+          rounded-lg
+          py-1.5
+          px-2
         "
       >
         <span class="text-white text-xs group-hover:text-gray-200 font-sora">
@@ -59,25 +64,29 @@
         v-if="isDropdownOpen"
         v-on-clickaway="closeDropdown"
         class="
+          absolute
           -mx-px
           flex
           justify-center
           flex-wrap
           top-12
-          left-0
-          mt-12
-          bg-border-pattern
+          left-60
+          bg-common-pattern
           bg-no-repeat
           bg-contain
+          bg-dark-main
+          z-10
         "
       >
-      <div class="pt-8 pr-4 pb-4 flex flex-col">
-        <v-ui-button xs primary class="mb-4" @click.stop="openDepositModal">{{
+      <div class="py-2.5 px-2.5 flex flex-col">
+        <!-- <v-ui-button xs primary class="mb-4" @click.stop="openDepositModal">{{
           $t('deposit')
         }}</v-ui-button>
         <v-ui-button xs primary @click.stop="openWithdrawalModal">{{
           $t('withdraw')
-        }}</v-ui-button>
+        }}</v-ui-button> -->
+          <p class="font-sora mb-2 text-sm text-white cursor-pointer" @click.stop="openDepositModal">{{$t('deposit')}}</p>
+          <p class="font-sora text-sm text-white cursor-pointer" @click.stop="openWithdrawalModal">{{$t('withdraw')}}</p>
       </div>
     </div>
     </transition>
@@ -88,15 +97,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { BigNumberInWei } from '@injectivelabs/utils'
+import { directive as onClickaway } from 'vue-clickaway'
 import VBalance from './balance.vue'
 import VBalanceEmpty from './balance-empty.vue'
-import { Icon } from '~/types'
-import { directive as onClickaway } from 'vue-clickaway'
 import {
   Modal,
   UiSpotMarket,
   UiSubaccount,
-  UiSubaccountBalanceWithToken
+  UiSubaccountBalanceWithToken,
+  Icon
 } from '~/types'
 import {
   UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
@@ -104,12 +113,6 @@ import {
 } from '~/app/utils/constants'
 
 export default Vue.extend({
-  data() {
-    return {
-      Icon,
-      isDropdownOpen: false
-    }
-  },
   directives: {
     onClickaway
   },
@@ -117,6 +120,13 @@ export default Vue.extend({
   components: {
     VBalance,
     VBalanceEmpty
+  },
+
+  data() {
+    return {
+      Icon,
+      isDropdownOpen: false
+    }
   },
 
   computed: {
@@ -191,8 +201,8 @@ export default Vue.extend({
     openWithdrawalModal() {
       this.$accessor.modal.openModal(Modal.Withdraw)
     },
+
     toggleDropdown() {
-      console.log("toggle");
       this.isDropdownOpen = !this.isDropdownOpen
     },
 

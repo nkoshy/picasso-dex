@@ -1,5 +1,5 @@
 <template>
-  <div v-if="market" class="p-4 w-full">
+  <div v-if="market" class="p-4 bg-dark-blue w-full">
     <div class="w-full flex">
       <v-ui-button-select
         v-model="orderType"

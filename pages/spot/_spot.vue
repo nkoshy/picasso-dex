@@ -2,7 +2,7 @@
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
     <!-- <app-header /> -->
     <div class="h-full w-full bg-dark-main">
-      <app-header aboutHeader=true />
+      <app-header about-header="true" />
       <grid-layout
         :layout="layout"
         :row-height="grid.rowHeight"

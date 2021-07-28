@@ -3,16 +3,7 @@
     <div class="flex flex-col justify-between h-full">
       <div
         v-if="title || $slots['title'] || $slots['title-context']"
-        class="
-          border-b
-          items-center
-          flex
-          justify-between
-          px-4
-          h-12
-          w-full
-          v-panel-title
-        "
+        :class="classes"
       >
         <h4
           class="uppercase text-xs font-semibold text-gray-300"
@@ -45,6 +36,32 @@ export default Vue.extend({
       required: false,
       default: '',
       type: String
+    },
+
+    extraClasses: {
+      required: false,
+      default: '',
+      type: String
+    }
+  },
+  computed: {
+    classes(): string {
+      const classes = [
+        'border-b',
+        'items-center',
+        'flex',
+        'justify-between',
+        'px-4',
+        'h-12',
+        'w-full',
+        'v-panel-title'
+      ];
+      // eslint-disable-next-line no-console
+      console.log("extraClasses", this.title, this.extraClasses);
+      if(this.extraClasses) {
+        classes.push(this.extraClasses);
+      }
+      return classes.join(' ');
     }
   }
 })

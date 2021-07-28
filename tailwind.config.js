@@ -44,6 +44,7 @@ module.exports = {
       'light-blue-dark': '#A3D8E7',
       'pink-main': '#F62BD6',
       'pink-light': '#FC69FB',
+      'pink-dark': '#EF79F1',
       'neon-green-main': '#00F1B6',
       'neon-green-light': '#8AF9DD',
       'dark-main': '#0C0A31',
@@ -122,7 +123,8 @@ module.exports = {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
-        'about-pattern': "url('/home/about-border.svg')"
+        'about-pattern': "url('/home/about-border.svg')",
+        'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -25%, rgba(39,37,94,1) 25%)'
        },
 
       borderColor: {

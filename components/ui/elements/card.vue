@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" class="bg-dark-700 border" v-on="$listeners">
+  <div :class="classes" class="border" v-on="$listeners">
     <slot></slot>
   </div>
 </template>

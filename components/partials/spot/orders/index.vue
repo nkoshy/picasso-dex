@@ -2,7 +2,7 @@
   <div v-if="market" class="table-responsive table-compact">
     <table class="table">
       <thead class="border-b">
-        <tr background>
+        <tr class="bg-light-purple">
           <th is="v-ui-table-th" center xs>
             <span>{{ $t('price') }}</span>
           </th>

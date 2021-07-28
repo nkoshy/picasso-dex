@@ -26,12 +26,12 @@
   @apply overflow-y-auto;
 
   li {
-    &:nth-child(odd) {
-      background-color: theme('colors.dark.hover300');
+    &:nth-child(3) {
+     background-color: #26245F;
     }
 
     &:hover {
-      background-color: theme('colors.dark.hover200') !important;
+     // background-color: theme('colors.dark.hover200') !important;
     }
   }
 }

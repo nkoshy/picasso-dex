@@ -7,7 +7,7 @@
         half
         primary
       >
-        {{ $t('buy_asset', { asset: market.baseToken.symbol }) }}
+        {{ $t('buy', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
       <v-ui-button-select
         v-model="orderType"
@@ -15,7 +15,7 @@
         half
         accent
       >
-        {{ $t('sell_asset', { asset: market.baseToken.symbol }) }}
+        {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
     <div class="w-full flex mt-4">

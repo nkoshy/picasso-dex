@@ -9,14 +9,14 @@
       <div class="table-responsive">
         <table class="table">
           <thead>
-            <tr >
-              <th is="v-ui-table-th" center xs>
+            <tr>
+              <th is="v-ui-table-th" left xs>
                 <span>{{ $t('asset') }}</span>
               </th>
               <th is="v-ui-table-th" center xs>
                 <span>{{ $t('available') }}</span>
               </th>
-              <th is="v-ui-table-th" center xs>
+              <th is="v-ui-table-th" right xs>
                 <span>{{ $t('balance') }}</span>
               </th>
             </tr>
@@ -30,6 +30,7 @@
       </div>
     </div>
     <div v-if="isUserWalletConnected" slot="title-context">
+
       <div
       class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
       @click="toggleDropdown"

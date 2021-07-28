@@ -1,5 +1,5 @@
 <template>
-  <v-panel :title="$t('price_chart')">
+  <v-panel :title="$t('price_chart')" extra-classes="bg-secondary-gradient">
     <div ref="trading-view-wrap" class="h-full w-full relative">
       <v-ui-loading v-if="status.isLoading()" />
       <v-trading-chart

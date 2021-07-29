@@ -62,7 +62,7 @@ import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
 import Header from '~/components/layouts/desktop/header.vue'
 
-const GRID_ROW_HEIGHT = 54
+const GRID_ROW_HEIGHT = 73
 
 export default Vue.extend({
   components: {

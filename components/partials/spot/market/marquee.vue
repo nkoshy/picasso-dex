@@ -1,6 +1,6 @@
 <template>
   <v-ui-card class="h-full bg-light-purple rounded-md">
-    <infinite-slide-bar duration="30s" class="mt-2">
+    <infinite-slide-bar duration="30s" class="mt-3">
       <div class="flex justify-around items-center">
         <div
           v-for="singleMarket in transformedMarkets"

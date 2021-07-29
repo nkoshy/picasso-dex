@@ -150,9 +150,7 @@ export default Vue.extend({
         'focus:outline-none',
         'bg-gradient-pink',
         'font-bold',
-        'text-xs',
         'primary-btn'
-
       ]
 
       if (this.hero) {
@@ -243,11 +241,11 @@ export default Vue.extend({
       } else if (this.ghost) {
         classes.push('border border-dark-600 text-white font-bold font-sora hover:text-gray-300')
       } else if(this.heroPrimary) {
-        classes.push('primary-btn text-sora')
+        classes.push('primary-btn font-sora')
       } else if(this.heroSecondary) {
-        classes.push('secondary-btn text-sora')
+        classes.push('secondary-btn font-sora')
       } else if(this.heroTertiary) {
-        classes.push('tertiary-btn text-home text-sora')
+        classes.push('tertiary-btn text-home font-sora')
       }
 
       if (this.status.isLoading()) {

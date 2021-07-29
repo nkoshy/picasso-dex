@@ -4,7 +4,7 @@
     class="font-sora"
   >
     <span>{{ prefix || '' }}{{ formattedNumber[0] }}</span
-    ><span v-if="formattedNumber[1]" class="text-gray-600 opacity-50">{{
+    ><span v-if="formattedNumber[1]" class="text-gray-600 opacity-50 font-normal">{{
       formattedNumber[1] || ''
     }}</span
     >{{ suffix || '' }}

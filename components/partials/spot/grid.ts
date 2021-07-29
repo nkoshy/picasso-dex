@@ -25,7 +25,7 @@ const lgGrid = [
   },
   {
     i: 'balance-panel',
-    x: 0,
+    x: 9,
     y: 1,
     w: 3,
     h: 2,
@@ -47,7 +47,7 @@ const lgGrid = [
   },
   {
     i: 'order-book-panel',
-    x: 9,
+    x: 0,
     y: 1,
     w: 3,
     h: 9,
@@ -58,7 +58,7 @@ const lgGrid = [
   },
   {
     i: 'subaccount-balance-panel',
-    x: 0,
+    x: 9,
     y: 3,
     w: 3,
     h: 3,
@@ -69,7 +69,7 @@ const lgGrid = [
   },
   {
     i: 'trading-panel',
-    x: 0,
+    x: 9,
     y: 6,
     w: 3,
     h: 10,
@@ -91,7 +91,7 @@ const lgGrid = [
   },
   {
     i: 'trades-panel',
-    x: 9,
+    x: 0,
     y: 10,
     w: 3,
     h: 6,

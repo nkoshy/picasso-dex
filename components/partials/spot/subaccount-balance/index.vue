@@ -32,7 +32,11 @@
     <div v-if="isUserWalletConnected" slot="title-context">
 
       <div
-      class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
+      class="w-full h-full flex items-center cursor-pointer group border-2
+        border-pink-main
+          rounded-lg
+          py-1.5
+          px-2"
       @click="toggleDropdown"
     >
       <span
@@ -43,21 +47,16 @@
           flex
           items-center
           select-none
-          border-2
-          border-pink-main
-          rounded-lg
-          py-1.5
-          px-2
         "
       >
         <span class="text-white text-xs group-hover:text-gray-200 font-sora">
-          {{ $t('deposit') }}
+          {{ $t('transfer') }}
         </span>
       </span>
        <v-ui-icon
         :icon="Icon.Dropdown"
         xs
-        class="text-gray-500 group-hover:text-gray-300"
+        class="text-white group-hover:text-gray-300"
       /> 
     </div>
     <transition name="fade">

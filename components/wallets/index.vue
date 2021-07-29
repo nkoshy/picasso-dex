@@ -30,11 +30,13 @@
             {{ $t('connect_wallet') }}
           </p>
         </div>
-        <div v-else>
-          <p class="text-gray-500 text-2xs leading-none">
+        <div v-else class="flex">
+          <img :src="`/home/Wallet.svg`" alt="wallet" />
+          <div class="ml-2">
+          <p class="text-white text-2xs leading-none font-sora">
             {{ $t('connected') }}
           </p>
-          <p class="font-bold text-sm text-white font-mono">
+          <p class="font-bold text-sm text-white font-sora">
             <span>
               {{ formattedAddress }}
             </span>
@@ -42,15 +44,16 @@
               v-clipboard="() => injectiveAddress"
               v-clipboard:success="() => $toast.success($t('address_copied'))"
             >
-              <v-ui-icon
+              <!-- <v-ui-icon
                 :icon="Icon.Copy"
                 :tooltip="$t('copy_address')"
                 class="text-gray-500 hover:text-primary-500"
                 stroke-only
                 xs
-              />
+              /> -->
             </span>
           </p>
+          </div>
         </div>
       </div>
       <v-ui-icon

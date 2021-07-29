@@ -127,7 +127,7 @@ module.exports = {
         'common-pattern': "url('/home/rectangle-border.svg')",
         'about-pattern': "url('/home/about-border.svg')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -25%, rgba(39,37,94,1) 25%)',
-        'hero-section': "url('/home/hero-section_poster.svg')"
+        'hero-section': "url('/home/Background.jpg')"
        },
 
       borderColor: {

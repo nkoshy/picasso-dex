@@ -22,7 +22,7 @@
       <v-ui-icon
         :icon="Icon.Dropdown"
         xs
-        class="text-gray-500 group-hover:text-gray-300"
+        class="text-white group-hover:text-gray-300"
       />
     </div>
     <transition name="fade">

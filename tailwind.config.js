@@ -35,6 +35,8 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'greyish':'#302E6F',
+      'blueish': '#242257',
       'dark-blue': '#211F5199',
       'light-light-blue': '#26245F',
       'light-green': '#31DD80',

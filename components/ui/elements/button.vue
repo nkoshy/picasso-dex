@@ -143,12 +143,16 @@ export default Vue.extend({
   computed: {
     classes(): string {
       const classes = [
-        'rounded-sm',
+        'rounded-md',
         'inline-block',
         'no-underline',
-        'font-semibold',
         'text-center',
-        'focus:outline-none'
+        'focus:outline-none',
+        'bg-gradient-pink',
+        'font-bold',
+        'text-xs',
+        'primary-btn'
+
       ]
 
       if (this.hero) {
@@ -233,10 +237,11 @@ export default Vue.extend({
           'from-blue-700',
           'to-primary-500',
           'hover:to-blue-700',
-          'hover:from-primary-500'
+          'hover:from-primary-500',
+          
         )
       } else if (this.ghost) {
-        classes.push('border border-dark-600 text-gray-500 hover:text-gray-300')
+        classes.push('border border-dark-600 text-white font-bold font-sora hover:text-gray-300')
       } else if(this.heroPrimary) {
         classes.push('primary-btn text-sora')
       } else if(this.heroSecondary) {
@@ -254,7 +259,7 @@ export default Vue.extend({
         if (!this.ghost) {
           classes.push('opacity-50')
         } else {
-          classes.push('text-gray-500')
+          classes.push('text-white')
         }
       }
 

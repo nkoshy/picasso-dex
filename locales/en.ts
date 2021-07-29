@@ -91,6 +91,7 @@ export default {
   volume: 'Volume',
   price_chart: 'Price Chart',
   filled: 'Filled',
+  buy_MATIC: 'Buy MATIC',
   cancel_order: 'Cancel Order',
   please_connect_your_wallet: 'Please connect with your wallet',
   amount_to_transfer: 'Amount to transfer',

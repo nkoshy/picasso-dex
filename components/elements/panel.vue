@@ -61,7 +61,7 @@ export default Vue.extend({
         'h-12',
         'w-full',
         'v-panel-title',
-        'bg-light-blue'
+        'bg-light-blue',
       ];
       // eslint-disable-next-line no-console
       console.log("extraClasses", this.title, this.extraClasses);

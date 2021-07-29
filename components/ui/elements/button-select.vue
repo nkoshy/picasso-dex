@@ -71,6 +71,12 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+
+    case: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
@@ -86,11 +92,13 @@ export default Vue.extend({
         'first:border-l',
         'odd:border-r-0',
         'last:border-r',
-        'uppercase',
         'outline-none',
-        'focus:outline-none'
+        'focus:outline-none',
+        'rounded-md'
       ]
-
+      if(this.case){
+        classes.push('uppercase')
+      }
       if (this.small) {
         classes.push('px-2', 'py-1', 'text-2xs')
         if (!this.isActive) {
@@ -109,18 +117,20 @@ export default Vue.extend({
       if (this.isActive) {
         if (this.primary) {
           classes.push(
-            'bg-primary-500',
-            'hover:bg-primary-600',
-            'text-primary-900'
+            //'bg-gradient-pink',
+            // 'hover:bg-primary-600',
+            'primary-btn',
+            'text-white',
+            'font-bold'
           )
         } else if (this.accent) {
-          classes.push('bg-accent-500', 'hover:bg-accent-600', 'text-white-900')
+          classes.push( 'hover:bg-gradient-pink', 'text-white', 'font-sora')
         } else {
-          classes.push('text-white', 'font-bold', 'bg-dark-500')
+          classes.push('text-light-green', 'font-bold')
         }
-      } else {
-        classes.push('hover:bg-dark-700')
-      }
+      } //else {
+      //   classes.push('hover:')
+      // }
 
       if (this.disabled) {
         classes.push('opacity-50', 'pointer-events-none', 'cursor-disabled')

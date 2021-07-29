@@ -1,11 +1,33 @@
 <template>
-  <div v-if="market" class="p-4 bg-dark-blue w-full">
-    <div class="w-full flex">
+  <div v-if="market" class="p-3 w-full bg-light-purple">
+
+    <div class="w-full flex ">
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.LimitFill"
+        small
+      >
+        {{ $t('limit') }}
+      </v-ui-button-select>
+      <v-ui-button-select
+        v-model="tradingType"
+      
+        :option="TradeExecutionType.Market"
+        small
+      >
+        {{ $t('market') }}
+      </v-ui-button-select>
+      
+    </div>
+
+    <div class="w-full flex  mt-3.5">
       <v-ui-button-select
         v-model="orderType"
         :option="SpotOrderSide.Buy"
         half
         primary
+        case
+        
       >
         {{ $t('buy', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -14,36 +36,57 @@
         :option="SpotOrderSide.Sell"
         half
         accent
+        case
       >
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
-    <div class="w-full flex mt-4">
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.Market"
-        small
-      >
-        {{ $t('market') }}
-      </v-ui-button-select>
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.LimitFill"
-        small
-      >
-        {{ $t('limit') }}
-      </v-ui-button-select>
-    </div>
-    <div class="mt-4">
+    <p slot="header" class="flex justify-between text-sm font-normal font-sora pb=3.5 pt-4">
+        <v-ui-text muted-md>
+          {{ $t('buy_MATIC') }}
+        </v-ui-text>
+        </p>
+    
+    <div class="mt-2">
+
+      <div v-if="!tradingTypeMarket" class="mb-4">
+        <v-input
+          ref="input-price"
+          :value="form.price"
+          :placeholder="$t('price')"
+          :label="$t('available')"
+          :disabled="tradingTypeMarket"
+          type="number"
+          :step="priceStep"
+          min="0"
+          @blur="onPriceBlur"
+          @input="onPriceChange"
+        >
+          <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
+          <div
+            v-if="true"
+            slot="context"
+            class="text-xs text-gray-400 flex items-center"
+          >
+            <span class="cursor-pointer text-xs font-normal text-white font-sora" @click.stop="onMaxInput(25)"
+              >0.000005</span
+            >
+            <span class="cursor-pointer text-xs font-bold text-white font-sora" @click.stop="onMaxInput(50)"
+              >USDT</span
+            >
+          </div>
+        </v-input>
+        <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
+          {{ priceError }}
+        </v-ui-text>
+      </div>
+
+
       <div class="mb-4">
         <v-input
           ref="input-amount"
           :value="form.amount"
-          :label="$t('amount_decimals', { decimals: market.quantityDecimals })"
           :custom-handler="true"
-          :max-selector="true"
           :placeholder="$t('amount')"
           type="number"
           :step="amountStep"
@@ -51,26 +94,10 @@
           @blur="onAmountBlur"
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
+          
         >
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
-          <div
-            v-if="true"
-            slot="context"
-            class="text-xs text-gray-400 flex items-center"
-          >
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
-              >25%</span
-            >
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
-              >50%</span
-            >
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
-              >75%</span
-            >
-            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
-              >100%</span
-            >
-          </div>
+          
         </v-input>
         <v-ui-text v-if="amountError" semibold accent v-bind="{ '2xs': true }">
           {{ amountError }}
@@ -84,30 +111,9 @@
           {{ priceError }}
         </v-ui-text>
       </div>
-      <div v-if="!tradingTypeMarket" class="mb-4">
-        <v-input
-          ref="input-price"
-          :value="form.price"
-          :placeholder="$t('price')"
-          :label="
-            $t('price_decimals', {
-              decimals: market.priceDecimals
-            })
-          "
-          :disabled="tradingTypeMarket"
-          type="number"
-          :step="priceStep"
-          min="0"
-          @blur="onPriceBlur"
-          @input="onPriceChange"
-        >
-          <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
-        </v-input>
-        <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
-          {{ priceError }}
-        </v-ui-text>
-      </div>
-    </div>
+     </div>
+  <v-slider/>
+
     <component
       :is="tradingTypeMarket ? `v-order-details-market` : 'v-order-details'"
       v-bind="{
@@ -135,7 +141,7 @@
         wide
         @click.stop="onSubmit"
       >
-        {{ $t(orderTypeBuy ? 'buy' : 'sell') }}
+        {{ $t(orderTypeBuy ? 'buy now' : 'sell now') }}
       </v-ui-button>
     </div>
   </div>
@@ -147,6 +153,7 @@ import { TradeError } from 'types/errors'
 import { BigNumberInWei, Status, BigNumberInBase } from '@injectivelabs/utils'
 import OrderDetails from './order-details.vue'
 import OrderDetailsMarket from './order-details-market.vue'
+import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
@@ -180,7 +187,8 @@ export default Vue.extend({
   components: {
     'v-button-checkbox': ButtonCheckbox,
     'v-order-details': OrderDetails,
-    'v-order-details-market': OrderDetailsMarket
+    'v-order-details-market': OrderDetailsMarket,
+    'v-slider': Slider
   },
 
   data() {

@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full w-full flex flex-wrap bg-home-pattern bg-dark-hero bg-blend-overlay">
-    <div class="flex relative flex-col w-full overflow-hidden">
+  <div class="h-full w-full flex flex-wrap bg-blend-overlay">
+    <div class="flex relative flex-col w-full overflow-hidden bg-hero-section bg-no-repeat">
       <!-- <egg-component position='absolute' top='0px' left='428px' height='101px' zIndex='15' background='#79e9f1' opacity='0.3' filter='blur(56px)' icon="/images/Vector26.svg"></egg-component>
       <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.png"></egg-component>
       <egg-component position='absolute' top='10rem' right='0px' height='25rem'  zIndex='15' icon="/images/environment.svg"></egg-component>

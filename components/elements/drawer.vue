@@ -1,12 +1,10 @@
 <template>
   <div>
     <div
-      class="group flex justify-end w-full cursor-pointer"
+      class="group flex justify-start w-full cursor-pointer"
       @click.stop="toggle"
     >
-      <div class="flex-1">
-        <slot name="header" />
-      </div>
+      <slot name="header" />
       <div class="self-end ml-2 -mt-1">
         <v-ui-icon
           :icon="Icon.Dropdown"

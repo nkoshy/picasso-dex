@@ -3,7 +3,7 @@
   <div class="range-wrap flex items-center relative select-none">
     <input
       v-bind="$attrs"
-      class="range"
+      class="range h-3 "
       :value="value"
       type="range"
       @input="handleChange"

@@ -35,6 +35,8 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'greyish':'#302E6F',
+      'blueish': '#242257',
       'dark-blue': '#211F5199',
       'light-light-blue': '#26245F',
       'light-green': '#31DD80',
@@ -53,6 +55,8 @@ module.exports = {
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
       'dark-red': '#FF5252',
+      'gradient-pink':'#FC69FB',
+      'pink-gradient': 'linear-gradient(102.23deg, rgba(54, 23, 226, 1) -45.68%, rgba(252, 105, 251, 1) 147.51%);',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',

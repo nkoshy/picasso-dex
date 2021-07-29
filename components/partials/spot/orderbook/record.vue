@@ -10,7 +10,7 @@
       :class="type === SpotOrderSide.Buy ? 'buys' : 'sells'"
     ></span>
     <span
-      class="w-1/3 text-xs px-4 cursor-pointer items-center  text-light-green justify-end z-10"
+      class="w-1/3 text-xs px-4 cursor-pointer items-center text-light-green justify-end z-10"
       @click.stop="onPriceClick"
     >
       <v-ui-icon

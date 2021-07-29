@@ -1,5 +1,5 @@
 <template>
-  <v-panel class="h-full bg-light-blue" :title="$t('trading')">
+  <v-panel class="h-full bg-light-blue text-sm " :title="$t('trading')">
     <v-trade />
   </v-panel>
 </template>

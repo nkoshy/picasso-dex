@@ -1,11 +1,11 @@
 .has-addon {
   .input {
     width: calc(100% - 3.5rem);
-    @apply rounded-r-none;
+   // @apply rounded-r-none;
   }
 
   .addon {
-    @apply text-gray-100 font-semibold absolute bg-dark-700 right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none border-dark-600;
+    @apply text-gray-100 font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none border-dark-600;
 
     .icon {
       @apply w-6 h-6;
@@ -36,7 +36,7 @@
 }
 
 .input {
-  @apply border border-dark-600 w-full bg-dark-900 text-white shadow-md rounded px-3 w-full h-10 text-sm outline-none appearance-none max-w-full font-mono;
+  @apply border-greyish border border-solid w-full bg-blueish text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -49,7 +49,7 @@
   }
 
   &::placeholder {
-    @apply text-xs opacity-75;
+    @apply text-xs opacity-40;
   }
 
   &[disabled] {

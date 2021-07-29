@@ -5,13 +5,16 @@
         v-if="label || error"
         :for="`input-${uid}`"
         class="
-          text-2xs
+          text-xs
           mb-1
           leading-loose
-          opacity-75
+          opacity-40
           flex
           items-center
           justify-between
+          font-normal
+          font-sora
+          text-white
         "
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
@@ -33,7 +36,8 @@
         :class="{
           'input-lg': lg,
           'text-lg': lg,
-          'pr-12': maxSelector
+          'pr-12': maxSelector,
+          
         }"
         :value="value"
         @wheel="$event.target.blur()"

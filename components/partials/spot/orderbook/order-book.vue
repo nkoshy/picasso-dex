@@ -29,8 +29,22 @@
       "
     >
       <div class="w-full flex justify-between px-2 ">
-        <span class="font-bold text-sm w-2/3 text-right text-base text-light-green pr-2">
+        <span class="font-bold font-sora w-2/3 text-right text-base text-light-green pr-2">
           <div class="inline-block mr-1">
+
+            <div class="inline-block">
+            <v-ui-format-order-price
+              v-bind="{
+                value: lastTradedPrice,
+                type:
+                  lastTradedPriceChange !== Change.Decrease
+                    ? TradeDirection.Buy
+                    : TradeDirection.Sell
+              }"
+              class="flex justify-end "
+            />
+          </div>
+
             <v-ui-icon
               v-if="
                 [Change.Increase, Change.Decrease].includes(
@@ -44,18 +58,7 @@
               :icon="Icon.Arrow"
             />
           </div>
-          <div class="inline-block">
-            <v-ui-format-order-price
-              v-bind="{
-                value: lastTradedPrice,
-                type:
-                  lastTradedPriceChange !== Change.Decrease
-                    ? TradeDirection.Buy
-                    : TradeDirection.Sell
-              }"
-              class="flex justify-end "
-            />
-          </div>
+
         </span>
         <span class="text-sm w-1/3 text-right pr-2" />
       </div>

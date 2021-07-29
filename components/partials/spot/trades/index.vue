@@ -1,5 +1,5 @@
 <template>
-  <v-panel class="relativ font-sora text-small font-white" :title="$t('trades')">
+  <v-panel class="relativ font-sora text-small font-white"  extra-classes="bg-tertiary-gradient" :title="$t('trades')">
     <v-trades-context slot="context" keep-alive></v-trades-context>
     <v-trades class="flex-1" />
   </v-panel>

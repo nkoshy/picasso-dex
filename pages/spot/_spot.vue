@@ -3,35 +3,37 @@
     <!-- <app-header /> -->
     <div class="h-full w-full bg-dark-main">
       <app-header landingPage=true />
-      <grid-layout
-        :layout="layout"
-        :row-height="grid.rowHeight"
-        :is-draggable="grid.isDraggable"
-        :is-resizable="grid.isResizable"
-        :responsive="grid.responsive"
-        :vertical-compact="true"
-        :use-css-transforms="true"
-        @breakpoint-changed="handleBreakpointChanged"
-      >
-        <grid-item
-          v-for="item in grid.layout"
-          :key="`grid-item-${item.i}`"
-          :x="item.x"
-          :y="item.y"
-          :w="item.w"
-          :min-w="item.minW"
-          :min-h="item.minH"
-          :max-h="item.maxH"
-          :is-draggable="item.isDraggable"
-          :is-resizable="item.isResizable"
-          :h="item.h"
-          :i="item.i"
-          drag-allow-from=".v-panel-title"
-          @resized="$root.$emit(`resized-${item.i}`)"
+      <div class="p-4 pt-0">
+        <grid-layout
+          :layout="layout"
+          :row-height="grid.rowHeight"
+          :is-draggable="grid.isDraggable"
+          :is-resizable="grid.isResizable"
+          :responsive="grid.responsive"
+          :vertical-compact="true"
+          :use-css-transforms="true"
+          @breakpoint-changed="handleBreakpointChanged"
         >
-          <component :is="item.i" />
-        </grid-item>
-      </grid-layout>
+          <grid-item
+            v-for="item in grid.layout"
+            :key="`grid-item-${item.i}`"
+            :x="item.x"
+            :y="item.y"
+            :w="item.w"
+            :min-w="item.minW"
+            :min-h="item.minH"
+            :max-h="item.maxH"
+            :is-draggable="item.isDraggable"
+            :is-resizable="item.isResizable"
+            :h="item.h"
+            :i="item.i"
+            drag-allow-from=".v-panel-title"
+            @resized="$root.$emit(`resized-${item.i}`)"
+          >
+            <component :is="item.i" />
+          </grid-item>
+        </grid-layout>
+      </div>
       <modal-transfer />
       <modal-deposit />
       <modal-withdraw />

@@ -73,14 +73,13 @@
         <hr class="border border-solid border-commuity" />
         <v-ledger />
       </div>
-      <div v-else class="flex flex-wrap w-full">
+      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4 pr-2.5">
         <div
           class="
             w-full
             font-semibold
-            py-2
-            px-4
             text-sm
+            font-sora
             cursor-pointer
           "
           @click.stop="handleClickOnLogout"

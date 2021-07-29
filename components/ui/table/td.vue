@@ -32,7 +32,12 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
-
+  
+    background: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
     center: {
       required: false,
       default: false,
@@ -59,6 +64,10 @@ export default Vue.extend({
       } else if (this.left) {
         classes.push('text-left')
       }
+
+      if (this.background) {
+        classes.push('bg-dark-blue')
+      } 
 
       return classes.join(' ')
     }

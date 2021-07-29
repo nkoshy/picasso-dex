@@ -1,28 +1,31 @@
 <template>
   <div v-if="market" class="mt-4 py-4 border-t relative">
+    
     <v-drawer
       :custom-handler="true"
       :custom-is-open="detailsDrawerOpen"
       @drawer-toggle="onDrawerToggle"
     >
-      <p slot="header" class="flex justify-between text-sm">
+    
+      <p slot="header" class="flex justify-between text-base font-normal font-sora">
         <v-ui-text muted-md>
           {{ $t('total') }}
         </v-ui-text>
-        <v-ui-text em class="flex text-gray-500 align-bottom">
+        <v-ui-text em class="flex text-white font-normal text-base align-bottom">
           <span class="mr-1">≈</span>
           <v-ui-format-price
             v-bind="{
               value: extractedTotal
+              
             }"
           />
-          <small class="opacity-75 pt-px ml-1">{{
+          <small class="text-white font-normal text-base pt-px ml-1">{{
             orderTypeBuy ? market.quoteToken.symbol : market.baseToken.symbol
           }}</small>
         </v-ui-text>
       </p>
       <div class="text-xs mt-2">
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('amount') }}
           </v-ui-text>
@@ -39,7 +42,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('notional_value') }}
           </v-ui-text>
@@ -59,7 +62,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p v-if="!orderTypeBuy" class="flex justify-between group leading-6">
+        <p v-if="!orderTypeBuy" class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white flex items-center"
             ><span class="mr-2">{{ $t('est_receiving_amount') }}</span
             ><v-ui-icon
@@ -83,7 +86,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white flex items-center"
             ><span>{{ $t('fee') }}</span></v-ui-text
           >
@@ -103,11 +106,11 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="mt-2">
+        <!-- <p class="mt-2">
           <v-ui-text xs muted class="flex items-center">
             {{ $t('worst_price_note', { slippage: slippage.toFixed() }) }}
           </v-ui-text>
-        </p>
+        </p> -->
       </div>
     </v-drawer>
   </div>
@@ -119,10 +122,12 @@ import { BigNumberInBase } from '@injectivelabs/utils'
 import Drawer from '~/components/elements/drawer.vue'
 import { SpotOrderSide, Icon, UiSpotMarket } from '~/types'
 import { DEFAULT_MAX_SLIPPAGE, ZERO_IN_BASE } from '~/app/utils/constants'
+import Slider from '~/components/inputs/slider.vue'
 
 export default Vue.extend({
   components: {
-    'v-drawer': Drawer
+    'v-drawer': Drawer,
+    'v-slider': Slider
   },
 
   props: {

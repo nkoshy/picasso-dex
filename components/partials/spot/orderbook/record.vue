@@ -5,12 +5,12 @@
   >
     <span class="size-col" :class="newRecordClass"></span>
     <span
-      class="depth-col"
+      class="depth-col "
       :style="depthWidth"
       :class="type === SpotOrderSide.Buy ? 'buys' : 'sells'"
     ></span>
     <span
-      class="w-1/3 text-xs px-2 flex items-center justify-end z-10"
+      class="w-1/3 text-xs px-4 cursor-pointer items-center text-light-green justify-end z-10"
       @click.stop="onPriceClick"
     >
       <v-ui-icon
@@ -25,23 +25,24 @@
           type: type,
           decimals: market.priceDecimals
         }"
-        class="text-right block"
+        class="text-left block"
       />
     </span>
-    <span class="w-1/3 text-xs px-2 z-10" @click.stop="onQuantityClick">
+    <span class="w-1/3 text-xs px-2 z-10  " @click.stop="onQuantityClick">
       <v-ui-format-amount
         v-bind="{
           value: quantity.toBase(quantityScaleDecimals),
           decimals: market.quantityDecimals
         }"
-        class="text-right block"
+        class="text-right block "
         :class="{
           'text-accent-500': quantityChange === Change.Decrease,
           'text-primary-500': quantityChange === Change.Increase
         }"
+        
       />
     </span>
-    <span class="w-1/3 text-xs px-2 z-10" @click.stop="onSumQuantityClick">
+    <span class="w-1/3 text-xs px-2 z-10 " @click.stop="onSumQuantityClick">
       <v-ui-format-amount
         v-bind="{
           value: sumOfQuantities,

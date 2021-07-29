@@ -6,8 +6,8 @@
           v-bind="{
             value: lastPrice,
             class: {
-              'text-primary-500': lastPriceChange === Change.Increase,
-              'text-accent-500': lastPriceChange === Change.Decrease
+              'font-sora font-bold text-base': lastPriceChange === Change.Increase,
+              'text-accent-500 font-sora font-bold': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"
@@ -21,7 +21,7 @@
             appendPlusSign: true,
             precision: 2,
             value: change.toString(),
-            class: change.gte(0) ? 'text-light-green' : 'text-accent-500'
+            class: change.gte(0) ? 'text-light-green text-3xs' : 'text-accent-500'
           }"
         />
       </v-ui-text>
@@ -33,7 +33,7 @@
           v-bind="{
             value: high
           }"
-          class="font-sora text-white"
+          class="font-sora text-white text-3xs"
         />
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
@@ -45,6 +45,7 @@
           v-bind="{
             value: low
           }"
+          class="font-sora text-white text-3xs"
         />
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
@@ -58,6 +59,7 @@
             dontGroupValues: true,
             value: volume
           }"
+          class="font-sora text-white text-3xs"
         />
       </v-ui-text>
     </v-market-info>

@@ -2,9 +2,10 @@
   <div class="flex flex-col flex-wrap w-full overflow-y-hidden">
     <ul
       ref="sellOrders"
-      class="list-order-book overflow-auto w-full"
+      class="list-order-book overflow-auto w-full bg-dark-purple"
       @mouseenter="autoScrollSellsLocked = true"
       @mouseleave="autoScrollSellsLocked = false"
+    
     >
       <v-record-empty
         v-for="(emptyOrder, index) in sellsEmptyCount"
@@ -22,16 +23,28 @@
       v-if="market"
       class="
         h-14
-        bg-dark-800
         flex flex-col
         items-center
         justify-center
-        border-t border-b
       "
     >
-      <div class="w-full flex justify-between px-2">
-        <span class="text-white font-bold text-sm w-2/3 text-right pr-2">
+      <div class="w-full flex justify-between px-2 ">
+        <span class="font-bold font-sora w-2/3 text-right text-base text-light-green pr-2">
           <div class="inline-block mr-1">
+
+            <div class="inline-block">
+            <v-ui-format-order-price
+              v-bind="{
+                value: lastTradedPrice,
+                type:
+                  lastTradedPriceChange !== Change.Decrease
+                    ? TradeDirection.Buy
+                    : TradeDirection.Sell
+              }"
+              class="flex justify-end "
+            />
+          </div>
+
             <v-ui-icon
               v-if="
                 [Change.Increase, Change.Decrease].includes(
@@ -45,18 +58,7 @@
               :icon="Icon.Arrow"
             />
           </div>
-          <div class="inline-block">
-            <v-ui-format-order-price
-              v-bind="{
-                value: lastTradedPrice,
-                type:
-                  lastTradedPriceChange !== Change.Decrease
-                    ? TradeDirection.Buy
-                    : TradeDirection.Sell
-              }"
-              class="flex justify-end"
-            />
-          </div>
+
         </span>
         <span class="text-sm w-1/3 text-right pr-2" />
       </div>

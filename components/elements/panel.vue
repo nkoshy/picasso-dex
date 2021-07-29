@@ -3,19 +3,10 @@
     <div class="flex flex-col justify-between h-full">
       <div
         v-if="title || $slots['title'] || $slots['title-context']"
-        class="
-          border-b
-          items-center
-          flex
-          justify-between
-          px-4
-          h-12
-          w-full
-          v-panel-title
-        "
+        :class="classes"
       >
         <h4
-          class="uppercase text-xs font-semibold text-gray-300"
+          class="text-small font-sora text-white"
           :class="!$slots['context'] ? 'w-full' : ''"
         >
           <slot name="title">{{ title }}</slot>
@@ -23,7 +14,7 @@
         <slot name="title-context" />
       </div>
       <slot name="context" class="items-center flex justify-between w-full" />
-      <div class="flex-1 overflow-y-auto v-panel-content">
+      <div :class="tableClasses">
         <slot ref="content" />
       </div>
     </div>
@@ -45,6 +36,56 @@ export default Vue.extend({
       required: false,
       default: '',
       type: String
+    },
+
+    extraClasses: {
+      required: false,
+      default: '',
+      type: String
+    },
+
+    orderBook: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+  computed: {
+    classes(): string {
+      const classes = [
+        'border-b',
+        'items-center',
+        'flex',
+        'justify-between',
+        'px-4',
+        'h-12',
+        'w-full',
+        'v-panel-title',
+        'bg-light-blue',
+        'rounded-t'
+      ];
+      // eslint-disable-next-line no-console
+      console.log("extraClasses", this.title, this.extraClasses);
+      if(this.extraClasses) {
+        classes.push(this.extraClasses);
+      }
+      return classes.join(' ');
+    },
+
+    tableClasses(): string {
+      const tableClasses = [
+        'flex-1',
+        'v-panel-content',
+        'bg-light-purple'
+      ];
+
+      if(this.orderBook) {
+        tableClasses.push('overflow-y-hidden');
+      } else {
+        tableClasses.push('overflow-y-auto');
+      }
+
+      return tableClasses.join(' ');
     }
   }
 })

@@ -68,7 +68,7 @@ export default Vue.extend({
       }
 
       return [SpotOrderSide.Buy, DerivativeOrderSide.Buy].includes(this.type)
-        ? 'text-primary-500'
+        ? ''
         : 'text-accent-500'
     }
   },

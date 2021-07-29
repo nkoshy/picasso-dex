@@ -20,7 +20,7 @@ table {
 .table-compact {
   @apply w-full;
   .table {
-    @apply bg-transparent border-none;
+    @apply border-none;
     thead {
       th {
         &.sortable {
@@ -68,10 +68,9 @@ table {
           background-color: #26245F;
         }
 
-
-        &:hover {
-          background-color: theme('colors.dark.hover200') !important;
-        }
+        // &:hover {
+        //   background-color: theme('colors.dark.hover200') !important;
+        // }
       }
     }
   }

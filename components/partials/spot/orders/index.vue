@@ -2,26 +2,26 @@
   <div v-if="market" class="table-responsive table-compact">
     <table class="table">
       <thead class="border-b">
-        <tr>
-          <th is="v-ui-table-th" right paddingLeft>
+        <tr class="bg-light-purple">
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('price') }}</span>
           </th>
-          <th is="v-ui-table-th" right paddingleft>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('amount') }}</span>
           </th>
-          <th is="v-ui-table-th" right paddingleft>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('unfilled') }}</span>
           </th>
-          <th is="v-ui-table-th" right paddingleft>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('total') }}</span>
           </th>
-          <th is="v-ui-table-th" center paddingleft>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('type') }}</span>
           </th>
-          <th is="v-ui-table-th" center paddingleft>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('filled') }}</span>
           </th>
-          <th is="v-ui-table-th" center paddingleft paddingRight>
+          <th is="v-ui-table-th" center  xs>
             <span>{{ $t('actions') }}</span>
           </th>
         </tr>

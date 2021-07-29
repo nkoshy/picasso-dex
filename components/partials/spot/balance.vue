@@ -1,11 +1,11 @@
 <template>
-  <v-panel :title="$t('injective_chain_balance')" class="h-full relative">
+  <v-panel :title="$t('injective_chain_balance')" class="h-full relative ">
     <div v-if="!isUserWalletConnected" class="w-full h-full">
       <v-ui-overlay :shadow="false">
         <p class="text-center">{{ $t('not_connected_balances') }}</p>
       </v-ui-overlay>
     </div>
-    <div v-if="isUserWalletConnected && market" class="px-4 mt-2">
+    <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora bg-dark-blue">
       <v-ui-text-info
         :title="$t('balance_asset', { asset: market.baseToken.symbol })"
       >
@@ -29,14 +29,71 @@
       </v-ui-text-info>
     </div>
     <div v-if="isUserWalletConnected" slot="title-context">
-      <div class="flex items-center">
-        <v-ui-button xs primary class="mr-2" @click.stop="openTransferModal">{{
-          $t('deposit')
-        }}</v-ui-button>
-        <v-ui-button xs primary @click.stop="openTakeOutModal">{{
-          $t('withdraw')
-        }}</v-ui-button>
+      
+    <div
+      class="w-full
+          h-full
+          flex
+          border-2
+        border-pink-main
+          rounded-lg
+          py-1.5
+          px-2
+          items-center
+          cursor-pointer
+          group"
+      @click="toggleDropdown"
+    >
+      <span
+        class="
+          mr-2
+          tracking-wider
+          text-md
+          flex
+          items-center
+          select-none
+        "
+      >
+        <span class="text-white text-xs group-hover:text-gray-200 font-sora">
+          {{ $t('transfer') }}
+        </span>
+      </span>
+       <v-ui-icon
+        :icon="Icon.Dropdown"
+        xs
+        class="text-white group-hover:text-gray-300"
+      /> 
+    </div>
+    <transition name="fade">
+      <div
+        v-if="isDropdownOpen"
+        v-on-clickaway="closeDropdown"
+        class="
+          absolute
+          -mx-px
+          flex
+          justify-center
+          flex-wrap
+          top-12
+          left-64
+          bg-common-pattern
+          bg-no-repeat
+          bg-contain
+        bg-dark-main
+        "
+      >
+        <div class="py-2.5 px-2.5 flex flex-col">
+          <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
+            $t('deposit')
+          }}</v-ui-button>
+          <v-ui-button xs primary @click.stop="openTakeOutModal">{{
+            $t('withdraw')
+          }}</v-ui-button> -->
+            <p class="font-sora mb-2 text-sm text-white cursor-pointer" @click.stop="openTransferModal">{{$t('deposit')}}</p>
+            <p class="font-sora text-sm text-white cursor-pointer" @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
+        </div>  
       </div>
+    </transition>
     </div>
   </v-panel>
 </template>
@@ -46,8 +103,23 @@ import Vue from 'vue'
 import { BigNumberInWei } from '@injectivelabs/utils'
 import { BankBalances, Modal, UiSpotMarket } from '~/types'
 import { ZERO_IN_WEI } from '~/app/utils/constants'
+import { Icon } from '~/types'
+import { directive as onClickaway } from 'vue-clickaway'
+
+
 
 export default Vue.extend({
+  data() {
+    return {
+      Icon,
+      isDropdownOpen: false
+    }
+  },
+
+  directives: {
+    onClickaway
+  },
+
   computed: {
     market(): UiSpotMarket | undefined {
       return this.$accessor.spot.market
@@ -97,7 +169,18 @@ export default Vue.extend({
 
     openTakeOutModal() {
       this.$accessor.modal.openModal(Modal.TakeOut)
+    },
+    toggleDropdown() {
+      console.log("toggle");
+      this.isDropdownOpen = !this.isDropdownOpen
+    },
+
+    closeDropdown() {
+      if (this.isDropdownOpen) {
+        this.isDropdownOpen = false
+      }
     }
+  
   }
 })
 </script>

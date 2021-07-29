@@ -1,38 +1,12 @@
 <template>
   <div class="header-nav relative">
-    <div
-      :class="isDropdownOpen ? 'is-active' : ''"
-      class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
-      @click="toggleDropdown"
-    >
-      <span
-        class="
-          mr-2
-          tracking-wider
-          text-md
-          flex
-          items-center
-          select-none
-        "
-      >
-        <span class="text-white group-hover:text-gray-200 font-sora">
-          {{ $t('community') }}
-        </span>
-      </span>
-      <v-ui-icon
-        :icon="Icon.Dropdown"
-        xs
-        class="text-white group-hover:text-gray-300"
-      />
-    </div>
     <transition name="fade">
       <div
-        v-if="isDropdownOpen"
         v-on-clickaway="closeDropdown"
         :class="classes"
       >
-        <div class="pt-8 pr-4 pb-2 pl-3.5 w-48 flex flex-col">
-          <div class="flex mb-3">
+        <div class="px-5 py-5 flex flex-col">
+          <div class="flex mb-4">
             <div>
               <img :src="'/home/twitter-community.svg'" />
             </div>
@@ -41,8 +15,7 @@
               <p class="font-sora text-xsm mt-1 text-white opacity-40">Stay in the pulse</p>
             </div>
           </div>
-          <hr class="border border-solid border-commuity" />
-          <div class="flex mt-4">
+          <div class="flex">
             <div>
               <img :src="'/home/discord-community.svg'" />
             </div>
@@ -85,18 +58,16 @@ export default Vue.extend({
   computed: {
     classes(): string {
       const classes = [
-          'absolute',
           '-mx-px',
-          'flex',
-          'justify-center',
-          'flex-wrap',
-          'bg-common-pattern',
-          'bg-no-repeat',
-          'bg-contain'
+          'border-2',
+          'border-solid',
+          'rounded-xl',
+          'bg-dark-black',
+          'border-light-blue-dark'
       ];
 
       if(!this.landingPage) {
-        classes.push('mt-6', 'top-20', 'left-2.5')
+        classes.push('mt-4')
       } else {
         classes.push('bg-dark-main', 'top-16', 'mt-2.5')
       }

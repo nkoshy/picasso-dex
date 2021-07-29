@@ -2,36 +2,38 @@
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
     <!-- <app-header /> -->
     <div class="h-full w-full bg-dark-main">
-      <app-header aboutHeader=true />
-      <grid-layout
-        :layout="layout"
-        :row-height="grid.rowHeight"
-        :is-draggable="grid.isDraggable"
-        :is-resizable="grid.isResizable"
-        :responsive="grid.responsive"
-        :vertical-compact="true"
-        :use-css-transforms="true"
-        @breakpoint-changed="handleBreakpointChanged"
-      >
-        <grid-item
-          v-for="item in grid.layout"
-          :key="`grid-item-${item.i}`"
-          :x="item.x"
-          :y="item.y"
-          :w="item.w"
-          :min-w="item.minW"
-          :min-h="item.minH"
-          :max-h="item.maxH"
-          :is-draggable="item.isDraggable"
-          :is-resizable="item.isResizable"
-          :h="item.h"
-          :i="item.i"
-          drag-allow-from=".v-panel-title"
-          @resized="$root.$emit(`resized-${item.i}`)"
+      <app-header landingPage=true />
+      <div class="p-4 pt-0">
+        <grid-layout
+          :layout="layout"
+          :row-height="grid.rowHeight"
+          :is-draggable="grid.isDraggable"
+          :is-resizable="grid.isResizable"
+          :responsive="grid.responsive"
+          :vertical-compact="true"
+          :use-css-transforms="true"
+          @breakpoint-changed="handleBreakpointChanged"
         >
-          <component :is="item.i" />
-        </grid-item>
-      </grid-layout>
+          <grid-item
+            v-for="item in grid.layout"
+            :key="`grid-item-${item.i}`"
+            :x="item.x"
+            :y="item.y"
+            :w="item.w"
+            :min-w="item.minW"
+            :min-h="item.minH"
+            :max-h="item.maxH"
+            :is-draggable="item.isDraggable"
+            :is-resizable="item.isResizable"
+            :h="item.h"
+            :i="item.i"
+            drag-allow-from=".v-panel-title"
+            @resized="$root.$emit(`resized-${item.i}`)"
+          >
+            <component :is="item.i" />
+          </grid-item>
+        </grid-layout>
+      </div>
       <modal-transfer />
       <modal-deposit />
       <modal-withdraw />
@@ -62,7 +64,7 @@ import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
 import Header from '~/components/layouts/desktop/header.vue'
 
-const GRID_ROW_HEIGHT = 54
+const GRID_ROW_HEIGHT = 73
 
 export default Vue.extend({
   components: {

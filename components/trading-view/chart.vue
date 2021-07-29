@@ -2,7 +2,7 @@
   <div
     id="tv_chart_container"
     ref="tradingView"
-    class="tv_chart_container h-full"
+    class="tv_chart_container bg-dark-blue h-full"
   ></div>
 </template>
 

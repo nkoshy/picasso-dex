@@ -1,15 +1,7 @@
 <template>
-  <div class="h-full w-full flex flex-wrap bg-home-pattern bg-dark-hero bg-blend-overlay">
-    <div class="flex relative flex-col w-full overflow-hidden">
-      <!-- <egg-component position='absolute' top='0px' left='428px' height='101px' zIndex='15' background='#79e9f1' opacity='0.3' filter='blur(56px)' icon="/images/Vector26.svg"></egg-component>
+  <div class="h-full w-full flex flex-wrap">
+    <div class="flex relative flex-col w-full overflow-hidden bg-hero-section bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
       <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.png"></egg-component>
-      <egg-component position='absolute' top='10rem' right='0px' height='25rem'  zIndex='15' icon="/images/environment.svg"></egg-component>
-      <egg-component position='absolute' top='7rem' left='0px' height='28rem' background='#2811af' zIndex='15' filter='blur(13rem)' icon="/images/Vector1.svg"></egg-component>
-      <egg-component position='absolute' top='-6rem' right='-16rem' background='#43f2ff' height='34rem' zIndex='15' transform='rotate(-74.77deg)' filter='blur(13rem)' icon="/images/Vector2.svg"></egg-component>
-      <egg-component position='absolute' top='-27px' right='152px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='34rem' zIndex='10' transform='rotate(40deg)' icon="/images/vector31.svg"></egg-component>
-      <egg-component position='absolute' top='-197px' right='14px' width='19rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='23rem' zIndex='10' transform='rotate(40deg)' icon="/images/vector30.svg"></egg-component>
-      <egg-component position='absolute' top='135px' left='-1133px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='10' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
-      <egg-component position='absolute' top='298px' left='-1150px' width='27rem' opacity='0.1' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='10' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component> -->
       <app-header />
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-40">
@@ -21,7 +13,7 @@
               class="h-6 ml-3 w-auto"
             /> 
           </div>
-          <h1 class="text-white text-3xl xl:text-5xl xl:font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
+          <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
@@ -82,15 +74,15 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
-        <!-- <egg-component position='absolute' top='-34px' right='93px' height='26rem' icon="/images/Group3532.svg"></egg-component>
+        <egg-component position='absolute' top='-34px' right='93px' height='26rem' icon="/images/Group3532.svg"></egg-component>
         <egg-component position='absolute' top='-73px' right='0px' height='21rem' icon="/images/Group3531.svg"></egg-component>
         <egg-component position='absolute' bottom='0' left='50px' height='226px' icon="/images/Group3533.svg"></egg-component>
         <egg-component position='absolute' bottom='0' height='119px' zIndex='25' icon="/images/Group3534.svg"></egg-component>
         <egg-component position='absolute' top='52px' right='78px' width='43rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='29rem' zIndex='30' transform='rotate(49deg)' icon="/images/vector31.svg"></egg-component>
         <egg-component position='absolute' top='-66px' right='98px' width='19rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='40rem' zIndex='24' transform='rotate(47deg)' icon="/images/vector30.svg"></egg-component>
         <egg-component position='absolute' top='-331px' left='-1125px' width='27rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='194rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
-         <egg-component position='absolute' top='-510px' left='-1133px' width='27rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute'  filter='blur(226px)' width='11rem' bottom='-417px' right='-65px' background='#43F2FF' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='50rem' transform='rotate(89deg)' icon="/images/vector25.svg"></egg-component> -->
+        <egg-component position='absolute' top='-510px' left='-1133px' width='27rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
+        <egg-component position='absolute'  filter='blur(226px)' width='11rem' bottom='-417px' right='-65px' background='#43F2FF' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='50rem' transform='rotate(89deg)' icon="/images/vector25.svg"></egg-component>
        </div>
   </div>
 </template>

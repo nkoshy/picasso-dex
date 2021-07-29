@@ -35,22 +35,27 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'greyish':'#302E6F',
+      'blueish': '#242257',
       'dark-blue': '#211F5199',
-      'light-blue': '#27255E;',
-      'white': '#FFFFFF',
+      'light-light-blue': '#26245F',
+      'light-green': '#31DD80',
+      'light-blue': '#27255E',
       'blue-main': '#3617E2',
       'blue-light': '#2351D0',
       'light-blue-main': '#79E9F1',
       'light-blue-dark': '#A3D8E7',
       'pink-main': '#F62BD6',
       'pink-light': '#FC69FB',
+      'pink-dark': '#EF79F1',
       'neon-green-main': '#00F1B6',
       'neon-green-light': '#8AF9DD',
       'dark-main': '#0C0A31',
       'dark-light': '#18154E',
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
-      'light-green': '#31DD80',
+      'dark-red': '#FF5252',
+      'dark-black': '#100E2F',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -122,7 +127,10 @@ module.exports = {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
-        'about-pattern': "url('/home/about-border.svg')"
+        'about-pattern': "url('/home/about-border.svg')",
+        'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
+        'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
+        'hero-section': "url('/home/Background.jpg')"
        },
 
       borderColor: {

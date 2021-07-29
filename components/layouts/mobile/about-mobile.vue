@@ -1,37 +1,11 @@
 <template>
   <div class="header-nav relative">
-    <div
-      :class="isDropdownOpen ? 'is-active' : ''"
-      class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
-      @click="toggleDropdown"
-    >
-      <span
-        class="
-          mr-2
-          tracking-wider
-          text-md
-          flex
-          items-center
-          select-none
-        "
-      >
-        <span class="text-white group-hover:text-gray-200 font-sora">
-          {{ $t('about') }}
-        </span>
-      </span>
-      <v-ui-icon
-        :icon="Icon.Dropdown"
-        xs
-        class="text-white group-hover:text-gray-300"
-      />
-    </div>
     <transition name="fade">
       <div
-        v-if="isDropdownOpen"
         v-on-clickaway="closeDropdown"
         :class="classes"
       >
-        <div class="pt-8 pr-10 pb-2.5 p-3.5 w-48 flex">
+        <div class="py-5 pr-10 p-3.5 flex">
           <div>
             <img :src="'/home/blog.svg'" />
           </div>
@@ -73,14 +47,12 @@ export default Vue.extend({
   computed: {
     classes(): string {
       const classes = [
-          'absolute',
           '-mx-px',
-          'flex',
-          'justify-center',
-          'flex-wrap',
-          '-left-20',
-          'bg-about-pattern',
-          'bg-no-repeat'
+          'border-2',
+          'border-solid',
+          'rounded-xl',
+          'bg-dark-black',
+          'border-light-blue-dark'
       ];
 
       if(!this.landingPage) {

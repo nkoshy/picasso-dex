@@ -5,8 +5,8 @@
     <div class="xl:hidden flex mr-10 pt-1">
         <img :src="`/home/header-mobile-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
     </div>
-    <div :class="aboutHeader ? 'xl:pt-6 xl:mr-12 xl:block hidden' : 'xl:pt-12 pr-20 xl:block hidden'">
-        <img :src="aboutHeader ? `/home/about-header_logo.svg` : `/home/header-desktop-logo.svg` " class="cursor-pointer" @click.stop="goHome" />
+    <div :class="!landingPage ? 'xl:pt-12 pr-20 xl:block hidden' : 'xl:pt-6 xl:mr-12 xl:block hidden' ">
+        <img :src="!landingPage ? `/home/header-desktop-logo.svg`: `/home/about-header_logo.svg`" class="cursor-pointer" @click.stop="goHome" />
     </div>
     <div class="hidden xl:flex">
       <div class="header-nav relative px-3 py-2.5 flex">
@@ -34,13 +34,13 @@
     </div>
     <mobile-menu />
     <div class="hidden xl:flex ml-auto">
-      <v-about />
+      <v-about :landingPage="this.landingPage" />
     </div>
     <div class="hidden xl:flex">
-      <v-community />
+      <v-community :landingPage="this.landingPage" />
     </div>
     <div class="hidden xl:flex sm:ml-auto xl:ml-0">
-      <wallet-connect />
+      <wallet-connect :landingPage="this.landingPage" />
     </div>
   </header>
 </template>
@@ -67,7 +67,7 @@ export default Vue.extend({
   },
 
   props: {
-    aboutHeader: {
+    landingPage: {
       required: false,
       default: false,
       type: Boolean
@@ -87,10 +87,10 @@ export default Vue.extend({
       'justify-evenly'
       ];
 
-      if(this.aboutHeader) {
-        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-8', 'pt-4')
-      } else {
+      if(!this.landingPage) {
         classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-20', 'pr-4')
+      } else {
+        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-8', 'pt-4')
       }
 
       return classes.join(' ')

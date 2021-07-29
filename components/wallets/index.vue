@@ -30,11 +30,13 @@
             {{ $t('connect_wallet') }}
           </p>
         </div>
-        <div v-else>
-          <p class="text-gray-500 text-2xs leading-none">
+        <div v-else class="flex">
+          <img :src="`/home/Wallet.svg`" alt="wallet" />
+          <div class="ml-2">
+          <p class="text-white text-2xs leading-none font-sora">
             {{ $t('connected') }}
           </p>
-          <p class="font-bold text-sm text-white font-mono">
+          <p class="font-bold text-sm text-white font-sora">
             <span>
               {{ formattedAddress }}
             </span>
@@ -42,15 +44,16 @@
               v-clipboard="() => injectiveAddress"
               v-clipboard:success="() => $toast.success($t('address_copied'))"
             >
-              <v-ui-icon
+              <!-- <v-ui-icon
                 :icon="Icon.Copy"
                 :tooltip="$t('copy_address')"
                 class="text-gray-500 hover:text-primary-500"
                 stroke-only
                 xs
-              />
+              /> -->
             </span>
           </p>
+          </div>
         </div>
       </div>
       <v-ui-icon
@@ -63,32 +66,20 @@
     <div
       v-if="isDropdownOpen"
       v-on-clickaway="closeDropdown"
-      class="
-        absolute
-        top-14
-        left-auto
-        mr-0
-        -mx-px
-        -right-4
-        mt-12
-        bg-common-pattern
-        bg-no-repeat
-        bg-contain
-      "
+      :class="classes"
     >
-      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-4 pl-3.5 w-48">
+      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-2 pl-3.5 w-48">
         <v-metamask />
         <hr class="border border-solid border-commuity" />
         <v-ledger />
       </div>
-      <div v-else class="flex flex-wrap w-full">
+      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4 pr-2.5">
         <div
           class="
             w-full
             font-semibold
-            py-2
-            px-4
             text-sm
+            font-sora
             cursor-pointer
           "
           @click.stop="handleClickOnLogout"
@@ -121,6 +112,14 @@ export default Vue.extend({
     onClickaway
   },
 
+  props: {
+    landingPage: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+
   data() {
     return {
       isDropdownOpen: false,
@@ -150,12 +149,31 @@ export default Vue.extend({
       const { injectiveAddress } = this
 
       return formatWalletAddress(injectiveAddress)
+    },
+
+    classes(): string {
+      const classes = [
+        'absolute',
+        'left-auto',
+        'mr-0',
+        '-mx-px',
+        'bg-common-pattern',
+        'bg-no-repeat',
+        'bg-contain'
+      ];
+
+      if(!this.landingPage) {
+        classes.push('mt-12', 'top-14', '-right-4')
+      } else {
+        classes.push('mt-1', 'bg-dark-main', 'top-16', 'mt-2.5')
+      }
+
+      return classes.join(' ')
     }
   },
 
   methods: {
     closeDropdown() {
-      console.log('click1');
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }

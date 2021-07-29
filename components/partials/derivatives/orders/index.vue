@@ -1,30 +1,30 @@
 <template>
   <div v-if="market" class="table-responsive table-compact">
     <table class="table">
-      <thead class="border-b">
-        <tr>
-          <th is="v-ui-table-th" right>
+      <thead class="border-b" >
+        <tr background>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('price') }}</span>
           </th>
-          <th is="v-ui-table-th" right>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('amount') }}</span>
           </th>
-          <th is="v-ui-table-th" right>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('unfilled') }}</span>
           </th>
-          <th is="v-ui-table-th" right>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('total') }}</span>
           </th>
-          <th is="v-ui-table-th" right>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('leverage') }}</span>
           </th>
-          <th is="v-ui-table-th" center>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('type') }}</span>
           </th>
-          <th is="v-ui-table-th" center>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('filled') }}</span>
           </th>
-          <th is="v-ui-table-th" center>
+          <th is="v-ui-table-th" center xs>
             <span>{{ $t('actions') }}</span>
           </th>
         </tr>

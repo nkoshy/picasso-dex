@@ -26,34 +26,43 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
-    
-    paddingLeft:{
+    xs: {
       required: false,
       default: false,
       type: Boolean
     },
-    paddingleft:{
-      required: false,
-      default: false,
-      type: Boolean
-    },
-    paddingRight:{
+    '2xs': {
       required: false,
       default: false,
       type: Boolean
     },
 
+    background:{
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    padding:{
+      required: false,
+      default: false,
+      type: Boolean
+    },
     width: {
       required: false,
       default: '',
       type: String
+    },
+
+    trades: {
+      required: false,
+      default: false,
+      type: Boolean
     }
+    
   },
   computed: {
     classes(): string {
       const classes = [
-        'text-gray-400',
-        'text-xs',
         'font-noraml',
         'align-middle',
         'leading-tight',
@@ -61,11 +70,7 @@ export default Vue.extend({
         'border-none',
         'select-none',
         'whitespace-nowrap',
-        'pt-6',
-        'pb-3.5',
-        'opacity-70',
-        'font-sora',
-        'bg-dark-blue',
+        'font-sora'
       ]
 
       if (this.right) {
@@ -75,21 +80,21 @@ export default Vue.extend({
       } else if (this.left) {
         classes.push('text-left')
       }
-      
-      if (this.paddingLeft) {
-        classes.push('pl-7')
+
+      if (this.xs) {
+        classes.push('text-xs', 'text-white','px-3', 'py-6', 'opacity-70')
       }
 
-      if (this.paddingleft) {
-        classes.push('pl-16')
-      }
-
-      if (this.paddingRight) {
-        classes.push('pr-9')
+      if (this.background) {
+        classes.push('bg-dark-blue')
       }
 
       if (this.width) {
         classes.push(this.width)
+      }
+
+      if (this.trades) {
+        classes.push('px-4', 'py-4')
       }
 
       return classes.join(' ')

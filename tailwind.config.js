@@ -130,7 +130,9 @@ module.exports = {
         'about-pattern': "url('/home/about-border.svg')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
-        'hero-section': "url('/home/Background.jpg')"
+        'hero-section': "url('/home/Background.jpg')",
+        'middle-section': "url('/home/section2.jpg')",
+        'footer': "url('/home/Footer.jpg')"
        },
 
       borderColor: {

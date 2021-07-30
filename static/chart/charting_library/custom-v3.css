@@ -41,7 +41,7 @@ span.pane-legend-line.apply-overflow-tooltip.main {
 }
 
 .toolbar-2n2cwgp5- .fill-2axUON87- {
-  background-color: #15171e !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .group-wWM3zP_M-:first-child,
@@ -58,16 +58,16 @@ span.pane-legend-line.apply-overflow-tooltip.main {
 }
 
 .menuWrap-23ejLU7n- {
-  background-color: #15171e;
+  background: rgba(33, 31, 81, 0.6) !important;
   border: 0px;
 }
 
 .separator-25lkUpN-- {
-  background-color: #4c5156;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .item-2xPVYue0- {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #d3d7e2;
 }
 
@@ -76,12 +76,12 @@ span.pane-legend-line.apply-overflow-tooltip.main {
 }
 
 .isActive-2j-GhQs_- {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #3ea49d !important;
 }
 
 .tv-tabbed-dialog {
-  background-color: #14151a;
+  background: rgba(33, 31, 81, 0.6) !important;
   border: 0px;
 }
 
@@ -94,13 +94,13 @@ span.pane-legend-line.apply-overflow-tooltip.main {
 .symbol-edit-popup,
 .tv-dialog,
 ._tv-dialog {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #d3d7e2 !important;
   border: 0px !important;
 }
 
 a.properties-tabs-label.active:after {
-  background-color: #3ea49d !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 ._tv-dialog-content label,
@@ -123,12 +123,12 @@ a.properties-tabs-label.active:after {
 .items,
 .tv-select-container,
 .tv-search-row__input {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .sbOptions a:hover,
 .tv-insert-study-item:hover {
-  background-color: transparent !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #3ea49d !important;
 }
 
@@ -146,7 +146,7 @@ a.properties-tabs-label.active:after {
 }
 
 .text-2KOWx3rB- {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   border-color: #d3d7e2 !important;
 }
 
@@ -161,7 +161,7 @@ a.properties-tabs-label.active:after {
 
 .tv-text-input {
   color: #d3d7e2 !important;
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .item:hover {
@@ -169,18 +169,18 @@ a.properties-tabs-label.active:after {
 }
 
 .item.selected {
-  background: #333b44 !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   border-left: 4px solid #3ea49d !important;
 }
 
 ._tv-button.tv-left {
-  background: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #d3d7e2 !important;
   border: 0.5px solid #d3d7e2;
 }
 
 .message-2o-rtQm0- {
-  background: #14151ad4 !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #d3d7e2 !important;
 }
 
@@ -190,7 +190,7 @@ a.properties-tabs-label.active:after {
 
 .header-chart-panel,
 .group-wWM3zP_M- {
-  background: #15171e !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .menuBox-20sJGjtG- {
@@ -202,7 +202,7 @@ a.properties-tabs-label.active:after {
 }
 
 .chart-container > .chart-controls-bar {
-  background-color: #14151a !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   height: 36px !important;
   bottom: -15px !important;
   left: 8px;
@@ -226,7 +226,7 @@ a.properties-tabs-label.active:after {
 }
 
 .apply-common-tooltip::before {
-  border-color: #19222d !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .theme-dark body,
@@ -236,7 +236,7 @@ a.properties-tabs-label.active:after {
 .theme-dark .tv-tabbed-dialog,
 .theme-dark .tv-insert-indicator-dialog__search-control,
 .theme-dark .tv-insert-indicator-dialog__search-control .tv-search-row__input {
-  background: #15171e !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 .button-263WXsg-- .icon-1Y-3MM9F-.hovered--MYZioUu-,
@@ -257,7 +257,7 @@ html.theme-dark .button-13wlLwhJ-.isOpened-1939ai3F-:before,
 html.theme-dark .button-2ioYhFEY-.isInteractive-20uLObIc-:hover:before,
 html.theme-dark
   .button-2ioYhFEY-.isInteractive-20uLObIc-.isGrouped-2BBXQnbO-:hover:before {
-  background: #15171e !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   border-color: #121826 !important;
 }
 
@@ -268,7 +268,7 @@ html.theme-dark
 html.theme-dark
   .button-2ioYhFEY-.isInteractive-20uLObIc-.isOpened-p-Ume5l9-:before,
 html.theme-dark .button-13wlLwhJ-:hover:before {
-  background: #15171e !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   border-color: #121826 !important;
   content: '';
   display: block;
@@ -297,12 +297,90 @@ html.theme-dark
 
 html.theme-dark .button-263WXsg--:hover .bg-1kRv1Pf2-,
 html.theme-dark .button-88UE6omC-:hover:before {
-  background: #121826 !important;
+  background: rgba(33, 31, 81, 0.6) !important;
 }
 
 html.theme-dark .scrollBot-2HHpZNuf-,
 html.theme-dark .scrollTop-1eXi8ltS-,
 html.theme-dark .item-stVdeCwG-.interactive-3E0jwVyG-:hover {
-  background: #121826 !important;
+  background: rgba(33, 31, 81, 0.6) !important;
   color: #d3d7e2 !important;
+}
+
+.pane-legend-line.pane-legend-wrap .pane-legend-item-value{
+  color: #31DD80 !important;
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+html.theme-dark .drawingToolbar-U3_QXRof- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.scrollWrap-3gtPS0Fe-.noScrollBar-ieMwbfur- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.scrollWrap-3gtPS0Fe- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+html.theme-dark .inner-1xuW-gY4- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+canvas {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+td.chart-markup-table {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.price-axis-stub-3MoqVLRB- .wrapper-1tN_aWXZ- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+html.theme-dark .chart-controls-bar {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+body, .chart-controls-bar, #footer-chart-panel {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.wrap-1h7U5nKd- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.content-YhoA_L2m- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+html.theme-dark .group-2JyOhh7Z- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.apply-common-tooltip, .apply-common-tooltip:hover {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.price-axis-stub-3MoqVLRB- .wrapper-1tN_aWXZ- {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+html.theme-dark .chart-page .chart-container-border {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.button-263WXsg-- .icon-1Y-3MM9F- svg {
+  fill: white
+}
+
+.layout__area--center {
+  background: rgba(33, 31, 81, 0.6) !important;
+}
+
+.html.theme-dark .button-263WXsg-- {
+  color: white;
 }

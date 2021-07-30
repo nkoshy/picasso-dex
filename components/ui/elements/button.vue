@@ -137,6 +137,11 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+    background: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
@@ -148,9 +153,10 @@ export default Vue.extend({
         'no-underline',
         'text-center',
         'focus:outline-none',
-        'bg-gradient-pink',
         'font-bold',
         'primary-btn'
+        
+        
       ]
 
       if (this.hero) {

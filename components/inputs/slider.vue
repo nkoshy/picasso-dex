@@ -2,14 +2,22 @@
 <template>
   <div class="range-wrap flex items-center relative select-none">
     <input
-      v-bind="$attrs"
-      class="range h-3 "
+      
+      ref="input"
+      class="range"
       :value="value"
       type="range"
-      @input="handleChange"
+      v-on:change="handleChange"
+      min=0
+      max=100
+      
+      
     />
-    <slot></slot>
+    <span ></span>
+    
   </div>
+  
+    
 </template>
 
 <script lang="ts">
@@ -26,7 +34,7 @@ export default Vue.extend({
 
   props: {
     value: {
-      required: true,
+      required: false,
       type: String
     }
   },
@@ -34,8 +42,13 @@ export default Vue.extend({
   methods: {
     handleChange(e: Event) {
       const value = new BigNumber((e.target as HTMLFormElement).value)
-
-      this.$emit('input', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
+      //console.log(this.$refs.input as HTMLInputElement)
+    
+      const style=(this.$refs.input as HTMLInputElement)
+      style.style.background='linear-gradient(to right, #3617E2 0%, #FC69FB  ' + value + '%, #242257 ' + value + '%, #242257 100%)'
+      //style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
+      this.$emit('change', style)
+      this.$emit('change', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
     }
   }
 })

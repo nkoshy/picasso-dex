@@ -140,6 +140,16 @@ export default Vue.extend({
       required: false,
       type: Boolean,
       default: false
+    },
+    borderWidth: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    borderColor: {
+      required: false,
+      type: Boolean,
+      default: false
     }
   },
 
@@ -186,6 +196,7 @@ export default Vue.extend({
 
     handleChange(event: DOMEvent<HTMLSelectElement>) {
       this.$emit('input', event.target.value)
+      
     },
 
     handleKeyUp(event: DOMEvent<HTMLSelectElement>) {

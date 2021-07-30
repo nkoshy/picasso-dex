@@ -11,7 +11,7 @@
         <v-ui-text muted-md>
           {{ $t('total') }}
         </v-ui-text>
-        <v-ui-text em class="flex text-white font-normal text-base align-bottom">
+        <v-ui-text em class="flex  text-white font-normal text-base">
           <span class="mr-1">≈</span>
           <v-ui-format-price
             v-bind="{

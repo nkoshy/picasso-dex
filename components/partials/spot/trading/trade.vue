@@ -28,6 +28,8 @@
         primary
         case
         
+        
+        
       >
         {{ $t('buy', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -49,7 +51,7 @@
     
     <div class="mt-2">
 
-      <div v-if="!tradingTypeMarket" class="mb-4">
+      <div v-if="!tradingTypeMarket" class="mb-4 ">
         <v-input
           ref="input-price"
           :value="form.price"

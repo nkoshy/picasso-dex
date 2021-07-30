@@ -5,7 +5,7 @@
   }
 
   .addon {
-    @apply text-gray-100 font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none border-dark-600;
+    @apply text-gray-100 bg-blueish font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none;
 
     .icon {
       @apply w-6 h-6;
@@ -36,7 +36,7 @@
 }
 
 .input {
-  @apply border-greyish border border-solid w-full bg-blueish text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
+  @apply  w-full bg-blueish text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {

@@ -60,7 +60,7 @@ table {
     }
 
     tbody {
-      tr {
+      tr.orders {
         &:nth-child(odd) {
           background-color:rgba(33, 31, 81, 0.6);
         }

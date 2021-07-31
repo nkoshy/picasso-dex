@@ -35,7 +35,7 @@
           h-full
           flex
           border-2
-        border-pink-main
+          border-pink-main
           rounded-lg
           py-1.5
           px-2
@@ -75,23 +75,24 @@
           justify-center
           flex-wrap
           top-12
-          left-64
+          left-74
           bg-common-pattern
           bg-no-repeat
           bg-contain
-        bg-dark-main
+          bg-dark-main
+          
         "
       >
-        <div class="py-2.5 px-2.5 flex flex-col">
+        <div class="p-6 flex flex-col">
           <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
             $t('deposit')
           }}</v-ui-button>
           <v-ui-button xs primary @click.stop="openTakeOutModal">{{
             $t('withdraw')
           }}</v-ui-button> -->
-            <p class="font-sora mb-2 text-sm text-white cursor-pointer" @click.stop="openTransferModal">{{$t('deposit')}}</p>
-            <p class="font-sora text-sm text-white cursor-pointer" @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
-        </div>  
+          <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
+            <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openTransferModal">{{$t('deposit')}}</p>
+         </div>  
       </div>
     </transition>
     </div>

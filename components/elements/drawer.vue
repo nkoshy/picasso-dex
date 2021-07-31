@@ -3,7 +3,7 @@
     <div
       class="group flex justify-start w-full"
     >
-    <span class="cursor-pointer" @click.stop="toggle">
+    <span class="cursor-pointer flex-1" @click.stop="toggle">
       <slot name="header" />
       <span class="self-end ml-2 -mt-1">
         <v-ui-icon

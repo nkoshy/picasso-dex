@@ -87,14 +87,15 @@ export default Vue.extend({
 
     classes(): string {
       const classes = [
-        'border',
-        'border-dark-600',
-        'first:border-l',
-        'odd:border-r-0',
-        'last:border-r',
+        // 'border',
+        // 'border-dark-600',
+        // 'first:border-l',
+        // 'odd:border-r-0',
+        // 'last:border-r',
         'outline-none',
         'focus:outline-none',
         'rounded-md'
+       
       ]
       if(this.case){
         classes.push('uppercase')
@@ -105,7 +106,7 @@ export default Vue.extend({
           classes.push('text-gray-400', 'hover:text-white')
         }
       } else if (this.half) {
-        classes.push('py-2', 'text-xs', 'w-1/2')
+        classes.push('py-2','text-xs', 'w-1/2')
       } else if (this.halfSmall) {
         classes.push('py-1', 'text-xs', 'w-1/2')
       } else if (this.full) {
@@ -124,7 +125,7 @@ export default Vue.extend({
             'font-bold'
           )
         } else if (this.accent) {
-          classes.push( 'hover:bg-gradient-pink', 'text-white', 'font-sora')
+          classes.push( 'primary-btn', 'text-white', 'font-sora')
         } else {
           classes.push('text-light-green', 'font-bold')
         }

@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full flex flex-wrap">
-    <div class="flex relative flex-col w-full overflow-hidden bg-hero-section bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
+    <div class="flex relative flex-col w-full overflow-hidden xl:bg-hero-section bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
       <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.png"></egg-component>
       <app-header />
       <div class="flex w-full z-19">
@@ -23,13 +23,7 @@
         </div>        
       </div>
     </div>
-      <div class="relative flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden xl:bg-curve-pattern bg-cover bg-white">
-        <!-- <div class="relative flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-white"> -->
-        <!-- <egg-component position='absolute' top='-334px' background='#9CF8FF' filter='blur(214px)' transform='rotate(62.87deg)' left='-72px' height='545.76px' icon="/images/vector28.svg"></egg-component>
-        <egg-component position='absolute' top='921px' background='#527ffa' filter='blur(492px)' transform='rotate(48.87deg)' right='-206px' height='25rem' icon="/images/vector27.svg"></egg-component>
-        <egg-component position='absolute'  left='0px' top='564px' height='33rem' icon="/images/Group.svg"></egg-component>
-        <egg-component position='absolute' top='-44px' right='-206px' width='28rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='20rem' zIndex='24' transform='rotate(226deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='61px' right='-230px' width='24rem' opacity='0.1' border='2px solid #717171' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='25rem' zIndex='24' transform='rotate(224deg)' icon="/images/vector31.svg"></egg-component> -->
+      <div class="relative flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden xl:bg-middle-section bg-cover bg-no-repeat">
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
@@ -50,7 +44,7 @@
         </div>
       </div>
     
-      <div class="conatiner relative w-full md:pt-16 pt-4 bg-dark-hero overflow-hidden">
+      <div class="conatiner relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden xl:bg-hero-section bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
@@ -74,15 +68,6 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
             </div>
         </div>
-        <egg-component position='absolute' top='-34px' right='93px' height='26rem' icon="/images/Group3532.svg"></egg-component>
-        <egg-component position='absolute' top='-73px' right='0px' height='21rem' icon="/images/Group3531.svg"></egg-component>
-        <egg-component position='absolute' bottom='0' left='50px' height='226px' icon="/images/Group3533.svg"></egg-component>
-        <egg-component position='absolute' bottom='0' height='119px' zIndex='25' icon="/images/Group3534.svg"></egg-component>
-        <egg-component position='absolute' top='52px' right='78px' width='43rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='29rem' zIndex='30' transform='rotate(49deg)' icon="/images/vector31.svg"></egg-component>
-        <egg-component position='absolute' top='-66px' right='98px' width='19rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='40rem' zIndex='24' transform='rotate(47deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute' top='-331px' left='-1125px' width='27rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='194rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector31.svg"></egg-component>
-        <egg-component position='absolute' top='-510px' left='-1133px' width='27rem' opacity='0.1' border='2px solid #f5f5f5' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='204rem' zIndex='133' transform='rotate(37deg)' icon="/images/vector30.svg"></egg-component>
-        <egg-component position='absolute'  filter='blur(226px)' width='11rem' bottom='-417px' right='-65px' background='#43F2FF' border='2px solid' borderLeft='0px' borderBottom='0px' borderRadius='40px' height='50rem' transform='rotate(89deg)' icon="/images/vector25.svg"></egg-component>
        </div>
   </div>
 </template>

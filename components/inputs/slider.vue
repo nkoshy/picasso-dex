@@ -2,18 +2,15 @@
 <template>
   <div class="range-wrap flex items-center relative select-none">
     <input
-      
       ref="input"
+      v-model="range"
       class="range"
       type="range"
-      v-model="value"
-      v-on:change="handleChange"
       min=0
       max=100
+      @change="handleChange"
     />
-    <p>{{ value }}</p>
-    <span ></span>
-    
+    <p>{{ range }}</p>
   </div>
   
     
@@ -31,17 +28,18 @@ export default Vue.extend({
     event: 'input'
   },
 
-  data() {
-    return {
-      value: 33
-    };
-  },
-
   props: {
     value: {
       required: false,
-      type: String
+      type: String,
+      default: ''
     }
+  },
+
+  data() {
+    return {
+      range: 25
+    };
   },
 
   methods: {

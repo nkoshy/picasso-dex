@@ -1,7 +1,8 @@
 <template>
   <div class="h-full w-full flex flex-wrap">
     <div class="flex relative flex-col w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
-      <egg-component position='absolute' bottom='0px' right='0px' height='80.5px'  zIndex='15' icon="/images/Vector13.png"></egg-component>
+      <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
+      <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-40">
@@ -74,12 +75,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
-import EggComponent from '~/components/ui/elements/egg-component.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 export default Vue.extend({
   components: {
     HomeCard,
-    EggComponent,
     'app-header': Header
   }
 })

@@ -5,14 +5,13 @@
       
       ref="input"
       class="range"
-      :value="value"
       type="range"
+      v-model="value"
       v-on:change="handleChange"
       min=0
       max=100
-      
-      
     />
+    <p>{{ value }}</p>
     <span ></span>
     
   </div>
@@ -30,6 +29,12 @@ export default Vue.extend({
   model: {
     prop: 'value',
     event: 'input'
+  },
+
+  data() {
+    return {
+      value: 33
+    };
   },
 
   props: {

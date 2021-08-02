@@ -1,20 +1,22 @@
 
 <template>
-  <div class="range-wrap flex items-center relative select-none">
+  <div class="range-wrap flex items-center relative select-none mt-8">
     <input
-      ref="input"
-      v-model="range"
+      id="input"
+      ref='input'
+      v-model="sliderValue"
       class="range"
       type="range"
-      v-model="sliderValue"
-      v-on:change="handleChange"
       min=0
       max=100
+      @change="handleChange"
     />
-    <output ref="input1" for="distance" :value="sliderValue" class="range-slider-tooltip"><span class="range-slider-span">{{ sliderValue}}%</span></output>
+    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip">
+      <span class="font-sora text-white font-bold">
+      {{ sliderValue}}%
+      </span>
+    </div>
   </div>
-  
-    
 </template>
 
 <script lang="ts">
@@ -23,24 +25,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   inheritAttrs: false,
-
-  data() {
-    return {
-      sliderValue: 0
-    };
-  },
-  watch: {
-      'sliderValue'() {
-        // let percentage = 100 / 15 * this.sliderValue;
-        
-        //  let sliderWidth =this.$refs.input.clientWidth;
-        //  let tooltipWidth = this.$refs.input1.clientWidth;
-        // let calc = sliderWidth - tooltipWidth - 32;
-        // let positionCalc = (percentage / 100) * calc;
-        // console.log(positionCalc);
-         //$('.range-slider-tooltip').css('left', positionCalc);
-        }
-  },
 
   model: {
     prop: 'value',
@@ -57,18 +41,25 @@ export default Vue.extend({
 
   data() {
     return {
-      range: 25
+      sliderValue: 25
     };
   },
 
   methods: {
     handleChange(e: Event) {
-      const value = new BigNumber((e.target as HTMLFormElement).value)
-      //console.log(this.$refs.input as HTMLInputElement)
+      const target = (e.target as HTMLFormElement)
+      const value = new BigNumber((target).value)
+      const progress = target.value;
+      const width = document.getElementById('input')?.clientWidth ?? 0;
+      const toolTipElement =  document.getElementById('input1');
+      const actualPixels = ((progress / 100) * width) - ((toolTipElement?.clientWidth ?? 2 ) / 2);
+      if (toolTipElement !== undefined && toolTipElement !== null) {
+          toolTipElement.style.left = `${actualPixels}px`;
+      }
     
       const style=(this.$refs.input as HTMLInputElement)
       style.style.background='linear-gradient(to right, #3617E2 0%, #FC69FB  ' + value + '%, #242257 ' + value + '%, #242257 100%)'
-      //style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
+      // style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
       this.$emit('change', style)
       this.$emit('change', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
     }

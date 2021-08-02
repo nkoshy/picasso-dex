@@ -122,4 +122,17 @@
   left:50%;
   border-top-right-radius: 50%;
 }
+
+.range-slider-tooltip
+{
+  background-image: url("/images/bubble.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  margin: 0;  
+  bottom:14px;
+}
+.range-slider-span
+{
+  font-size: 0.6rem;
   
+}

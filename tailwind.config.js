@@ -130,9 +130,12 @@ module.exports = {
         'about-pattern': "url('/home/about-border.svg')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
-        'hero-section': "url('/home/Background.jpg')",
-        'middle-section': "url('/home/section2.jpg')",
-        'footer': "url('/home/Footer.jpg')"
+        'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",
+        'middle-section_desktop': "url('/home/middle-section_desktop.jpg')",
+        'footer-desktop': "url('/home/footer-desktop.jpg')",
+        'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
+        'middle-section_mobile': "url('/home/middle-section_mobile.jpg')",
+        'footer-mobile': "url('/home/footer-mobile.jpg')"
        },
 
       borderColor: {

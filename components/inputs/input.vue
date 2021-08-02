@@ -141,11 +141,13 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+
     borderWidth: {
       required: false,
       type: Boolean,
       default: false
     },
+    
     borderColor: {
       required: false,
       type: Boolean,

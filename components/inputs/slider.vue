@@ -5,16 +5,13 @@
       
       ref="input"
       class="range"
-      :value="value"
       type="range"
+      v-model="sliderValue"
       v-on:change="handleChange"
       min=0
       max=100
-      
-      
     />
-    <span ></span>
-    
+    <output ref="input1" for="distance" :value="sliderValue" class="range-slider-tooltip"><span class="range-slider-span">{{ sliderValue}}%</span></output>
   </div>
   
     
@@ -26,6 +23,24 @@ import Vue from 'vue'
 
 export default Vue.extend({
   inheritAttrs: false,
+
+  data() {
+    return {
+      sliderValue: 0
+    };
+  },
+  watch: {
+      'sliderValue': function() {
+        let percentage = 100 / 15 * this.sliderValue;
+        
+         let sliderWidth =this.$refs.input.clientWidth;
+         let tooltipWidth = this.$refs.input1.clientWidth;
+        let calc = sliderWidth - tooltipWidth - 32;
+        let positionCalc = (percentage / 100) * calc;
+        console.log(positionCalc);
+         //$('.range-slider-tooltip').css('left', positionCalc);
+        }
+  },
 
   model: {
     prop: 'value',

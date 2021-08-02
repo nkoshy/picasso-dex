@@ -11,7 +11,7 @@
       max=100
       @change="handleChange"
     />
-    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip">
+    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip" :style="progressValue">
       <span class="font-sora text-white font-bold">
       {{ sliderValue}}%
       </span>
@@ -43,6 +43,13 @@ export default Vue.extend({
     return {
       sliderValue: 25
     };
+  },
+
+  computed: {
+    progressValue(){
+        const classes = ['left-20'];
+        return classes.join(' ');
+    }
   },
 
   methods: {

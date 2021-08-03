@@ -37,8 +37,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              nonbgcolor
               :disabled="!form.amount || invalid"
               @click.stop="handleTransferClick"
             >

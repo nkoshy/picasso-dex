@@ -1,5 +1,5 @@
 <template>
-  <p class="flex items-center text-sm bg-yellow-200 ">
+  <p class="flex items-center text-xs font-sora font-noraml text-white bg-yellow-200 ">
     <v-ui-text muted-md>
       {{ title }}
     </v-ui-text>

@@ -35,6 +35,10 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'light-pink':'#8AF9DD',
+      'light-grey': '#302E6F',
+      'dark-blueish':'#211F51',
+      'dark-black':'#000000',
       'greyish':'#302E6F',
       'blueish': '#242257',
       'dark-blue': '#211F5199',
@@ -132,7 +136,10 @@ module.exports = {
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
         'hero-section': "url('/home/Background.jpg')",
         'middle-section': "url('/home/section2.jpg')",
-        'footer': "url('/home/Footer.jpg')"
+        'footer': "url('/home/Footer.jpg')",
+        'model': "url('/home/bg.jpg')",
+        'close': "url('/home/iconclose.png')"
+
        },
 
       borderColor: {

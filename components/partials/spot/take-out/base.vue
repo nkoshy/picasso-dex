@@ -29,7 +29,7 @@
               market ? market.baseToken.symbol : ''
             }}</span>
           </v-input>
-          <v-ui-text xs muted class="flex items-center mt-1">
+          <v-ui-text xs muted class="flex items-center mt-1 opacity-60">
             {{
               $t('small_bridge_fee_note', {
                 fee: bridgeFee.toFixed(),
@@ -41,8 +41,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+               nonbgcolor
               :disabled="!form.amount || invalid"
               @click.stop="handleWithdrawClick"
             >

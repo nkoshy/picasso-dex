@@ -27,7 +27,6 @@
         half
         primary
         case
-        nonprim
         
         
         
@@ -40,7 +39,6 @@
         half
         accent
         case
-        nonprimary
       >
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>

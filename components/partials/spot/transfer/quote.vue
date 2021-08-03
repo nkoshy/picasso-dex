@@ -37,8 +37,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              primary
               :disabled="!form.amount || invalid"
               @click.stop="handleTransferClick"
             >
@@ -48,7 +47,7 @@
         </ValidationProvider>
       </ValidationObserver>
 
-      <v-allowance v-else :token="token"></v-allowance>
+      <v-allowance v-else :token="token" primary></v-allowance>
     </div>
   </div>
 </template>

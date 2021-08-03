@@ -1,27 +1,28 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
-    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow min-h-3xs">
+    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow bg-dark-blueish border-solid rounded-md
+        border border-light-pink">
       <HOCLoading :status="status">
         <div
           v-if="baseTokenWithBalance && quoteTokenWithBalance"
           class="my-6 flex flex-wrap"
         >
           <div class="w-full mb-6 px-4">
-            <h3 class="text-center text-2xl uppercase">
+            <h3 class="text-center text-2xl font-semibold font-sora pt-14 mb-4">
               {{ $t('transfer_modal_title') }}
             </h3>
-            <p class="text-sm text-center opacity-90 mt-4">
+            <p class="text-sm text-center opacity-60 mt-4 font-sora font-normal text-white pl-8 mb-16 pr-12">
               {{ $t('transfer_modal_note') }}
             </p>
           </div>
           <div class="w-full mb-2 lg:w-1/2 px-4">
-            <h3 class="text-center text-base uppercase">
+            <h3 class="text-center text-sm font-sora text-white font-noraml mb-6">
               {{ $t('transfer_asset', { asset: market.baseToken.symbol }) }}
             </h3>
             <v-base :token="baseTokenWithBalance" />
           </div>
-          <div class="w-full lg:w-1/2 lg:border-l px-4">
-            <h3 class="text-center text-base uppercase">
+          <div class="w-full lg:w-1/2 lg:border-l border-solid border-light-grey px-4">
+            <h3 class="text-center text-sm font-sora text-white font-noraml pr-8 mb-6">
               {{ $t('transfer_asset', { asset: market.quoteToken.symbol }) }}
             </h3>
             <v-quote :token="quoteTokenWithBalance" />

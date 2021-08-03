@@ -97,17 +97,15 @@ export default {
   amount_to_transfer: 'Amount to transfer',
   available_balance: 'Available Balance',
   transfer_modal_title: 'Deposit to Injective Chain',
-  transfer_modal_note:
-    "Trading on our Layer-2 Injective Chain requires you to transfer your balance to our Injective Chain. First, set allowance to the asset you want to transfer (if you haven't already), enter desired amount and complete your transfer",
+  transfer_modal_note:"Trading on our Layer-2 Injective Chain requires you to transfer your balance to our Injective Chain. First, set allowance to the asset you want to transfer (if you haven't already), enter desired amount and complete your transfer",
   deposit_modal_title: 'Deposit to Subaccount',
   deposit_modal_note:
     'Your trading experience starts once you deposit your funds from the Injective Chain to your subaccount.',
   take_out_modal_title: 'Withdraw from Injective Chain',
   take_out_modal_note:
-    'You can choose to withdraw your assets from the Injective Chain by filling up the form below',
+    'You can choose to withdraw your assets from the Injective Chain by completing the form below',
   withdraw_modal_title: 'Withdraw from Subaccount',
-  withdraw_modal_note:
-    'You can always withdraw your funds back to the Injective Chain, so you can interact with the rest of the functionalities on the Injective Chain',
+  withdraw_modal_note:   'You can always withdraw your funds back to the Injective Chain, so you can interact with the rest of the functionalities on the Injective Chain',
   transfer_asset: 'Deposit {asset}',
   deposit_asset: 'Deposit {asset}',
   withdraw_asset: 'Withdraw {asset}',

@@ -31,13 +31,14 @@ export default Vue.extend({
   },
   watch: {
       'sliderValue': function() {
-        let percentage = 100 / 15 * this.sliderValue;
+        let percentage = Number(this.sliderValue)
         
          let sliderWidth =this.$refs.input.clientWidth;
-         let tooltipWidth = this.$refs.input1.clientWidth;
+         let tooltipWidth = this.$refs.input1.clientWidth;  
         let calc = sliderWidth - tooltipWidth - 32;
         let positionCalc = (percentage / 100) * calc;
-        console.log(positionCalc);
+        this.$refs.input1.style.left=positionCalc+ "px";
+        console.log(sliderWidth,percentage,positionCalc,this.sliderValue);
          //$('.range-slider-tooltip').css('left', positionCalc);
         }
   },

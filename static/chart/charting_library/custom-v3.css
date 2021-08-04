@@ -326,11 +326,7 @@ html.theme-dark .drawingToolbar-U3_QXRof- {
 }
 
 html.theme-dark .inner-1xuW-gY4- {
-  background: rgba(33, 31, 81, 0.6) !important;
-}
-
-canvas {
-  background: rgba(33, 31, 81, 0.6) !important;
+  background: #242257 !important;
 }
 
 td.chart-markup-table {
@@ -358,7 +354,7 @@ body, .chart-controls-bar, #footer-chart-panel {
 }
 
 html.theme-dark .group-2JyOhh7Z- {
-  background: rgba(33, 31, 81, 0.6) !important;
+  background: #242257 !important;
 }
 
 .apply-common-tooltip, .apply-common-tooltip:hover {
@@ -366,10 +362,6 @@ html.theme-dark .group-2JyOhh7Z- {
 }
 
 .price-axis-stub-3MoqVLRB- .wrapper-1tN_aWXZ- {
-  background: rgba(33, 31, 81, 0.6) !important;
-}
-
-html.theme-dark .chart-page .chart-container-border {
   background: rgba(33, 31, 81, 0.6) !important;
 }
 

@@ -38,6 +38,7 @@ module.exports = {
       'light-bluish':'#2A2769',
       'light-pink':'#8AF9DD',
       'light-grey': '#302E6F',
+      'light-purple': 'rgba(33, 31, 81, 0.6)',
       'dark-blueish':'#211F51',
       'dark-black':'#000000',
       'greyish':'#302E6F',
@@ -60,7 +61,7 @@ module.exports = {
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
       'dark-red': '#FF5252',
-      'dark-black': '#100E2F',
+      'dark-black': '#100E2F',      
 
       dark: {
         border: 'rgba(210,210,225,0.05)',

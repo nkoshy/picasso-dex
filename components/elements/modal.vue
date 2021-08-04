@@ -26,23 +26,24 @@
           z-20
         "
       >
-        <div class="absolute right-0 top-0 -mt-4 -mr-4">
+        <div class="absolute right-8 top-7 -mt-4 -mr-4">
           <button
             v-if="close"
             type="button"
             class="
-              w-10
-              h-10
+              w-5
+              h-5
               align-middle
-              rounded-full
-              border
+              rounded-md
               shadow-md
-              bg-dark-800
-              text-gray-300 text-2xl
+              bg-dark-blueish
+              text-light-pink 
               leading-none
               hover-scale
               outline-none
               focus:outline-none
+              bg-close
+              bg-cover
             "
             @click.stop="onClose"
           >

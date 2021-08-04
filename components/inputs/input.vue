@@ -27,7 +27,7 @@
         <slot name="context" />
       </div>
     </div>
-    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative">
+    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative border border-solid border-greyish">
       <input
         :id="`input-${uid}`"
         ref="input"
@@ -55,11 +55,6 @@
         class="addon-max cursor-pointer"
         @click.stop="handleMaxSelector"
       >
-        <span
-          class="px-2 py-1 bg-dark-700 border border-dark-600 rounded text-xs"
-        >
-          {{ $t('max') }}
-        </span>
       </span>
 
       <span
@@ -141,11 +136,13 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+
     borderWidth: {
       required: false,
       type: Boolean,
       default: false
     },
+    
     borderColor: {
       required: false,
       type: Boolean,

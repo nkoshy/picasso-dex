@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full flex flex-wrap py-4">
+  <div class="min-h-screen h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light">
     <!-- <div class="w-full">
       <div class="container">
         <div class="text-center w-full lg:w-2/3 mx-auto pt-10 lg:pt-16">
@@ -21,7 +21,44 @@
         </div>
       </div>
     </div> -->
-    <div class="container">
+    <app-header />
+    <h1
+      class="text-white text-3xl xl:text-5xl  font-bold font-sora my-14 ml-32"
+    >
+      Markets
+    </h1>
+    <div class="container px-14 pb-4">
+      <v-panel>
+        <div slot="context" class="rounded-t-md bg-secondary-gradient-market pt-3 px-3">
+          <div class="flex items-center justify-between">
+            <div class="tabsPink">
+              <ul role="tablist" class="tablist">
+                <li
+                  role="tab"
+                  :aria-selected="component === components.spot"
+                  class="tab"
+                  @click.stop.prevent="onSelect(components.spot)"
+                >
+                  <span>{{ $t('Spot Markets') }}</span>
+                </li>
+                <li
+                  role="tab"
+                  :aria-selected="component === components.derviatives"
+                  class="tab"
+                  @click.stop.prevent="onSelect(components.derviatives)"
+                >
+                  <span >{{ $t('Derviatives') }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <component :is="component" v-if="component"></component>
+      </v-panel>
+    </div>
+
+    <!-- <div class="container">
       <div class="mt-12 w-full mx-auto lg:w-3/4">
         <v-panel :title="$t('spot_markets')">
           <div class="table-compact table-select px-4 pb-4">
@@ -34,19 +71,36 @@
           </div>
         </v-panel>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import VSpot from '~/components/partials/spot/markets/index.vue'
+import VSpot from '~/components/partials/spot/markets/index-market.vue'
 import VDerivatives from '~/components/partials/derivatives/markets/index.vue'
+import Header from '~/components/layouts/desktop/header.vue'
 
+const components = {
+  spot: 'v-spot',
+  derviatives: 'v-derviatives'
+}
 export default Vue.extend({
   components: {
-    VSpot,
-    VDerivatives
+    'v-spot': VSpot,
+    'v-derviatives': VDerivatives,
+    'app-header': Header
+  },
+  data() {
+    return {
+      components,
+      component: components.spot
+    }
+  },
+  methods: {
+    onSelect(component: string) {
+      this.component = component
+    }
   }
 })
 </script>

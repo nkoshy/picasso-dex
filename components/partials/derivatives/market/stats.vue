@@ -35,7 +35,7 @@
             appendPlusSign: true,
             precision: 2,
             value: change.toString(),
-            class: change.gte(0) ? 'text-primary-500' : 'text-accent-500'
+            class: change.gte(0) ? 'font-sora text-primary-500' : 'font-sora text-accent-500'
           }"
         />
       </v-ui-text>
@@ -92,7 +92,8 @@
           v-bind="{
             appendPlusSign: true,
             precision: 6,
-            value: fundingRate.toFixed()
+            value: fundingRate.toFixed(),
+            class: 'font-sora'
           }"
         />
       </v-ui-text>

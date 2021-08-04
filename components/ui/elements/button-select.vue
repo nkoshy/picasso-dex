@@ -43,6 +43,18 @@ export default Vue.extend({
       type: Boolean
     },
 
+    nonprimary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    nonprim: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     accent: {
       required: false,
       default: false,
@@ -132,9 +144,39 @@ export default Vue.extend({
       } //else {
       //   classes.push('hover:')
       // }
+      if(!this.isActive)
+      {
+        if(this.nonprimary)
+        {
+          classes.push(
+            'border-dark-black',
+            'border-t',
+            'border-r',
+            'border-b',
+            'bg-blueish',
+            'opacity-40',
+            'border-solid'
+          )
+        }
+      }
+
+      // if(!this.isActive)
+      // {
+      //   if(this.nonprim)
+      //   {
+      //     classes.push(
+      //       'border-dark-black',
+      //       'border-t',
+      //       'border-l',
+      //       'border-b',
+      //       'bg-blueish',
+      //       'opacity-40'
+      //     )
+      //   }
+      // }
 
       if (this.disabled) {
-        classes.push('opacity-50', 'pointer-events-none', 'cursor-disabled')
+        classes.push('opacity-50',  'pointer-events-none', 'cursor-disabled')
       }
 
       return classes.join(' ')

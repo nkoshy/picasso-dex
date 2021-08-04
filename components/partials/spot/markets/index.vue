@@ -14,27 +14,71 @@
       </div>
     </div>
 
+    <!--
+      <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
+        <div>
+          <div class="tabs"> 
+            <ul role="tablist" class="tablist">
+             <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+                <span class="font-poppins font-normal text-sm">{{ $t('BNB Markets') }}</span>
+              </v-ui-button>
+             <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+                <span class="font-poppins font-normal text-sm">{{ $t('BTC Markets') }}</span>
+              </v-ui-button>
+              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+                <span class="font-poppins font-normal text-sm">{{ $t('ALTS Markests') }}</span>
+            </v-ui-button>
+              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+                <span class="font-poppins font-normal text-sm">{{ $t('FIAT Markets') }}</span>
+              </v-ui-button>
+              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+                <span class="font-poppins font-normal text-sm">{{ $t('ETF') }}</span>
+              </v-ui-button>
+            </ul>
+          </div>
+        </div>
+      </div>-->
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
             <th is="v-ui-table-th" left>
               {{ $t('market') }}
+              <!-- <v-ui-icon
+        :icon="Icon.upAndDownSort"
+        xs
+        class="text-gray-500 group-hover:text-gray-300 p-1"
+      />-->
             </th>
             <th is="v-ui-table-th" right>
-              <v-ui-text>
+              <v-ui-text>  
                 {{ $t('last_traded_price') }}
               </v-ui-text>
+              <!--  <v-ui-icon
+        :icon="Icon.upAndDownSort"
+        xs
+        class="text-gray-500 group-hover:text-gray-300 p-1"
+      /> -->
             </th>
             <th is="v-ui-table-th" right>
               <v-ui-text>
                 {{ $t('market_change_24h') }}
               </v-ui-text>
+             <!--  <v-ui-icon
+        :icon="Icon.upAndDownSort"
+        xs
+        class="text-gray-500 group-hover:text-gray-300 p-1"
+      /> -->
             </th>
             <th is="v-ui-table-th" right>
               <v-ui-text>
                 {{ $t('market_volume_24h') }}
               </v-ui-text>
+            <!--   <v-ui-icon
+        :icon="Icon.upAndDownSort"
+        xs
+        class="text-gray-500 group-hover:text-gray-300 p-1"
+      /> -->
             </th>
           </tr>
         </thead>

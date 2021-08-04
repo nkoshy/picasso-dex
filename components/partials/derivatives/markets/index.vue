@@ -1,5 +1,6 @@
 <template>
   <div class="table-compact">
+    
     <div class="w-full py-2 border-b px-2">
       <div class="w-full relative">
         <v-input
@@ -13,8 +14,31 @@
         ></span>
       </div>
     </div>
-
-    <div class="table-responsive">
+    <!--
+      <div slot="context" class="bg-black py-2">
+        <div class="flex items-center justify-start">
+          <div class="tabs"> 
+            <ul role="tablist" class="tablist">
+             <v-ui-button class="border border-white focus:border-transparent mx-2">
+                <span>{{ $t('BNB Markets') }}</span>
+              </v-ui-button>
+             <v-ui-button class="border border-white focus:border-transparent mx-2">
+                <span>{{ $t('BTC Markets') }}</span>
+              </v-ui-button>
+              <v-ui-button class="border border-white focus:border-transparent mx-2">
+                <span>{{ $t('ALTS Markest') }}</span>
+            </v-ui-button>
+              <v-ui-button class="border border-white focus:border-transparent mx-2">
+                <span>{{ $t('FIAT Markets') }}</span>
+              </v-ui-button>
+              <v-ui-button class="border border-white focus:border-transparent mx-2">
+                <span>{{ $t('ETF') }}</span>
+              </v-ui-button>
+            </ul>
+         </div>
+        </div>
+      </div> -->
+    <div class="table-responsive px-4 py-4">
       <table class="table">
         <thead>
           <tr>

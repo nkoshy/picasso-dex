@@ -65,3 +65,34 @@
     }
   }
 }
+.tabsPink{
+  @apply overflow-hidden;
+  .tablist {
+    @apply flex overflow-x-auto;
+    .tab {
+      @apply h-16 m-0 cursor-pointer pr-8 ;
+      span {
+        @apply flex items-center font-normal font-poppins text-sm opacity-75 justify-center h-16 px-4 py-2 border-b border-transparent whitespace-nowrap;
+      }
+      &[aria-selected='true'] {
+        span {
+          @apply font-semibold border-primary-1000 opacity-100;
+          .light & {
+            @apply border-gray-200;
+          }
+        }
+      }
+    }
+  }
+  .tab-contents {
+    @apply overflow-y-auto;
+  }
+  &.tabs-expand {
+    .tablist {
+      .tab {
+        @apply flex-1;
+      }
+    }
+  }
+
+}

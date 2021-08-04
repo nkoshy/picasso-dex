@@ -133,6 +133,12 @@ export default Vue.extend({
       type: Boolean
     },
 
+    nonbgcolor: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     disabled: {
       required: false,
       default: false,
@@ -142,22 +148,23 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+    withoutCorner: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
   computed: {
     classes(): string {
-      const classes = [
-        'rounded-md',
-        'inline-block',
-        'no-underline',
-        'text-center',
-        'focus:outline-none',
-        'font-bold',
-        'primary-btn'
-        
-        
-      ]
+      const classes = [];
+
+      if(!this.withoutCorner) {
+       classes.push('rounded-md');
+      }
+
+      classes.push('inline-block', 'no-underline', 'text-center', 'focus:outline-none', 'font-bold');
 
       if (this.hero) {
         classes.shift()
@@ -172,7 +179,7 @@ export default Vue.extend({
       }
 
       if (this.wide) {
-        classes.push('px-12', 'w-full')
+        classes.push('px-12', 'w-full','primary-btn')
         if (!this.sm) {
           classes.push('py-3')
         }
@@ -210,19 +217,22 @@ export default Vue.extend({
         classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');
       }
       else {
-        classes.push('h-12', 'px-6', 'text-xs')
+        classes.push('h-12', 'px-6', 'text-xs','text-white')
       }
 
       if (this.primary) {
-        if (this.text) {
-          classes.push('text-primary-500', 'hover:text-primary-600')
-        } else {
-          classes.push(
-            'bg-primary-500',
-            'text-primary-900',
-            'hover:bg-primary-600'
-          )
-        }
+        // if (this.text) {
+        //   classes.push('text-primary-500')
+        // } else {
+        //   classes.push(
+        //     'bg-primary-500',
+        //     'text-primary-900',
+        //     'hover:bg-primary-600'
+        //   )
+        // }
+        classes.push(
+          'primary-btn'
+        )
       } else if (this.secondary) {
         classes.push(
           'bg-secondary-500',
@@ -258,13 +268,22 @@ export default Vue.extend({
         classes.push('pointer-events-none', 'cursor-not-allowed', 'opacity-75')
       }
 
+      if(this.nonbgcolor){
+        classes.push(
+          'border-pink-light',
+          'border-solid',
+          'bg-dark-bluish',
+          'border',
+          'bg-dark-blueish'
+        )
+      }
       if (this.disabled) {
         classes.push('pointer-events-none', 'cursor-disabled')
-        if (!this.ghost) {
-          classes.push('opacity-50')
-        } else {
-          classes.push('text-white')
-        }
+        // if (!this.ghost) {
+        //   classes.push('opacity-50')
+        // } else {
+        //   classes.push('text-white')
+        // }
       }
 
       return classes.join(' ')

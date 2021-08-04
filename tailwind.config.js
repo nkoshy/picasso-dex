@@ -35,6 +35,12 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'light-bluish':'#2A2769',
+      'light-pink':'#8AF9DD',
+      'light-grey': '#302E6F',
+      'light-purple': '#211F51',
+      'dark-blueish':'#211F51',
+      'dark-black':'#000000',
       'greyish':'#302E6F',
       'blueish': '#242257',
       'dark-blue': '#211F5199',
@@ -55,7 +61,10 @@ module.exports = {
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
       'dark-red': '#FF5252',
-      'dark-black': '#100E2F',
+      'dark-black': '#100E2F',      
+      'light-black':'#211F51',
+      'light-white':'#474E61',
+      'blue-light-bg': '27255D',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -78,7 +87,8 @@ module.exports = {
         600: '#3ea49d',
         700: '#2f7b76',
         800: '#1f524e',
-        900: '#102927'
+        900: '#102927',
+        1000:'#F45B8A'
       },
 
       blue: {
@@ -116,7 +126,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         home: '#F7F7F5',
-        'light-purple': 'rgba(33, 31, 81, 0.6)'
+        'light-purple': '#211f51'
       },
 
       zIndex: {
@@ -124,15 +134,28 @@ module.exports = {
       },
 
       backgroundImage: {
+        'market-pattern': "url('/home/market.png')",
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
         'about-pattern': "url('/home/about-border.svg')",
+        'transfer-border': "url('/images/transfer-border.svg')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
+        'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",
+        'middle-section_desktop': "url('/home/middle-section_desktop.jpg')",
+        'footer-desktop': "url('/home/footer-desktop.jpg')",
+        'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
+        'middle-section_mobile': "url('/home/middle-section_mobile.jpg')",
+        'footer-mobile': "url('/home/footer-mobile.jpg')",
+        'spot-desktop': "url('/images/spot.jpg')",
         'hero-section': "url('/home/Background.jpg')",
         'middle-section': "url('/home/section2.jpg')",
-        'footer': "url('/home/Footer.jpg')"
+        'footer': "url('/home/Footer.jpg')",
+        'model': "url('/home/bg.jpg')",
+        'close': "url('/home/iconclose.png')",
+        'spot': "url('/home/spot.png')",
+        'secondary-gradient-market': 'linear-gradient(140deg, rgba(239,121,241,1) -18%, rgba(39,37,94,1) 15%)'
        },
 
       borderColor: {
@@ -166,7 +189,8 @@ module.exports = {
         'small': '0.875rem',
         'sm': '0.9rem',
         'md': '18px',
-        'large': '2rem'
+        'large': '2rem',
+        'md_l':'16px'
       },
 
       fontFamily: {

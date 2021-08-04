@@ -1,5 +1,5 @@
 <template>
-  <div v-if="market" class="p-4">
+  <div v-if="market" class="pl-4 pr-4 pb-4 pt-6">
     <div class="px-2 -mb-2">
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="balanceToString">{{ balanceToString }}</span>
@@ -32,8 +32,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              nonbgcolor
               :disabled="!form.amount || invalid"
               @click.stop="handleDepositClick"
             >

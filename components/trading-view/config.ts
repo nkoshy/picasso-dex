@@ -28,7 +28,7 @@ export default function ({
     interval,
     timezone,
     timeframe: '1D',
-    toolbar_bg: theme.colors.dark[800],
+    toolbar_bg: theme.colors['light-purple'],
     height: '100%',
     width: '100%',
     container_id: 'tv_chart_container',
@@ -64,16 +64,16 @@ export default function ({
     ],
     client_id: 'trade.picasso.exchange',
     loading_screen: {
-      backgroundColor: theme.colors.dark[800],
-      foregroundColor: theme.colors.gray[200]
+      backgroundColor: theme.colors.blueish,
+      foregroundColor: theme.colors['light-purple']
     },
     overrides: {
-      'paneProperties.background': theme.colors.dark[900],
-      'paneProperties.vertGridProperties.color': theme.colors.dark[700],
-      'paneProperties.horzGridProperties.color': theme.colors.dark[700],
+      'paneProperties.background': theme.colors['light-purple'],
+      'paneProperties.vertGridProperties.color': theme.colors.blueish,
+      'paneProperties.horzGridProperties.color': theme.colors.blueish,
       'paneProperties.vertGridProperties.style': 1,
       'paneProperties.horzGridProperties.style': 1,
-      'paneProperties.crossHairProperties.color': theme.colors.gray[200],
+      'paneProperties.crossHairProperties.color': theme.colors.blueish,
 
       'scalesProperties.textColor': theme.colors.gray[300],
       'scalesProperties.lineColor': theme.colors.dark.border,
@@ -83,15 +83,15 @@ export default function ({
       'mainSeriesProperties.showCountdown': false,
 
       // Bar style
-      'mainSeriesProperties.barStyle.upColor': theme.colors.primary[500],
-      'mainSeriesProperties.barStyle.downColor': theme.colors.accent[500],
+      'mainSeriesProperties.barStyle.upColor': theme.colors['neon-green-main'],
+      'mainSeriesProperties.barStyle.downColor': theme.colors['dark-red'],
       'mainSeriesProperties.barStyle.barColorsOnPrevClose': false,
       'mainSeriesProperties.barStyle.dontDrawOpen': true,
       // Candle Style
-      'mainSeriesProperties.candleStyle.upColor': theme.colors.primary[500],
+      'mainSeriesProperties.candleStyle.upColor': theme.colors['neon-green-main'],
       'mainSeriesProperties.candleStyle.borderUpColor':
         theme.colors.primary[500],
-      'mainSeriesProperties.candleStyle.downColor': theme.colors.accent[500],
+      'mainSeriesProperties.candleStyle.downColor': theme.colors['dark-red'],
       'mainSeriesProperties.candleStyle.borderDownColor':
         theme.colors.accent[500],
       'mainSeriesProperties.candleStyle.drawWick': true,
@@ -101,11 +101,11 @@ export default function ({
       'mainSeriesProperties.candleStyle.barColorsOnPrevClose': false,
       // Hollow Candle Style
       'mainSeriesProperties.hollowCandleStyle.upColor':
-        theme.colors.primary[500],
+      theme.colors['neon-green-main'],
       'mainSeriesProperties.hollowCandleStyle.borderUpColor':
         theme.colors.primary[500],
       'mainSeriesProperties.hollowCandleStyle.downColor':
-        theme.colors.accent[500],
+      theme.colors['dark-red'],
       'mainSeriesProperties.hollowCandleStyle.borderDownColor':
         theme.colors.accent[500],
       'mainSeriesProperties.hollowCandleStyle.drawWick': false,
@@ -147,7 +147,7 @@ export default function ({
       'paneProperties.legendProperties.showSeriesTitle': false,
       'paneProperties.legendProperties.showSeriesOHLC': true,
       'paneProperties.legendProperties.showStudyTitles': true,
-      'paneProperties.legendProperties.showStudyValues': true,
+      'paneProperties.legendProperties.showStudyValues': true,      
       'paneProperties.topMargin': 12,
       'paneProperties.bottomMargin': 2,
       'scalesProperties.fontSize': 12,

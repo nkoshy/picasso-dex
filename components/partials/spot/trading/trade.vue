@@ -27,6 +27,7 @@
         half
         primary
         case
+        nonprimary
         
         
         
@@ -39,13 +40,15 @@
         half
         accent
         case
+        primary
+        nonprimary
       >
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
     <p slot="header" class="flex justify-between text-sm font-normal font-sora pb=3.5 pt-4">
         <v-ui-text muted-md>
-          {{ $t('buy_MATIC') }}
+          {{ $t('buy_currency') }} {{market.baseToken.symbol}}
         </v-ui-text>
         </p>
     
@@ -141,6 +144,7 @@
         :accent="!hasErrors && orderType === SpotOrderSide.Sell"
         class="uppercase"
         wide
+        
         @click.stop="onSubmit"
       >
         {{ $t(orderTypeBuy ? 'buy now' : 'sell now') }}

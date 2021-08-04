@@ -81,6 +81,7 @@
 //   background-color: #242257;
 //   margin-top: -1px;
 // }
+
 .range[type='range']::-webkit-slider-thumb {
   width: 15px;
   -webkit-appearance: none;
@@ -90,10 +91,10 @@
   background: white;
 }
 .range {
-  background: linear-gradient(to right, #3617E2 0%, #FC69FB 50%, #242257 50% ,#242257 100%);
+  background: linear-gradient(to right, #3617E2 0%, #FC69FB 25%, #242257 25% ,#242257 100%);
   border: 1px solid #302E6F;
   height: 12px;
-  width: 356px;
+  width: 403px;
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
@@ -121,4 +122,20 @@
   left:50%;
   border-top-right-radius: 50%;
 }
+
+.range-slider-tooltip
+{
+  background-image: url("/images/bubble.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  margin: 0;  
+  bottom:14px;
+  background-size: 100% 100%;
+  padding: 5px;
+
+}
+.range-slider-span
+{
+  font-size: 0.6rem;
   
+}

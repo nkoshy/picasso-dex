@@ -5,7 +5,7 @@
         <p class="text-center">{{ $t('not_connected_balances') }}</p>
       </v-ui-overlay>
     </div>
-    <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora bg-dark-blue">
+    <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora">
       <v-ui-text-info
         :title="$t('balance_asset', { asset: market.baseToken.symbol })"
       >
@@ -75,23 +75,23 @@
           justify-center
           flex-wrap
           top-12
-          left-74
-          bg-common-pattern
+          right-8
+          bg-transfer-border
           bg-no-repeat
           bg-contain
           bg-dark-main
-          
         "
       >
-        <div class="p-6 flex flex-col">
+        <div class="pt-5 pl-4 pr-4 pb-5 flex flex-col">
           <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
             $t('deposit')
           }}</v-ui-button>
           <v-ui-button xs primary @click.stop="openTakeOutModal">{{
             $t('withdraw')
           }}</v-ui-button> -->
-          <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
-            <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openTransferModal">{{$t('deposit')}}</p>
+          <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openTransferModal">{{$t('deposit')}}</p>
+          <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2"  @click.stop="openTakeOutModal">{{$t('withdraw')}}</p>
+            
          </div>  
       </div>
     </transition>

@@ -1,6 +1,6 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
-    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow bg-dark-blueish border-solid rounded-md
+    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover  rounded-md
         border border-light-pink">
       <HOCLoading :status="status">
         <div

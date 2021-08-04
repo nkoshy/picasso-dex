@@ -36,15 +36,14 @@
               align-middle
               rounded-md
               shadow-md
-              bg-dark-800
+              bg-dark-blueish
               text-light-pink 
               leading-none
               hover-scale
               outline-none
               focus:outline-none
-              border
-              border-solid
-              border-light-pink
+              bg-close
+              bg-cover
             "
             @click.stop="onClose"
           >

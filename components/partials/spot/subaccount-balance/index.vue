@@ -85,9 +85,8 @@
         <v-ui-button xs primary @click.stop="openWithdrawalModal">{{
           $t('withdraw')
         }}</v-ui-button> -->
-          <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openWithdrawalModal">{{$t('withdraw')}}</p>
-          <p class="font-sora mb-2 text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openDepositModal">{{$t('deposit')}}</p>
-          
+        <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openDepositModal">{{$t('deposit')}}</p>
+        <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openWithdrawalModal">{{$t('withdraw')}}</p>
       </div>
     </div>
     </transition>

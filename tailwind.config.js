@@ -35,6 +35,7 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'light-bluish':'#2A2769',
       'light-pink':'#8AF9DD',
       'light-grey': '#302E6F',
       'dark-blueish':'#211F51',
@@ -138,7 +139,8 @@ module.exports = {
         'middle-section': "url('/home/section2.jpg')",
         'footer': "url('/home/Footer.jpg')",
         'model': "url('/home/bg.jpg')",
-        'close': "url('/home/iconclose.png')"
+        'close': "url('/home/iconclose.png')",
+        'spot': "url('/home/spot.png')"
 
        },
 

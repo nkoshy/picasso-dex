@@ -1,6 +1,6 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
-    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow bg-model border-solid rounded-md
+    <div v-if="market" class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover border-solid rounded-md
         border border-light-pink">
       <div class="my-6 flex flex-wrap">
         <div class="w-full mb-6 px-4">

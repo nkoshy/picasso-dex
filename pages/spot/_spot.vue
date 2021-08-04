@@ -1,7 +1,7 @@
 <template>
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
     <!-- <app-header /> -->
-    <div class="h-full w-full bg-dark-main">
+    <div class="h-full w-full bg-spot bg-no-repeat bg-cover">
       <app-header landingPage=true />
       <div class="p-4 pt-0">
         <grid-layout

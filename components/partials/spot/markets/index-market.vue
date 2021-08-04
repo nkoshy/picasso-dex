@@ -1,6 +1,6 @@
 <template>
-  <div class="table-compact">
-    <div class="w-full py-2 border-b px-2">
+  <div class="table-compact table-select px-4 pb-4">
+    <!--<div class="w-full py-2 border-b px-2">
       <div class="w-full relative">
         <v-input
           v-model="filterMarkets"
@@ -11,79 +11,78 @@
         <span class="absolute mr-2 right-0 top-0 mt-1"
           ><v-ui-icon :icon="Icon.Search" xs class="text-gray-400"></v-ui-icon
         ></span>
-      </div>
-    </div>
-
-    <!--
+      </div> 
+    </div>-->
       <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
         <div>
-          <div class="tabs"> 
+          <!--<div class="tabs"> -->
             <ul role="tablist" class="tablist">
-             <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+             <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('BNB Markets') }}</span>
               </v-ui-button>
-             <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+             <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('BTC Markets') }}</span>
               </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('ALTS Markests') }}</span>
             </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('FIAT Markets') }}</span>
               </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-black focus:border-light-white mx-2">
+              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('ETF') }}</span>
               </v-ui-button>
             </ul>
-          </div>
+          <!--</div>-->
         </div>
-      </div>-->
+      </div>
     <div class="table-responsive">
       <table class="table">
         <thead>
-          <tr>
-            <th is="v-ui-table-th" left>
+          <tr class= "flex w-full justify-between bg-light-blue px-2 ">
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
               {{ $t('market') }}
-              <!-- <v-ui-icon
+               <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
         class="text-gray-500 group-hover:text-gray-300 p-1"
-      />-->
+      />
             </th>
-            <th is="v-ui-table-th" right>
-              <v-ui-text>  
+            <th is="v-ui-table-th" class="text-left font-normal text-sm h-16 mx-2" flex>
+              <v-ui-text>
+                
                 {{ $t('last_traded_price') }}
               </v-ui-text>
-              <!--  <v-ui-icon
+                <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
         class="text-gray-500 group-hover:text-gray-300 p-1"
-      /> -->
+      />
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 " flex>
               <v-ui-text>
                 {{ $t('market_change_24h') }}
               </v-ui-text>
-             <!--  <v-ui-icon
+               <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
         class="text-gray-500 group-hover:text-gray-300 p-1"
-      /> -->
+      />
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
               <v-ui-text>
                 {{ $t('market_volume_24h') }}
               </v-ui-text>
-            <!--   <v-ui-icon
+               <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
         class="text-gray-500 group-hover:text-gray-300 p-1"
-      /> -->
+      />
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr
+          <tr class="flex justify-between items-center h-12 px-2 h-16"
             is="v-spot"
             v-for="({ market, summary }, index) in filteredMarkets"
             :key="`spot-markets-${market.ticker}-${index}`"
@@ -98,7 +97,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Spot from './spot.vue'
+import Spot from './market-spot.vue'
 import {
   UiSpotMarket,
   UiSpotMarketSummary,

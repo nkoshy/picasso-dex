@@ -57,6 +57,11 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+    flex: {
+      required: false,
+      default: false,
+      type: Boolean
     }
     
   },
@@ -70,7 +75,7 @@ export default Vue.extend({
         'border-none',
         'select-none',
         'whitespace-nowrap',
-        'font-sora'
+        'font-poppins'
       ]
 
       if (this.right) {
@@ -95,6 +100,9 @@ export default Vue.extend({
 
       if (this.trades) {
         classes.push('px-4', 'py-4')
+      }
+      if(this.flex){
+        classes.unshift('flex','items-center','w-1/4');
       }
 
       return classes.join(' ')

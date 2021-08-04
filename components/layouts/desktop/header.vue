@@ -3,27 +3,39 @@
     :class="classes"
   >
     <div class="xl:hidden flex mr-10 pt-1">
-        <img :src="`/home/header-mobile-logo.svg`" class="cursor-pointer" @click.stop="goHome" />
+      <img
+        :src="`/home/header-mobile-logo.svg`"
+        class="cursor-pointer"
+        @click.stop="goHome"
+      />
     </div>
-    <div :class="!landingPage ? 'xl:pt-12 pr-20 xl:block hidden' : 'xl:pt-6 xl:mr-12 xl:block hidden' ">
-        <img :src="!landingPage ? `/home/header-desktop-logo.svg`: `/home/about-header_logo.svg`" class="cursor-pointer" @click.stop="goHome" />
+    <div
+      :class="
+        !landingPage
+          ? 'xl:pt-12 pr-20 xl:block hidden'
+          : 'xl:pt-6 xl:mr-12 xl:block hidden'
+      "
+    >
+      <img
+        :src="
+          !landingPage
+            ? `/home/header-desktop-logo.svg`
+            : `/home/about-header_logo.svg`
+        "
+        class="cursor-pointer"
+        @click.stop="goHome"
+      />
     </div>
     <div class="hidden xl:flex">
       <div class="header-nav relative px-3 py-2.5 flex">
-      <span
-        class="
-          mr-2
-          tracking-wider
-          text-md
-          flex
-          items-center
-          select-none
-        "
-      >
-        <span class="text-white group-hover:text-gray-200 font-sora" @click.stop="handleGoToMarket">
-          {{ $t('market') }}
+        <span class="mr-2 tracking-wider text-md flex items-center select-none">
+          <span
+            class="text-white group-hover:text-gray-200 font-sora"
+            @click.stop="handleGoToMarket"
+          >
+            {{ $t('market') }}
+          </span>
         </span>
-      </span>
       </div>
     </div>
     <div class="hidden xl:flex">
@@ -71,23 +83,30 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+    market: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
   computed: {
     classes(): string {
       const classes = [
-      'w-full',
-      'flex',
-      'z-30',
-      'relative',
-      'xl:pb-4',
-      'pb-20',
-      'pl-24',
-      'justify-evenly'
-      ];
-
-      if(!this.landingPage) {
+        'w-full',
+        'flex',
+        'z-30',
+        'relative',
+        'xl:pb-4',
+        'pb-20',
+        'pl-24',
+        'justify-evenly'
+      ]
+      if(this.market && this.landingPage){
+ classes.push( 'xl:pr-24')
+      }
+      if (!this.landingPage) {
         classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-20', 'pr-4')
       } else {
         classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-8', 'pt-4')

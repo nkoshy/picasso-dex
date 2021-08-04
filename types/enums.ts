@@ -27,7 +27,8 @@ export enum Icon {
   Wallet = 'wallet',
   CloseCircle = 'close-circle',
   ExternalLink = 'external-link',
-  Sort = 'sort'
+  Sort = 'sort',
+  upAndDownSort= 'upAndDownSort'
 }
 
 export enum Modal {

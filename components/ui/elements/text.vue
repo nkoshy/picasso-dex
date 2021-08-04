@@ -92,6 +92,11 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    poppins: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
 
     muted: {
       required: false,
@@ -152,6 +157,10 @@ export default Vue.extend({
 
       if (this.uppercase) {
         classes.push('uppercase')
+      }
+
+      if(this.poppins){
+        classes.push('font-poppins')
       }
 
       if (this.primary) {

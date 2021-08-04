@@ -53,6 +53,9 @@ module.exports = {
       'dark-grey-main': '#152630',
       'dark-grey-light': '#28495B',
       'dark-red': '#FF5252',
+      'light-black':'#211F51',
+      'light-white':'#474E61',
+      'blue-light-bg': '27255D',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -75,7 +78,8 @@ module.exports = {
         600: '#3ea49d',
         700: '#2f7b76',
         800: '#1f524e',
-        900: '#102927'
+        900: '#102927',
+        1000:'#F45B8A'
       },
 
       blue: {
@@ -121,11 +125,13 @@ module.exports = {
       },
 
       backgroundImage: {
+        'market-pattern': "url('/home/Market.png')",
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
         'about-pattern': "url('/home/about-border.svg')",
-        'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -25%, rgba(39,37,94,1) 25%)'
+        'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -25%, rgba(39,37,94,1) 25%)',
+        'secondary-gradient-market': 'linear-gradient(140deg, rgba(239,121,241,1) -18%, rgba(39,37,94,1) 15%)'
        },
 
       borderColor: {
@@ -159,7 +165,8 @@ module.exports = {
         'small': '0.875rem',
         'sm': '0.9rem',
         'md': '18px',
-        'large': '2rem'
+        'large': '2rem',
+        'md_l':'16px'
       },
 
       fontFamily: {

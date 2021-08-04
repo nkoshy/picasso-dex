@@ -5,7 +5,7 @@
         <p class="text-center">{{ $t('not_connected_balances') }}</p>
       </v-ui-overlay>
     </div>
-    <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora bg-dark-blue">
+    <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora">
       <v-ui-text-info
         :title="$t('balance_asset', { asset: market.baseToken.symbol })"
       >

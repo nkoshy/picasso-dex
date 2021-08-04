@@ -27,7 +27,7 @@
     >
       Markets
     </h1>
-    <div class="container px-14">
+    <div class="container px-14 pb-4">
       <v-panel>
         <div slot="context" class="rounded-t-md bg-secondary-gradient-market pt-3 px-3">
           <div class="flex items-center justify-between">

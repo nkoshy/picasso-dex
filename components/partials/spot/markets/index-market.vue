@@ -36,7 +36,7 @@
           <!--</div>-->
         </div>
       </div>
-    <div class="table-responsive">
+    <div class="table-responsive table-compact">
       <table class="table">
         <thead>
           <tr class= "flex w-full justify-between bg-light-blue px-2 ">
@@ -82,10 +82,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="flex justify-between items-center h-12 px-2 h-16"
-            is="v-spot"
+          <tr is="v-spot"
             v-for="({ market, summary }, index) in filteredMarkets"
             :key="`spot-markets-${market.ticker}-${index}`"
+            class="flex justify-between items-center h-12 px-2 h-16 orders"
             v-bind="{ market, marketSummary: summary }"
             @selected="$emit('selected')"
           ></tr>

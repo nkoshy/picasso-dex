@@ -1,6 +1,6 @@
 
 <template>
-  <div class="range-wrap flex items-center relative select-none mt-8">
+  <div class="range-wrap flex items-center relative select-none mt-8 left-1">
     <input
       id="input"
       ref='input'

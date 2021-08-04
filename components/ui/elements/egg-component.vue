@@ -18,8 +18,6 @@
       left
       }">
     <img :src="icon" class="h-full"/>
-    
-      
   </div>
   
 </template>
@@ -93,13 +91,11 @@ export default Vue.extend({
     {
       required:false,
       type:String
-
     },
     width:
     {
       required:false,
       type:String
-
     },
   }
 })

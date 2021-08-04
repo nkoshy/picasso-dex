@@ -61,9 +61,9 @@ const lgGrid = [
     x: 9,
     y: 3,
     w: 3,
-    h: 2,
+    h: 3,
     minW: 3,
-    minH: 2,
+    minH: 3,
     isDraggable: true,
     isResizable: true
   },
@@ -72,9 +72,9 @@ const lgGrid = [
     x: 9,
     y: 6,
     w: 3,
-    h: 8,
+    h: 7,
     minW: 3,
-    minH: 8,
+    minH: 7,
     isDraggable: true,
     isResizable: true
   },

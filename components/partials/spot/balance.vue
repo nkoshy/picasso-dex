@@ -75,15 +75,14 @@
           justify-center
           flex-wrap
           top-12
-          left-74
-          bg-common-pattern
+          right-8
+          bg-transfer-border
           bg-no-repeat
           bg-contain
           bg-dark-main
-          
         "
       >
-        <div class="p-6 flex flex-col">
+        <div class="pt-5 pl-4 pr-4 pb-5 flex flex-col">
           <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
             $t('deposit')
           }}</v-ui-button>

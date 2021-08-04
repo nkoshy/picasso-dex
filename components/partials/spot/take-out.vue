@@ -4,21 +4,21 @@
         border border-light-pink">
       <div class="my-6 flex flex-wrap">
         <div class="w-full mb-6 px-4">
-          <h3 class="text-center text-2xl font-semibold font-sora pt-14 mb-4">
+          <h3 class="text-center text-xl font-semibold font-sora pt-12 mb-4">
             {{ $t('take_out_modal_title') }}
           </h3>
-          <p class="text-sm text-center opacity-60 mt-4 font-sora font-normal text-white pl-24 mb-16 pr-28">
+          <p class="text-sm text-center opacity-60 mt-4 font-sora font-normal text-white pl-24 mb-14 pr-28">
             {{ $t('take_out_modal_note') }}
           </p>
         </div>
         <div class="w-full mb-2 lg:w-1/2 px-4">
-          <h3 class="text-center text-sm font-sora text-white font-noraml mb-6">
+          <h3 class="text-center text-sm font-sora text-white font-noraml">
             {{ $t('take_out_asset', { asset: market.baseToken.symbol }) }}
           </h3>
           <v-base :balance="baseTokenBalance" />
         </div>
         <div class="w-full lg:w-1/2 lg:border-l border-solid border-light-grey px-4">
-          <h3 class="text-center text-sm font-sora text-white font-noraml pr-8 mb-6">
+          <h3 class="text-center text-sm font-sora text-white font-noraml">
             {{ $t('take_out_asset', { asset: market.quoteToken.symbol }) }}
           </h3>
           <v-quote :balance="quoteTokenBalance" />

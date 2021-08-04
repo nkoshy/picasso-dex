@@ -154,25 +154,26 @@ export default Vue.extend({
             'border-r',
             'border-b',
             'bg-blueish',
-            'opacity-40'
+            'opacity-40',
+            'border-solid'
           )
         }
       }
 
-      if(!this.isActive)
-      {
-        if(this.nonprim)
-        {
-          classes.push(
-            'border-dark-black',
-            'border-t',
-            'border-l',
-            'border-b',
-            'bg-blueish',
-            'opacity-40'
-          )
-        }
-      }
+      // if(!this.isActive)
+      // {
+      //   if(this.nonprim)
+      //   {
+      //     classes.push(
+      //       'border-dark-black',
+      //       'border-t',
+      //       'border-l',
+      //       'border-b',
+      //       'bg-blueish',
+      //       'opacity-40'
+      //     )
+      //   }
+      // }
 
       if (this.disabled) {
         classes.push('opacity-50',  'pointer-events-none', 'cursor-disabled')

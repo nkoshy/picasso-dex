@@ -178,7 +178,7 @@ export default Vue.extend({
       }
 
       if (this.wide) {
-        classes.push('px-12', 'w-full')
+        classes.push('px-12', 'w-full','primary-btn')
         if (!this.sm) {
           classes.push('py-3')
         }

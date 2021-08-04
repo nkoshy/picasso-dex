@@ -12,7 +12,7 @@
       @change="handleChange"
     />
     <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip" :style="progressValue">
-      <span class="font-sora text-white font-bold">
+      <span class="font-sora text-white font-bold text-xs">
       {{ sliderValue}}%
       </span>
     </div>

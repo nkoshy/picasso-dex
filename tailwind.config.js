@@ -35,6 +35,9 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'light-pink':'#8AF9DD',
+      'light-grey': '#302E6F',
+      'dark-blueish':'#211F51',
       'dark-black':'#000000',
       'greyish':'#302E6F',
       'blueish': '#242257',
@@ -138,7 +141,13 @@ module.exports = {
         'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
         'middle-section_mobile': "url('/home/middle-section_mobile.jpg')",
         'footer-mobile': "url('/home/footer-mobile.jpg')",
-        'spot-desktop': "url('/images/spot.jpg')"
+        'spot-desktop': "url('/images/spot.jpg')",
+        'hero-section': "url('/home/Background.jpg')",
+        'middle-section': "url('/home/section2.jpg')",
+        'footer': "url('/home/Footer.jpg')",
+        'model': "url('/home/bg.jpg')",
+        'close': "url('/home/iconclose.png')"
+
        },
 
       borderColor: {

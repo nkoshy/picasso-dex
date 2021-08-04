@@ -33,8 +33,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              primary
               :disabled="!form.amount || invalid"
               @click.stop="handleDepositClick"
             >

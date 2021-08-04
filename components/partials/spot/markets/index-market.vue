@@ -17,19 +17,19 @@
         <div>
           <!--<div class="tabs"> -->
             <ul role="tablist" class="tablist">
-             <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
+             <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('BNB Markets') }}</span>
               </v-ui-button>
-             <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
+             <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('BTC Markets') }}</span>
               </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
+              <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('ALTS Markests') }}</span>
             </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
+              <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('FIAT Markets') }}</span>
               </v-ui-button>
-              <v-ui-button class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
+              <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('ETF') }}</span>
               </v-ui-button>
             </ul>

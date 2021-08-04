@@ -21,7 +21,7 @@
             appendPlusSign: true,
             precision: 2,
             value: change.toString(),
-            class: change.gte(0) ? 'text-light-green text-3xs' : 'text-accent-500'
+            class: change.gte(0) ? 'font-sora text-light-green text-3xs' : 'font-sora text-accent-500'
           }"
         />
       </v-ui-text>

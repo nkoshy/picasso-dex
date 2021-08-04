@@ -26,6 +26,11 @@ export default Vue.extend({
       required: true,
       type: Number,
       default: 0
+    },
+
+    classes: {
+      required: true,
+      type: String
     }
   },
 
@@ -48,7 +53,7 @@ export default Vue.extend({
 
   render(createElement): VNode {
     const parentAttributes = {
-      class: 'font-sora',
+      class: this.classes,
       attrs: this.$attrs,
       on: this.$listeners
     }

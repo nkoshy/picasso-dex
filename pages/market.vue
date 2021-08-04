@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full flex flex-wrap py-0 bg-market-pattern bg-blend-overlay bg-dark-light">
+  <div class="min-h-screen h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light">
     <!-- <div class="w-full">
       <div class="container">
         <div class="text-center w-full lg:w-2/3 mx-auto pt-10 lg:pt-16">
@@ -23,7 +23,7 @@
     </div> -->
     <app-header />
     <h1
-      class="text-white text-3xl xl:text-5xl  font-bold font-sora text-center my-14 ml-32"
+      class="text-white text-3xl xl:text-5xl  font-bold font-sora my-14 ml-32"
     >
       Markets
     </h1>

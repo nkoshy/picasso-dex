@@ -148,22 +148,23 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+    withoutCorner: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
   computed: {
     classes(): string {
-      const classes = [
-        'rounded-md',
-        'inline-block',
-        'no-underline',
-        'text-center',
-        'focus:outline-none',
-        'font-bold',
-        
-        
-        
-      ]
+      const classes = [];
+
+      if(!this.withoutCorner) {
+       classes.push('rounded-md');
+      }
+
+      classes.push('inline-block', 'no-underline', 'text-center', 'focus:outline-none', 'font-bold');
 
       if (this.hero) {
         classes.shift()

@@ -38,7 +38,7 @@
          </div>
         </div>
       </div> -->
-    <div class="table-responsive">
+    <div class="table-responsive px-4 py-4">
       <table class="table">
         <thead>
           <tr>

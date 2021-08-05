@@ -139,7 +139,7 @@ module.exports = {
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
         'about-pattern': "url('/home/about-border.svg')",
-        'transfer-border': "url('/images/transfer-border.svg')",
+        'transfer-border': "url('/images/spot-dropdown-popup.png')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
         'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",

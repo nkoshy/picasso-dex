@@ -19,7 +19,7 @@ export const uniqueId = (characters: number = 6): string =>
   ).toString(characters)
 
 export const headTitle =
-  'Injective Exchange - DeFi DEX | Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
+  'Picasso Exchange - DeFi DEX | Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
 
 export const metaTags = (): {
   appMetaTags: () => Object[]
@@ -109,7 +109,7 @@ export const metaTags = (): {
     return {
       name: title,
       description,
-      short_name: 'Injective Exchange'
+      short_name: 'Picasso Exchange'
       // theme_color: 'dark'
     }
   }

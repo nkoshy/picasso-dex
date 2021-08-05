@@ -18,7 +18,7 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary>Trade</v-ui-button>
+            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
             <v-ui-button home full hero-secondary>Read More</v-ui-button>
           </div>
         </div>        
@@ -39,7 +39,7 @@
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
-            <v-ui-button homeSection full hero-primary>Trade</v-ui-button>
+            <v-ui-button homeSection full hero-primary >Trade</v-ui-button>
             <v-ui-button homeSection full hero-tertiary>Read More</v-ui-button>
           </div>
         </div>
@@ -70,16 +70,29 @@
             </div>
         </div>
        </div>
+       <modal-acknowledge />
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
+import  {Modal} from '~/types'
+import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 export default Vue.extend({
+
   components: {
     HomeCard,
-    'app-header': Header
+    'app-header': Header,
+    'modal-acknowledge': ModalAcknowledge
+  },
+  methods: {
+  
+  openAcknowledgeModal() {
+      this.$accessor.modal.openModal(Modal.Acknowledge)
+    },
+
   }
+  
 })
 </script>

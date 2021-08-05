@@ -134,7 +134,7 @@ module.exports = {
       },
 
       backgroundImage: {
-        'market-pattern': "url('/home/market.png')",
+        'market-pattern': "url('/home/new-market.png')",
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",

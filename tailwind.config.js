@@ -65,6 +65,7 @@ module.exports = {
       'light-black':'#211F51',
       'light-white':'#474E61',
       'blue-light-bg': '27255D',
+      'blueish-dark' : '#151239',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -138,6 +139,7 @@ module.exports = {
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
+        'spot-pattern': "url('/home/Rectangle-border-spot.svg')",
         'about-pattern': "url('/home/about-border.svg')",
         'transfer-border': "url('/images/spot-dropdown-popup.png')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',

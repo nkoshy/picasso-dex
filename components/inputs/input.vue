@@ -27,7 +27,7 @@
         <slot name="context" />
       </div>
     </div>
-    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative border border-solid border-greyish">
+    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative rounded-md border border-light-blue-dark border-opacity-50 ">
       <input
         :id="`input-${uid}`"
         ref="input"

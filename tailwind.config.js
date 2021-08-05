@@ -35,6 +35,7 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'dark-blue-main':'#171543',
       'light-bluish':'#2A2769',
       'light-pink':'#8AF9DD',
       'light-grey': '#302E6F',
@@ -155,6 +156,7 @@ module.exports = {
         'model': "url('/home/bg.jpg')",
         'close': "url('/home/iconclose.png')",
         'spot': "url('/home/spot.png')",
+        'trade': "url('/home/trade.png')",
         'secondary-gradient-market': 'linear-gradient(140deg, rgba(239,121,241,1) -18%, rgba(39,37,94,1) 15%)'
        },
 

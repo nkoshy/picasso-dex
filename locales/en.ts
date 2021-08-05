@@ -178,5 +178,8 @@ export default {
   community: 'Community',
   about: 'About',
   date: 'Date',
-  small_bridge_fee_note: 'Bridge fee: {fee}{asset}'
+  small_bridge_fee_note: 'Bridge fee: {fee}{asset}',
+  acknowledge_title: 'Acknowledge terms',
+  acknowledge_note: 'Picasso Exchange is a non-custodial relayer built on Injective Protocol. Injective is a decentralized sidechain relayer network which serves as a layer-2 derivatives platform, trade execution coordinator (TEC), and decentralized orderbook built on top of Tendermint using the Cosmos-SDK framework. Your use of Picasso involves various risks, including, but not limited to, losses while digital assets are being supplied to Injective order-book or losses due to the fluctuation of prices of tokens in a trading pair.  By trading on Picasso, you hereby agree, represent and warrant that',
+  acknowledge_note_long:'You are not a person or company who is a resident of, national, or is located, incorporated or has a registered agent in, the United States, Canada, China, or any other country to which the United States, the United Kingdom or the European Union embargoes goods or imposes similar sanctions (collectively, “Restricted Territories”). You will not in the future access this site or trade on Picasso while located within the United States or any of the above mentioned countries.You are not using, and will not in the future use, a VPN to mask your physical location from a restricted location.You are lawfully permitted to access this site and trade on spot and derivatives markets under the laws of the jurisdiction in which you reside and are located.You understand the risks associated with entering into cryptocurrencies trading, derivative contracts and using leverage.',
 }

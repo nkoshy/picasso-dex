@@ -1,6 +1,6 @@
 <template>
-  <div v-if="market" class="pl-4 pr-4 pb-4 pt-6">
-    <div class="px-2 -mb-2">
+  <div v-if="market" class="pt-6">
+    <div>
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="balanceToString">{{ balanceToString }}</span>
         <span v-else class="text-gray-400 font-normal text-xs">&mdash;</span>

@@ -270,11 +270,9 @@ export default Vue.extend({
 
       if(this.nonbgcolor){
         classes.push(
-          'border-pink-light',
-          'border-solid',
+          'border-gradient',
           'bg-dark-bluish',
-          'border',
-          'bg-dark-blueish'
+          
         )
       }
       if (this.disabled) {

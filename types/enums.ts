@@ -17,6 +17,7 @@ export enum Icon {
   Ledger = 'ledger',
   Reddit = 'reddit',
   Search = 'search',
+  SpotSearch = 'spotSearch',
   Trash = 'trash',
   Star = 'star',
   Sync = 'sync',

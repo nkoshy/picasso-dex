@@ -34,17 +34,17 @@
           -mx-px
           flex
           justify-center
-          border
-          max-h-xs
           flex-wrap
           top-12
-          left-0
-          min-w-2xl
+          min-w-lg
           mt-12
+          py-4
+          pl-2
+          pr-2
           rounded rounded-tl-none
-          bg-dark-700
-          shadow-md
-          overflow-y-auto
+          bg-spot-pattern
+          bg-no-repeat
+          bg-contain
         "
       >
         <v-spot @selected="closeDropdown" />

@@ -1,11 +1,12 @@
 .has-addon {
+  @apply bg-dark-black;
   .input {
     width: calc(100% - 3.5rem);
    // @apply rounded-r-none;
   }
 
   .addon {
-    @apply border-l-0 text-gray-100 bg-blueish font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none;
+    @apply border-l-0 text-gray-100 font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none;
 
     .icon {
       @apply w-6 h-6;

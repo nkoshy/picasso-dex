@@ -35,6 +35,7 @@
           flex
           justify-center
           flex-wrap
+          -left-40
           top-12
           min-w-lg
           mt-12

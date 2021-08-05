@@ -11,7 +11,7 @@
             <h3 class="text-center text-xl font-semibold font-sora mb-4">
               {{ $t('transfer_modal_title') }}
             </h3>
-            <p class="text-sm text-center opacity-60 mt-4 font-sora font-normal text-white pl-8 pr-12">
+            <p class="text-sm text-center opacity-60 font-sora font-normal text-white pl-8 pr-12">
               {{ $t('transfer_modal_note') }}
             </p>
           </div>

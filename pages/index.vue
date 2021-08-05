@@ -77,7 +77,7 @@
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
-import  Modal from '~/types'
+import  {Modal} from '~/types'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 export default Vue.extend({
 

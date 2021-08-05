@@ -51,7 +51,7 @@
         />
       </v-ui-text>
     </td>
-    <td is="v-ui-table-td" right class="font-normal p-0">
+    <td is="v-ui-table-td" right class="font-normal">
       <v-ui-text v-if="volume.gt(0)" class="flex items-end justify-end">
         <v-ui-format-number
           v-bind="{

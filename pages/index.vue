@@ -18,8 +18,8 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
-            <v-ui-button home full hero-secondary>Read More</v-ui-button>
+            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade </v-ui-button>
+            <v-ui-button home full hero-secondary >Read More</v-ui-button>
           </div>
         </div>        
       </div>
@@ -57,16 +57,16 @@
         </div>
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"/>
+                <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/medium.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/medium.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gomedium">
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/github.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/github.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gogithub">
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-0">
-                <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
             </div>
         </div>
        </div>
@@ -77,19 +77,34 @@
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
-import  {Modal} from '~/types'
+import { Modal } from '~/types'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
-export default Vue.extend({
 
+export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
     'modal-acknowledge': ModalAcknowledge
   },
-  methods: {  
+    methods: {
+   goReadMore() {
+      window.open('https://medium.com/@picasso.exchange','_blank');
+    },
+    gotwitter(){
+      window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+    gomedium(){
+       window.open('https://medium.com/@picasso.exchange','_blank');
+    },
+    godiscord(){
+      window.open('https://discord.gg/kbqfUxaAwn','_blank');
+    },
+    gogithub(){
+      window.open('https://github.com/PicassoExchange','_blank');
+    },
     openAcknowledgeModal() {
       this.$accessor.modal.openModal(Modal.Acknowledge)
-    }
   }
+    }
 })
 </script>

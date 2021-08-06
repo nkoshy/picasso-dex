@@ -1,5 +1,5 @@
 <template>
-  <tr @click.stop="onRowClick">
+  <tr class=" border-b border-light-blue-dark border-opacity-50" @click.stop="onRowClick">
     <td is="v-ui-table-td">
       <div class="flex items-center">
         <img
@@ -8,8 +8,8 @@
           class="w-6 h-6 mr-4"
         />
         <div class="leading-none">
-          <p class="text-gray-100 font-semibold text-sm">{{ market.ticker }}</p>
-          <p class="text-gray-500 text-xs">
+          <p class="text-gray-100 text-xs">{{ market.ticker }}</p>
+          <p class="text-gray-500 text-2xs">
             {{ market.baseToken.name }}
           </p>
         </div>
@@ -26,7 +26,7 @@
               'text-red-500': lastPriceChange === Change.Decrease
             }
           }"
-          class="mr-1"
+          class=" text-xs mr-1"
         />
         <v-ui-icon
           v-if="[Change.Increase, Change.Decrease].includes(lastPriceChange)"

@@ -18,7 +18,6 @@
           md:w-auto
           max-h-modal
           shadow-inner
-          bg-dark-800
           border
           max-w-5xl
           mx-auto

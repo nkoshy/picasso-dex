@@ -55,11 +55,11 @@
               </ul>
             </div>
             <ul>
-              <div class="w-xl relative bg-dark-black">
+              <div class="w-xl relative">
                 <v-input
                   v-model="filterMarkets"
                   :placeholder="$t('filter_markets')"
-                  class="input-xs w-full"
+                  class="input-xs w-full bg-light-purple"
                 >
                 </v-input>
                 <span class="absolute mr-2 right-2 top-1 mt-1"

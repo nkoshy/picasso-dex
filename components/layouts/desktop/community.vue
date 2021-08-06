@@ -37,7 +37,7 @@
               <img :src="'/home/twitter-community.svg'" />
             </div>
             <div class="ml-3">
-              <p class="font-sora text-sm text-white">Twitter</p>
+              <p class="font-sora text-sm text-white" @click.stop = "gotwitter">Twitter</p>
               <p class="font-sora text-xsm mt-1 text-white opacity-40">Stay in the pulse</p>
             </div>
           </div>
@@ -47,7 +47,7 @@
               <img :src="'/home/discord-community.svg'" />
             </div>
             <div class="ml-3">
-              <p class="font-sora text-sm text-white">Discord</p>
+              <p class="font-sora text-sm text-white" @click.stop = "godiscord" >Discord</p>
               <p class="font-sora text-xsm mt-1 text-white opacity-40">Meet the community</p>
             </div>
           </div>
@@ -114,6 +114,12 @@ export default Vue.extend({
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
+    },
+    gotwitter(){
+      window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+    godiscord(){
+      window.open('https://discord.gg/kbqfUxaAwn','_blank');
     }
   }
 })

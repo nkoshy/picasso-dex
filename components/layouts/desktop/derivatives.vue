@@ -40,6 +40,7 @@
           top-12
           -left-40
           min-w-lg
+          min-h-lw
           mt-12
           py-4
           px-2

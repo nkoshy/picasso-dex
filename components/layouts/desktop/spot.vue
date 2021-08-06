@@ -38,6 +38,7 @@
           -left-40
           top-12
           min-w-lg
+          min-h-lw
           mt-12
           py-4
           px-2

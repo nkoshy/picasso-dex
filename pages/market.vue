@@ -92,7 +92,9 @@
         </v-panel>
       </div>
     </div> -->
+    <v-footer SpotPage=true />
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -101,6 +103,7 @@ import VSpot from '~/components/partials/spot/markets/index-market.vue'
 import VDerivatives from '~/components/partials/derivatives/markets/index.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Icon } from '~/types'
+import Footer from '~/components/partials/spot/footer.vue'
 
 const components = {
   spot: 'v-spot',
@@ -110,7 +113,8 @@ export default Vue.extend({
   components: {
     'v-spot': VSpot,
     'v-derviatives': VDerivatives,
-    'app-header': Header
+    'app-header': Header,
+     'v-footer': Footer
   },
   data() {
     return {

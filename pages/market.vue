@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light"
+    class="min-h-screen max-w-8xl m-auto h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light"
   >
     <!-- <div class="w-full">
       <div class="container">

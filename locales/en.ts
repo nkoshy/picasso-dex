@@ -11,9 +11,9 @@ export default {
   metamask: 'Metamask',
   spot_markets: 'Spot Markets',
   welcome_to_ip:
-    'Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.',
+    'Access, create and trade unlimited decentralized finance markets',
   welcome_to_ip_sub:
-    'The unmatched layer-2 trading platform. Access any financial market on Injective’s fast, multi-chain, secure, and zero gas fee exchange protocol.',
+    'Create any financial market on Injective’s fast, cross-chain, low fee, secure, and fully decentralized exchange protocol.',
   maintenance_header: 'The Injective Canary Chain is now live!',
   maintenance_subheader:
     'Please propose and vote on new listings via the staking dashboard <a href="https://staking.injective.network" class="text-primary-500">here</a>. Markets that receive sufficient votes will be tradable on the Injective Exchange.',
@@ -45,6 +45,7 @@ export default {
   amount: 'Amount',
   total: 'Total',
   type: 'Type',
+  side: 'Side',
   buy: 'Buy',
   sell: 'Sell',
   order_success_canceling: 'Order canceled',
@@ -112,6 +113,7 @@ export default {
   allowance_set: 'Allowance Set',
   set_allowance: 'Set Allowance',
   success_transfer: 'Successfully Deposited',
+  success_transfer_assets: 'Successfully Transferred',
   trade_placed: 'Trade placed',
   success_deposit: 'Successfully Deposited',
   success_withdraw: 'Successfully Withdrawn',
@@ -137,6 +139,8 @@ export default {
   reduce_only: 'Reduce Only',
   reduce_only_in_excess:
     'Total size of reduce-only orders would exceed size of your position',
+  reduce_only_exceed_position:
+    'Total size of reduce-only orders exceed the size of your position',
   worst_price_note:
     'Note: If {slippage}% max slippage protection is violated, you will need to resend your market order.',
   max_leverage_warn: 'Please decrease leverage.',
@@ -175,5 +179,24 @@ export default {
   mark_price_invalid: 'The mark price is not valid',
   order_insufficient_margin: 'Order has insufficient margin',
   date: 'Date',
-  small_bridge_fee_note: 'Bridge fee: {fee}{asset}'
+  small_bridge_fee_note: 'Bridge fee: {fee}{asset}',
+  add_margin_to_position_title: 'Add Margin',
+  add_margin_to_position_note:
+    'You can increase the margin your position has to prevent liquidation',
+  add_margin: 'Add Margin',
+  success_added_margin: 'You have successfully added margin to your position',
+  no_liquidity: 'Not enough Liquidity',
+  close_auto_liquidation:
+    'Closing this position with current market depth would result in auto-liquidation.',
+  execution_price_surpasses_bankruptcy_price:
+    'Execution price surpasses bankruptcy price',
+  you_can_only_have_max_orders:
+    'You can only have {number} orders per side per market per subaccount',
+  transfer_on_chain_title: 'Transfer on Injective Chain',
+  transfer_on_chain_note:
+    'Transfer your assets to an address on the Injective Chain',
+  select_asset: 'Select Asset',
+  destination: 'Destination',
+  disclaimer_note:
+    'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.'
 }

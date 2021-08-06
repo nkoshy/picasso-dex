@@ -6,7 +6,7 @@ const pwa = require('./pwa.config')
 
 export default {
   ssr: false,
-  target: 'server',
+  target: 'static',
 
   /*
    ** Headers of the page
@@ -15,7 +15,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#4ecdc4' },
+  loading: { color: '#00ffcc' },
   /*
    ** Global CSS
    */

@@ -5,7 +5,7 @@
         v-model="orderType"
         :option="SpotOrderSide.Buy"
         half
-        primary
+        aqua
       >
         {{ $t('buy_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -13,7 +13,7 @@
         v-model="orderType"
         :option="SpotOrderSide.Sell"
         half
-        accent
+        red
       >
         {{ $t('sell_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -72,13 +72,13 @@
             >
           </div>
         </v-input>
-        <v-ui-text v-if="amountError" semibold accent v-bind="{ '2xs': true }">
+        <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
           {{ amountError }}
         </v-ui-text>
         <v-ui-text
           v-if="priceError && tradingTypeMarket"
           semibold
-          accent
+          red
           v-bind="{ '2xs': true }"
         >
           {{ priceError }}
@@ -103,7 +103,7 @@
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
         </v-input>
-        <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
+        <v-ui-text v-if="priceError" semibold red v-bind="{ '2xs': true }">
           {{ priceError }}
         </v-ui-text>
       </div>
@@ -129,8 +129,8 @@
         :status="status"
         :disabled="hasErrors || !isUserWalletConnected"
         :ghost="hasErrors"
-        :primary="!hasErrors && orderType === SpotOrderSide.Buy"
-        :accent="!hasErrors && orderType === SpotOrderSide.Sell"
+        :aqua="!hasErrors && orderType === SpotOrderSide.Buy"
+        :red="!hasErrors && orderType === SpotOrderSide.Sell"
         class="uppercase"
         wide
         @click.stop="onSubmit"
@@ -355,9 +355,13 @@ export default Vue.extend({
     },
 
     hasPrice(): boolean {
-      const { executionPrice } = this
+      const { executionPrice, priceStep } = this
 
-      return !executionPrice.isNaN() && executionPrice.gt(0)
+      return (
+        !executionPrice.isNaN() &&
+        executionPrice.gt(0) &&
+        executionPrice.gte(priceStep)
+      )
     },
 
     amountStep(): string {
@@ -378,7 +382,7 @@ export default Vue.extend({
       }
 
       if (decimalsAllowed.gt(1)) {
-        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 2) + '1'
+        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 1) + '1'
       }
 
       return '1'
@@ -402,7 +406,7 @@ export default Vue.extend({
       }
 
       if (decimalsAllowed.gt(1)) {
-        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 2) + '1'
+        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 1) + '1'
       }
 
       return '1'
@@ -484,7 +488,9 @@ export default Vue.extend({
 
       const orders = orderTypeBuy ? sells : buys
       const totalAmount = orders.reduce((totalAmount, { quantity }) => {
-        return totalAmount.plus(new BigNumberInWei(quantity).toBase())
+        return totalAmount.plus(
+          new BigNumberInWei(quantity).toBase(market.baseToken.decimals)
+        )
       }, ZERO_IN_BASE)
 
       if (totalAmount.lt(amount)) {
@@ -678,6 +684,7 @@ export default Vue.extend({
   mounted() {
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
+    this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
   },
 
   methods: {
@@ -718,7 +725,9 @@ export default Vue.extend({
 
       if (!orderTypeBuy) {
         const totalFillableAmount = buys.reduce((totalAmount, { quantity }) => {
-          return totalAmount.plus(new BigNumberInWei(quantity).toBase())
+          return totalAmount.plus(
+            new BigNumberInWei(quantity).toBase(market.baseToken.decimals)
+          )
         }, ZERO_IN_BASE)
 
         const totalBalance = new BigNumberInBase(balance).times(
@@ -767,6 +776,34 @@ export default Vue.extend({
 
     onOrderbookSizeClick(size: string) {
       this.onAmountChange(size)
+    },
+
+    onOrderbookNotionalClick({
+      total,
+      price,
+      type
+    }: {
+      total: BigNumberInBase
+      price: BigNumberInBase
+      type: SpotOrderSide
+    }) {
+      const { market, slippage } = this
+
+      if (!market) {
+        return
+      }
+
+      this.tradingType = TradeExecutionType.Market
+      this.orderType =
+        type === SpotOrderSide.Buy ? SpotOrderSide.Sell : SpotOrderSide.Buy
+
+      const amount = total
+        .dividedBy(price.times(slippage).toFixed(market.priceDecimals))
+        .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_FLOOR)
+
+      this.$nextTick(() => {
+        this.onAmountChange(amount)
+      })
     },
 
     onOrderbookPriceClick(price: string) {

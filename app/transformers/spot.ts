@@ -2,7 +2,7 @@ import { BigNumberInWei, BigNumberInBase } from '@injectivelabs/utils'
 import { getTokenMetaData } from '../services/tokens'
 import { grpcTokenMetaToToken, tokenMetaToToken } from './token'
 import { getDecimalsFromNumber } from '~/app/utils/helpers'
-import { sortSpotMarkets } from '~/components/partials/spot/sort'
+import { spot as sortSpotMarkets } from '~/routes.config'
 import {
   BaseUiSpotMarket,
   UiSpotMarket,
@@ -19,12 +19,14 @@ export const spotMarketToUiSpotMarket = (
   return {
     ...market,
     priceDecimals: getDecimalsFromNumber(
-      new BigNumberInBase(market.minPriceTickSize)
-        .toWei(market.baseToken.decimals - market.quoteToken.decimals)
+      new BigNumberInWei(market.minPriceTickSize)
+        .toBase(market.quoteToken.decimals - market.baseToken.decimals)
         .toNumber()
     ),
     quantityDecimals: getDecimalsFromNumber(
-      new BigNumberInWei(market.minQuantityTickSize).toBase().toNumber()
+      new BigNumberInBase(market.minQuantityTickSize)
+        .toWei(-market.baseToken.decimals)
+        .toNumber()
     )
   }
 }

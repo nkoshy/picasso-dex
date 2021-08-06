@@ -32,7 +32,8 @@ import {
   closePosition,
   fetchMarketMarkPrice,
   streamMarketMarkPrice,
-  batchCancelOrders
+  batchCancelOrders,
+  addMarginToPosition
 } from '~/app/services/derivatives'
 import { ZERO_IN_BASE, ZERO_TO_STRING } from '~/app/utils/constants'
 
@@ -479,13 +480,9 @@ export const actions = actionTree(
         marketId: market.marketId,
         subaccountId: subaccount.subaccountId,
         callback: ({ position }) => {
-          if (!position) {
-            return
-          }
+          const quantity = new BigNumberInBase(position ? position.quantity : 0)
 
-          const quantity = new BigNumberInBase(position.quantity)
-
-          if (quantity.lte(0)) {
+          if (!position || quantity.lte(0)) {
             commit('deleteSubaccountPosition')
           } else {
             commit('setSubaccountPosition', position)
@@ -772,6 +769,39 @@ export const actions = actionTree(
         market,
         orderType,
         subaccountId: subaccount.subaccountId
+      })
+    },
+
+    async addMarginToPosition(
+      _,
+      {
+        amount
+      }: {
+        amount: BigNumberInBase
+      }
+    ) {
+      const { subaccount } = this.app.$accessor.account
+      const { market } = this.app.$accessor.derivatives
+      const {
+        address,
+        injectiveAddress,
+        isUserWalletConnected
+      } = this.app.$accessor.wallet
+
+      if (!isUserWalletConnected || !subaccount || !market) {
+        return
+      }
+
+      await this.app.$accessor.app.queue()
+      await this.app.$accessor.wallet.validate()
+
+      await addMarginToPosition({
+        injectiveAddress,
+        address,
+        market,
+        amount: amount.toWei(market.quoteToken.decimals),
+        srcSubaccountId: subaccount.subaccountId,
+        dstSubaccountId: subaccount.subaccountId
       })
     }
   }

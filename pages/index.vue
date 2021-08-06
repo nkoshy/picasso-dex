@@ -10,7 +10,7 @@
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
               src="powered-by-icon.svg"
-              alt="Injective Protocol"
+              alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
             /> 
           </div>
@@ -86,13 +86,10 @@ export default Vue.extend({
     'app-header': Header,
     'modal-acknowledge': ModalAcknowledge
   },
-  methods: {
-  
-  openAcknowledgeModal() {
+  methods: {  
+    openAcknowledgeModal() {
       this.$accessor.modal.openModal(Modal.Acknowledge)
-    },
-
+    }
   }
-  
 })
 </script>

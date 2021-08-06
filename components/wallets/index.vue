@@ -69,6 +69,7 @@
       :class="classes"
     >
       <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-2 pl-3.5 w-48">
+        <v-disclaimer v-if="TRANSFER_RESTRICTIONS_ENABLED" />
         <v-metamask />
         <hr class="border border-solid border-commuity" />
         <v-ledger />
@@ -82,7 +83,22 @@
             font-sora
             cursor-pointer
           "
-          @click.stop="handleClickOnLogout"
+          @click.stop="onTransferNavClick"
+        >
+          <span>{{ $t('transfer') }}</span>
+        </div>
+        <div
+          class="
+            w-full
+            bg-dark-700
+            font-semibold
+            py-2
+            px-4
+            text-sm
+            cursor-pointer
+            hover:bg-hover300
+          "
+          @click.stop="onLogoutClick"
         >
           <span>{{ $t('logout') }}</span>
         </div>
@@ -98,14 +114,17 @@ import { AccountAddress } from '@injectivelabs/ts-types'
 import { Wallet } from '@injectivelabs/web3-strategy'
 import { directive as onClickaway } from 'vue-clickaway'
 import { formatWalletAddress } from '@injectivelabs/utils'
+import VDisclaimer from './disclaimer.vue'
 import VMetamask from './wallets/metamask.vue'
 import VLedger from './wallets/ledger.vue'
-import { Icon } from '~/types'
+import { TRANSFER_RESTRICTIONS_ENABLED } from '~/app/utils/constants'
+import { Icon, Modal } from '~/types'
 
 export default Vue.extend({
   components: {
     VMetamask,
-    VLedger
+    VLedger,
+    VDisclaimer
   },
 
   directives: {
@@ -122,6 +141,7 @@ export default Vue.extend({
 
   data() {
     return {
+      TRANSFER_RESTRICTIONS_ENABLED,
       isDropdownOpen: false,
       Wallet,
       Icon
@@ -183,8 +203,12 @@ export default Vue.extend({
       this.isDropdownOpen = !this.isDropdownOpen
     },
 
-    handleClickOnLogout() {
+    onLogoutClick() {
       this.$accessor.wallet.logout()
+    },
+
+    onTransferNavClick() {
+      this.$accessor.modal.openModal(Modal.TransferOnChain)
     }
   }
 })

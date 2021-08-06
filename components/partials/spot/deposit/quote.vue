@@ -49,7 +49,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { BigNumberInBase, BigNumberInWei, Status } from '@injectivelabs/utils'
+import { BigNumberInBase, Status } from '@injectivelabs/utils'
 import { UiSpotMarket } from '~/types'
 import { UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS } from '~/app/utils/constants'
 
@@ -62,7 +62,7 @@ export default Vue.extend({
   props: {
     balance: {
       required: true,
-      type: Object as PropType<BigNumberInWei>
+      type: Object as PropType<BigNumberInBase>
     }
   },
 
@@ -86,18 +86,12 @@ export default Vue.extend({
     },
 
     balanceToString(): string {
-      const { market, balance } = this
+      const { balance } = this
 
-      if (!market) {
-        return ''
-      }
-
-      return balance
-        .toBase(market.quoteToken.decimals)
-        .toFixed(
-          UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
-          BigNumberInBase.ROUND_FLOOR
-        )
+      return balance.toFixed(
+        UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+        BigNumberInBase.ROUND_FLOOR
+      )
     }
   },
 

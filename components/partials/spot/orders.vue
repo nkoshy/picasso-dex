@@ -43,6 +43,7 @@
           v-if="component === components.openOrders"
           xs
           primary
+          text
           class="mr-4"
           @click.stop="handleCancelAllClick"
         >
@@ -66,7 +67,7 @@ const components = {
   openOrders: 'v-open-orders',
   tradeHistory: 'v-trade-history',
   funds: 'v-funds',
-  orderHistory: 'v-order-history',
+  orderHistory: 'v-order-history'
 }
 
 export default Vue.extend({
@@ -74,8 +75,7 @@ export default Vue.extend({
     'v-trade-history': TradeHistory,
     'v-open-orders': OpenOrders,
     'v-funds': Funds,
-     'v-order-history': OrderHistory,
-    
+     'v-order-history': OrderHistory
   },
 
   data() {

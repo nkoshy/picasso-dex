@@ -12,7 +12,7 @@
               <span>{{ $t('price') }}</span>
             </th>
             <th is="v-ui-table-th" center xs>
-              <span>{{ $t('size') }}</span>
+              <span>{{ $t('amount') }}</span>
             </th>
             <th is="v-ui-table-th" center xs>
               <span>{{ $t('notional_size') }}</span>
@@ -21,7 +21,7 @@
               <span>{{ $t('fee') }}</span>
             </th>
             <th is="v-ui-table-th" center xs>
-              <span>{{ $t('direction') }}</span>
+              <span>{{ $t('side') }}</span>
             </th>
             <th is="v-ui-table-th" center xs>
               <span>{{ $t('execution_type') }}</span>

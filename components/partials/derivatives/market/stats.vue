@@ -6,8 +6,8 @@
           v-bind="{
             value: lastPrice,
             class: {
-              'text-primary-500': lastPriceChange === Change.Increase,
-              'text-accent-500': lastPriceChange === Change.Decrease
+              'text-aqua-500': lastPriceChange === Change.Increase,
+              'text-red-500': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"
@@ -20,8 +20,8 @@
           v-bind="{
             value: markPriceToBN,
             class: {
-              'text-primary-500': lastPriceChange === Change.Increase,
-              'text-accent-500': lastPriceChange === Change.Decrease
+              'text-aqua-500': lastPriceChange === Change.Increase,
+              'text-red-500': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"

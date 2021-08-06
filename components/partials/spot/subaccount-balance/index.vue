@@ -78,12 +78,6 @@
         "
       >
       <div class="pt-5 pl-2 pr-4 pb-3 flex flex-col">
-        <!-- <v-ui-button xs primary class="mb-4" @click.stop="openDepositModal">{{
-          $t('deposit')
-        }}</v-ui-button>
-        <v-ui-button xs primary @click.stop="openWithdrawalModal">{{
-          $t('withdraw')
-        }}</v-ui-button> -->
         <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openDepositModal">{{$t('deposit')}}</p>
         <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openWithdrawalModal">{{$t('withdraw')}}</p>
       </div>

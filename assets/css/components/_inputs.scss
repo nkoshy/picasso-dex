@@ -37,8 +37,8 @@
 }
 
 .input {
-  @apply  w-full bg-dark-black text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
-
+  @apply  w-full text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
+  background-color: transparent;
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;

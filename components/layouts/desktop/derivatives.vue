@@ -38,12 +38,16 @@
           max-h-xs
           flex-wrap
           top-12
-          left-0
-          min-w-2xl
+          -left-40
+          min-w-lg
+          min-h-lw
           mt-12
+          py-4
+          px-2
           rounded rounded-tl-none
-          bg-dark-700
-          shadow-md
+           bg-spot-pattern
+          bg-no-repeat
+          bg-cover
           overflow-y-auto
         "
       >

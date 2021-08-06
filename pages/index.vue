@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full w-full flex flex-wrap">
-    <div class="flex relative flex-col w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
+  <div class="h-full flex flex-wrap">
+    <div class="flex relative max-w-8xl m-auto flex-col w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
       <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
@@ -18,13 +18,13 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
-            <v-ui-button home full hero-secondary>Read More</v-ui-button>
+            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade </v-ui-button>
+            <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
         </div>        
       </div>
     </div>
-      <div class="relative flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
+      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
@@ -39,13 +39,13 @@
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
-            <v-ui-button homeSection full hero-primary >Trade</v-ui-button>
-            <v-ui-button homeSection full hero-tertiary>Read More</v-ui-button>
+            <v-ui-button home-section full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
+            <v-ui-button home-section full hero-tertiary @click.stop="goReadMore">Read More</v-ui-button>
           </div>
         </div>
       </div>
     
-      <div class="conatiner relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
+      <div class="conatiner max-w-8xl m-auto relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
@@ -57,16 +57,16 @@
         </div>
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"/>
+                <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/medium.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/medium.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gomedium">
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
-                <img src="/images/github.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/github.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gogithub">
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-0">
-                <img src="/images/discord.svg" alt="" class="h-full cursor-pointer">
+                <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
             </div>
         </div>
        </div>
@@ -77,19 +77,34 @@
 import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
-import  {Modal} from '~/types'
+import { Modal } from '~/types'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
-export default Vue.extend({
 
+export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
     'modal-acknowledge': ModalAcknowledge
   },
-  methods: {  
+    methods: {
+   goReadMore() {
+      window.open('https://medium.com/@picasso.exchange','_blank');
+    },
+    gotwitter(){
+      window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+    gomedium(){
+       window.open('https://medium.com/@picasso.exchange','_blank');
+    },
+    godiscord(){
+      window.open('https://discord.gg/kbqfUxaAwn','_blank');
+    },
+    gogithub(){
+      window.open('https://github.com/PicassoExchange','_blank');
+    },
     openAcknowledgeModal() {
       this.$accessor.modal.openModal(Modal.Acknowledge)
-    }
   }
+    }
 })
 </script>

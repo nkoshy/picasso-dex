@@ -32,7 +32,7 @@
         :class="classes"
       >
         <div class="pt-8 pr-4 pb-2 pl-3.5 w-48 flex flex-col">
-          <div class="flex mb-3">
+          <div class="flex mb-3" @click.stop = "gotwitter">
             <div>
               <img :src="'/home/twitter-community.svg'" />
             </div>
@@ -42,12 +42,12 @@
             </div>
           </div>
           <hr class="border border-solid border-commuity" />
-          <div class="flex mt-4">
+          <div class="flex mt-4"  @click.stop = "godiscord">
             <div>
               <img :src="'/home/discord-community.svg'" />
             </div>
             <div class="ml-3">
-              <p class="font-sora text-sm text-white">Discord</p>
+              <p class="font-sora text-sm text-white" >Discord</p>
               <p class="font-sora text-xsm mt-1 text-white opacity-40">Meet the community</p>
             </div>
           </div>
@@ -114,6 +114,12 @@ export default Vue.extend({
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
+    },
+    gotwitter(){
+      window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+    godiscord(){
+      window.open('https://discord.gg/kbqfUxaAwn','_blank');
     }
   }
 })

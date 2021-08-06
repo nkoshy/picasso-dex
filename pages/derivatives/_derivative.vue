@@ -1,6 +1,6 @@
 <template>
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
-    <div class="h-full w-full">
+    <div class="h-full max-w-8xl m-auto w-full">
       <grid-layout
         :layout="layout"
         :col-num="grid.colNum"

@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light">
+  <div
+    class="min-h-screen max-w-8xl m-auto h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light"
+  >
     <!-- <div class="w-full">
       <div class="container">
         <div class="text-center w-full lg:w-2/3 mx-auto pt-10 lg:pt-16">
@@ -22,14 +24,15 @@
       </div>
     </div> -->
     <app-header />
-    <h1
-      class="text-white text-3xl xl:text-5xl  font-bold font-sora my-14 ml-32"
-    >
+    <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora my-14 ml-32">
       Markets
     </h1>
     <div class="container px-14 pb-4">
       <v-panel>
-        <div slot="context" class="rounded-t-md bg-secondary-gradient-market pt-3 px-3">
+        <div
+          slot="context"
+          class="rounded-t-md bg-secondary-gradient-market pt-3 px-3"
+        >
           <div class="flex items-center justify-between">
             <div class="tabsPink">
               <ul role="tablist" class="tablist">
@@ -47,10 +50,27 @@
                   class="tab"
                   @click.stop.prevent="onSelect(components.derviatives)"
                 >
-                  <span >{{ $t('Derviatives') }}</span>
+                  <span>{{ $t('Derviatives') }}</span>
                 </li>
               </ul>
             </div>
+            <ul>
+              <div class="w-xl relative">
+                <v-input
+                  v-model="filterMarkets"
+                  :placeholder="$t('filter_markets')"
+                  class="input-xs w-full bg-light-purple"
+                >
+                </v-input>
+                <span class="absolute mr-2 right-2 top-1 mt-1"
+                  ><v-ui-icon
+                    :icon="Icon.SpotSearch"
+                    xs
+                    class="text-gray-400"
+                  ></v-ui-icon
+                ></span>
+              </div>
+            </ul>
           </div>
         </div>
 
@@ -72,7 +92,9 @@
         </v-panel>
       </div>
     </div> -->
+    <v-footer SpotPage=true />
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -80,6 +102,8 @@ import Vue from 'vue'
 import VSpot from '~/components/partials/spot/markets/index-market.vue'
 import VDerivatives from '~/components/partials/derivatives/markets/index.vue'
 import Header from '~/components/layouts/desktop/header.vue'
+import { Icon } from '~/types'
+import Footer from '~/components/partials/spot/footer.vue'
 
 const components = {
   spot: 'v-spot',
@@ -89,12 +113,15 @@ export default Vue.extend({
   components: {
     'v-spot': VSpot,
     'v-derviatives': VDerivatives,
-    'app-header': Header
+    'app-header': Header,
+     'v-footer': Footer
   },
   data() {
     return {
       components,
-      component: components.spot
+      filterMarkets: '',
+      component: components.spot,
+      Icon
     }
   },
   methods: {

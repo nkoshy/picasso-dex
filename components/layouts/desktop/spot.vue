@@ -38,14 +38,14 @@
           -left-40
           top-12
           min-w-lg
+          min-h-lw
           mt-12
           py-4
-          pl-2
-          pr-2
+          px-2
           rounded rounded-tl-none
           bg-spot-pattern
           bg-no-repeat
-          bg-contain
+          bg-cover
         "
       >
         <v-spot @selected="closeDropdown" />

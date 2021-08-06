@@ -74,17 +74,10 @@
           bg-transfer-border
           bg-no-repeat
           bg-contain
-          bg-dark-main
           z-10
         "
       >
-      <div class="pt-5 pl-4 pr-4 pb-3 flex flex-col">
-        <!-- <v-ui-button xs primary class="mb-4" @click.stop="openDepositModal">{{
-          $t('deposit')
-        }}</v-ui-button>
-        <v-ui-button xs primary @click.stop="openWithdrawalModal">{{
-          $t('withdraw')
-        }}</v-ui-button> -->
+      <div class="pt-5 pl-2 pr-4 pb-3 flex flex-col">
         <p class="font-sora text-sm text-white cursor-pointer pl-1 pt-1.5" @click.stop="openDepositModal">{{$t('deposit')}}</p>
         <p class="font-sora text-sm text-white cursor-pointer pl-1 mt-2" @click.stop="openWithdrawalModal">{{$t('withdraw')}}</p>
       </div>

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="market" class="pl-4 pr-4 pb-4 pt-6">
-    <div class="px-2 -mb-2">
+  <div v-if="market" class="pt-6">
+    <div>
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="balanceToString">{{ balanceToString }}</span>
         <span v-else class="text-gray-400 font-normal text-xs">&mdash;</span>
@@ -49,7 +49,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { BigNumberInBase, BigNumberInWei, Status } from '@injectivelabs/utils'
+import { BigNumberInBase, Status } from '@injectivelabs/utils'
 import { UiSpotMarket } from '~/types'
 import { UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS } from '~/app/utils/constants'
 
@@ -62,7 +62,7 @@ export default Vue.extend({
   props: {
     balance: {
       required: true,
-      type: Object as PropType<BigNumberInWei>
+      type: Object as PropType<BigNumberInBase>
     }
   },
 
@@ -92,12 +92,10 @@ export default Vue.extend({
         return ''
       }
 
-      return balance
-        .toBase(market.quoteToken.decimals)
-        .toFixed(
-          UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
-          BigNumberInBase.ROUND_FLOOR
-        )
+      return balance.toFixed(
+        UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+        BigNumberInBase.ROUND_FLOOR
+      )
     }
   },
 

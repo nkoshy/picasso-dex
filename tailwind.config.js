@@ -35,6 +35,7 @@ module.exports = {
       leaderboard: '#00000d',
       transparent: 'transparent',      
       home: '#1B1616',
+      'dark-blue-main':'#171543',
       'light-bluish':'#2A2769',
       'light-pink':'#8AF9DD',
       'light-grey': '#302E6F',
@@ -65,6 +66,7 @@ module.exports = {
       'light-black':'#211F51',
       'light-white':'#474E61',
       'blue-light-bg': '27255D',
+      'blueish-dark' : '#151239',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -77,6 +79,18 @@ module.exports = {
         900: '#14151a',
         hero: "#1C1A45"
       },
+
+      /* primary: {
+        100: '#f0feff',
+        200: '#b3fbff',
+        300: '#75f8ff',
+        400: '#3df5ff',
+        500: '#00F2FE',
+        600: '#00c2cc',
+        700: '#009199',
+        800: '#006166',
+        900: '#003033'
+      }, */
 
       primary: {
         100: '#dcf5f3',
@@ -91,19 +105,25 @@ module.exports = {
         1000:'#F45B8A'
       },
 
-      blue: {
-        500: '#3B82F6',
-        700: '#1D4ED8',
-        900: '#1E3A8A'
+      aqua: {
+        100: '#f0fffc',
+        200: '#b3fff0',
+        300: '#7affe4',
+        400: '#3dffd8',
+        500: '#00ffcc',
+        600: '#00cca3',
+        700: '#00997a',
+        800: '#006652',
+        900: '#003329'
       },
 
-      accent: {
+      red: {
         100: '#fcf3f4',
         200: '#f0cbce',
         300: '#e4a0a4',
-        400: '#d9787e',
-        500: '#ce5058',
-        600: '#af313a',
+        400: '#ff5778',
+        500: '#ff2954',
+        600: '#eb002f',
         700: '#83252b',
         800: '#53181c',
         900: '#280b0d'
@@ -134,19 +154,20 @@ module.exports = {
       },
 
       backgroundImage: {
-        'market-pattern': "url('/home/market.png')",
+        'market-pattern': "url('/home/market-new.png')",
         'home-pattern': "url('/home/background.svg')",
         'curve-pattern': "url('/home/curve-pattern.svg')",
         'common-pattern': "url('/home/rectangle-border.svg')",
+        'spot-pattern': "url('/home/Rectangle-border-spot.svg')",
         'about-pattern': "url('/home/about-border.svg')",
-        'transfer-border': "url('/images/transfer-border.svg')",
+        'transfer-border': "url('/images/spot-dropdown-popup.png')",
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
         'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",
-        'middle-section_desktop': "url('/home/middle-section_desktop.jpg')",
+        'middle-section_desktop': "url('/home/home-middle-section-desktop.png')",
         'footer-desktop': "url('/home/footer-desktop.jpg')",
         'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
-        'middle-section_mobile': "url('/home/middle-section_mobile.jpg')",
+        'middle-section_mobile': "url('/home/home-middle-section-mobile.png')",
         'footer-mobile': "url('/home/footer-mobile.jpg')",
         'spot-desktop': "url('/images/spot.jpg')",
         'hero-section': "url('/home/Background.jpg')",
@@ -155,6 +176,7 @@ module.exports = {
         'model': "url('/home/bg.jpg')",
         'close': "url('/home/iconclose.png')",
         'spot': "url('/home/spot.png')",
+        'trade': "url('/home/trade.png')",
         'secondary-gradient-market': 'linear-gradient(140deg, rgba(239,121,241,1) -18%, rgba(39,37,94,1) 15%)'
        },
 

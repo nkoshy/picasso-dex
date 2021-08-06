@@ -1,6 +1,6 @@
 <template>
-  <div v-if="market" class="pl-4 pr-4 pb-4 pt-6">
-    <div class="px-2 -mb-2">
+  <div v-if="market" class="pt-6">
+    <div>
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="balanceToString">{{ balanceToString }}</span>
         <span v-else class="text-gray-400 font-normal text-xs">&mdash;</span>
@@ -79,7 +79,7 @@ export default Vue.extend({
   props: {
     balance: {
       required: true,
-      type: Object as PropType<BigNumberInWei>
+      type: Object as PropType<BigNumberInBase>
     }
   },
 
@@ -129,18 +129,12 @@ export default Vue.extend({
     },
 
     balanceToString(): string {
-      const { market, balance } = this
+      const { balance } = this
 
-      if (!market) {
-        return ''
-      }
-
-      return balance
-        .toBase(market.baseToken.decimals)
-        .toFixed(
-          UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
-          BigNumberInBase.ROUND_FLOOR
-        )
+      return balance.toFixed(
+        UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+        BigNumberInBase.ROUND_FLOOR
+      )
     }
   },
 

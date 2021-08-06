@@ -69,5 +69,22 @@ body {
     .bg-blend-overlay {
       background-blend-mode: overlay;
     }
+    .border-gradient{ 
+      position: relative;
+    }
+    .border-gradient::before {
+      @apply rounded-md;
+      content:"";
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      position:absolute; 
+      border: 1px solid transparent;
+      background: linear-gradient( 45deg ,#3617E2, #FC69FB) border-box;
+      mask-composite: exclude;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;          
+    }
   }
 }

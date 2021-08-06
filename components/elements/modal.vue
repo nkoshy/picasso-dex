@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="isOpen"
-    class="fixed inset-0 flex flex-col items-center pt-24 lg:pt-32 z-40"
+    class="fixed inset-0 flex flex-col items-center pt-8 lg:pt-16 z-40"
   >
     <transition v-if="close" name="fade" appear>
       <div

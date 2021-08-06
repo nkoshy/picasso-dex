@@ -1,5 +1,5 @@
 <template>
-  <tr @click.stop="onRowClick">
+  <tr class=" border-b border-light-blue-dark border-opacity-50" @click.stop="onRowClick">
     <td is="v-ui-table-td">
       <div class="flex items-center">
         <img
@@ -8,8 +8,8 @@
           class="w-6 h-6 mr-4"
         />
         <div class="leading-none">
-          <p class="text-gray-100 font-semibold text-sm">{{ market.ticker }}</p>
-          <p class="text-gray-500 text-xs">
+          <p class="text-gray-100 text-xs">{{ market.ticker }}</p>
+          <p class="text-gray-500 text-2xs">
             {{ market.baseToken.name }}
           </p>
         </div>
@@ -22,25 +22,25 @@
             value: lastTradedPrice,
             decimals: market.priceDecimals,
             class: {
-              'text-primary-500': lastPriceChange === Change.Increase,
-              'text-accent-500': lastPriceChange === Change.Decrease
+              'text-aqua-500': lastPriceChange === Change.Increase,
+              'text-red-500': lastPriceChange === Change.Decrease
             }
           }"
-          class="mr-1"
+          class="text-xs mr-1"
         />
         <v-ui-icon
           v-if="[Change.Decrease, Change.Increase].includes(lastPriceChange)"
           xs
           :rotate="lastPriceChange === Change.Decrease"
-          :primary="lastPriceChange === Change.Increase"
-          :accent="lastPriceChange === Change.Decrease"
+          :aqua="lastPriceChange === Change.Increase"
+          :red="lastPriceChange === Change.Decrease"
           :icon="Icon.Arrow"
         />
       </div>
       <span v-else class="text-gray-500">&mdash;</span>
     </td>
     <td is="v-ui-table-td" right class="font-normal">
-      <v-ui-text sm class="text-right">
+      <v-ui-text xs class="text-right">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,
@@ -52,7 +52,7 @@
       </v-ui-text>
     </td>
     <td is="v-ui-table-td" right class="font-normal">
-      <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-end">
+      <v-ui-text v-if="volume.gt(0)" class="flex items-end justify-end">
         <v-ui-format-number
           v-bind="{
             dontGroupValues: true,

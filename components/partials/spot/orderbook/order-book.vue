@@ -52,9 +52,9 @@
                 )
               "
               xs
-              :rotate="!lastTradedPriceChange === Change.Increase"
-              :primary="lastTradedPriceChange === Change.Increase"
-              :accent="!lastTradedPriceChange === Change.Increase"
+              :rotate="lastTradedPriceChange === Change.Decrease"
+              :aqua="lastTradedPriceChange === Change.Increase"
+              :red="lastTradedPriceChange === Change.Decrease"
               :icon="Icon.Arrow"
             />
           </div>
@@ -187,24 +187,36 @@ export default Vue.extend({
       }, [] as string[])
     },
 
-    buysTotal(): BigNumberInWei {
-      const { buys } = this
+    buysTotalNotional(): BigNumberInBase {
+      const { buys, market } = this
 
-      return buys.reduce((total, buy) => {
-        return total.plus(buy.quantity)
-      }, ZERO_IN_WEI)
+      if (!market) {
+        return ZERO_IN_BASE
+      }
+
+      return buys
+        .reduce((total, buy) => {
+          return total.plus(new BigNumberInWei(buy.quantity).times(buy.price))
+        }, ZERO_IN_WEI)
+        .toBase(market.quoteToken.decimals)
     },
 
-    sellsTotal(): BigNumberInWei {
-      const { sells } = this
+    sellsTotalNotional(): BigNumberInBase {
+      const { market, sells } = this
 
-      return sells.reduce((total, sell) => {
-        return total.plus(sell.quantity)
-      }, ZERO_IN_WEI)
+      if (!market) {
+        return ZERO_IN_BASE
+      }
+
+      return sells
+        .reduce((total, sell) => {
+          return total.plus(new BigNumberInWei(sell.quantity).times(sell.price))
+        }, ZERO_IN_WEI)
+        .toBase(market.quoteToken.decimals)
     },
 
     buysWithDepth(): UiOrderbookPriceLevel[] {
-      const { buys, buysTotal, market } = this
+      const { buys, buysTotalNotional, market } = this
 
       if (!market) {
         return []
@@ -212,25 +224,22 @@ export default Vue.extend({
 
       let accumulator = ZERO_IN_BASE
       return buys.map((record: UiPriceLevel, index: number) => {
-        const quantity = new BigNumberInWei(record.quantity).toBase(
-          market.baseToken.decimals
+        const notional = new BigNumberInBase(record.quantity).times(
+          record.price
         )
 
-        accumulator = index === 0 ? quantity : accumulator.plus(quantity)
+        accumulator = index === 0 ? notional : accumulator.plus(notional)
 
         return {
           ...record,
-          sumOfQuantities: accumulator.toFixed(),
-          depth: accumulator
-            .dividedBy(buysTotal.toBase(market.baseToken.decimals))
-            .times(100)
-            .toNumber()
+          total: accumulator.toFixed(),
+          depth: accumulator.dividedBy(buysTotalNotional).times(100).toNumber()
         }
       })
     },
 
     sellsWithDepth(): UiOrderbookPriceLevel[] {
-      const { sells, sellsTotal, market } = this
+      const { sells, sellsTotalNotional, market } = this
 
       if (!market) {
         return []
@@ -239,17 +248,17 @@ export default Vue.extend({
       let accumulator = ZERO_IN_BASE
       return sells
         .map((record: UiPriceLevel, index: number) => {
-          const quantity = new BigNumberInWei(record.quantity).toBase(
-            market.baseToken.decimals
+          const notional = new BigNumberInBase(record.quantity).times(
+            record.price
           )
 
-          accumulator = index === 0 ? quantity : accumulator.plus(quantity)
+          accumulator = index === 0 ? notional : accumulator.plus(notional)
 
           return {
             ...record,
-            sumOfQuantities: accumulator.toFixed(),
+            total: accumulator.toFixed(),
             depth: accumulator
-              .dividedBy(sellsTotal.toBase(market.baseToken.decimals))
+              .dividedBy(sellsTotalNotional)
               .times(100)
               .toNumber()
           }

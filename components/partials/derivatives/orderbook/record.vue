@@ -21,7 +21,7 @@
       />
       <v-ui-format-order-price
         v-bind="{
-          value: price.toBase(market.quoteToken.decimals),
+          value: price,
           type: type,
           decimals: market.priceDecimals
         }"
@@ -36,15 +36,15 @@
         }"
         class="text-right block"
         :class="{
-          'text-accent-500': quantityChange === Change.Decrease,
-          'text-primary-500': quantityChange === Change.Increase
+          'text-red-500': quantityChange === Change.Decrease,
+          'text-aqua-500': quantityChange === Change.Increase
         }"
       />
     </span>
-    <span class="w-1/3 text-xs px-2 z-10" @click.stop="onSumQuantityClick">
+    <span class="w-1/3 text-xs px-2 z-10" @click.stop="onTotalNotionalClick">
       <v-ui-format-amount
         v-bind="{
-          value: sumOfQuantities,
+          value: total,
           decimals: market.quantityDecimals
         }"
         class="text-right block text-white"
@@ -60,7 +60,7 @@ import {
   BigNumber,
   BigNumberInWei
 } from '@injectivelabs/utils'
-import { ZERO_IN_BASE, ZERO_IN_WEI } from '~/app/utils/constants'
+import { ZERO_IN_BASE } from '~/app/utils/constants'
 import {
   Change,
   DerivativeOrderSide,
@@ -104,24 +104,26 @@ export default Vue.extend({
       return this.$accessor.derivatives.market
     },
 
-    price(): BigNumberInWei {
-      const { market, record } = this
-
-      if (!market) {
-        return ZERO_IN_WEI
-      }
-
-      return new BigNumberInWei(record.price)
-    },
-
-    sumOfQuantities(): BigNumberInBase {
+    price(): BigNumberInBase {
       const { market, record } = this
 
       if (!market) {
         return ZERO_IN_BASE
       }
 
-      return new BigNumberInBase(record.sumOfQuantities || 0)
+      return new BigNumberInWei(record.price).toBase(market.quoteToken.decimals)
+    },
+
+    total(): BigNumberInBase {
+      const { market, record } = this
+
+      if (!market) {
+        return ZERO_IN_BASE
+      }
+
+      return new BigNumberInWei(record.total || 0).toBase(
+        market.quoteToken.decimals
+      )
     },
 
     quantity(): BigNumberInBase {
@@ -190,10 +192,7 @@ export default Vue.extend({
         return
       }
 
-      this.$root.$emit(
-        'orderbook-price-click',
-        price.toBase(market.quoteToken.decimals).toFixed()
-      )
+      this.$root.$emit('orderbook-price-click', price.toFixed())
     },
 
     onQuantityClick() {
@@ -206,14 +205,14 @@ export default Vue.extend({
       this.$root.$emit('orderbook-size-click', quantity.toFixed())
     },
 
-    onSumQuantityClick() {
-      const { sumOfQuantities, market } = this
+    onTotalNotionalClick() {
+      const { total, price, type, market } = this
 
       if (!market) {
         return
       }
 
-      this.$root.$emit('orderbook-size-click', sumOfQuantities)
+      this.$root.$emit('orderbook-notional-click', { total, type, price })
     }
   }
 })

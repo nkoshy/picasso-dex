@@ -15,14 +15,17 @@ const spot = [
   'grt-usdt',
   'grt-usdc',
   'uni-usdt',
-  'uni-usdc'
+  'uni-usdc',
+  'snx-usdt',
+  'qnt-usdt'
 ]
 
-const derivatives = [
-  //
-]
+const derivatives = ['inj-usdt-perp']
 
 module.exports = [
   ...spot.map((s) => `/spot/${s}`),
   ...derivatives.map((d) => `/derivatives/${d}`)
 ]
+
+module.exports.spot = spot
+module.exports.derivatives = derivatives

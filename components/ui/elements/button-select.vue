@@ -48,6 +48,11 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
+    red: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
 
     nonprim: {
       required: false,
@@ -56,6 +61,11 @@ export default Vue.extend({
     },
 
     accent: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    aqua: {
       required: false,
       default: false,
       type: Boolean
@@ -130,20 +140,20 @@ export default Vue.extend({
       if (this.isActive) {
         if (this.primary) {
           classes.push(
-            //'bg-gradient-pink',
-            // 'hover:bg-primary-600',
             'primary-btn',
             'text-white',
             'font-bold'
           )
         } else if (this.accent) {
           classes.push( 'primary-btn', 'text-white', 'font-sora')
+        } else if (this.red) {
+          classes.push('bg-red-500', 'hover:bg-red-600', 'text-white-900')
+        } else if (this.aqua) {
+          classes.push('bg-aqua-500', 'hover:bg-aqua-600', 'text-aqua-900')
         } else {
           classes.push('text-light-green', 'font-bold')
         }
-      } //else {
-      //   classes.push('hover:')
-      // }
+      }
       if(!this.isActive)
       {
         if(this.nonprimary)

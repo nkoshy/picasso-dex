@@ -12,7 +12,7 @@
         <v-ui-format-amount
           class="font-normal text-sm"
           v-bind="{
-            value: baseTokenBalance.toBase(market.baseToken.decimals)
+            value: baseTokenBalance
           }"
         />
       </v-ui-text-info>
@@ -23,7 +23,7 @@
         <v-ui-format-amount
           class="font-normal text-sm"
           v-bind="{
-            value: quoteTokenBalance.toBase(market.quoteToken.decimals)
+            value: quoteTokenBalance
           }"
         />
       </v-ui-text-info>
@@ -79,10 +79,9 @@
           bg-transfer-border
           bg-no-repeat
           bg-contain
-          bg-dark-main
         "
       >
-        <div class="pt-5 pl-4 pr-4 pb-5 flex flex-col">
+        <div class="pt-5 pl-2 pr-4 pb-5 flex flex-col">
           <!-- <v-ui-button xs primary class="mb-4" @click.stop="openTransferModal">{{
             $t('deposit')
           }}</v-ui-button>
@@ -101,24 +100,21 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { BigNumberInWei } from '@injectivelabs/utils'
-import { BankBalances, Modal, UiSpotMarket } from '~/types'
-import { ZERO_IN_WEI } from '~/app/utils/constants'
-import { Icon } from '~/types'
+import { BigNumberInBase, BigNumberInWei } from '@injectivelabs/utils'
 import { directive as onClickaway } from 'vue-clickaway'
-
-
+import { BankBalances, Modal, UiSpotMarket, Icon } from '~/types'
+import { ZERO_IN_BASE } from '~/app/utils/constants'
 
 export default Vue.extend({
+
+  directives: {
+    onClickaway
+  },
   data() {
     return {
       Icon,
       isDropdownOpen: false
     }
-  },
-
-  directives: {
-    onClickaway
   },
 
   computed: {
@@ -134,32 +130,36 @@ export default Vue.extend({
       return this.$accessor.bank.balances
     },
 
-    baseTokenBalance(): BigNumberInWei {
+    baseTokenBalance(): BigNumberInBase {
       const { balances, market } = this
 
       if (!market) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
       if (!balances[market.baseDenom]) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
-      return new BigNumberInWei(balances[market.baseDenom] || 0)
+      return new BigNumberInWei(balances[market.baseDenom] || 0).toBase(
+        market.baseToken.decimals
+      )
     },
 
-    quoteTokenBalance(): BigNumberInWei {
+    quoteTokenBalance(): BigNumberInBase {
       const { balances, market } = this
 
       if (!market) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
       if (!balances[market.quoteDenom]) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
-      return new BigNumberInWei(balances[market.quoteDenom] || 0)
+      return new BigNumberInWei(balances[market.quoteDenom] || 0).toBase(
+        market.quoteToken.decimals
+      )
     }
   },
 
@@ -172,7 +172,6 @@ export default Vue.extend({
       this.$accessor.modal.openModal(Modal.TakeOut)
     },
     toggleDropdown() {
-      console.log("toggle");
       this.isDropdownOpen = !this.isDropdownOpen
     },
 

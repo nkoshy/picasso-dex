@@ -5,7 +5,7 @@
         v-model="orderType"
         :option="DerivativeOrderSide.Buy"
         half
-        primary
+        aqua
       >
         {{ $t('long_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -13,7 +13,7 @@
         v-model="orderType"
         :option="DerivativeOrderSide.Sell"
         half
-        accent
+        red
       >
         {{ $t('short_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -52,9 +52,7 @@
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
         >
-          <span slot="addon">{{
-            market.baseToken.symbol.toUpperCase()
-          }}</span>
+          <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
           <div slot="context" class="text-xs text-gray-400 flex items-center">
             <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
               >25%</span
@@ -70,13 +68,13 @@
             >
           </div>
         </v-input>
-        <v-ui-text v-if="amountError" semibold accent v-bind="{ '2xs': true }">
+        <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
           {{ amountError }}
         </v-ui-text>
         <v-ui-text
           v-if="priceError && tradingTypeMarket"
           semibold
-          accent
+          red
           v-bind="{ '2xs': true }"
         >
           {{ priceError }}
@@ -101,7 +99,7 @@
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
         </v-input>
-        <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
+        <v-ui-text v-if="priceError" semibold red v-bind="{ '2xs': true }">
           {{ priceError }}
         </v-ui-text>
       </div>
@@ -148,8 +146,8 @@
         :status="status"
         :disabled="hasErrors || !isUserWalletConnected"
         :ghost="hasErrors"
-        :primary="!hasErrors && orderType === DerivativeOrderSide.Buy"
-        :accent="!hasErrors && orderType === DerivativeOrderSide.Sell"
+        :aqua="!hasErrors && orderType === DerivativeOrderSide.Buy"
+        :red="!hasErrors && orderType === DerivativeOrderSide.Sell"
         class="uppercase"
         wide
         @click.stop="onSubmit"
@@ -183,7 +181,8 @@ import {
   UiSubaccount,
   UiPosition,
   TradeDirection,
-  UiDerivativeMarketSummary
+  UiDerivativeMarketSummary,
+  UiDerivativeLimitOrder
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -254,6 +253,10 @@ export default Vue.extend({
 
     subaccount(): UiSubaccount | undefined {
       return this.$accessor.account.subaccount
+    },
+
+    orders(): UiDerivativeLimitOrder[] {
+      return this.$accessor.derivatives.subaccountOrders
     },
 
     position(): UiPosition | undefined {
@@ -394,9 +397,13 @@ export default Vue.extend({
     },
 
     hasPrice(): boolean {
-      const { executionPrice } = this
+      const { executionPrice, priceStep } = this
 
-      return !executionPrice.isNaN() && executionPrice.gt(0)
+      return (
+        !executionPrice.isNaN() &&
+        executionPrice.gt(0) &&
+        executionPrice.gte(priceStep)
+      )
     },
 
     tradingTypeMarket(): boolean {
@@ -416,14 +423,20 @@ export default Vue.extend({
     },
 
     maxReduceOnly(): BigNumberInBase {
-      const { market, position, orderTypeReduceOnly } = this
+      const { market, position, orders, orderTypeReduceOnly } = this
 
       if (!orderTypeReduceOnly || !position || !market) {
         return ZERO_IN_BASE
       }
 
+      const reduceOnlyOrders = orders.filter((o) => o.isReduceOnly)
+      const aggregateReduceOnlyQuantity = reduceOnlyOrders.reduce(
+        (total, order) => total.plus(order.quantity),
+        ZERO_IN_BASE
+      )
+
       return new BigNumberInBase(position.quantity).minus(
-        position.aggregateReduceOnlyQuantity || 0 /* TODO */
+        aggregateReduceOnlyQuantity
       )
     },
 
@@ -445,7 +458,7 @@ export default Vue.extend({
       }
 
       if (decimalsAllowed.gt(1)) {
-        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 2) + '1'
+        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 1) + '1'
       }
 
       return '1'
@@ -469,7 +482,7 @@ export default Vue.extend({
       }
 
       if (decimalsAllowed.gt(1)) {
-        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 2) + '1'
+        return '0.' + '0'.repeat(decimalsAllowed.toNumber() - 1) + '1'
       }
 
       return '1'
@@ -538,6 +551,26 @@ export default Vue.extend({
         return {
           amount: this.$t('reduce_only_in_excess')
         }
+      }
+
+      return undefined
+    },
+
+    maxOrdersError(): string | undefined {
+      const { orders, tradingTypeMarket, orderType } = this
+      const MAX_NUMBER_OF_ORDERS = 20
+      const filteredOrders = orders.filter(
+        (order) => order.orderSide === orderType
+      )
+
+      if (tradingTypeMarket) {
+        return undefined
+      }
+
+      if (filteredOrders.length >= MAX_NUMBER_OF_ORDERS) {
+        return this.$t('you_can_only_have_max_orders', {
+          number: MAX_NUMBER_OF_ORDERS
+        })
       }
 
       return undefined
@@ -918,6 +951,7 @@ export default Vue.extend({
   mounted() {
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
+    this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
   },
 
   methods: {
@@ -995,6 +1029,36 @@ export default Vue.extend({
 
     onOrderbookSizeClick(size: string) {
       this.onAmountChange(size)
+    },
+
+    onOrderbookNotionalClick({
+      total,
+      price,
+      type
+    }: {
+      total: BigNumberInBase
+      price: BigNumberInBase
+      type: DerivativeOrderSide
+    }) {
+      const { market, slippage } = this
+
+      if (!market) {
+        return
+      }
+
+      this.tradingType = TradeExecutionType.Market
+      this.orderType =
+        type === DerivativeOrderSide.Buy
+          ? DerivativeOrderSide.Sell
+          : DerivativeOrderSide.Buy
+
+      const amount = total
+        .dividedBy(price.times(slippage).toFixed(market.priceDecimals))
+        .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_FLOOR)
+
+      this.$nextTick(() => {
+        this.onAmountChange(amount)
+      })
     },
 
     onOrderbookPriceClick(price: string) {
@@ -1119,7 +1183,12 @@ export default Vue.extend({
     },
 
     onSubmit() {
-      const { hasErrors, tradingTypeMarket, isUserWalletConnected } = this
+      const {
+        hasErrors,
+        maxOrdersError,
+        tradingTypeMarket,
+        isUserWalletConnected
+      } = this
 
       if (!isUserWalletConnected) {
         return this.$toast.error(this.$t('please_connect_your_wallet'))
@@ -1127,6 +1196,10 @@ export default Vue.extend({
 
       if (hasErrors) {
         return this.$toast.error(this.$t('error_in_form'))
+      }
+
+      if (maxOrdersError) {
+        return this.$toast.error(maxOrdersError)
       }
 
       return tradingTypeMarket

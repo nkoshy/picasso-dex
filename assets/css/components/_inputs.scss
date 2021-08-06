@@ -1,11 +1,12 @@
 .has-addon {
+  @apply bg-dark-black;
   .input {
     width: calc(100% - 3.5rem);
    // @apply rounded-r-none;
   }
 
   .addon {
-    @apply border-l-0 text-gray-100 bg-blueish font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none;
+    @apply border-l-0 text-gray-100 font-semibold absolute  right-0 w-14 top-0 h-full text-sm px-2 flex border items-center justify-center cursor-pointer select-none;
 
     .icon {
       @apply w-6 h-6;
@@ -20,13 +21,13 @@
 
 .is-invalid {
   .input {
-    @apply border-accent-500;
+    @apply border-red-500;
   }
 }
 
 .is-valid {
   .input {
-    @apply border-primary-500;
+    @apply border-aqua-500;
   }
 }
 
@@ -36,7 +37,7 @@
 }
 
 .input {
-  @apply  w-full bg-blueish text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
+  @apply  w-full bg-dark-black text-white rounded-md px-3 w-full h-10 text-xs outline-none appearance-none max-w-full font-sora;
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -102,6 +103,7 @@
     }
   }
 }
+
 
 .v-select.input {
   @apply px-1 font-sans;

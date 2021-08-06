@@ -19,7 +19,7 @@
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-if="label" :class="error ? 'mr-2' : ''" v-html="label"></span>
-        <span v-if="error" class="text-accent-500 italic font-semibold">
+        <span v-if="error" class="text-red-500 italic font-semibold">
           * {{ error }}
         </span>
       </label>
@@ -27,7 +27,7 @@
         <slot name="context" />
       </div>
     </div>
-    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative border border-solid border-greyish">
+    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative rounded-md border border-light-blue-dark border-opacity-50 ">
       <input
         :id="`input-${uid}`"
         ref="input"

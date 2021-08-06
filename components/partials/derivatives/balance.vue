@@ -13,17 +13,18 @@
         <v-ui-format-amount
           class="font-normal text-sm"
           v-bind="{
-            value: quoteTokenBalance.toBase(market.quoteToken.decimals)
+            value: quoteTokenBalance
           }"
         />
       </v-ui-text-info>
     </div>
     <div v-if="isUserWalletConnected" slot="title-context">
       <div class="flex items-center">
-        <v-ui-button xs primary class="mr-2" @click.stop="openTransferModal">{{
+        <v-ui-button xs primary text @click.stop="openTransferModal">{{
           $t('deposit')
         }}</v-ui-button>
-        <v-ui-button xs primary @click.stop="openTakeOutModal">{{
+        <div class="mx-2 w-px h-4 bg-dark-500"></div>
+        <v-ui-button xs primary text @click.stop="openTakeOutModal">{{
           $t('withdraw')
         }}</v-ui-button>
       </div>
@@ -33,9 +34,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { BigNumberInWei } from '@injectivelabs/utils'
+import { BigNumberInBase, BigNumberInWei } from '@injectivelabs/utils'
 import { BankBalances, Modal, UiDerivativeMarket } from '~/types'
-import { ZERO_IN_WEI } from '~/app/utils/constants'
+import { ZERO_IN_BASE } from '~/app/utils/constants'
 
 export default Vue.extend({
   computed: {
@@ -51,18 +52,20 @@ export default Vue.extend({
       return this.$accessor.bank.balances
     },
 
-    quoteTokenBalance(): BigNumberInWei {
+    quoteTokenBalance(): BigNumberInBase {
       const { balances, market } = this
 
       if (!market) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
       if (!balances[market.quoteDenom]) {
-        return ZERO_IN_WEI
+        return ZERO_IN_BASE
       }
 
-      return new BigNumberInWei(balances[market.quoteDenom] || 0)
+      return new BigNumberInWei(balances[market.quoteDenom] || 0).toBase(
+        market.quoteToken.decimals
+      )
     }
   },
 

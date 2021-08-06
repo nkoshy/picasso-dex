@@ -19,7 +19,7 @@ export const uniqueId = (characters: number = 6): string =>
   ).toString(characters)
 
 export const headTitle =
-  'Injective Exchange - DeFi DEX | Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
+  'Picasso Exchange - DeFi DEX | Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
 
 export const metaTags = (): {
   appMetaTags: () => Object[]
@@ -47,7 +47,7 @@ export const metaTags = (): {
     {
       hid: 'og:image',
       property: 'og:image',
-      content: `${BASE_URL}/images/share-main.jpg`
+      content: `${BASE_URL}/images/og.jpeg`
     },
     {
       hid: 'og:description',
@@ -66,7 +66,7 @@ export const metaTags = (): {
     },
     {
       name: 'twitter:image',
-      content: `${BASE_URL}/images/share-main.jpg`
+      content: `${BASE_URL}/images/og.jpeg`
     },
     {
       hid: 'twitter:creator',
@@ -96,9 +96,9 @@ export const metaTags = (): {
       ogSiteName: title,
       ogTitle: title,
       ogDescription: description,
-      ogHost: 'https://exchange.injective.network',
-      ogUrl: 'https://exchange.injective.network',
-      ogImage: `${BASE_URL}/images/share-main.png`,
+      ogHost: 'https://injective.exchange',
+      ogUrl: 'https://injective.exchange',
+      ogImage: `${BASE_URL}/images/og.jpeg`,
       twitterCard: 'summary_large_image',
       twitterSite: '@InjectiveLabs',
       twitterCreator: '@InjectiveLabs'
@@ -109,7 +109,7 @@ export const metaTags = (): {
     return {
       name: title,
       description,
-      short_name: 'Injective Exchange'
+      short_name: 'Picasso Exchange'
       // theme_color: 'dark'
     }
   }

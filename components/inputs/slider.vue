@@ -1,6 +1,6 @@
 
 <template>
-  <div class="range-wrap flex items-center relative select-none mt-8 left-1">
+  <div class="range-wrap flex items-center relative select-none mt-12 left-1">
     <input
       id="input"
       ref='input'
@@ -9,9 +9,9 @@
       type="range"
       min=0
       max=100
-      @change="handleChange"
+      @input="handleChange"
     />
-    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip" :style="progressValue">
+    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip">
       <span class="font-sora text-white font-bold text-xs">
       {{ sliderValue}}%
       </span>
@@ -45,12 +45,16 @@ export default Vue.extend({
     };
   },
 
-  computed: {
-    progressValue(){
-        const classes = ['left-20'];
-        return classes.join(' ');
-    }
-  },
+  mounted() {
+        const width = document.getElementById('input')?.clientWidth ?? 0;
+        const toolTipElement =  document.getElementById('input1');
+        const actualPixels = (width / 4) - 10;
+        if (toolTipElement !== undefined && toolTipElement !== null) {
+          // console.log(actualPixels);
+          toolTipElement.style.left = `${actualPixels}}px`;
+          // console.log(toolTipElement);
+      }
+    },
 
   methods: {
     handleChange(e: Event) {
@@ -59,7 +63,15 @@ export default Vue.extend({
       const progress = target.value;
       const width = document.getElementById('input')?.clientWidth ?? 0;
       const toolTipElement =  document.getElementById('input1');
-      const actualPixels = ((progress / 100) * width) - ((toolTipElement?.clientWidth ?? 2 ) / 2);
+      let actualPixels = ((progress / 100) * width) - ((toolTipElement?.clientWidth ?? 2 ) / 2);
+      if (progress > 96) {
+        actualPixels = actualPixels - 15
+      }
+
+      if (progress < 5) {
+        actualPixels = actualPixels + 5
+      }
+
       if (toolTipElement !== undefined && toolTipElement !== null) {
           toolTipElement.style.left = `${actualPixels}px`;
       }
@@ -67,8 +79,8 @@ export default Vue.extend({
       const style=(this.$refs.input as HTMLInputElement)
       style.style.background='linear-gradient(to right, #3617E2 0%, #FC69FB  ' + value + '%, #242257 ' + value + '%, #242257 100%)'
       // style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
-      this.$emit('change', style)
-      this.$emit('change', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
+      this.$emit('input', style)
+      this.$emit('input', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
     }
   }
 })

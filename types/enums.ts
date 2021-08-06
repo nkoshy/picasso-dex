@@ -17,6 +17,7 @@ export enum Icon {
   Ledger = 'ledger',
   Reddit = 'reddit',
   Search = 'search',
+  SpotSearch = 'spotSearch',
   Trash = 'trash',
   Star = 'star',
   Sync = 'sync',
@@ -36,7 +37,9 @@ export enum Modal {
   Transfer = 'transfer',
   Deposit = 'deposit',
   Withdraw = 'withdraw',
-  TakeOut = 'take-out'
+  TakeOut = 'take-out',
+  Acknowledge= 'acknowledge',
+  TransferOnChain = 'transfer-on-chain'
 }
 
 export enum Breakpoint {

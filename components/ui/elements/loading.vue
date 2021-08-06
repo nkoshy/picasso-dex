@@ -2,7 +2,7 @@
   <div
     class="absolute left-0 top-0 h-full w-full"
     :class="{
-      'bg-dark-700': bg
+      'bg-light-purple': bg
     }"
   >
     <div class="h-full w-full flex flex-col items-center justify-center">

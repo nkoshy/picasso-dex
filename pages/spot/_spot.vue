@@ -38,6 +38,7 @@
       <modal-deposit />
       <modal-withdraw />
       <modal-take-out />
+      <footer SpotPage=false />
     </div>
   </HOCLoading>
 </template>
@@ -63,6 +64,7 @@ import HOCLoading from '~/components/elements/with-loading.vue'
 import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
 import Header from '~/components/layouts/desktop/header.vue'
+import Footer from '~/components/partials/spot/footer.vue'
 
 const GRID_ROW_HEIGHT = 73
 
@@ -84,7 +86,8 @@ export default Vue.extend({
     ModalTransfer,
     ModalDeposit,
     SubaccountBalancePanel,
-    'app-header': Header
+    'app-header': Header,
+    'footer': Footer
   },
 
   data() {

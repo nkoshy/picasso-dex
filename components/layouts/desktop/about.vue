@@ -31,12 +31,12 @@
         v-on-clickaway="closeDropdown"
         :class="classes"
       >
-        <div class="pt-8 pr-10 pb-2.5 p-3.5 w-48 flex">
+        <div class="pt-8 pr-10 pb-2.5 p-3.5 w-48 flex"  @click.stop = "gomedium">
           <div>
             <img :src="'/home/blog.svg'" />
           </div>
           <div class="ml-3">
-            <p class="font-sora text-sm text-white"  @click.stop = "gomedium">Blog</p>
+            <p class="font-sora text-sm text-white" >Blog</p>
             <p class="font-sora text-xsm mt-2 text-white opacity-40">Read more about us</p>
           </div>
         </div>

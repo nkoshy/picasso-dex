@@ -5,7 +5,7 @@
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
       <div class="flex w-full z-19">
-        <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-40">
+        <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
@@ -25,7 +25,7 @@
       </div>
     </div>
       <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
-        <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
+        <div class="flex z-30 flex-col xl:flex-row justify-center items-center 2xl:ml-auto">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
             <home-card top icon="/home/new-market-new.svg">New market listing by community governance</home-card>
@@ -35,7 +35,7 @@
             <home-card top icon="/home/zero-fee-new.svg">Zero gas fees and no front running</home-card>
           </div>
         </div>
-        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-20">
+        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-20 2xl:mr-auto">
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">

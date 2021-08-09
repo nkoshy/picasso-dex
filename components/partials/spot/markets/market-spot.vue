@@ -15,7 +15,7 @@
         </div>
       </div>
     </td>
-    <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-10" left>
+    <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-4" left>
       <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins px-7">
         <v-ui-format-price
           v-bind="{
@@ -51,7 +51,7 @@
         />
       </v-ui-text>
     </td>
-    <td is="v-ui-table-td" left class=" px-10 font-normal w-1/4 font-poppins">
+    <td is="v-ui-table-td" left class=" px-4 font-normal w-1/4 font-poppins">
       <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-start font-poppins">
         <v-ui-format-number
           v-bind="{

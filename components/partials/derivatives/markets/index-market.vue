@@ -13,10 +13,12 @@
         ></span>
       </div>
     </div>
-     <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
+     
+    <div class="table-responsive table-compact">
+      <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
         <div>
           <!--<div class="tabs"> -->
-            <ul role="tablist" class="tablist">
+            <div  class="flex">
              <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('BNB Markets') }}</span>
               </v-ui-button>
@@ -24,7 +26,7 @@
                 <span class="font-poppins font-normal text-sm">{{ $t('BTC Markets') }}</span>
               </v-ui-button>
               <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
-                <span class="font-poppins font-normal text-sm">{{ $t('ALTS Markests') }}</span>
+                <span class="font-poppins font-normal text-sm">{{ $t('ALTS Markets') }}</span>
             </v-ui-button>
               <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('FIAT Markets') }}</span>
@@ -32,11 +34,10 @@
               <v-ui-button without-corner class="h-8 px-2 border border-light-white focus:border-light-black focus:bg-light-blue mx-2">
                 <span class="font-poppins font-normal text-sm">{{ $t('ETF') }}</span>
               </v-ui-button>
-            </ul>
+            </div>
           <!--</div>-->
         </div>
       </div>
-    <div class="table-responsive table-compact">
       <table class="table">
        <thead>
           <tr class= "flex w-full justify-between bg-light-blue px-2 ">

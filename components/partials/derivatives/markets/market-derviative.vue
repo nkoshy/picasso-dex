@@ -7,7 +7,7 @@
           :alt="market.baseToken.name"
           class="w-6 h-6 mr-4"
         /> -->
-        <div class="leading-none">
+        <div class="leading-none ">
           <span class="text-gray-100 font-semibold text-sm font-poppins ">{{ market.ticker.split('/')[0]}}</span>
           <span class="text-gray-400 text-sm font-normal font-poppins">
             /{{ market.ticker.split('/')[1]}}
@@ -15,7 +15,7 @@
         </div>
       </div>
     </td>
-    <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-10" left>
+    <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-4" left>
       <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins px-7">
         <v-ui-format-price
           v-bind="{
@@ -39,7 +39,7 @@
       </div>
       <span v-else class="text-gray-500 px-10">&mdash;</span>
     </td>
-    <td is="v-ui-table-td" left class="font-normal w-1/4 font-poppins">
+    <td is="v-ui-table-td" left class="font-normal w-1/5 font-poppins">
       <v-ui-text poppins sm class="text-right font-semibold px-7 font-poppins">
         <v-ui-format-percent
           v-bind="{
@@ -51,7 +51,7 @@
         />
       </v-ui-text>
     </td>
-    <td is="v-ui-table-td" left class=" px-10 font-normal w-1/4 font-poppins">
+    <td is="v-ui-table-td" left class=" px-4 font-normal w-1/4 font-poppins">
       <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-start font-poppins">
         <v-ui-format-number
           v-bind="{

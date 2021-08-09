@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen max-w-8xl m-auto h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light"
+    class="min-h-screen max-w-8xl m-auto h-full w-full flex flex-col py-0 bg-market-pattern bg-blend-overlay bg-dark-light bg-no-repeat bg-cover"
   >
     <!-- <div class="w-full">
       <div class="container">
@@ -24,7 +24,7 @@
       </div>
     </div> -->
     <app-header />
-    <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora my-14 ml-32">
+    <h1 class="lg:text-white text-3xl font-bold font-sora my-14 ml-32 xl:text-5xl 2xl:mx-auto">
       Markets
     </h1>
     <div class="container px-14 pb-4">

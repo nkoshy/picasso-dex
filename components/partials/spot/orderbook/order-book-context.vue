@@ -15,7 +15,7 @@
               ({{ market.baseToken.symbol }})
             </span>
           </th>
-          <th is="v-ui-table-th" class="w-1/3" right>
+          <th is="v-ui-table-th" class="w-1/3 pr-2" right>
             <span class="font-sora text-xs font-normal text-white">{{ $t('total') }}</span>
             <span class="font-sora font-bold text-white uppercase">
               {{ market.quoteToken.symbol }}

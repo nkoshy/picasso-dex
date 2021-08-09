@@ -96,7 +96,7 @@ export default Vue.extend({
       ];
 
       if(!this.landingPage) {
-        classes.push('mt-6', 'top-20', 'left-2.5')
+        classes.push('mt-10', 'top-20', 'left-2.5')
       } else {
         classes.push('bg-dark-main', 'top-16', 'mt-2.5')
       }

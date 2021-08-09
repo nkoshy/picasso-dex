@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-3 mt-2">
+  <div class="mb-3">
     <div
       class="
         block

@@ -37,7 +37,7 @@
             <v-ui-button
               :status="status"
               full
-              primary
+              nonbgcolor
               :disabled="!form.amount || invalid"
               @click.stop="handleTransferClick"
             >
@@ -84,6 +84,7 @@ export default Vue.extend({
   },
 
   computed: {
+     
     market(): UiSpotMarket | undefined {
       return this.$accessor.spot.market
     },

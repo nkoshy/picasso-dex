@@ -75,7 +75,7 @@
         <v-ledger />
       </div>
       <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4 pr-2.5">
-        <div
+        <!-- <div
           class="
             w-full
             font-semibold
@@ -86,12 +86,12 @@
           @click.stop="onTransferNavClick"
         >
           <span>{{ $t('transfer') }}</span>
-        </div>
+        </div> -->
         <div
           class="
             w-full
-            bg-dark-700
-            font-semibold
+            text-white
+            font-sora
             py-2
             px-4
             text-sm
@@ -183,7 +183,7 @@ export default Vue.extend({
       ];
 
       if(!this.landingPage) {
-        classes.push('mt-12', 'top-14', '-right-4')
+        classes.push('mt-16', 'top-14', '-right-4')
       } else {
         classes.push('mt-1', 'bg-dark-main', 'top-16', 'mt-2.5')
       }

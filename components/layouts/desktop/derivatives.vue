@@ -34,11 +34,9 @@
           -mx-px
           flex
           justify-center
-          border
-          max-h-xs
           flex-wrap
           top-12
-          -left-40
+          -left-20
           min-w-lg
           min-h-lw
           mt-12
@@ -47,8 +45,7 @@
           rounded rounded-tl-none
            bg-spot-pattern
           bg-no-repeat
-          bg-cover
-          overflow-y-auto
+          bg-contain
         "
       >
         <v-derivatives @selected="closeDropdown" />

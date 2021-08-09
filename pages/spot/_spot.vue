@@ -39,6 +39,7 @@
       <modal-withdraw />
       <modal-take-out />
       <footer SpotPage=false />
+       <modal-acknowledge />
     </div>
   </HOCLoading>
 </template>
@@ -65,6 +66,8 @@ import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
 import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
+import ModalAcknowledge from '~/components/partials/acknowledge.vue'
+import { Modal } from '~/types'
 
 const GRID_ROW_HEIGHT = 73
 
@@ -87,7 +90,8 @@ export default Vue.extend({
     ModalDeposit,
     SubaccountBalancePanel,
     'app-header': Header,
-    'footer': Footer
+    'footer': Footer,
+    'modal-acknowledge': ModalAcknowledge
   },
 
   data() {
@@ -135,8 +139,14 @@ export default Vue.extend({
       return this.$accessor.spot.markets
     }
   },
+  beforeMount() {
+    console.log("this is before mount");
+    
+  },
 
   mounted() {
+    console.log("welcome");
+    this.$accessor.modal.openModal(Modal.Acknowledge);
     this.$accessor.spot
       .changeMarket(this.marketFromRoute)
       .then(() => {

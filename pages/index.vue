@@ -86,6 +86,29 @@ export default Vue.extend({
     'app-header': Header,
     'modal-acknowledge': ModalAcknowledge
   },
+  beforeMount() {
+    console.log("this is before mount");
+    
+  },
+
+  mounted() {
+    const itemStr = localStorage.getItem("myLoginTime");
+    console.log("is there any ", itemStr);
+    if (itemStr === null) {
+      this.$accessor.modal.openModal(Modal.Acknowledge)
+      } 
+      else {
+        const item1 = JSON.parse(itemStr);
+        const now2 = new Date();
+        if (now2.getTime() < item1.expiry) {
+          console.log("welcome", now2.getTime(), item1.expiry);
+          } 
+          else {
+            localStorage.removeItem("myLoginTime");
+            this.$accessor.modal.closeModal(Modal.Acknowledge);
+            }
+            }
+  },
     methods: {
    goReadMore() {
       window.open('https://medium.com/@picasso.exchange','_blank');

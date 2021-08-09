@@ -1,6 +1,6 @@
 <template>
   <div class="table-compact table-select px-4 pb-4">
-   <div class="w-full  py-1  px-2">
+    <div class="w-full  py-1  px-2">
       <div class="w-xl absolute right-16 top-xs mx-2 my-3">
         <v-input
           v-model="filterMarkets"
@@ -13,7 +13,7 @@
         ></span>
       </div>
     </div>
-      <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
+     <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
         <div>
           <!--<div class="tabs"> -->
             <ul role="tablist" class="tablist">
@@ -38,7 +38,7 @@
       </div>
     <div class="table-responsive table-compact">
       <table class="table">
-        <thead>
+       <thead>
           <tr class= "flex w-full justify-between bg-light-blue px-2 ">
             <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
               {{ $t('market') }}
@@ -82,9 +82,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr is="v-spot"
+          <tr
+            is="v-derivative"
             v-for="({ market, summary }, index) in filteredMarkets"
-            :key="`spot-markets-${market.ticker}-${index}`"
+            :key="`derivative-markets-${market.ticker}-${index}`"
             class="flex justify-between items-center h-12 px-2 h-16 orders"
             v-bind="{ market, marketSummary: summary }"
             @selected="$emit('selected')"
@@ -97,36 +98,36 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Spot from './market-spot.vue'
+import Derivative from './market-derviative.vue'
 import {
-  UiSpotMarket,
-  UiSpotMarketSummary,
-  UiSpotMarketAndSummary,
-  Icon
+  UiDerivativeMarket,
+  Icon,
+  UiDerivativeMarketSummary,
+  UiDerivativeMarketAndSummary
 } from '~/types'
 
 export default Vue.extend({
   components: {
-    'v-spot': Spot
+    'v-derivative': Derivative
   },
 
   data() {
     return {
-      filterMarkets: '',
-      Icon
+      Icon,
+      filterMarkets: ''
     }
   },
 
   computed: {
-    markets(): UiSpotMarket[] {
-      return this.$accessor.spot.markets
+    markets(): UiDerivativeMarket[] {
+      return this.$accessor.derivatives.markets
     },
 
-    marketsSummary(): UiSpotMarketSummary[] {
-      return this.$accessor.spot.marketsSummary
+    marketsSummary(): UiDerivativeMarketSummary[] {
+      return this.$accessor.derivatives.marketsSummary
     },
 
-    filteredMarkets(): UiSpotMarketAndSummary[] {
+    filteredMarkets(): UiDerivativeMarketAndSummary[] {
       const { filterMarkets, markets, marketsSummary } = this
 
       const query = filterMarkets.toLowerCase()
@@ -141,14 +142,13 @@ export default Vue.extend({
           }
         })
         .filter(({ market, summary }) => {
-          const { ticker, baseDenom, quoteDenom } = market
+          const { ticker, quoteDenom } = market
           const satisfiesSearchCondition =
-            baseDenom.toLowerCase().startsWith(query) ||
             quoteDenom.toLowerCase().startsWith(query) ||
             ticker.toLowerCase().startsWith(query)
 
           return satisfiesSearchCondition && summary !== undefined
-        }) as UiSpotMarketAndSummary[]
+        }) as UiDerivativeMarketAndSummary[]
     }
   }
 })

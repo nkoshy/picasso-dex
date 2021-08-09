@@ -54,7 +54,7 @@
                 </li>
               </ul>
             </div>
-            <ul>
+           <!-- <ul>
               <div class="w-xl relative">
                 <v-input
                   v-model="filterMarkets"
@@ -70,7 +70,7 @@
                   ></v-ui-icon
                 ></span>
               </div>
-            </ul>
+            </ul> -->
           </div>
         </div>
 
@@ -100,7 +100,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import VSpot from '~/components/partials/spot/markets/index-market.vue'
-import VDerivatives from '~/components/partials/derivatives/markets/index.vue'
+import VDerivatives from '~/components/partials/derivatives/markets/index-market.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Icon } from '~/types'
 import Footer from '~/components/partials/spot/footer.vue'

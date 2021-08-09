@@ -12,9 +12,9 @@
           ><v-ui-icon :icon="Icon.SpotSearch" xs class="text-gray-400"></v-ui-icon
         ></span>
       </div>
+    </div>
     
     <div class="table-responsive table-compact">
-      </div>
       <div slot="context" class="bg-blue py-2 h-20  flex items-center justify-start">
         <div>
           <!--<div class="tabs"> -->

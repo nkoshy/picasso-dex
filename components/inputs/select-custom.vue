@@ -5,12 +5,14 @@
         v-if="label || error"
         :for="`input-select-${uid}`"
         class="
-          text-2xs
+          text-xl
           leading-none
           opacity-75
           flex
           items-center
           justify-between
+          font-white
+          font-sora
         "
       >
         <!-- eslint-disable-next-line vue/no-v-html -->

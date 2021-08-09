@@ -9,7 +9,7 @@
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
-              src="powered-by-icon.svg"
+              src="/images/inject.png"
               alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
             /> 
@@ -49,10 +49,10 @@
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
-                <img src="/images/injective.svg" alt="" class="h-full"/>
+                <img src="/images/injective_logo.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 h-12 mt-6">
-                <img src="/images/polygon.svg" alt="" class="h-full" />
+                <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
@@ -87,6 +87,12 @@ export default Vue.extend({
     'modal-acknowledge': ModalAcknowledge
   },
     methods: {
+      polygon() {
+      window.open('https://polygon.technology/','_blank');
+    },
+      injectiveprotocol() {
+      window.open('https://injectiveprotocol.com/','_blank');
+    },
    goReadMore() {
       window.open('https://medium.com/@picasso.exchange','_blank');
     },

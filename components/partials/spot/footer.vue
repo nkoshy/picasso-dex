@@ -21,7 +21,7 @@
                 </div>
             </div>
             <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-            <span class="cursor-pointer" @click.stop="goDisclaimer">Disclaimer</span>   
+            <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>   
         </div>
     </div>
 </template>

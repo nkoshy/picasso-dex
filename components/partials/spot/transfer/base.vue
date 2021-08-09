@@ -37,7 +37,7 @@
             <v-ui-button
               :status="status"
               full
-              nonbgcolor
+              
               :disabled="!form.amount || invalid"
               @click.stop="handleTransferClick"
             >
@@ -47,7 +47,8 @@
         </ValidationProvider>
       </ValidationObserver>
 
-      <v-allowance v-else :token="token"></v-allowance>
+      <v-allowance v-else :token="token" nonbgcolor></v-allowance>
+      
     </div>
   </div>
 </template>
@@ -70,7 +71,8 @@ export default Vue.extend({
     token: {
       required: true,
       type: Object as PropType<TokenWithBalance>
-    }
+    },
+    
   },
 
   data() {
@@ -84,6 +86,7 @@ export default Vue.extend({
   },
 
   computed: {
+    
     market(): UiSpotMarket | undefined {
       return this.$accessor.spot.market
     },
@@ -114,7 +117,8 @@ export default Vue.extend({
       return token.balance
         .toBase(market.baseToken.decimals)
         .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_DOWN)
-    }
+    },
+    
   },
 
   methods: {

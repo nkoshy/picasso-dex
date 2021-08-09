@@ -93,7 +93,7 @@ export default function ({
         theme.colors.primary[500],
       'mainSeriesProperties.candleStyle.downColor': theme.colors['dark-red'],
       'mainSeriesProperties.candleStyle.borderDownColor':
-        theme.colors.accent[500],
+      theme.colors.red[500],
       'mainSeriesProperties.candleStyle.drawWick': true,
       'mainSeriesProperties.candleStyle.wickUpColor': theme.colors.aqua[500],
       'mainSeriesProperties.candleStyle.wickDownColor': theme.colors.red[500],

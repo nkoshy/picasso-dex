@@ -5,11 +5,11 @@
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
       <div class="flex w-full z-19">
-        <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-40">
+        <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
-              src="powered-by-icon.svg"
+              src="/images/inject.png"
               alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
             /> 
@@ -18,14 +18,14 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade </v-ui-button>
+            <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
         </div>        
       </div>
     </div>
       <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
-        <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
+        <div class="flex z-30 flex-col xl:flex-row justify-center items-center 2xl:ml-auto">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
             <home-card top icon="/home/new-market-new.svg">New market listing by community governance</home-card>
@@ -35,11 +35,11 @@
             <home-card top icon="/home/zero-fee-new.svg">Zero gas fees and no front running</home-card>
           </div>
         </div>
-        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-20">
+        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-20 2xl:mr-auto">
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
-            <v-ui-button home-section full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
+            <v-ui-button home-section full hero-primary @click.stop="goTrade">Trade</v-ui-button>
             <v-ui-button home-section full hero-tertiary @click.stop="goReadMore">Read More</v-ui-button>
           </div>
         </div>
@@ -49,10 +49,10 @@
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
-                <img src="/images/injective.svg" alt="" class="h-full"/>
+                <img src="/images/injective_logo.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 h-12 mt-6">
-                <img src="/images/polygon.svg" alt="" class="h-full" />
+                <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
@@ -87,24 +87,41 @@ export default Vue.extend({
     'modal-acknowledge': ModalAcknowledge
   },
     methods: {
-   goReadMore() {
-      window.open('https://medium.com/@picasso.exchange','_blank');
-    },
-    gotwitter(){
-      window.open('https://twitter.com/PicassoExchange','_blank');
-    },
-    gomedium(){
-       window.open('https://medium.com/@picasso.exchange','_blank');
-    },
-    godiscord(){
-      window.open('https://discord.gg/kbqfUxaAwn','_blank');
-    },
-    gogithub(){
-      window.open('https://github.com/PicassoExchange','_blank');
-    },
-    openAcknowledgeModal() {
-      this.$accessor.modal.openModal(Modal.Acknowledge)
-  }
+      goTrade(){
+        window.open('https://trade.picasso.exchange/','_blank');
+      },
+
+      goReadMore() {
+        window.open('https://medium.com/@picasso.exchange','_blank');
+      },
+
+      gotwitter(){
+        window.open('https://twitter.com/PicassoExchange','_blank');
+      },
+
+      gomedium(){
+        window.open('https://medium.com/@picasso.exchange','_blank');
+      },
+
+      polygon() {
+        window.open('https://polygon.technology/','_blank');
+      },
+
+      injectiveprotocol() {
+        window.open('https://injectiveprotocol.com/','_blank');
+      },
+
+      godiscord(){
+        window.open('https://discord.gg/kbqfUxaAwn','_blank');
+      },
+
+      gogithub(){
+        window.open('https://github.com/PicassoExchange','_blank');
+      },
+      
+      openAcknowledgeModal() {
+        this.$accessor.modal.openModal(Modal.Acknowledge)
+      }
     }
 })
 </script>

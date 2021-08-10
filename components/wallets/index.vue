@@ -74,7 +74,7 @@
         <hr class="border border-solid border-commuity" />
         <v-ledger />
       </div>
-      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4">
+      <div v-else class="flex flex-wrap py-6 px-5">
         <!-- <div
           class="
             w-full
@@ -92,8 +92,6 @@
             w-full
             text-white
             font-sora
-            py-2
-            px-4
             text-sm
             cursor-pointer
             hover:bg-hover300

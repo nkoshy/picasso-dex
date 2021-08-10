@@ -41,7 +41,7 @@
       <table class="table">
         <thead>
           <tr class= "flex w-full justify-between bg-light-blue px-2 ">
-            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 cursor-pointer" flex>
                 <v-ui-text @click.stop="sort('market')">
               {{ $t('market') }}
                 </v-ui-text>
@@ -51,7 +51,7 @@
         class="text-gray-500 group-hover:text-gray-300 p-1"
       />
             </th>
-            <th is="v-ui-table-th" class="text-left font-normal text-sm h-16 mx-2" flex>
+            <th is="v-ui-table-th" class="text-left font-normal text-sm h-16 mx-2 cursor-pointer" flex>
               <v-ui-text @click.stop="sort('lastPrice')">
                 
                 {{ $t('last_traded_price') }}
@@ -62,7 +62,7 @@
          class="text-gray-500 group-hover:text-gray-300 p-1"
       />
             </th>
-            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 " flex >
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 cursor-pointer" flex >
               <v-ui-text @click.stop="sort('change')" >
                 {{ $t('market_change_24h') }}
               </v-ui-text>
@@ -72,7 +72,7 @@
         class="text-gray-500 group-hover:text-gray-300 p-1"
       />
             </th>
-            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 cursor-pointer" flex>
               <v-ui-text @click.stop="sort('volume')" >
                 {{ $t('market_volume_24h') }}
               </v-ui-text>

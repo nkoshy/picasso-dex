@@ -71,10 +71,10 @@
             slot="context"
             class="text-xs text-gray-400 flex items-center"
           >
-            <span class="cursor-pointer text-xs font-normal text-white font-sora" @click.stop="onMaxInput(25)"
+            <span class="cursor-pointer text-xs font-normal text-white font-sora"
               >0.000005</span
             >
-            <span class="cursor-pointer text-xs font-bold text-white font-sora" @click.stop="onMaxInput(50)"
+            <span class="cursor-pointer text-xs font-bold text-white font-sora"
               >USDT</span
             >
           </div>
@@ -115,7 +115,7 @@
         </v-ui-text>
       </div>
      </div>
-    <v-slider/>
+      <v-slider @input="onSliderValueChange"/>
     <!-- <div v-if="!tradingTypeMarket" class="mb-4">
         <v-input
           ref="input-price"
@@ -734,6 +734,13 @@ export default Vue.extend({
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
       })
+    },
+
+    onSliderValueChange(sliderValue = 25) {
+      this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      this.$nextTick(() => {
+        this.onAmountChange(this.getMaxAmountValue(sliderValue))
+      })     
     },
 
     getMaxAmountValue(percentage: number): string {

@@ -45,7 +45,7 @@
           rounded rounded-tl-none
           bg-spot-pattern
           bg-no-repeat
-          bg-cover
+          bg-contain
         "
       >
         <v-spot @selected="closeDropdown" />

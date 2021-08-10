@@ -9,7 +9,7 @@
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
-              src="/images/inject.png"
+              src="powered-by-icon.svg"
               alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
             /> 
@@ -18,7 +18,7 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary @click.stop="openAcknowledgeModal">Trade </v-ui-button>
+            <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
         </div>        
@@ -39,7 +39,7 @@
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
-            <v-ui-button home-section full hero-primary @click.stop="openAcknowledgeModal">Trade</v-ui-button>
+            <v-ui-button home-section full hero-primary @click.stop="goTrade">Trade</v-ui-button>
             <v-ui-button home-section full hero-tertiary @click.stop="goReadMore">Read More</v-ui-button>
           </div>
         </div>
@@ -47,15 +47,17 @@
     
       <div class="conatiner max-w-8xl m-auto relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
+        <div class=" flex flex-col items-center md:flex-row justify-center mt-10 mb-24 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
-                <img src="/images/injective_logo.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 h-12 mt-6">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
+         
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
+          <span class="mr-16">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
                 <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
             </div>
@@ -67,8 +69,15 @@
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-0">
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
-            </div>
-        </div>
+            </div> 
+            <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
+        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        </div> 
+        <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
+        <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
+        <span class="mr-10 pl-80 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
+        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        </div> -->
        </div>
        <modal-acknowledge />
   </div>
@@ -79,38 +88,57 @@ import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
+import Footer from '~/components/partials/spot/footer.vue'
 
 export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
-    'modal-acknowledge': ModalAcknowledge
+    'modal-acknowledge': ModalAcknowledge,
+    'v-footer': Footer
   },
     methods: {
+      goTrade(){
+        window.open('https://trade.picasso.exchange/','_blank');
+      },
+
+      goReadMore() {
+        window.open('https://medium.com/@picasso.exchange','_blank');
+      },
+
+      gotwitter(){
+        window.open('https://twitter.com/PicassoExchange','_blank');
+      },
+
+      gomedium(){
+        window.open('https://medium.com/@picasso.exchange','_blank');
+      },
+
       polygon() {
-      window.open('https://polygon.technology/','_blank');
-    },
+        window.open('https://polygon.technology/','_blank');
+      },
+
       injectiveprotocol() {
-      window.open('https://injectiveprotocol.com/','_blank');
-    },
-   goReadMore() {
-      window.open('https://medium.com/@picasso.exchange','_blank');
-    },
-    gotwitter(){
-      window.open('https://twitter.com/PicassoExchange','_blank');
-    },
-    gomedium(){
-       window.open('https://medium.com/@picasso.exchange','_blank');
-    },
-    godiscord(){
-      window.open('https://discord.gg/kbqfUxaAwn','_blank');
-    },
-    gogithub(){
-      window.open('https://github.com/PicassoExchange','_blank');
-    },
-    openAcknowledgeModal() {
-      this.$accessor.modal.openModal(Modal.Acknowledge)
-  }
+        window.open('https://injectiveprotocol.com/','_blank');
+      },
+
+      godiscord(){
+        window.open('https://discord.gg/kbqfUxaAwn','_blank');
+      },
+
+      gogithub(){
+        window.open('https://github.com/PicassoExchange','_blank');
+      },
+      
+      openAcknowledgeModal() {
+        this.$accessor.modal.openModal(Modal.Acknowledge)
+      },
+      goPrivacy() {
+      this.$router.push({ name: 'privacy_policy' })
+      },
+      goDisclaimer() {
+      this.$router.push({ name: 'disclaimer' })
+      }
     }
 })
 </script>

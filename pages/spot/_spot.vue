@@ -38,7 +38,7 @@
       <modal-deposit />
       <modal-withdraw />
       <modal-take-out />
-      <v-footer SpotPage=true />
+      <v-footer />
     </div>
   </HOCLoading>
 </template>
@@ -65,6 +65,8 @@ import { UiSpotMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/spot/grid'
 import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
+import ModalAcknowledge from '~/components/partials/acknowledge.vue'
+import { Modal } from '~/types'
 
 const GRID_ROW_HEIGHT = 73
 
@@ -135,8 +137,19 @@ export default Vue.extend({
       return this.$accessor.spot.markets
     }
   },
-
   mounted() {
+    const itemStr = localStorage.getItem("myLoginTime");
+    if (itemStr === null) {
+      this.$accessor.modal.openModal(Modal.Acknowledge)
+      } 
+      else {
+        const item1 = JSON.parse(itemStr);
+        const now2 = new Date();
+        if (now2.getTime() > item1.expiry) {
+            localStorage.removeItem("myLoginTime");
+            this.$accessor.modal.closeModal(Modal.Acknowledge);
+            }
+            }
     this.$accessor.spot
       .changeMarket(this.marketFromRoute)
       .then(() => {

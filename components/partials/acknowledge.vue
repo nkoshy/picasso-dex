@@ -31,8 +31,8 @@
           </div>
         </div>
         <div class="w-full mx-auto flex justify-center items-center pl-8 pb-8 pr-10">
-            <v-ui-button v-if="close" full nonbgcolor class="mr-5 font-sora font-semibold text-xs" @click="closeModal">{{ $t('cancel') }}</v-ui-button>
-            <v-ui-button full primary class="font-sora font-semibold text-xs">{{ $t('i_agree') }}</v-ui-button>
+            
+            <v-ui-button full primary class="font-sora font-semibold text-xs" @click="agree()">{{ $t('i_agree') }}</v-ui-button>
           </div>
         </div>
     </div>
@@ -126,11 +126,23 @@ export default Vue.extend({
 
   methods: {
     closeModal() {
+       this.$router.push({ name: 'index' })
       this.$accessor.modal.closeModal(Modal.Acknowledge)
     },
     onClose() {
       console.log("hyy");
       this.$emit('closed')
+       this.$router.push({ name: 'index' })
+    },
+    agree(){
+      const timeInterval = 86400000;
+      const now = new Date();
+      const item = {
+        value: "myLoginTime",
+        expiry: now.getTime() + timeInterval
+        };
+        localStorage.setItem("myLoginTime", JSON.stringify(item));
+        this.$accessor.modal.closeModal(Modal.Acknowledge)
     }
   }
 })

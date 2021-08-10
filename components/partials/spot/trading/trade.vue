@@ -43,7 +43,7 @@
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
-    <p slot="header" class="flex justify-between text-sm font-normal font-sora pb=3.5 pt-4">
+    <p slot="header" class="text-sm font-normal font-sora pb=3.5 pt-4">
         <v-ui-text muted-md>
         {{ $t(orderTypeBuy ? 'Buy' : 'Sell') }}
         {{market.baseToken.symbol}}
@@ -55,6 +55,8 @@
       <div v-if="!tradingTypeMarket" class="mb-4 ">
         <v-input
           ref="input-price"
+          :custom-handler="true"
+          :max-selector="true"
           :value="form.price"
           :placeholder="$t('price')"
           :label="$t('available')"
@@ -64,6 +66,7 @@
           min="0"
           @blur="onPriceBlur"
           @input="onPriceChange"
+          @input-max="() => onMaxInput(100)"
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
           <div
@@ -71,10 +74,10 @@
             slot="context"
             class="text-xs text-gray-400 flex items-center"
           >
-            <span class="cursor-pointer text-xs font-normal text-white font-sora" @click.stop="onMaxInput(25)"
+            <span class="cursor-pointer text-xs font-normal text-white font-sora"
               >0.000005</span
             >
-            <span class="cursor-pointer text-xs font-bold text-white font-sora" @click.stop="onMaxInput(50)"
+            <span class="cursor-pointer text-xs font-bold text-white font-sora"
               >USDT</span
             >
           </div>
@@ -100,6 +103,20 @@
           
         >
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
+          <div slot="context" class="text-xs text-gray-400 flex items-center">
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
+              >25%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
+              >50%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
+              >75%</span
+            >
+            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
+              >100%</span
+            >
+          </div>
           
         </v-input>
         <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
@@ -115,7 +132,7 @@
         </v-ui-text>
       </div>
      </div>
-    <v-slider/>
+      <v-slider @input="onSliderValueChange"/>
     <!-- <div v-if="!tradingTypeMarket" class="mb-4">
         <v-input
           ref="input-price"
@@ -734,6 +751,13 @@ export default Vue.extend({
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
       })
+    },
+
+    onSliderValueChange(sliderValue = 25) {
+      this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      this.$nextTick(() => {
+        this.onAmountChange(this.getMaxAmountValue(sliderValue))
+      })     
     },
 
     getMaxAmountValue(percentage: number): string {

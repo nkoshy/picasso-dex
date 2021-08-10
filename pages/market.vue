@@ -92,7 +92,7 @@
         </v-panel>
       </div>
     </div> -->
-    <v-footer SpotPage=true />
+    <v-footer SpotPage=false />
   </div>
   
 </template>

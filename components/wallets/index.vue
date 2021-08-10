@@ -74,7 +74,7 @@
         <hr class="border border-solid border-commuity" />
         <v-ledger />
       </div>
-      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4 pr-2.5">
+      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4">
         <!-- <div
           class="
             w-full
@@ -185,7 +185,7 @@ export default Vue.extend({
       if(!this.landingPage) {
         classes.push('mt-16', 'top-14', '-right-4')
       } else {
-        classes.push('mt-1', 'bg-dark-main', 'top-16', 'mt-2.5')
+        classes.push('mt-1', 'bg-dark-main', 'top-20', 'mt-2.5')
       }
 
       return classes.join(' ')

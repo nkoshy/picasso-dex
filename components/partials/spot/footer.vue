@@ -1,7 +1,7 @@
 <template>
     <div :class="
-        !SpotPage
-          ? 'pt-6 xl:mr-12'
+        SpotPage
+          ? 'pl-8 pt-8 pb-8'
           : 'mt-20 ml-auto mb-20 mr-auto'
       ">
         <div class="flex items-center">

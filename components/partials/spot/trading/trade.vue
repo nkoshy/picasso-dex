@@ -45,7 +45,7 @@
     </div>
     <p slot="header" class="flex justify-between text-sm font-normal font-sora pb=3.5 pt-4">
         <v-ui-text muted-md>
-        {{ $t(orderTypeBuy ? 'BUY' : 'SELL') }}
+        {{ $t(orderTypeBuy ? 'Buy' : 'Sell') }}
         {{market.baseToken.symbol}}
         </v-ui-text>
         </p>

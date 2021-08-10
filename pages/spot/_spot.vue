@@ -38,7 +38,7 @@
       <modal-deposit />
       <modal-withdraw />
       <modal-take-out />
-      <footer SpotPage=false />
+      <v-footer SpotPage=true />
     </div>
   </HOCLoading>
 </template>
@@ -87,7 +87,7 @@ export default Vue.extend({
     ModalDeposit,
     SubaccountBalancePanel,
     'app-header': Header,
-    'footer': Footer
+    'v-footer': Footer
   },
 
   data() {

@@ -21,7 +21,7 @@
           <v-ui-button
             sm
             text
-            class="text-primary-500"
+            class="text-white font-sora font-normal opacity-50"
             @click="onFetchAddresses"
           >
             {{

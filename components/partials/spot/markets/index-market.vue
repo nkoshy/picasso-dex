@@ -42,7 +42,9 @@
         <thead>
           <tr class= "flex w-full justify-between bg-light-blue px-2 ">
             <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
+                <v-ui-text @click.stop="sort('market')">
               {{ $t('market') }}
+                </v-ui-text>
                <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
@@ -50,7 +52,7 @@
       />
             </th>
             <th is="v-ui-table-th" class="text-left font-normal text-sm h-16 mx-2" flex>
-              <v-ui-text>
+              <v-ui-text @click.stop="sort('lastPrice')">
                 
                 {{ $t('last_traded_price') }}
               </v-ui-text>
@@ -60,18 +62,18 @@
          class="text-gray-500 group-hover:text-gray-300 p-1"
       />
             </th>
-            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 " flex>
-              <v-ui-text >
+            <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2 " flex >
+              <v-ui-text @click.stop="sort('change')" >
                 {{ $t('market_change_24h') }}
               </v-ui-text>
-               <v-ui-icon 
+               <v-ui-icon
         :icon="Icon.upAndDownSort"
         xs
         class="text-gray-500 group-hover:text-gray-300 p-1"
       />
             </th>
             <th is="v-ui-table-th" class="text-left  font-normal text-sm h-16 mx-2" flex>
-              <v-ui-text>
+              <v-ui-text @click.stop="sort('volume')" >
                 {{ $t('market_volume_24h') }}
               </v-ui-text>
                <v-ui-icon
@@ -116,6 +118,7 @@ export default Vue.extend({
     return {
       filterMarkets: '',
       sortColumn:'',
+      sortOrder:'',
       Icon
     }
   },
@@ -153,13 +156,41 @@ export default Vue.extend({
           return satisfiesSearchCondition && summary !== undefined
         }) as UiSpotMarketAndSummary[]
     },
-    sortedMarket(): any{
+    sortedMarket(): () => [] {
     const filterMarketsSort = [...this.filteredMarkets];
     filterMarketsSort.sort((a,b)=>{
-      return -(a.summary.change - b.summary.change)
-    });
-    return filterMarketsSort
+      if(this.sortColumn === 'market'){
+         if(this.sortOrder === "asc") {
+          return a.market['ticker'] - b.market['ticker'];
+          }
+          else{
+            return b.market['ticker'] - a.market['ticker'];
+            }
+        
+      }
+      else{
+      if(this.sortOrder === "asc") {
+          return a.summary[this.sortColumn] - b.summary[this.sortColumn];
+          }
+          else{
+            return b.summary[this.sortColumn] - a.summary[this.sortColumn];
+            }
+      }
+
+    })
+    return filterMarketsSort;
   }
+  },
+  methods:{
+    sort(s) {
+      if(this.sortOrder === "desc" || this.sortOrder===''){
+        this.sortOrder = "asc";
+      }
+      else{
+         this.sortOrder = "desc";
+      }
+      this.sortColumn = s;
+    }
   }
 })
 </script>

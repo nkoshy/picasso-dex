@@ -1,5 +1,5 @@
 <template>
-  <tr class=" border-b border-light-blue-dark border-opacity-50" @click.stop="onRowClick">
+  <tr class=" border-b border-light-blue-dark border-opacity-50 h-14" @click.stop="onRowClick">
     <td is="v-ui-table-td">
       <div class="flex items-center">
         <img
@@ -46,7 +46,7 @@
             appendPlusSign: true,
             precision: 2,
             value: change.toFixed(),
-            class: change.gte(0) ? 'font-sora text-primary-500' : 'font-sora text-accent-500'
+            class: change.gte(0) ? 'font-sora text-primary-500' : 'font-sora text-red-500'
           }"
         />
       </v-ui-text>

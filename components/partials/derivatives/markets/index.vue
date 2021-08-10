@@ -1,7 +1,6 @@
 <template>
-  <div class="table-compact table-select max-h-2xs overflow-y-auto">
-    
-    <div class="w-full  py-1  px-2">
+  <div class="table-compact table-select max-h-lw overflow-y-auto">
+    <div class="w-full py-3 px-2">
       <div class="w-full relative bg-dark-black">
         <v-input
           v-model="filterMarkets"
@@ -42,20 +41,20 @@
       <table class="table">
         <thead>
           <tr class="bg-blueish-dark">
-            <th is="v-ui-table-th" left class="text-xs font-normal h-14 pl-2">
+            <th is="v-ui-table-th" left class="text-xs font-normal h-14 px-3">
               {{ $t('market') }}
             </th>
-            <th is="v-ui-table-th" right class="text-xs font-normal h-14">
+            <th is="v-ui-table-th" right class="text-xs font-normal h-14 px-3">
               <v-ui-text>
                 {{ $t('last_traded_price') }}
               </v-ui-text>
             </th>
-            <th is="v-ui-table-th" right class="text-xs font-normal h-14">
+            <th is="v-ui-table-th" right class="text-xs font-normal h-14 px-3">
               <v-ui-text>
                 {{ $t('market_change_24h') }}
               </v-ui-text>
             </th>
-            <th is="v-ui-table-th" right class="text-xs font-normal h-14 pr-2">
+            <th is="v-ui-table-th" right class="text-xs font-normal h-14 px-3">
               <v-ui-text>
                 {{ $t('market_volume_24h') }}
               </v-ui-text>

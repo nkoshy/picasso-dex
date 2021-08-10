@@ -1,5 +1,5 @@
 <template>
-  <tr class=" border-b border-light-blue-dark border-opacity-50" @click.stop="onRowClick">
+  <tr class=" border-b border-light-blue-dark border-opacity-50 h-14" @click.stop="onRowClick">
     <td is="v-ui-table-td">
       <div class="flex items-center">
         <img

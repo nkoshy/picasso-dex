@@ -1,7 +1,7 @@
 <template>
   <div class="table-compact table-select px-4 pb-4">
    <div class="w-full  py-1  px-2">
-      <div class="w-xl absolute right-16 top-xs mx-2 my-3 2xl:right:hidden">
+      <div class="w-xl absolute right-36 top-xs mx-2 my-3 2xl:right:hidden">
         <v-input
           v-model="filterMarkets"
           :placeholder="$t('filter_markets')"

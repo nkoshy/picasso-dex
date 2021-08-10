@@ -165,7 +165,7 @@ module.exports = {
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
         'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",
-        'middle-section_desktop': "url('/home/home-middle-section-desktop.png')",
+        'middle-section_desktop': "url('/home/middle-section-bg.png')",
         'footer-desktop': "url('/home/footer-desktop.jpg')",
         'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
         'middle-section_mobile': "url('/home/home-middle-section-mobile.png')",

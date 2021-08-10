@@ -37,11 +37,11 @@
           flex-wrap
           top-12
           -left-20
-          min-w-lg
-          min-h-lw
+          min-w-xl
+          min-h-lg
           mt-12
           py-4
-          px-2
+          px-0.5
           rounded rounded-tl-none
            bg-spot-pattern
           bg-no-repeat

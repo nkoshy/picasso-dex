@@ -3,7 +3,7 @@
     <div class="w-full md:w-xl flex flex-col shadow-md mx-2 px-2 bg-model bg-no-repeat bg-cover border-solid rounded-md
         border border-light-pink">
       <div class="px-4 pt-14">
-        <h3 class="text-center text-xl font-bold font-semibold font-sora">
+        <h3 class="text-center text-xl  font-semibold font-sora">
           {{ $t('select_ledger_address') }}
         </h3>
       </div>

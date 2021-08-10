@@ -231,6 +231,7 @@ module.exports = {
       maxHeight: {
         ...extraSizings,
         modal: '96vh',
+        scrollAbleModel : '88vh',
         44: '11rem'
       },
 

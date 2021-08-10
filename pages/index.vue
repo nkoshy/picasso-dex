@@ -88,7 +88,7 @@ export default Vue.extend({
   },
     methods: {
       goTrade(){
-        window.open('https://trade.picasso.exchange/','_blank');
+        window.open('https://trade.picasso.exchange/market','_blank');
       },
 
       goReadMore() {

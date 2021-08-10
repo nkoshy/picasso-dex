@@ -5,9 +5,9 @@
         v-if="label || error"
         :for="`input-select-${uid}`"
         class="
-          text-xl
+          text-xs
           leading-none
-          opacity-75
+          opacity-50
           flex
           items-center
           justify-between

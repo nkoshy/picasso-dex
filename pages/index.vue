@@ -9,7 +9,7 @@
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
             <img
-              src="/images/inject.png"
+              src="powered-by-icon.svg"
               alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
             /> 
@@ -49,7 +49,7 @@
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
-                <img src="/images/injective_logo.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 h-12 mt-6">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />

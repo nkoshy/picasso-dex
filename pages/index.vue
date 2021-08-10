@@ -47,7 +47,7 @@
     
       <div class="conatiner max-w-8xl m-auto relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center mt-10 opacity-60">
+        <div class=" flex flex-col items-center md:flex-row justify-center mt-10 mb-24 opacity-60">
             <div class="md:h-24 md:mr-32 h-12">
                 <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
@@ -55,7 +55,9 @@
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
+         
         <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
+          <span class="mr-16">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
                 <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
             </div>
@@ -67,8 +69,15 @@
             </div>
             <div class="md:mr-16 md:h-8 h-6 mr-0">
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
-            </div>
-        </div>
+            </div> 
+            <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
+        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        </div> 
+        <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
+        <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
+        <span class="mr-10 pl-80 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
+        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        </div> -->
        </div>
        <modal-acknowledge />
   </div>
@@ -79,12 +88,14 @@ import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
+import Footer from '~/components/partials/spot/footer.vue'
 
 export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
-    'modal-acknowledge': ModalAcknowledge
+    'modal-acknowledge': ModalAcknowledge,
+    'v-footer': Footer
   },
     methods: {
       goTrade(){
@@ -121,6 +132,12 @@ export default Vue.extend({
       
       openAcknowledgeModal() {
         this.$accessor.modal.openModal(Modal.Acknowledge)
+      },
+      goPrivacy() {
+      this.$router.push({ name: 'privacy_policy' })
+      },
+      goDisclaimer() {
+      this.$router.push({ name: 'disclaimer' })
       }
     }
 })

@@ -81,6 +81,7 @@ export default Vue.extend({
       // style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
       this.$emit('input', style)
       this.$emit('input', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
+      this.$emit('onValueChange', progress);
     }
   }
 })

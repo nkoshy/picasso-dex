@@ -71,7 +71,7 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
             </div> 
             <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        <span class="cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div> 
         <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
         <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
@@ -136,8 +136,8 @@ export default Vue.extend({
       goPrivacy() {
       this.$router.push({ name: 'privacy_policy' })
       },
-      goDisclaimer() {
-      this.$router.push({ name: 'disclaimer' })
+      goTerms() {
+      this.$router.push({ name: 'terms' })
       }
     }
 })

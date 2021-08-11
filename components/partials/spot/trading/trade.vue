@@ -60,9 +60,14 @@
           <span class="font-sora">Available</span>
         </div>
         <div>
-          <span class="cursor-pointer text-xs font-normal text-white font-sora">
-            0.000005
-          </span>
+          <v-ui-format-amount
+        v-bind="{
+          value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
+        }"
+      />
+          <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
+            {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
+          </span> -->
           <span class="cursor-pointer text-xs font-bold text-white font-sora">
             {{market.ticker.split('/')[1]}}
           </span>
@@ -75,7 +80,6 @@
           :max-selector="true"
           :value="form.price"
           :placeholder="$t('price')"
-          :label="$t('available')"
           type="number"
           :step="priceStep"
           min="0"
@@ -84,6 +88,7 @@
           @input-max="() => onMaxInput(100)"
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
+          
           <!-- <div
             v-if="true"
             slot="context"
@@ -107,6 +112,7 @@
           ref="input-amount"
           :value="form.amount"
           :custom-handler="true"
+          :max-selector="true"
           :placeholder="$t('amount')"
           type="number"
           :step="amountStep"
@@ -114,8 +120,10 @@
           @blur="onAmountBlur"
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
-          
         >
+        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs">
+        Max
+      </span>
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
           <!-- <div slot="context" class="text-xs text-gray-400 flex items-center">
             <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"

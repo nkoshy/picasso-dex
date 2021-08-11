@@ -33,7 +33,7 @@
 
 .addon-max,
 .addon-min {
-  @apply absolute right-0 top-0 h-full select-none cursor-pointer mt-2;
+  @apply absolute right-0 top-0.5 h-full select-none cursor-pointer mt-2;
 }
 
 .input {

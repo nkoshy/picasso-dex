@@ -55,6 +55,11 @@
         class="addon-max cursor-pointer"
         @click.stop="handleMaxSelector"
       >
+        <span
+          class="px-2 py-1 text-sm font-semibold font-sora "
+        >
+          {{ $t('max') }}
+        </span>
       </span>
 
       <span

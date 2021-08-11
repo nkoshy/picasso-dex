@@ -1,10 +1,11 @@
 <template>
   <div class="flex justify-between items-center relative px-3 xl:w-52 py-2">
     <div
-      id="wallet-dropdown"
+    :class="isDropdownOpen ? 'is-active' : ''"
       class="
         select-none
         cursor-pointer
+        group
         block
         w-full
         border-2
@@ -13,7 +14,7 @@
         border-lightBlue
         p-4
       "
-      @click.stop="toggleDropdown"
+      @click="toggleDropdown"
     >
       <!-- <v-ui-icon
         :class="isUserWalletConnected ? 'text-primary-500' : 'text-white'"
@@ -140,9 +141,9 @@ export default Vue.extend({
   data() {
     return {
       TRANSFER_RESTRICTIONS_ENABLED,
+      Icon,
       isDropdownOpen: false,
       Wallet,
-      Icon
     }
   },
 
@@ -191,16 +192,14 @@ export default Vue.extend({
   },
 
   methods: {
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen
+    },
     closeDropdown() {
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
     },
-
-    toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
-    },
-
     onLogoutClick() {
       this.$accessor.wallet.logout()
     },

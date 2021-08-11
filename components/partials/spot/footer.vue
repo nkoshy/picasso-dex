@@ -21,7 +21,7 @@
                 </div>
             </div>
             <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-            <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>   
+            <span class="cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>   
         </div>
     </div>
 </template>
@@ -51,8 +51,8 @@ export default Vue.extend({
     goPrivacy() {
       this.$router.push({ name: 'privacy_policy' })
     },
-    goDisclaimer() {
-      this.$router.push({ name: 'disclaimer' })
+    goTerms() {
+      this.$router.push({ name: 'terms' })
     }
    }
 })

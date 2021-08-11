@@ -43,30 +43,48 @@
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
-    <p slot="header" class="flex justify-between text-sm font-normal font-sora pb=3.5 pt-4">
+    <p slot="header" class="text-sm font-normal font-sora pb=3.5 pt-4">
         <v-ui-text muted-md>
-        {{ $t(orderTypeBuy ? 'BUY' : 'SELL') }}
+        {{ $t(orderTypeBuy ? 'Buy' : 'Sell') }}
         {{market.baseToken.symbol}}
         </v-ui-text>
         </p>
     
     <div class="mt-2">
-
+       <div
+        v-if="true"
+        slot="context"
+        class="text-xs text-gray-400 flex justify-between"
+      >
+        <div class="pb-3.5 pt-2">
+          <span class="font-sora">Available</span>
+        </div>
+        <div>
+          <span class="cursor-pointer text-xs font-normal text-white font-sora">
+            0.000005
+          </span>
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
+            {{market.ticker.split('/')[1]}}
+          </span>
+        </div>
+      </div>
       <div v-if="!tradingTypeMarket" class="mb-4 ">
         <v-input
           ref="input-price"
+          :custom-handler="true"
+          :max-selector="true"
           :value="form.price"
           :placeholder="$t('price')"
           :label="$t('available')"
-          :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
           min="0"
           @blur="onPriceBlur"
           @input="onPriceChange"
+          @input-max="() => onMaxInput(100)"
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
-          <div
+          <!-- <div
             v-if="true"
             slot="context"
             class="text-xs text-gray-400 flex items-center"
@@ -77,13 +95,12 @@
             <span class="cursor-pointer text-xs font-bold text-white font-sora"
               >USDT</span
             >
-          </div>
+          </div> -->
         </v-input>
         <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
           {{ priceError }}
         </v-ui-text>
       </div>
-
 
       <div class="mb-4">
         <v-input
@@ -100,6 +117,20 @@
           
         >
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
+          <!-- <div slot="context" class="text-xs text-gray-400 flex items-center">
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
+              >25%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
+              >50%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
+              >75%</span
+            >
+            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
+              >100%</span
+            >
+          </div> -->
           
         </v-input>
         <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
@@ -115,7 +146,8 @@
         </v-ui-text>
       </div>
      </div>
-      <v-slider @input="onSliderValueChange"/>
+      <!-- <v-slider @input="onSliderValueChange"/> -->
+      <v-slider @onValueChange="onSliderValueChange"/>
     <!-- <div v-if="!tradingTypeMarket" class="mb-4">
         <v-input
           ref="input-price"
@@ -184,7 +216,8 @@ import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
-  NUMBER_REGEX
+  NUMBER_REGEX,
+  UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import {
@@ -193,7 +226,8 @@ import {
   UiSpotOrderbook,
   UiPriceLevel,
   UiSpotMarket,
-  UiSubaccount
+  UiSubaccount,
+  UiSubaccountBalanceWithToken
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -231,6 +265,31 @@ export default Vue.extend({
   },
 
   computed: {
+    baseBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const baseBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.baseDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          baseBalance ? baseBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          baseBalance ? baseBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+        token: market.baseToken,
+        denom: market.baseDenom
+      }
+    },
+    
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
     },
@@ -720,6 +779,8 @@ export default Vue.extend({
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
     this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
+    this.onSliderValueChange()
+    
   },
 
   methods: {
@@ -738,6 +799,7 @@ export default Vue.extend({
 
     onSliderValueChange(sliderValue = 25) {
       this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      console.log(sliderValue);
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(sliderValue))
       })     

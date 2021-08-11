@@ -31,7 +31,7 @@
         v-on-clickaway="closeDropdown"
         :class="classes"
       >
-        <div class="pt-8 pr-4 pb-2 pl-3.5 w-48 flex flex-col">
+        <div class="pt-8 pr-4 pb-3 pl-3.5 w-52 h-40 flex flex-col">
           <div class="flex mb-3" @click.stop = "gotwitter">
             <div>
               <img :src="'/home/twitter-community.svg'" />
@@ -96,7 +96,7 @@ export default Vue.extend({
       ];
 
       if(!this.landingPage) {
-        classes.push('mt-10', 'top-20', 'left-2.5')
+        classes.push('mt-10', 'top-20', '-left-1.5')
       } else {
         classes.push('bg-dark-main', 'top-16', 'mt-2.5')
       }

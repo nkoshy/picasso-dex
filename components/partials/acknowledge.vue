@@ -1,8 +1,8 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
     <div class="w-full md:w-3xl flex flex-col shadow bg-trade bg-no-repeat bg-cover border-solid rounded-md
-        border border-light-pink">
-      <div class="flex flex-wrap">
+        border border-light-pink px-1 py-2">
+      <div class="flex flex-wrap max-h-scrollAbleModel overflow-y-auto">
         <div class="w-full mb-4 pl-8 pr-24 pt-12">
           <h3 class="text-xl font-semibold font-sora mb-4">
             {{ $t('acknowledge_title') }}

@@ -68,13 +68,13 @@
       v-on-clickaway="closeDropdown"
       :class="classes"
     >
-      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-2 pl-3.5 w-48">
+      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-3 pl-3.5 w-52 h-40">
         <v-disclaimer v-if="TRANSFER_RESTRICTIONS_ENABLED" />
         <v-metamask />
         <hr class="border border-solid border-commuity" />
         <v-ledger />
       </div>
-      <div v-else class="flex flex-wrap pt-5 pl-2.5 pb-4 pr-2.5">
+      <div v-else class="flex flex-wrap py-6 px-5">
         <!-- <div
           class="
             w-full
@@ -92,8 +92,6 @@
             w-full
             text-white
             font-sora
-            py-2
-            px-4
             text-sm
             cursor-pointer
             hover:bg-hover300
@@ -183,9 +181,9 @@ export default Vue.extend({
       ];
 
       if(!this.landingPage) {
-        classes.push('mt-16', 'top-14', '-right-4')
+        classes.push('mt-16', 'top-14', '-right-8')
       } else {
-        classes.push('mt-1', 'bg-dark-main', 'top-16', 'mt-2.5')
+        classes.push('mt-1', 'bg-dark-main', 'top-20', 'mt-2.5')
       }
 
       return classes.join(' ')

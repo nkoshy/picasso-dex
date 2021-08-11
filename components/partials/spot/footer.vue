@@ -1,12 +1,12 @@
 <template>
     <div :class="
         !SpotPage
-          ? 'pt-6 xl:mr-12'
+          ? '2xl:mr-auto 2xl:ml-auto max-w-screen-2xl pb-4 pl-8'
           : 'mt-20 ml-auto mb-20 mr-auto'
       ">
         <div class="flex items-center">
-            <span class="mr-44">Copyright © 2021 Picasso Exchange</span>
-            <div class="flex items-center mr-48">
+            <span :class="!SpotPage?'xl:mr-64 2xl:mr-80':'mr-44'">Copyright © 2021 Picasso Exchange</span>
+            <div :class="!SpotPage?'flex items-center xl:mr-64 2xl:mr-72':'flex items-center mr-48'">
                 <div class="md:mr-16 md:h-8 h-6 mr-8">
                     <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer" @click.stop = "gotwitter"/>
                 </div>

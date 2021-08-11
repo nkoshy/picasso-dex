@@ -2,11 +2,11 @@
   <tr @click.stop="onRowClick">
     <td is="v-ui-table-td" divide>
       <div class="flex items-center">
-      <!--  <img
+        <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
           class="w-6 h-6 mr-4"
-        /> -->
+        />
         <div class="leading-none">
           <span class="text-gray-100 font-semibold text-sm font-poppins ">{{ market.ticker.split('/')[0]}}</span>
           <span class="text-gray-400 text-sm font-normal font-poppins">
@@ -52,7 +52,7 @@
       </v-ui-text>
     </td>
     <td is="v-ui-table-td" left class=" px-4 font-normal w-1/4 font-poppins">
-      <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-start font-poppins">
+      <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-end font-poppins xl:justify-start">
         <v-ui-format-number
           v-bind="{
             dontGroupValues: true,

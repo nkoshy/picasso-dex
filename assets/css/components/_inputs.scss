@@ -106,7 +106,7 @@
 
 
 .v-select.input {
-  @apply px-1 font-sans;
+  @apply px-1 h-11 font-sora rounded-md border border-light-blue-dark border-opacity-50 bg-dark-black ;
 
   .vs__search {
     @apply text-xs opacity-75 text-gray-400 ;
@@ -119,11 +119,11 @@
   }
 
   .vs__dropdown-menu {
-    @apply bg-dark-500 text-gray-200 px-2;
+    @apply bg-dark-black text-gray-200 px-2;
   }
 
   .vs__selected {
-    @apply text-gray-200;
+    @apply text-gray-50 font-sora ;
   }
 
   .vs__dropdown-option {
@@ -131,7 +131,7 @@
   }
 
   .vs__dropdown-option--highlight {
-    @apply bg-primary-500 text-primary-900;
+    @apply text-white bg-dark-black ;
   }
 }
 

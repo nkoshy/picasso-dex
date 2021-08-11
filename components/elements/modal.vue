@@ -25,7 +25,7 @@
           z-20
         "
       >
-        <div class="absolute right-8 top-7 -mt-4 -mr-4">
+        <div class="absolute right-10 top-7 -mt-4 -mr-4">
           <button
             v-if="close"
             type="button"

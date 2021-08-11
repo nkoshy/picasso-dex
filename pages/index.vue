@@ -79,7 +79,6 @@
         <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
         </div> -->
        </div>
-       <modal-acknowledge />
   </div>
 </template>
 <script lang="ts">
@@ -87,14 +86,12 @@ import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
-import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 import Footer from '~/components/partials/spot/footer.vue'
 
 export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
-    'modal-acknowledge': ModalAcknowledge,
     'v-footer': Footer
   },
     methods: {

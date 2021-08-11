@@ -60,7 +60,7 @@
           <span class="font-sora">Available</span>
         </div>
         <div>
-          <v-ui-format-amount
+          <v-ui-format-amount v-if="baseBalance !== undefined"
         v-bind="{
           value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
         }"

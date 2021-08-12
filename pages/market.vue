@@ -27,7 +27,7 @@
     <h1 class="lg:text-white text-3xl font-bold font-sora mb-14 mx-auto xl:pl-14 xl:text-5xl 2xl:mx-auto xl:my-14 xl:mx-14">
       Markets
     </h1>
-    <div class="container xl:px-14 xl:pb-4">
+    <div class="container xl:px-8 xl:pb-4">
       <v-panel>
         <div
           slot="context"

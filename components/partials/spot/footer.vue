@@ -2,7 +2,7 @@
     <div :class="
         !SpotPage
           ? '2xl:mr-auto 2xl:ml-auto max-w-screen-2xl pb-4 pl-8'
-          : 'mb-8 mt-20 xl:my-20 xl:mx-16 2xl:mx-auto'
+          : 'mb-8 mt-20 xl:my-20 xl:mr-16 xl:ml-28 2xl:mx-auto'
       ">
         <div class="flex items-center flex-wrap xl:flex-nowrap">
           <div  class="flex order-1  w-1/2 xl:pl-1 pl-4 xl:w-full">

@@ -16,7 +16,7 @@
       </div>
     </td>
     <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-4" left>
-      <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins px-7">
+      <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins">
         <v-ui-format-price
           v-bind="{
             value: lastTradedPrice,
@@ -40,7 +40,7 @@
       <span v-else class="text-gray-500 px-10">&mdash;</span>
     </td>
     <td is="v-ui-table-td" left class="font-normal w-1/4 font-poppins">
-      <v-ui-text poppins sm class="text-right font-semibold px-7 font-poppins">
+      <v-ui-text poppins sm class="text-right font-semibold font-poppins">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,

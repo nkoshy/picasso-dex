@@ -29,7 +29,7 @@
         </div>        
       </div>
     </div>
-      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
+      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center 2xl:ml-auto">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>

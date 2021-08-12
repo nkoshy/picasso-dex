@@ -7,26 +7,26 @@
     >
       <table class="table">
         <thead class="border-b">
-          <tr>
-            <th is="v-ui-table-th" right>
+          <tr class="bg-light-purple">
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('price') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('amount') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('notional_size') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('fee') }}</span>
             </th>
-            <th is="v-ui-table-th" center>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('side') }}</span>
             </th>
-            <th is="v-ui-table-th" center>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('execution_type') }}</span>
             </th>
-            <th is="v-ui-table-th" right>
+            <th is="v-ui-table-th" center xs>
               <span>{{ $t('time') }}</span>
             </th>
           </tr>
@@ -37,11 +37,13 @@
             v-for="(trade, index) in trades"
             :key="`trades-history-${index}-`"
             :trade="trade"
+            :class="orders"
           ></tr>
           <tr
             is="v-trade-empty"
             v-for="(trade, index) in emptyTrades"
             :key="`empty-trades-${index}`"
+            :class="orders"
           ></tr>
         </tbody>
         <tbody v-else>

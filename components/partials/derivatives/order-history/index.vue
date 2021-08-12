@@ -1,7 +1,7 @@
 <template>
   <div v-if="market" class="table-responsive table-compact">
     <table class="table">
-      <thead class="border-b" >
+      <thead class="border-b">
         <tr class="bg-light-purple">
           <th is="v-ui-table-th" center xs>
             <span>{{ $t('price') }}</span>
@@ -14,9 +14,6 @@
           </th>
           <th is="v-ui-table-th" center xs>
             <span>{{ $t('total') }}</span>
-          </th>
-          <th is="v-ui-table-th" center xs>
-            <span>{{ $t('leverage') }}</span>
           </th>
           <th is="v-ui-table-th" center xs>
             <span>{{ $t('type') }}</span>
@@ -35,16 +32,18 @@
           v-for="(order, index) in orders"
           :key="`orders-${index}-${order.orderHash}`"
           :order="order"
+          :class="index%2==0 ? 'bg-red-900 orders' : 'bg-red-900 orders'"
         ></tr>
         <tr
           is="v-order-empty"
           v-for="(order, index) in emptyOrders"
           :key="`empty-orders-${index}`"
+          :class="index%2==0 ? 'bg-red-900 orders' : 'bg-red-900 orders'"
         ></tr>
       </tbody>
       <tbody v-else>
         <tr class="relative h-8">
-          <th colspan="8" class="w-full" :rowspan="limit">
+          <th colspan="7" class="w-full" :rowspan="limit">
             <v-ui-overlay>
               <p>{{ $t('not_connect_orders') }}</p>
             </v-ui-overlay>
@@ -65,9 +64,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { BigNumber } from '@injectivelabs/utils'
-import Order from './order.vue'
-import OrderEmpty from './order-empty.vue'
-import { UiDerivativeMarket, UiDerivativeLimitOrder } from '~/types'
+import Order from './order-history.vue'
+import OrderEmpty from './order-history-empty.vue'
+import { UiSpotMarket, UiSpotLimitOrder } from '~/types'
 
 export default Vue.extend({
   components: {
@@ -86,18 +85,18 @@ export default Vue.extend({
       return this.$accessor.wallet.isUserWalletConnected
     },
 
-    market(): UiDerivativeMarket | undefined {
-      return this.$accessor.derivatives.market
+    market(): UiSpotMarket | undefined {
+      return this.$accessor.spot.market
     },
 
-    orders(): UiDerivativeLimitOrder[] {
+    orders(): UiSpotLimitOrder[] {
       const { market } = this
 
       if (!market) {
         return []
       }
 
-      return this.$accessor.derivatives.subaccountOrders
+      return this.$accessor.spot.subaccountOrders
     },
 
     emptyOrders(): any[] {

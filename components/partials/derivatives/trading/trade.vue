@@ -1,11 +1,31 @@
 <template>
-  <div v-if="market" class="p-4 w-full">
+  <div v-if="market" class="p-3 w-full bg-light-purple">
     <div class="w-full flex">
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.LimitFill"
+        small
+      >
+        {{ $t('limit') }}
+      </v-ui-button-select>
+
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.Market"
+        small
+      >
+        {{ $t('market') }}
+      </v-ui-button-select>
+    </div>
+
+    <div class="w-full flex mt-3.5">
       <v-ui-button-select
         v-model="orderType"
         :option="DerivativeOrderSide.Buy"
         half
-        aqua
+        primary
+        case
+        nonprimary
       >
         {{ $t('long_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -13,35 +33,43 @@
         v-model="orderType"
         :option="DerivativeOrderSide.Sell"
         half
-        red
+        accent
+        case
+        primary
+        nonprimary
       >
         {{ $t('short_asset', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
-    <div class="w-full flex mt-4">
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.Market"
-        small
+
+
+    <div class="mt-10">
+      <div
+        v-if="true"
+        slot="context"
+        class="text-xs text-gray-400 flex justify-between"
       >
-        {{ $t('market') }}
-      </v-ui-button-select>
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.LimitFill"
-        small
-      >
-        {{ $t('limit') }}
-      </v-ui-button-select>
-    </div>
-    <div class="mt-4">
+        <div class=" pb-1">
+          <span class="font-sora">Available</span>
+        </div>
+        <div class="pb-1">
+          <v-ui-format-amount v-if="baseBalance !== undefined"
+        v-bind="{
+          value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
+        }"
+      />
+          <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
+            {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
+          </span> -->
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
+            {{market.ticker.split('/')[1]}}
+          </span>
+        </div>
+      </div>
       <div class="mb-4">
         <v-input
           ref="input-amount"
           :value="form.amount"
-          :label="$t('amount_decimals', { decimals: market.quantityDecimals })"
           :custom-handler="true"
           :max-selector="true"
           :placeholder="$t('amount')"
@@ -52,8 +80,11 @@
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
         >
+        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs">
+        Max
+      </span>
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
-          <div slot="context" class="text-xs text-gray-400 flex items-center">
+          <!-- <div slot="context" class="text-xs text-gray-400 flex items-center">
             <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
               >25%</span
             >
@@ -66,7 +97,7 @@
             <span class="cursor-pointer" @click.stop="onMaxInput(100)"
               >100%</span
             >
-          </div>
+          </div> -->
         </v-input>
         <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
           {{ amountError }}
@@ -85,11 +116,6 @@
           ref="input-price"
           :value="form.price"
           :placeholder="$t('price')"
-          :label="
-            $t('price_decimals', {
-              decimals: market.priceDecimals
-            })
-          "
           :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
@@ -152,7 +178,7 @@
         wide
         @click.stop="onSubmit"
       >
-        {{ $t(orderTypeBuy ? 'buy_long' : 'sell_short') }}
+        {{ $t(orderTypeBuy ? 'buy now' : 'sell now') }}
       </v-ui-button>
     </div>
   </div>

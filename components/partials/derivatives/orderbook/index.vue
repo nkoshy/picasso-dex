@@ -1,5 +1,5 @@
 <template>
-  <v-panel class="relative w-full" :title="$t('order_book')">
+  <v-panel class="relative w-full" extra-classes="bg-tertiary-gradient" :title="$t('order_book')" orderBook>
     <v-orderbook-context slot="context" keep-alive></v-orderbook-context>
     <v-orderbook />
   </v-panel>

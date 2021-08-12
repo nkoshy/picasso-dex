@@ -1,6 +1,7 @@
 <template>
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
-    <div class="h-full max-w-8xl m-auto w-full">
+    <div class="h-full max-w-8xl m-auto w-full xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
+      <app-header landingPage=true />
       <grid-layout
         :layout="layout"
         :col-num="grid.colNum"
@@ -36,6 +37,7 @@
       <modal-withdraw />
       <modal-take-out />
       <modal-add-margin />
+      <v-footer />
     </div>
   </HOCLoading>
 </template>
@@ -62,6 +64,9 @@ import PositionsPanel from '~/components/partials/derivatives/positions/index.vu
 import HOCLoading from '~/components/elements/with-loading.vue'
 import { UiDerivativeMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/derivatives/grid'
+import Header from '~/components/layouts/desktop/header.vue'
+import Footer from '~/components/partials/spot/footer.vue'
+
 
 const GRID_ROW_HEIGHT = 54
 
@@ -84,7 +89,9 @@ export default Vue.extend({
     GridItem,
     ModalTransfer,
     ModalDeposit,
-    SubaccountBalancePanel
+    SubaccountBalancePanel,
+    'app-header': Header,
+     'v-footer': Footer
   },
 
   data() {

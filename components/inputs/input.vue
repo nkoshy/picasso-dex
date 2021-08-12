@@ -56,7 +56,7 @@
         @click.stop="handleMaxSelector"
       >
         <span
-          class="px-2 py-1 text-sm font-semibold font-sora "
+          class="px-2 py-1 text-sm font-semibold font-sora bg-light-purple"
         >
           {{ $t('max') }}
         </span>

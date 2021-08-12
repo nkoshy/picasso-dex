@@ -1,6 +1,6 @@
 <template>
-  <v-ui-card class="h-full">
-    <infinite-slide-bar duration="30s" class="mt-2">
+  <v-ui-card class="h-full bg-light-purple rounded-md">
+    <infinite-slide-bar duration="30s" class="mt-3">
       <div class="flex justify-around items-center">
         <div
           v-for="singleMarket in transformedMarkets"
@@ -27,7 +27,7 @@
                     ? DerivativeOrderSide.Buy
                     : DerivativeOrderSide.Sell
               }"
-              class="mr-1"
+              class="mr-1 mt-2 text-light-purple"
             />
           </v-ui-text>
         </div>

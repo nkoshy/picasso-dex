@@ -2,7 +2,7 @@
   <div class="flex flex-col flex-wrap overflow-y-hidden w-full">
     <ul
       ref="sellOrders"
-      class="list-order-book overflow-auto w-full"
+      class="list-order-book overflow-auto w-full bg-dark-purple"
       @mouseenter="autoScrollSellsLocked = true"
       @mouseleave="autoScrollSellsLocked = false"
     >
@@ -22,15 +22,13 @@
       v-if="market"
       class="
         h-14
-        bg-dark-800
         flex flex-col
         items-center
         justify-center
-        border-t border-b
       "
     >
       <div class="w-full flex justify-between px-2">
-        <span class="text-white font-bold text-sm w-2/3 text-right pr-2">
+        <span class=" font-sora text-white font-bold text-base text-light-green w-2/3 text-right pr-2">
           <div class="inline-block mr-1">
             <v-ui-icon
               v-if="

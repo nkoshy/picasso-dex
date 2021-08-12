@@ -1,15 +1,15 @@
 <template>
-  <div v-if="market" class="mt-4 py-4 border-t relative">
+  <div v-if="market" class="mt-4 py-4 relative">
     <v-drawer
       :custom-handler="true"
       :custom-is-open="detailsDrawerOpen"
       @drawer-toggle="onDrawerToggle"
     >
-      <p slot="header" class="flex justify-between text-sm">
+      <p slot="header" class="flex justify-between text-base font-normal font-sora">
         <v-ui-text muted-md>
           {{ $t('total') }}
         </v-ui-text>
-        <v-ui-text em class="flex text-gray-500 align-bottom">
+        <v-ui-text em class="flex text-white font-normal text-base">
           <span class="mr-1">≈</span>
           <v-ui-format-price
             v-bind="{
@@ -17,13 +17,13 @@
               decimals: market.priceDecimals
             }"
           />
-          <small class="opacity-75 pt-px ml-1">{{
+          <small class="text-white font-normal text-base pt-px ml-1">{{
             market.quoteToken.symbol
           }}</small>
         </v-ui-text>
       </p>
       <div class="text-xs mt-2">
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('amount') }}
           </v-ui-text>
@@ -43,9 +43,9 @@
         </p>
         <p
           v-if="!orderTypeReduceOnly"
-          class="flex justify-between group leading-6"
+          class="flex justify-between group leading-6 opacity-40"
         >
-          <v-ui-text muted-sm class="group-hover:text-white">
+          <v-ui-text muted-sm class="group-hover:text-white flex items-center">
             {{ $t('liquidation_price') }}
           </v-ui-text>
           <v-ui-text
@@ -70,7 +70,7 @@
         </p>
         <p
           v-if="!orderTypeReduceOnly"
-          class="flex justify-between group leading-6"
+          class="flex justify-between group leading-6 opacity-40"
         >
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('margin') }}
@@ -91,7 +91,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('notional_value') }}
           </v-ui-text>
@@ -112,7 +112,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="flex justify-between group leading-6">
+        <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white flex items-center"
             ><span class="mr-2">{{ $t('fee') }}</span
             ><v-ui-icon
@@ -143,11 +143,11 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="mt-2">
+        <!-- <p class="mt-2">
           <v-ui-text xs muted class="flex items-center">
             {{ $t('worst_price_note', { slippage: slippage.toFixed() }) }}
           </v-ui-text>
-        </p>
+        </p> -->
       </div>
     </v-drawer>
   </div>

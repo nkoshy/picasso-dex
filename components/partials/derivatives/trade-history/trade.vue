@@ -7,7 +7,7 @@
           type: trade.tradeDirection,
           decimals: market.priceDecimals
         }"
-        class="block text-right"
+        class="block text-center"
       />
     </td>
     <td is="v-ui-table-td" xs right class="h-8">
@@ -16,7 +16,7 @@
           value: quantity,
           decimals: market.quantityDecimals
         }"
-        class="block text-right"
+        class="block text-center"
       />
     </td>
     <td is="v-ui-table-td" xs right class="h-8">
@@ -25,7 +25,7 @@
           value: total,
           decimals: market.priceDecimals
         }"
-        class="block text-right"
+        class="block text-center"
       />
     </td>
     <td is="v-ui-table-td" xs right class="h-8">
@@ -33,7 +33,7 @@
         v-bind="{
           value: fee
         }"
-        class="text-right block text-white"
+        class="text-center block text-white"
       />
     </td>
     <td is="v-ui-table-td" xs center class="h-8">
@@ -51,7 +51,7 @@
       </v-ui-badge>
     </td>
     <td is="v-ui-table-td" xs right class="h-8">
-      <v-ui-text muted class="font-mono block text-right">
+      <v-ui-text muted class="font-sora block text-center">
         {{ time }}
       </v-ui-text>
     </td>

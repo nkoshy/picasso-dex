@@ -1,31 +1,31 @@
 <template>
   <tr>
-    <td is="v-ui-table-td" xs center>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs center>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
-    <td is="v-ui-table-td" xs right>
-      <v-ui-text muted-lg xs>&mdash;</v-ui-text>
+    <td is="v-ui-table-td" xs center class="h-8 opacity-70">
+      <v-ui-text muted-lg emp xs>&mdash;</v-ui-text>
     </td>
   </tr>
 </template>

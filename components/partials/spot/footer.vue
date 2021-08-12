@@ -2,26 +2,30 @@
     <div :class="
         !SpotPage
           ? '2xl:mr-auto 2xl:ml-auto max-w-screen-2xl pb-4 pl-8'
-          : 'mt-20 ml-auto mb-20 mr-auto'
+          : 'mb-8 mt-20 xl:my-20 xl:mx-16 2xl:mx-auto'
       ">
-        <div class="flex items-center">
-            <span :class="!SpotPage?'xl:mr-64 2xl:mr-80':'mr-44'">Copyright © 2021 Picasso Exchange</span>
-            <div :class="!SpotPage?'flex items-center xl:mr-64 2xl:mr-72':'flex items-center mr-48'">
-                <div class="md:mr-16 md:h-8 h-6 mr-8">
+        <div class="flex items-center flex-wrap xl:flex-nowrap">
+          <div  class="flex order-1  w-1/2 xl:pl-1 pl-4 xl:w-full">
+            <span :class="!SpotPage?'xl:mr-10 2xl:mr-80':'xl:mr-10'">Copyright © 2021 Picasso Exchange</span>
+          </div>
+            <div :class="!SpotPage?'flex items-center order-1 xl:mx-28 2xl:mr-72':'flex justify-evenly items-center xl:mx-20 2xl:mx-70 order-2 mx-auto w-full pt-20 xl:pt-1 xl:order-1'">
+                <div class=" h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer" @click.stop = "gotwitter"/>
                 </div>
-                <div class="md:mr-16 md:h-8 h-6 mr-8">
+                <div class="h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/medium.svg" alt="" class="h-full cursor-pointer" @click.stop = "gomedium">
                 </div>
-                <div class="md:mr-16 md:h-8 h-6 mr-8">
+                <div class="h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/github.svg" alt="" class="h-full cursor-pointer" @click.stop = "gogithub">
                 </div>
-                <div class="md:h-8 h-6">
+                <div class="h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/discord.svg" alt="" class="h-full cursor-pointer" @click.stop = "godiscord">
                 </div>
             </div>
-            <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-            <span class="cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>   
+            <div class="flex flex-col order-1 w-1/2 pr-4 xl:px-1 xl:w-full xl:flex-row">
+              <span :class="!SpotPage?'xl:mx-5':'ml-7 xl:mr-5 cursor-pointer text-right xl:text-left 2xl:whitespace-nowrap'"  @click.stop="goPrivacy">Privacy Policy</span> 
+              <span class="cursor-pointer text-right xl:text-left 2xl:whitespace-nowrap" @click.stop="goDisclaimer">Terms and Conditions</span>
+            </div>
         </div>
     </div>
 </template>

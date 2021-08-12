@@ -1,11 +1,11 @@
 <template>
   <tr @click.stop="onRowClick">
-    <td is="v-ui-table-td" divide>
+    <td is="v-ui-table-td" divide class="pl-1">
       <div class="flex items-center">
         <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
-          class="w-6 h-6 mr-4"
+          class="w-6 h-6 xl:mr-4 mr-2"
         />
         <div class="leading-none">
           <span class="text-gray-100 font-semibold text-sm font-poppins ">{{ market.ticker.split('/')[0]}}</span>

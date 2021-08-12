@@ -14,9 +14,9 @@
               class="h-6 ml-3 w-auto"
             />  -->
             <img
-              src="/images/primary_logo.svg"
+              src="/images/secondary_logo.png"
               alt="Injective Exchange"
-              class="h-6 ml-3 w-auto"
+              class="h-12 ml-3 w-28"
             /> 
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>

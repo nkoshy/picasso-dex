@@ -87,7 +87,7 @@ export default Vue.extend({
       }
 
       if (this.xs) {
-        classes.push('text-xs', 'text-white','px-3', 'py-6', 'opacity-70')
+        classes.push('text-xs', 'text-white','px-3', 'py-3.5', 'opacity-70')
       }
 
       if (this.background) {

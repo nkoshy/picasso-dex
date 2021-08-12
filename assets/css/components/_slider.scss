@@ -94,7 +94,7 @@
   background: linear-gradient(to right, #3617E2 0%, #FC69FB 25%, #242257 25% ,#242257 100%);
   border: 1px solid #302E6F;
   height: 12px;
-  width: 310px;
+  width:98%;
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
@@ -138,8 +138,8 @@
   font-size: 0.6rem;
   
 }
-@media only screen and (min-width: 2560px) {
-  .range{
-    width:332px;
-  }
-}
+// @media only screen and (min-width: 2560px) {
+//   .range{
+//     width:332px;
+//   }
+// }

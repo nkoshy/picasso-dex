@@ -8,7 +8,7 @@
           decimals: market.priceDecimals,
           type: trade.tradeDirection
         }"
-        class="block text-right"
+        class="block text-left font-sora text-dark-red text-xs"
       />
     </span>
     <span class="w-1/3 text-xs px-2">
@@ -17,11 +17,11 @@
           value: quantity,
           decimals: market.quantityDecimals
         }"
-        class="block text-right"
+        class="block text-right font-sora text-xs text-white"
       />
     </span>
     <span class="w-1/3 text-xs px-2">
-      <v-ui-text muted class="font-mono block text-right">
+      <v-ui-text muted class="font-sora block text-center text-xs text-white opacity-40">
         {{ time }}
       </v-ui-text>
     </span>

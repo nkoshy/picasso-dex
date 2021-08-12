@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span v-on="$listeners">
     <svg
       width="7"
       height="5"

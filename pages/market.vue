@@ -23,18 +23,18 @@
         </div>
       </div>
     </div> -->
-    <app-header />
-    <h1 class="lg:text-white text-3xl font-bold font-sora my-14 ml-32 xl:text-5xl 2xl:mx-auto">
+    <app-header market/>
+    <h1 class="lg:text-white text-3xl font-bold font-sora mb-14 mx-auto xl:pl-14 xl:text-5xl 2xl:mx-auto xl:my-14 xl:mx-14">
       Markets
     </h1>
-    <div class="container px-14 pb-4">
+    <div class="container xl:px-8 xl:pb-4">
       <v-panel>
         <div
           slot="context"
           class="rounded-t-md bg-secondary-gradient-market pt-3 px-3"
         >
           <div class="flex items-center justify-between">
-            <div class="tabsPink">
+            <div class="tabsPink ">
               <ul role="tablist" class="tablist">
                 <li
                   role="tab"
@@ -54,7 +54,7 @@
                 </li>
               </ul>
             </div>
-           <!-- <ul>
+             <div class="hidden xl:flex">
               <div class="w-xl relative">
                 <v-input
                   v-model="filterMarkets"
@@ -70,11 +70,11 @@
                   ></v-ui-icon
                 ></span>
               </div>
-            </ul> -->
+            </div> 
           </div>
         </div>
 
-        <component :is="component" v-if="component"></component>
+        <component :is="component" v-if="component" :search='filterMarkets'></component>
       </v-panel>
     </div>
 

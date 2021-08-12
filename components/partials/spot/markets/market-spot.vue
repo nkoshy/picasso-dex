@@ -1,12 +1,12 @@
 <template>
   <tr @click.stop="onRowClick">
-    <td is="v-ui-table-td" divide>
+    <td is="v-ui-table-td" divide class="pl-1">
       <div class="flex items-center">
-      <!--  <img
+        <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
-          class="w-6 h-6 mr-4"
-        /> -->
+          class="w-6 h-6 xl:mr-4 mr-2"
+        />
         <div class="leading-none">
           <span class="text-gray-100 font-semibold text-sm font-poppins ">{{ market.ticker.split('/')[0]}}</span>
           <span class="text-gray-400 text-sm font-normal font-poppins">
@@ -16,7 +16,7 @@
       </div>
     </td>
     <td is="v-ui-table-td"  class="font-normal w-1/4 font-poppins px-4" left>
-      <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins px-7">
+      <div v-if="lastTradedPrice.gt(0)" class="flex justify-start items-center font-poppins">
         <v-ui-format-price
           v-bind="{
             value: lastTradedPrice,
@@ -40,7 +40,7 @@
       <span v-else class="text-gray-500 px-10">&mdash;</span>
     </td>
     <td is="v-ui-table-td" left class="font-normal w-1/4 font-poppins">
-      <v-ui-text poppins sm class="text-right font-semibold px-7 font-poppins">
+      <v-ui-text poppins sm class="text-right font-semibold font-poppins">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,
@@ -52,7 +52,7 @@
       </v-ui-text>
     </td>
     <td is="v-ui-table-td" left class=" px-4 font-normal w-1/4 font-poppins">
-      <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-start font-poppins">
+      <v-ui-text v-if="volume.gt(0)" class="flex items-center justify-end font-poppins xl:justify-start">
         <v-ui-format-number
           v-bind="{
             dontGroupValues: true,

@@ -10,7 +10,7 @@
       :class="type === DerivativeOrderSide.Buy ? 'buys' : 'sells'"
     ></span>
     <span
-      class="w-1/3 text-xs px-2 flex items-center justify-end z-10"
+      class="w-1/3 text-xs px-4 cursor-pointer text-light-green items-center justify-end z-10"
       @click.stop="onPriceClick"
     >
       <v-ui-icon
@@ -25,7 +25,7 @@
           type: type,
           decimals: market.priceDecimals
         }"
-        class="text-right block"
+        class="text-left block"
       />
     </span>
     <span class="w-1/3 text-xs px-2 z-10" @click.stop="onQuantityClick">

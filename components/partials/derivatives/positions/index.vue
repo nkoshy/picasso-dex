@@ -1,41 +1,44 @@
 <template>
-  <v-panel :title="$t('positions')" class="h-full relative">
+  <v-panel :title="$t('positions')" class="h-full relative font-sora text-white">
     <div v-if="market" class="flex flex-col">
       <div class="table-responsive table-compact">
         <table class="table">
           <thead class="border-b">
-            <tr>
-              <th is="v-ui-table-th" center>&nbsp;</th>
-              <th is="v-ui-table-th" center>
+            <tr class="bg-light-purple">
+              <!-- <th is="v-ui-table-th" center>&nbsp;</th> -->
+              <th is="v-ui-table-th" center xs>
+                <span>{{ $t('type') }}</span>
+              </th>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('side') }}</span>
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('amount') }}</span>
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs> 
                 <span>{{ $t('entry_price') }}</span>
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('liquidation_price') }}</span>
               </th>
-              <th is="v-ui-table-th" center>
-                <div class="items-center relative">
-                  <span class="mr-1">{{ $t('unrealized_pnl') }}</span>
-                  <v-ui-icon
+              <th is="v-ui-table-th" center xs>
+                <!-- <div class="items-center relative"> -->
+                  <span>{{ $t('unrealized_pnl') }}</span>
+                  <!-- <v-ui-icon
                     :icon="Icon.Info"
                     class="text-gray-500 hover:text-gray-300"
                     :tooltip="$t('unrealized_pnl_tooltip')"
                     2xs
-                  />
-                </div>
+                  /> -->
+                
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('notional_size') }}</span>
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('margin') }}</span>
               </th>
-              <th is="v-ui-table-th" right>
+              <th is="v-ui-table-th" center xs>
                 <span>{{ $t('leverage') }}</span>
               </th>
             </tr>

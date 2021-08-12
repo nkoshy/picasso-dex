@@ -7,11 +7,16 @@
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
-            <p class="opacity-50 font-poppins text-base uppercase">Powered By</p> 
-            <img
+            <p class="opacity-50 font-poppins text-2xl uppercase">Powered By</p>
+            <!-- <img
               src="powered-by-icon.svg"
               alt="Injective Exchange"
               class="h-6 ml-3 w-auto"
+            />  -->
+            <img
+              src="/images/secondary_logo.png"
+              alt="Injective Exchange"
+              class="h-12 ml-3 w-28"
             /> 
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
@@ -24,7 +29,7 @@
         </div>        
       </div>
     </div>
-      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat">
+      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center 2xl:ml-auto">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
@@ -71,7 +76,7 @@
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
             </div> 
             <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-        <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
+        <span class="cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div> 
         <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
         <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
@@ -79,7 +84,6 @@
         <span class="cursor-pointer" @click.stop="goDisclaimer">Terms and Conditions</span>
         </div> -->
        </div>
-       <modal-acknowledge />
   </div>
 </template>
 <script lang="ts">
@@ -87,14 +91,12 @@ import Vue from 'vue'
 import HomeCard from '~/components/ui/elements/home-card.vue'
 import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
-import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 import Footer from '~/components/partials/spot/footer.vue'
 
 export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
-    'modal-acknowledge': ModalAcknowledge,
     'v-footer': Footer
   },
     methods: {
@@ -136,8 +138,8 @@ export default Vue.extend({
       goPrivacy() {
       this.$router.push({ name: 'privacy_policy' })
       },
-      goDisclaimer() {
-      this.$router.push({ name: 'disclaimer' })
+      goTerms() {
+      this.$router.push({ name: 'terms' })
       }
     }
 })

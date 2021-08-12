@@ -3,11 +3,11 @@
     <div class="w-full md:w-3xl flex flex-col shadow bg-trade bg-no-repeat bg-cover border-solid rounded-md
         border border-light-pink px-1 py-2">
       <div class="flex flex-wrap max-h-scrollAbleModel overflow-y-auto">
-        <div class="w-full mb-4 pl-8 pr-24 pt-12">
-          <h3 class="text-xl font-semibold font-sora mb-4">
+        <div class="w-full mb-4 xl:pl-8 xl:pr-24 xl:pt-12 px:10 pt:12">
+          <h3 class="text-xl font-semibold font-sora xl:mb-4 mb-6">
             {{ $t('acknowledge_title') }}
           </h3>
-          <p class="text-xs text-center opacity-60 font-sora font-normal text-left text-white">
+          <p class="text-xs text-center opacity-60 font-sora font-normal text-left text-white px-2 xl:px-0">
           Picasso Exchange is a non-custodial relayer built on Injective Protocol. Injective is a decentralized sidechain relayer network which serves as a layer-2 derivatives platform, trade execution coordinator (TEC), and decentralized orderbook built on top of Tendermint using the Cosmos-SDK framework.<br/><br />
 
           Your use of Picasso involves various risks, including, but not limited to, losses while digital assets are being supplied to Injective order-book or losses due to the fluctuation of prices of tokens in a trading pair.<br/><br />
@@ -15,8 +15,8 @@
           By trading on Picasso, you hereby agree, represent and warrant that:<br/>
           </p>
         </div>
-        <div class="w-full mb-7 pl-8 pr-10">
-          <div class="bg-dark-blue-main pl-8 pr-5 pt-5 pb-6">
+        <div class="w-full mb-7 xl:pl-8 xl:pr-10 px-1">
+          <div class="bg-dark-blue-main xl:pl-8 xl:pr-5 py-4 px-1 ">
           <p class="text-xs text-center font-sora  text-left font-normal text-white">
             You are not a person or company who is a resident of, national, or is located, incorporated or has a registered agent in, the United States, Canada, China, or any other country to which the United States, the United Kingdom or the European Union embargoes goods or imposes similar sanctions (collectively, “Restricted Territories”).<br/><br/>
 

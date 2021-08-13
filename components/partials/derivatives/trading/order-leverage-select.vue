@@ -5,8 +5,8 @@
       :key="`leverage-${l}`"
       :value="leverage"
       :option="l.toString()"
-      primary
-      class="flex-1 text-xs"
+      leveragebtn
+      class="flex-1 text-xsm font-sora bg-blueish mx-0.5 border border-commuity"
       @selected="handleOnSelect(l)"
     >
       {{ `${l}x` }}

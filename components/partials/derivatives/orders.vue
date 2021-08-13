@@ -75,7 +75,7 @@ export default Vue.extend({
     'v-trade-history': TradeHistory,
     'v-open-orders': OpenOrders,
     'v-funds': Funds,
-     'v-order-history': OrderHistory
+    'v-order-history': OrderHistory
   },
 
   data() {

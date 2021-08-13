@@ -68,7 +68,8 @@ import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
 
 
-const GRID_ROW_HEIGHT = 54
+// const GRID_ROW_HEIGHT = 54
+const GRID_ROW_HEIGHT = 73
 
 export default Vue.extend({
   components: {

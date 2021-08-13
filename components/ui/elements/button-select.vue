@@ -99,6 +99,13 @@ export default Vue.extend({
       required: false,
       default: false,
       type: Boolean
+    },
+
+    leveragebtn: {
+      required: false,
+      default: false,
+      type: Boolean
+
     }
   },
 
@@ -150,6 +157,8 @@ export default Vue.extend({
           classes.push('bg-red-500', 'hover:bg-red-600', 'text-white-900')
         } else if (this.aqua) {
           classes.push('bg-aqua-500', 'hover:bg-aqua-600', 'text-aqua-900')
+        } else if(this.leveragebtn){
+          classes.push('focus:border-pink-light', 'text-white')
         } else {
           classes.push('text-light-green', 'font-bold')
         }

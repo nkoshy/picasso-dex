@@ -2,7 +2,7 @@
   <!-- eslint-disable vue/no-v-html -->
   <div class="pt-1">
     <div>
-      <v-ui-text
+      <v-ui-text class="opacity-40 font-sora text-xsm font-normal text-white"
         muted-md
         tag="h3"
         v-bind="{ '2xs': true }"

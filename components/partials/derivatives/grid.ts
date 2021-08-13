@@ -12,7 +12,7 @@ const lgGrid = [
     isDraggable: true,
     isResizable: true
   },
-  {
+ /* {
     i: 'marquee-panel',
     x: 9,
     y: 0,
@@ -22,7 +22,7 @@ const lgGrid = [
     maxH: 1,
     isDraggable: true,
     isResizable: true
-  },
+  }, */
   {
     i: 'balance-panel',
     x: 0,

@@ -37,13 +37,15 @@
             v-for="(trade, index) in trades"
             :key="`trades-history-${index}-`"
             :trade="trade"
-            :class="orders"
+            :order="orders"
+             :class="index%2==0 ? 'bg-red-900 orders' : 'bg-red-900 orders'"
           ></tr>
           <tr
             is="v-trade-empty"
             v-for="(trade, index) in emptyTrades"
             :key="`empty-trades-${index}`"
-            :class="orders"
+            :order="orders"
+             :class="index%2==0 ? 'bg-red-900 orders' : 'bg-red-900 orders'"
           ></tr>
         </tbody>
         <tbody v-else>

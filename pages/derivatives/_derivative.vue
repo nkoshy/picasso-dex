@@ -2,6 +2,7 @@
   <HOCLoading v-if="market" :key="$route.fullPath" :status="status">
     <div class="h-full max-w-8xl m-auto w-full xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
       <app-header landingPage=true />
+      <div class="p-4 pt-0 2xl:ml-auto mr-auto max-w-screen-2xl">
       <grid-layout
         :layout="layout"
         :col-num="grid.colNum"
@@ -32,6 +33,7 @@
           <component :is="item.i" />
         </grid-item>
       </grid-layout>
+      </div>
       <modal-transfer />
       <modal-deposit />
       <modal-withdraw />
@@ -68,7 +70,7 @@ import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
 
 
-const GRID_ROW_HEIGHT = 54
+const GRID_ROW_HEIGHT = 73
 
 export default Vue.extend({
   components: {

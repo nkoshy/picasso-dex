@@ -1,63 +1,52 @@
 import { Breakpoint } from '~/types'
 
 const lgGrid = [
+  // {
+  //   i: 'market-panel',
+  //   x: 0,
+  //   y: 0,
+  //   w: 9,
+  //   h: 1,
+  //   minW: 9,
+  //   maxH: 1,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
   {
     i: 'market-panel',
     x: 0,
     y: 0,
-    w: 9,
+    w: 12,
     h: 1,
-    minW: 9,
+    minW: 0,
     maxH: 1,
     isDraggable: true,
     isResizable: true
   },
-  {
-    i: 'marquee-panel',
-    x: 9,
-    y: 0,
-    w: 3,
-    h: 1,
-    minW: 2,
-    maxH: 1,
-    isDraggable: true,
-    isResizable: true
-  },
+  // {
+  //   i: 'marquee-panel',
+  //   x: 9,
+  //   y: 0,
+  //   w: 3,
+  //   h: 1,
+  //   minW: 2,
+  //   maxH: 1,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
+  // {
+  //   i: 'balance-panel',
+  //   x: 0,
+  //   y: 1,
+  //   w: 3,
+  //   h: 2,
+  //   minW: 3,
+  //   minH: 2
+  // },
   {
     i: 'balance-panel',
-    x: 0,
-    y: 1,
-    w: 3,
-    h: 2,
-    minW: 3,
-    minH: 2
-  },
-  {
-    i: 'market-price-chart-panel',
-    x: 3,
-    y: 1,
-    w: 6,
-    h: 9,
-    minW: 4,
-    minH: 9,
-    isDraggable: true,
-    isResizable: true
-  },
-  {
-    i: 'order-book-panel',
     x: 9,
     y: 1,
-    w: 3,
-    h: 9,
-    minW: 3,
-    minH: 9,
-    isDraggable: true,
-    isResizable: true
-  },
-  {
-    i: 'subaccount-balance-panel',
-    x: 0,
-    y: 3,
     w: 3,
     h: 2,
     minW: 3,
@@ -65,14 +54,102 @@ const lgGrid = [
     isDraggable: true,
     isResizable: true
   },
+  // {
+  //   i: 'market-price-chart-panel',
+  //   x: 3,
+  //   y: 1,
+  //   w: 6,
+  //   h: 9,
+  //   minW: 4,
+  //   minH: 9,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
+  {
+    i: 'market-price-chart-panel',
+    x: 3,
+    y: 1,
+    w: 6,
+    h: 7,
+    minW: 4,
+    minH: 7,
+    isDraggable: true,
+    isResizable: true
+  },
+  {
+    i: 'order-book-panel',
+    x: 0,
+    y: 10,
+    w: 3,
+    h: 7,
+    minW: 3,
+    minH: 6,
+    isDraggable: true,
+    isResizable: true
+  },
+  {
+    i: 'trades-panel',
+    x: 0,
+    y: 11,
+    w: 3,
+    h:6.8,
+    minW: 3,
+    minH: 7,
+    isDraggable: true,
+    isResizable: true
+  },
+  // {
+  //   i: 'order-book-panel',
+  //   x: 0,
+  //   y: 11,
+  //   w: 5,
+  //   h: 6,
+  //   minW: 5,
+  //   minH: 6,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
+  // {
+  //   i: 'subaccount-balance-panel',
+  //   x: 0,
+  //   y: 3,
+  //   w: 3,
+  //   h: 2,
+  //   minW: 3,
+  //   minH: 2,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
+  {
+    i: 'subaccount-balance-panel',
+    x: 9,
+    y: 3,
+    w: 3,
+    h: 3,
+    minW: 3,
+    minH: 3,
+    isDraggable: true,
+    isResizable: true
+  },
+  // {
+  //   i: 'trading-panel',
+  //   x: 0,
+  //   y: 5,
+  //   w: 3,
+  //   h: 12,
+  //   minW: 3,
+  //   minH: 10,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
   {
     i: 'trading-panel',
-    x: 0,
-    y: 5,
+    x: 9,
+    y: 6,
     w: 3,
-    h: 12,
+    h: 8.8,
     minW: 3,
-    minH: 10,
+    minH: 9,
     isDraggable: true,
     isResizable: true
   },
@@ -81,12 +158,23 @@ const lgGrid = [
     x: 3,
     y: 10,
     w: 6,
-    h: 2,
+    h: 1.8,
     minW: 6,
-    minH: 2,
+    minH: 1,
     isDraggable: true,
     isResizable: true
   },
+  // {
+  //   i: 'orders-panel',
+  //   x: 3,
+  //   y: 10,
+  //   w: 6,
+  //   h: 5,
+  //   minW: 6,
+  //   minH: 5,
+  //   isDraggable: true,
+  //   isResizable: true
+  // }
   {
     i: 'orders-panel',
     x: 3,
@@ -98,17 +186,18 @@ const lgGrid = [
     isDraggable: true,
     isResizable: true
   },
-  {
-    i: 'trades-panel',
-    x: 9,
-    y: 10,
-    w: 3,
-    h: 7,
-    minW: 3,
-    minH: 7,
-    isDraggable: true,
-    isResizable: true
-  }
+  // {
+  //   i: 'trades-panel',
+  //   x: 5,
+  //   y: 11,
+  //   w: 3,
+  //   h: 6,
+  //   minW: 5,
+  //   minH: 6,
+  //   isDraggable: true,
+  //   isResizable: true
+  // }
+  
 ]
 
 const mdGrid = [
@@ -183,9 +272,9 @@ const mdGrid = [
     x: 5,
     y: 10,
     w: 5,
-    h: 6,
+    h:3,
     minW: 5,
-    minH: 6,
+    minH: 3,
     isDraggable: true,
     isResizable: true
   },

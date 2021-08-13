@@ -6,9 +6,9 @@
       ">
         <div class="flex items-center flex-wrap xl:flex-nowrap">
           <div  class="flex order-1  w-1/2 xl:pl-1 pl-4 xl:w-full">
-            <span :class="!SpotPage?'xl:mr-10 2xl:mr-80':'xl:mr-10'">Copyright © 2021 Picasso Exchange</span>
+            <span :class="!SpotPage?'xl:mr-10 2xl:mr-4':'xl:mr-10'">Copyright © 2021 Picasso Exchange</span>
           </div>
-            <div :class="!SpotPage?'flex items-center order-1 xl:mx-28 2xl:mr-72':'flex justify-evenly items-center xl:mx-20 2xl:mx-70 order-2 mx-auto w-full pt-20 xl:pt-1 xl:order-1'">
+            <div :class="!SpotPage?'flex items-center order-1 xl:mx-52 2xl:mr-64 2xl:ml-64':'flex justify-evenly items-center xl:mx-20 2xl:mx-70 order-2 mx-auto w-full pt-20 xl:pt-1 xl:order-1'">
                 <div class=" h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer" @click.stop = "gotwitter"/>
                 </div>

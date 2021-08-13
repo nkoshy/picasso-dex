@@ -28,6 +28,14 @@
             >
               <span>{{ $t('trade_history') }}</span>
             </li>
+            <li
+              role="tab"
+              :aria-selected="component === components.funds"
+              class="tab"
+              @click.stop.prevent="onSelect(components.funds)"
+            >
+              <span>{{ $t('funds') }}</span>
+            </li>
             
           </ul>
         </div>

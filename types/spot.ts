@@ -34,6 +34,10 @@ export interface UiSpotMarketSummary extends ChronosSpotMarketSummary {
   lastPrice?: number
 }
 
+export type UiSpotMarketSummaryVars = 'change' | 'high' | 'low' | 'open' | 'price' | 'volume' | 'lastPrice' | 'marketId';
+
+export type UiSpotMarketVars = UiSpotMarketSummaryVars | 'market';
+
 export interface UiSpotMarketAndSummary {
   market: UiSpotMarket
   summary: UiSpotMarketSummary

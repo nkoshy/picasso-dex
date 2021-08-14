@@ -22,7 +22,7 @@
           }}</small>
         </v-ui-text>
       </p>
-      <div class="text-xs mt-2">
+      <div class="text-xs mt-2 font-sora">
         <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('amount') }}
@@ -41,7 +41,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p
+        <!--<p
           v-if="!orderTypeReduceOnly"
           class="flex justify-between group leading-6 opacity-40"
         >
@@ -67,7 +67,7 @@
           <v-ui-text v-else muted-sm class="group-hover:text-white">
             &mdash;
           </v-ui-text>
-        </p>
+        </p> 
         <p
           v-if="!orderTypeReduceOnly"
           class="flex justify-between group leading-6 opacity-40"
@@ -90,7 +90,7 @@
           <v-ui-text v-else muted-sm class="group-hover:text-white">
             &mdash;
           </v-ui-text>
-        </p>
+        </p> -->
         <p class="flex justify-between group leading-6 opacity-40">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('notional_value') }}

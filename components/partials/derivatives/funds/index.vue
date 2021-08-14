@@ -66,7 +66,7 @@ import Vue from 'vue'
 import { BigNumber } from '@injectivelabs/utils'
 import Order from './funds.vue'
 import OrderEmpty from './funds-empty.vue'
-import { UiSpotMarket, UiSpotLimitOrder } from '~/types'
+import { UiDerivativeMarket, UiDerivativeLimitOrder } from '~/types'
 
 export default Vue.extend({
   components: {
@@ -85,18 +85,18 @@ export default Vue.extend({
       return this.$accessor.wallet.isUserWalletConnected
     },
 
-    market(): UiSpotMarket | undefined {
-      return this.$accessor.spot.market
+    market(): UiDerivativeMarket | undefined {
+      return this.$accessor.derivatives.market
     },
 
-    orders(): UiSpotLimitOrder[] {
+    orders(): UiDerivativeLimitOrder[] {
       const { market } = this
 
       if (!market) {
         return []
       }
 
-      return this.$accessor.spot.subaccountOrders
+      return this.$accessor.derivatives.subaccountOrders
     },
 
     emptyOrders(): any[] {

@@ -1,6 +1,6 @@
 <template>
   <div v-if="market" class="p-3 w-full bg-light-purple">
-    <div class="w-full flex">
+    <div class="w-full flex font-sora">
       <v-ui-button-select
         v-model="tradingType"
         :option="TradeExecutionType.LimitFill"
@@ -18,7 +18,7 @@
       </v-ui-button-select>
     </div>
 
-    <div class="w-full flex mt-3.5">
+    <div class="w-full flex mt-3.5 font-sora">
       <v-ui-button-select
         v-model="orderType"
         :option="DerivativeOrderSide.Buy"
@@ -50,7 +50,7 @@
         class="text-xs text-gray-400 flex justify-between"
       >
         <div class=" pb-1">
-          <span class="font-sora">Available</span>
+          <span class="font-sora text-xsm opacity-40 text-white">Available</span>
         </div>
         <div class="pb-1">
           <v-ui-format-amount v-if="baseBalance !== undefined"
@@ -61,7 +61,7 @@
           <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
             {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
           </span> -->
-          <span class="cursor-pointer text-xs font-bold text-white font-sora">
+          <span class="cursor-pointer text-xsm font-semibold text-white font-sora">
             {{market.ticker.split('/')[1]}}
           </span>
         </div>
@@ -80,7 +80,7 @@
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
         >
-        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs">
+        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs font-sora font-white">
         Max
       </span>
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>

@@ -1,6 +1,6 @@
 <template>
   <v-market-info v-if="market" :title="$t('next_funding')">
-    <v-ui-text sm class="flex items-center justify-end w-full">
+    <v-ui-text sm class="w-full">
       <v-countdown
         v-if="milisecondsUntilFunding > 0"
         :time="milisecondsUntilFunding"

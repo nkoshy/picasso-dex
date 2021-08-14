@@ -28,6 +28,14 @@
             >
               <span>{{ $t('trade_history') }}</span>
             </li>
+            <li
+              role="tab"
+              :aria-selected="component === components.funds"
+              class="tab"
+              @click.stop.prevent="onSelect(components.funds)"
+            >
+              <span>{{ $t('funds') }}</span>
+            </li>
             
           </ul>
         </div>
@@ -67,7 +75,7 @@ export default Vue.extend({
     'v-trade-history': TradeHistory,
     'v-open-orders': OpenOrders,
     'v-funds': Funds,
-     'v-order-history': OrderHistory
+    'v-order-history': OrderHistory
   },
 
   data() {

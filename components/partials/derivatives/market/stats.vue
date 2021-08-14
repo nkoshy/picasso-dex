@@ -1,13 +1,13 @@
 <template>
-  <div v-if="market" class="flex flex-wrap justify-start -mx-2">
+  <div v-if="market" class="flex flex-wrap justify-evenly -mx-2">
     <v-market-info :title="$t('last_traded_price')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-bind="{
             value: lastPrice,
             class: {
-              'text-aqua-500': lastPriceChange === Change.Increase,
-              'text-red-500': lastPriceChange === Change.Decrease
+              'text-base font-bold font-sora text-aqua-500': lastPriceChange === Change.Increase,
+              'text-accent-500 font-sora font-bold': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"
@@ -15,13 +15,13 @@
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('mark_price')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-bind="{
             value: markPriceToBN,
             class: {
-              'text-aqua-500': lastPriceChange === Change.Increase,
-              'text-red-500': lastPriceChange === Change.Decrease
+              'text-base font-bold font-sora': lastPriceChange === Change.Increase,
+              'text-accent-500 font-sora font-bold': lastPriceChange === Change.Decrease
             },
             decimals: market.priceDecimals
           }"
@@ -29,13 +29,13 @@
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('market_change_24h')" class="">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,
             precision: 2,
             value: change.toString(),
-            class: change.gte(0) ? 'font-sora text-primary-500' : 'font-sora text-accent-500'
+            class: change.gte(0) ? 'font-sora text-light-green text-3xs' : 'font-sora text-accent-500'
           }"
         />
       </v-ui-text>
@@ -43,7 +43,7 @@
     <v-market-info
       :title="$t('volume_asset', { asset: market.quoteToken.symbol })"
     >
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-bind="{
             dontGroupValues: true,
@@ -54,23 +54,25 @@
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('high')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
           v-bind="{
             value: high
           }"
+          class="font-sora text-white text-3xs"
         />
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
     </v-market-info>
     <v-market-info :title="$t('low')">
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
           v-bind="{
             value: low
           }"
+          class="font-sora text-white text-3xs"
         />
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
@@ -78,7 +80,7 @@
     <v-market-info
       v-if="market.isPerpetual"
       :title="$t('est_funding_rate')"
-      class=""
+      class="font-sora text-white text-3xs"
     >
       <v-ui-icon
         slot="icon"
@@ -87,13 +89,13 @@
         :tooltip="$t('funding_rate_tooltip')"
         2xs
       />
-      <v-ui-text sm class="flex items-center justify-end w-full">
+      <v-ui-text sm class="w-full">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,
             precision: 6,
             value: fundingRate.toFixed(),
-            class: 'font-sora'
+            class: 'font-sora text-white text-3xs'
           }"
         />
       </v-ui-text>

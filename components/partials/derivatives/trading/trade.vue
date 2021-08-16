@@ -210,7 +210,8 @@ import {
   UiPosition,
   TradeDirection,
   UiDerivativeMarketSummary,
-  UiDerivativeLimitOrder
+  UiDerivativeLimitOrder,
+  UiSubaccountBalanceWithToken
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,

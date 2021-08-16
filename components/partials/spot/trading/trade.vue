@@ -836,6 +836,7 @@ export default Vue.extend({
 
     onSliderValueChange(sliderValue = 25) {
       this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      this.sliderValue=sliderValue;
       console.log(sliderValue);
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(sliderValue))

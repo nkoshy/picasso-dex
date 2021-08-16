@@ -201,6 +201,7 @@ module.exports = {
       },
 
       screens: {
+        'laptop-screen' : '1440px',
         '2xl': '1536px',
         '3xl': '1960px'
       },

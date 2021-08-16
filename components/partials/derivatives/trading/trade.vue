@@ -53,15 +53,15 @@
           <span class="font-sora text-xsm opacity-40 text-white">Available</span>
         </div>
         <div class="pb-1">
-          <v-ui-format-amount v-if="baseBalance !== undefined"
+          <v-ui-format-amount v-if="quoteBalance !== undefined"
         v-bind="{
-          value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
+          value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
         }"
       />
           <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
             {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
           </span> -->
-          <span class="cursor-pointer text-xsm font-semibold text-white font-sora">
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
             {{market.ticker.split('/')[1]}}
           </span>
         </div>
@@ -116,6 +116,7 @@
           ref="input-price"
           :value="form.price"
           :placeholder="$t('price')"
+          :max-selector="true"
           :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
@@ -195,7 +196,8 @@ import OrderDetailsMarket from './order-details-market.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
-  NUMBER_REGEX
+  NUMBER_REGEX,
+  UI_DEFAULT_PRICE_DISPLAY_DECIMALS
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import {
@@ -253,6 +255,30 @@ export default Vue.extend({
   },
 
   computed: {
+    quoteBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const quoteBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.quoteDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
+        token: market.quoteToken,
+        denom: market.quoteDenom
+      }
+    },
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
     },

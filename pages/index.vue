@@ -7,7 +7,7 @@
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
-            <p class="opacity-50 font-poppins text-2xl uppercase">Powered By</p>
+            <p class="opacity-50 font-poppins text-sm xl:text-lg uppercase">Powered By</p>
             <!-- <img
               src="powered-by-icon.svg"
               alt="Injective Exchange"

@@ -59,7 +59,7 @@ const lgGrid = [
   {
     i: 'subaccount-balance-panel',
     x: 9,
-    y: 3,
+    y: 1,
     w: 3,
     h: 3,
     minW: 3,

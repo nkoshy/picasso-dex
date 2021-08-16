@@ -10,6 +10,7 @@
       min=0
       max=100
       @input="handleChange"
+       
     />
     <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip">
       <span class="font-sora text-white font-bold text-xs">
@@ -36,7 +37,13 @@ export default Vue.extend({
       required: false,
       type: String,
       default: ''
-    }
+    },
+    sliderValue: {
+      required: false,
+      type: String,
+      default: ''
+    },
+    
   },
 
   data() {
@@ -50,20 +57,21 @@ export default Vue.extend({
         const toolTipElement =  document.getElementById('input1');
         const actualPixels = (width / 4) - 10;
         if (toolTipElement !== undefined && toolTipElement !== null) {
-          // console.log(actualPixels);
           toolTipElement.style.left = `${actualPixels}}px`;
-          // console.log(toolTipElement);
+          //console.log(toolTipElement);
       }
     },
 
   methods: {
     handleChange(e: Event) {
+      console.log(typeof(this.sliderValue),"HYY ISHI");
       const target = (e.target as HTMLFormElement)
       const value = new BigNumber((target).value)
       const progress = target.value;
       const width = document.getElementById('input')?.clientWidth ?? 0;
       const toolTipElement =  document.getElementById('input1');
       let actualPixels = ((progress / 100) * width) - ((toolTipElement?.clientWidth ?? 2 ) / 2);
+      //console.log(actualPixels,progress,value);
       if (progress > 96) {
         actualPixels = actualPixels - 15
       }
@@ -82,7 +90,8 @@ export default Vue.extend({
       this.$emit('input', style)
       this.$emit('input', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
       this.$emit('onValueChange', progress);
-    }
+    },
+    
   }
 })
 </script>

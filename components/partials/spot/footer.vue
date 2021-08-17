@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="flex flex-col order-1 w-1/2 pr-4 xl:px-1 xl:w-full xl:flex-row xl:justify-end">
-              <span :class="!SpotPage?'xl:mx-5 whitespace-nowrap ml-7 cursor-pointer text-right font=sora text-sm':'ml-7 xl:mr-5 cursor-pointer text-right xl:text-left whitespace-nowrap font-sora text-sm'"  @click.stop="goPrivacy">Privacy Policy</span> 
+              <span :class="!SpotPage?'xl:mx-5 whitespace-nowrap ml-7 cursor-pointer text-right font-sora text-sm':'ml-7 xl:mr-5 cursor-pointer text-right xl:text-left whitespace-nowrap font-sora text-sm'"  @click.stop="goPrivacy">Privacy Policy</span> 
               <span class="cursor-pointer text-right xl:text-left whitespace-nowrap font-sora text-sm" @click.stop="goDisclaimer">Terms and Conditions</span>
             </div>
         </div>

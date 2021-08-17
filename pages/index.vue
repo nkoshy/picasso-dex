@@ -7,7 +7,7 @@
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
-            <p class="opacity-50 font-poppins text-sm xl:text-lg uppercase">Powered By</p>
+            <p class="opacity-50 font-poppins text-base xl:text-lg uppercase">Powered By</p>
             <!-- <img
               src="powered-by-icon.svg"
               alt="Injective Exchange"
@@ -16,7 +16,7 @@
             <img
               src="/images/secondary_logo.png"
               alt="Injective Exchange"
-              class="h-12 ml-3 w-28"
+              class="h-12 w-28"
             /> 
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>

@@ -109,7 +109,7 @@ export default Vue.extend({
       if (!this.landingPage) {
         classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-32', 'pr-4')
       } else {
-        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-4', 'xl:pl-6', 'pt-4')
+        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-4', 'xl:pl-6', 'pt-4','pr-4')
       }
 
       return classes.join(' ')

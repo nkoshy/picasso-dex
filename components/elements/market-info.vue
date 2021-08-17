@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 w-1/3 sm:w-1/4 md:w-auto md:px-2 lg:px-3 2xl:px-4">
+  <div class="px-6 py-1 w-1/2 sm:w-1/4 md:w-auto md:px-2 lg:px-3 2xl:px-4">
     <v-ui-text xs class="text-xs mb-1 w-full text-left block font-sora text-white opacity-30">
       {{ title }}
       <slot name="icon"></slot>

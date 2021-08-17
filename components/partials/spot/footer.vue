@@ -8,7 +8,7 @@
           <div  class="flex order-1  w-1/2 xl:pl-1 pl-4 xl:w-full">
             <span :class="!SpotPage?'xl:mr-10 2xl:mr-20 xl:whitespace-nowrap font-sora text-sm':'xl:mr-10 xl:whitespace-nowrap font-sora text-sm'">Copyright © 2021 Picasso Exchange</span>
           </div>
-            <div :class="!SpotPage?'flex justify-evenly mx-auto w-full items-center xl:order-1 xl:mx-32 2xl:mr-72 order-0 pt-2 pb-10 xl:py-1':'flex justify-evenly items-center xl:mx-4 2xl:mx-32 order-0 xl:max-w-screen-laptop-screen w-full pt-2 pb-14 xl:pb-1 xl:pt-1 xl:order-1'">
+            <div :class="!SpotPage?'flex justify-evenly w-full items-center xl:order-1 xl:mx-32 2xl:mr-72 order-0 pt-2 pb-10 xl:py-1':'flex justify-evenly items-center xl:mx-4 2xl:mx-32 order-0 xl:max-w-screen-laptop-screen w-full pt-2 pb-14 xl:pb-1 xl:pt-1 xl:order-1'">
                 <div class=" h-8 w-6 md:mr-16 md:ml-0 mx-4">
                     <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer" @click.stop = "gotwitter"/>
                 </div>

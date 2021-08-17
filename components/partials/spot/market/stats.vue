@@ -1,5 +1,20 @@
 <template>
   <div v-if="market" class="flex flex-wrap justify-evenly -mx-2">
+     <div class="flex xl:hidden w-1/2 py-1">
+        <img
+          :src="market.baseToken.icon"
+          :alt="market.baseToken.name"
+          class="w-6 h-6 xl:mr-4 mr-2"
+        />
+        <div>
+          <p class="text-gray-100 font-bold font-sora text-sm">
+            {{ market.ticker }}
+          </p>
+          <p class="text-gray-500 text-xs">
+            {{ market.baseToken.name }}
+          </p>
+        </div>
+      </div>
     <v-market-info :title="$t('last_traded_price')">
       <v-ui-text sm class="w-full">
         <v-ui-format-order-price

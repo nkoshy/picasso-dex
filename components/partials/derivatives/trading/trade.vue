@@ -47,12 +47,12 @@
       <div
         v-if="true"
         slot="context"
-        class="text-xs text-gray-400 flex justify-between"
+        class="text-xs text-gray-400 flex pb-5 justify-between"
       >
-        <div class=" pb-1">
-          <span class="font-sora text-xsm opacity-40 text-white">Available</span>
+        <div>
+          <span class="font-sora text-xs opacity-40 text-white">Available</span>
         </div>
-        <div class="pb-1">
+        <div class="text-xs">
           <v-ui-format-amount v-if="quoteBalance !== undefined"
         v-bind="{
           value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
@@ -66,6 +66,11 @@
           </span>
         </div>
       </div>
+      <v-order-leverage
+        :leverage="form.leverage"
+        :max-leverage="maxLeverageAvailable.toFixed()"
+        @change="onLeverageChange"
+      />
       <div class="mb-4">
         <v-input
           ref="input-amount"
@@ -131,11 +136,7 @@
         </v-ui-text>
       </div>
 
-      <v-order-leverage
-        :leverage="form.leverage"
-        :max-leverage="maxLeverageAvailable.toFixed()"
-        @change="onLeverageChange"
-      />
+      
 
       <v-order-leverage-select
         class="mt-2"
@@ -193,6 +194,7 @@ import OrderDetails from './order-details.vue'
 import OrderLeverage from './order-leverage.vue'
 import OrderLeverageSelect from './order-leverage-select.vue'
 import OrderDetailsMarket from './order-details-market.vue'
+import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
@@ -240,7 +242,8 @@ export default Vue.extend({
     'v-order-details': OrderDetails,
     'v-order-leverage': OrderLeverage,
     'v-order-leverage-select': OrderLeverageSelect,
-    'v-order-details-market': OrderDetailsMarket
+    'v-order-details-market': OrderDetailsMarket,
+    'v-slider': Slider
   },
 
   data() {

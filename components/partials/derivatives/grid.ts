@@ -48,7 +48,7 @@ const lgGrid = [
     x: 9,
     y: 1,
     w: 3,
-    h: 2,
+    h: 1.8,
     minW: 3,
     minH: 2,
     isDraggable: true,
@@ -93,9 +93,9 @@ const lgGrid = [
     x: 0,
     y: 11,
     w: 3,
-    h:7.,
+    h:7.4,
     minW: 3,
-    minH: 7,
+    minH: 8,
     isDraggable: true,
     isResizable: true
   },
@@ -126,7 +126,7 @@ const lgGrid = [
     x: 9,
     y: 3,
     w: 3,
-    h: 3,
+    h: 1.9,
     minW: 3,
     minH: 3,
     isDraggable: true,
@@ -148,9 +148,9 @@ const lgGrid = [
     x: 9,
     y: 6,
     w: 3,
-    h: 9.4,
+    h: 10.7,
     minW: 3,
-    minH: 9,
+    minH: 12,
     isDraggable: true,
     isResizable: true
   },
@@ -213,17 +213,17 @@ const mdGrid = [
     isDraggable: true,
     isResizable: true
   },
-  {
-    i: 'marquee-panel',
-    x: 0,
-    y: 1,
-    w: 10,
-    h: 1,
-    minW: 10,
-    maxH: 1,
-    isDraggable: true,
-    isResizable: true
-  },
+  // {
+  //   i: 'marquee-panel',
+  //   x: 0,
+  //   y: 1,
+  //   w: 10,
+  //   h: 1,
+  //   minW: 10,
+  //   maxH: 1,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
   {
     i: 'balance-panel',
     x: 0,
@@ -326,17 +326,17 @@ const smGrid = [
     isDraggable: true,
     isResizable: true
   },
-  {
-    i: 'marquee-panel',
-    x: 0,
-    y: 1,
-    w: 6,
-    h: 1,
-    minW: 6,
-    maxH: 1,
-    isDraggable: true,
-    isResizable: true
-  },
+  // {
+  //   i: 'marquee-panel',
+  //   x: 0,
+  //   y: 1,
+  //   w: 6,
+  //   h: 1,
+  //   minW: 6,
+  //   maxH: 1,
+  //   isDraggable: true,
+  //   isResizable: true
+  // },
   {
     i: 'balance-panel',
     x: 0,
@@ -439,17 +439,17 @@ const xsGrid = [
     isDraggable: false,
     isResizable: false
   },
-  {
-    i: 'marquee-panel',
-    x: 0,
-    y: 2,
-    w: 4,
-    h: 1,
-    minW: 4,
-    maxH: 1,
-    isDraggable: false,
-    isResizable: false
-  },
+  // {
+  //   i: 'marquee-panel',
+  //   x: 0,
+  //   y: 2,
+  //   w: 4,
+  //   h: 1,
+  //   minW: 4,
+  //   maxH: 1,
+  //   isDraggable: false,
+  //   isResizable: false
+  // },
   {
     i: 'balance-panel',
     x: 0,
@@ -552,17 +552,17 @@ const xxsGrid = [
     isDraggable: false,
     isResizable: false
   },
-  {
-    i: 'marquee-panel',
-    x: 0,
-    y: 2,
-    w: 2,
-    h: 1,
-    minW: 2,
-    maxH: 1,
-    isDraggable: false,
-    isResizable: false
-  },
+  // {
+  //   i: 'marquee-panel',
+  //   x: 0,
+  //   y: 2,
+  //   w: 2,
+  //   h: 1,
+  //   minW: 2,
+  //   maxH: 1,
+  //   isDraggable: false,
+  //   isResizable: false
+  // },
   {
     i: 'balance-panel',
     x: 0,

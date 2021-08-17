@@ -1,4 +1,14 @@
 <template>
+<div>
+  <div>
+      <v-ui-text class="opacity-40 font-sora text-xsm pb-4 font-normal text-white"
+        muted-md
+        tag="h3"
+        v-bind="{ '2xs': true }"
+        v-html="$t('max_leverage', { max: maxLeverage })"
+      >
+      </v-ui-text>
+    </div>
   <div class="flex items-center w-full">
     <v-ui-button-select
       v-for="l in leverages"
@@ -11,6 +21,7 @@
     >
       {{ `${l}x` }}
     </v-ui-button-select>
+  </div>
   </div>
 </template>
 

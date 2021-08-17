@@ -1,6 +1,6 @@
 
 <template>
-  <div class="range-wrap flex items-center relative select-none mt-12 left-1">
+  <div class="w-full range-wrap flex items-center relative select-none mb-7 mt-4 left-1">
     <input
       id="input"
       ref="input"
@@ -18,7 +18,7 @@
       class="range-slider-tooltip"
     >
       <span class="font-sora text-white font-bold text-xs">
-        {{ sliderValue }}%
+        {{ sliderValue?Number(sliderValue).toFixed(0):"" }}%
       </span>
     </div>
   </div>
@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import { BigNumber } from '@injectivelabs/utils'
+import { nextTick } from 'node:process'
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -56,10 +57,14 @@ export default Vue.extend({
   },
 
   mounted() {
+   
+   this.$nextTick(() => {
     this.setSliderPosition(this.sliderValue)
+   });
   },
 
   updated() {
+    console.log(this.sliderValue,"ishi");
     this.setSliderPosition(this.sliderValue)
   },
 
@@ -70,6 +75,8 @@ export default Vue.extend({
       const toolTipElement = document.getElementById('input1')
       let actualPixels = (value / 100) * width - (toolTipElement?.clientWidth ?? 2) / 2;
       //console.log(actualPixels,progress,value);
+      console.log("mounted",progress,width);
+
       if (progress > 96) {
         actualPixels = actualPixels - 15
       }

@@ -1,21 +1,21 @@
 <template>
   <div v-if="market" class="flex flex-wrap justify-evenly -mx-2">
-     <div class="flex xl:hidden w-1/2 py-1">
+     <div class="flex xl:hidden w-1/2 py-3.5">
         <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
-          class="w-6 h-6 xl:mr-4 mr-2"
+          class="w-6 h-6 xl:mr-4 mr-1"
         />
         <div>
           <p class="text-gray-100 font-bold font-sora text-sm">
             {{ market.ticker }}
           </p>
-          <p class="text-gray-500 text-xs">
+          <p class="text-gray-500 font-sora text-xs">
             {{ market.baseToken.name }}
           </p>
         </div>
       </div>
-    <v-market-info :title="$t('last_traded_price')">
+    <v-market-info :title="$t('last_traded_price')"  class="font-sora">
       <v-ui-text sm class="w-full">
         <v-ui-format-order-price
           v-bind="{
@@ -29,7 +29,7 @@
         />
       </v-ui-text>
     </v-market-info>
-    <v-market-info :title="$t('market_change_24h')" class="">
+    <v-market-info :title="$t('market_change_24h')" class="font-sora pl-7">
       <v-ui-text sm class="w-full">
         <v-ui-format-percent
           v-bind="{
@@ -41,7 +41,7 @@
         />
       </v-ui-text>
     </v-market-info>
-    <v-market-info :title="$t('high')">
+    <v-market-info :title="$t('high')"  class="font-sora">
       <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
@@ -53,7 +53,7 @@
         <span v-else class="text-gray-500">&mdash;</span>
       </v-ui-text>
     </v-market-info>
-    <v-market-info :title="$t('low')">
+    <v-market-info :title="$t('low')"  class="font-sora pl-7">
       <v-ui-text sm class="w-full">
         <v-ui-format-price
           v-if="high.gt(0)"
@@ -66,7 +66,7 @@
       </v-ui-text>
     </v-market-info>
     <v-market-info
-      :title="$t('volume_asset', { asset: market.quoteToken.symbol })"
+      :title="$t('volume_asset', { asset: market.quoteToken.symbol })" class="font-sora"
     >
       <v-ui-text sm class="w-full">
         <v-ui-format-price

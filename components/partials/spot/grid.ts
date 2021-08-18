@@ -414,9 +414,9 @@ const xxsGrid = [
     x: 0,
     y: 0,
     w: 2,
-    h: 2,
+    h: 2.5,
     minW: 2,
-    maxH: 1,
+    maxH: 2.5,
     isDraggable: false,
     isResizable: false
   },

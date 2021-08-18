@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <div class="pt-1">
+  <!-- <div class="pt-1">
     <div>
       <v-ui-text class="opacity-40 font-sora text-xsm font-normal text-white"
         muted-md
@@ -9,7 +9,7 @@
         v-html="$t('max_leverage', { max: maxLeverage })"
       >
       </v-ui-text>
-    </div>
+    </div> -->
     <v-input-slider
       min="1"
       :max="maxLeverage.toString()"

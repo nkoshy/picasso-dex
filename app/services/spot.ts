@@ -508,7 +508,6 @@ export const getApproxAmountForMarketOrder = ({
   const availableBalance = balance.times(percent)
   let totalQuantity = ZERO_IN_BASE
   let totalNotional = ZERO_IN_BASE
-
   for (const record of records) {
     const price = new BigNumberInBase(record.price)
       .times(slippage)
@@ -516,7 +515,6 @@ export const getApproxAmountForMarketOrder = ({
     const quantity = new BigNumberInWei(record.quantity).toBase(
       market.baseToken.decimals
     )
-
     totalQuantity = totalQuantity.plus(quantity)
     totalNotional = totalQuantity.times(price)
 
@@ -527,6 +525,6 @@ export const getApproxAmountForMarketOrder = ({
       return availableBalance.dividedBy(fee.plus(1).times(price))
     }
   }
-
+  
   return totalQuantity
 }

@@ -1,17 +1,23 @@
 <template>
   <v-panel v-if="market" class="h-full bg-light-purple rounded-md">
-    <div class="flex flex-wrap items-center py-0 px-4 lg:py-0 mr-4 w-full h-full md:w-auto lg:mb-0">
+    <div
+      class="flex flex-wrap items-center py-0 px-4 lg:py-0 mr-4 w-full h-full md:w-auto lg:mb-0"
+    >
+      <div class="hidden xl:flex">
         <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
-          class="w-6 h-6 mr-4"
+          class="w-6 h-6 xl:mr-4 mr-2"
         />
         <div>
-          <p class="text-gray-100 font-bold font-sora text-sm">{{ market.ticker }}</p>
+          <p class="text-gray-100 font-bold font-sora text-sm">
+            {{ market.ticker }}
+          </p>
           <p class="text-gray-500 text-xs">
             {{ market.baseToken.name }}
           </p>
         </div>
+      </div>
       <v-market-stats class="flex-1" />
     </div>
   </v-panel>

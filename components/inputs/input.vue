@@ -76,15 +76,20 @@
         <slot name="addon"></slot>
       </span>
     </div>
+    
   </div>
+  
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { uniqueId } from '~/app/utils/generators'
 import { DOMEvent } from '~/types'
-
+import Slider  from './slider.vue'
 export default Vue.extend({
+  components: {
+    'v-slider': Slider
+  },
   inheritAttrs: false,
 
   props: {

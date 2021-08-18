@@ -1,19 +1,24 @@
 
 <template>
-  <div class="range-wrap flex items-center relative select-none mt-12 left-1">
+  <div class="w-full range-wrap flex items-center relative select-none mb-7 mt-4 left-1">
     <input
       id="input"
-      ref='input'
+      ref="input"
       v-model="sliderValue"
       class="range"
       type="range"
-      min=0
-      max=100
+      min="0"
+      max="100"
       @input="handleChange"
     />
-    <div id="input1" for="distance" :value="sliderValue" class="range-slider-tooltip">
+    <div
+      id="input1"
+      for="distance"
+      :value="sliderValue"
+      class="range-slider-tooltip"
+    >
       <span class="font-sora text-white font-bold text-xs">
-      {{ sliderValue}}%
+        {{ sliderValue?Number(sliderValue).toFixed(0):"" }}%
       </span>
     </div>
   </div>
@@ -21,6 +26,7 @@
 
 <script lang="ts">
 import { BigNumber } from '@injectivelabs/utils'
+import { nextTick } from 'node:process'
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -36,34 +42,41 @@ export default Vue.extend({
       required: false,
       type: String,
       default: ''
+    },
+    sliderValue: {
+      required: false,
+      type: Number,
+      default: 25
     }
   },
 
   data() {
     return {
-      sliderValue: 25
-    };
+      //sliderValue: 25
+    }
   },
 
   mounted() {
-        const width = document.getElementById('input')?.clientWidth ?? 0;
-        const toolTipElement =  document.getElementById('input1');
-        const actualPixels = (width / 4) - 10;
-        if (toolTipElement !== undefined && toolTipElement !== null) {
-          // console.log(actualPixels);
-          toolTipElement.style.left = `${actualPixels}}px`;
-          // console.log(toolTipElement);
-      }
-    },
+   
+   this.$nextTick(() => {
+    this.setSliderPosition(this.sliderValue)
+   });
+  },
+
+  updated() {
+    console.log(this.sliderValue,"ishi");
+    this.setSliderPosition(this.sliderValue)
+  },
 
   methods: {
-    handleChange(e: Event) {
-      const target = (e.target as HTMLFormElement)
-      const value = new BigNumber((target).value)
-      const progress = target.value;
-      const width = document.getElementById('input')?.clientWidth ?? 0;
-      const toolTipElement =  document.getElementById('input1');
-      let actualPixels = ((progress / 100) * width) - ((toolTipElement?.clientWidth ?? 2 ) / 2);
+    setSliderPosition(progress:Number) {
+      const value =  Number(progress);
+      const width = document.getElementById('input')?.clientWidth ?? 0
+      const toolTipElement = document.getElementById('input1')
+      let actualPixels = (value / 100) * width - (toolTipElement?.clientWidth ?? 2) / 2;
+      //console.log(actualPixels,progress,value);
+      console.log("mounted",progress,width);
+
       if (progress > 96) {
         actualPixels = actualPixels - 15
       }
@@ -73,15 +86,26 @@ export default Vue.extend({
       }
 
       if (toolTipElement !== undefined && toolTipElement !== null) {
-          toolTipElement.style.left = `${actualPixels}px`;
+        toolTipElement.style.left = `${actualPixels}px`
       }
-    
-      const style=(this.$refs.input as HTMLInputElement)
-      style.style.background='linear-gradient(to right, #3617E2 0%, #FC69FB  ' + value + '%, #242257 ' + value + '%, #242257 100%)'
-      // style.style.background='linear-gradient(102.23deg, #3617E2 '+(+value-45.68)+'%, #FC69FB '+(+value-147.51)+'% , white 100%)';
-      this.$emit('input', style)
+
+      const style = this.$refs.input as HTMLInputElement
+      style.style.background =
+        'linear-gradient(to right, #3617E2 0%, #FC69FB  ' +
+        value +
+        '%, #242257 ' +
+        value +
+        '%, #242257 100%)'
+    },
+
+    handleChange(e: Event) {
+      console.log(typeof this.sliderValue, 'HYY ISHI')
+      const target = e.target as HTMLFormElement
+      const value = new BigNumber(target.value)
+      const progress = target.value;
+      this.setSliderPosition(progress);
       this.$emit('input', value.dp(2, BigNumber.ROUND_HALF_CEIL).toFixed())
-      this.$emit('onValueChange', progress);
+      this.$emit('onValueChange', progress)
     }
   }
 })

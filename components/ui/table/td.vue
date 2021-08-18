@@ -21,6 +21,12 @@ export default Vue.extend({
       type: Boolean
     },
 
+    sm: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     left: {
       required: false,
       default: false,
@@ -54,12 +60,12 @@ export default Vue.extend({
     classes(): string {
       const classes = ['border-none', 'align-middle']
 
-      if (this.xs) {
-        classes.push('text-xs', 'px-3', 'py-1')
+      if (this.sm) {
+        classes.push('text-sm', 'px-3', 'py-1')
       } else if (this['2xs']) {
         classes.push('text-2xs', 'px-2')
       } else {
-        classes.push('text-sm', 'p-3')
+        classes.push('text-xs', 'p-3')
       }
 
       if (this.right) {

@@ -47,25 +47,30 @@
       <div
         v-if="true"
         slot="context"
-        class="text-xs text-gray-400 flex justify-between"
+        class="text-xs text-gray-400 flex pb-5 justify-between"
       >
-        <div class=" pb-1">
-          <span class="font-sora text-xsm opacity-40 text-white">Available</span>
+        <div>
+          <span class="font-sora text-xs opacity-40 text-white">Available</span>
         </div>
-        <div class="pb-1">
-          <v-ui-format-amount v-if="baseBalance !== undefined"
+        <div class="text-xs">
+          <v-ui-format-amount v-if="quoteBalance !== undefined"
         v-bind="{
-          value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
+          value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
         }"
       />
           <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
             {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
           </span> -->
-          <span class="cursor-pointer text-xsm font-semibold text-white font-sora">
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
             {{market.ticker.split('/')[1]}}
           </span>
         </div>
       </div>
+      <v-order-leverage
+        :leverage="form.leverage"
+        :max-leverage="maxLeverageAvailable.toFixed()"
+        @change="onLeverageChange"
+      />
       <div class="mb-4">
         <v-input
           ref="input-amount"
@@ -116,6 +121,7 @@
           ref="input-price"
           :value="form.price"
           :placeholder="$t('price')"
+          :max-selector="true"
           :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
@@ -130,11 +136,7 @@
         </v-ui-text>
       </div>
 
-      <v-order-leverage
-        :leverage="form.leverage"
-        :max-leverage="maxLeverageAvailable.toFixed()"
-        @change="onLeverageChange"
-      />
+      
 
       <v-order-leverage-select
         class="mt-2"
@@ -192,10 +194,12 @@ import OrderDetails from './order-details.vue'
 import OrderLeverage from './order-leverage.vue'
 import OrderLeverageSelect from './order-leverage-select.vue'
 import OrderDetailsMarket from './order-details-market.vue'
+import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
-  NUMBER_REGEX
+  NUMBER_REGEX,
+  UI_DEFAULT_PRICE_DISPLAY_DECIMALS
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import {
@@ -208,7 +212,8 @@ import {
   UiPosition,
   TradeDirection,
   UiDerivativeMarketSummary,
-  UiDerivativeLimitOrder
+  UiDerivativeLimitOrder,
+  UiSubaccountBalanceWithToken
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -237,7 +242,8 @@ export default Vue.extend({
     'v-order-details': OrderDetails,
     'v-order-leverage': OrderLeverage,
     'v-order-leverage-select': OrderLeverageSelect,
-    'v-order-details-market': OrderDetailsMarket
+    'v-order-details-market': OrderDetailsMarket,
+    'v-slider': Slider
   },
 
   data() {
@@ -253,6 +259,30 @@ export default Vue.extend({
   },
 
   computed: {
+    quoteBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const quoteBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.quoteDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
+        token: market.quoteToken,
+        denom: market.quoteDenom
+      }
+    },
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
     },

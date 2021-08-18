@@ -54,15 +54,15 @@
        <div
         v-if="true"
         slot="context"
-        class="text-xs text-gray-400 flex justify-between"
+        class="text-xs text-gray-400 flex pb-5 justify-between"
       >
-        <div class="pb-3.5 pt-2">
-          <span class="font-sora">Available</span>
+        <div class="pt-2">
+          <span class="font-sora text-xs opacity-40 text-white">Available</span>
         </div>
-        <div>
-          <v-ui-format-amount v-if="baseBalance !== undefined"
+        <div class="pt-2 text-xs">
+          <v-ui-format-amount v-if="quoteBalance !== undefined"
         v-bind="{
-          value: baseBalance.availableBalance.toBase(baseBalance.token.decimals)
+          value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
         }"
       />
           <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
@@ -73,6 +73,8 @@
           </span>
         </div>
       </div>
+      <v-slider @onValueChange="onSliderValueChange" :sliderValue="sliderValue" />
+
       <div v-if="!tradingTypeMarket" class="mb-4 ">
         <v-input
           ref="input-price"
@@ -155,7 +157,7 @@
       </div>
      </div>
       <!-- <v-slider @input="onSliderValueChange"/> -->
-      <v-slider @onValueChange="onSliderValueChange"/>
+      
     <!-- <div v-if="!tradingTypeMarket" class="mb-4">
         <v-input
           ref="input-price"
@@ -225,7 +227,8 @@ import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
   NUMBER_REGEX,
-  UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS
+  UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+  UI_DEFAULT_PRICE_DISPLAY_DECIMALS
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import {
@@ -268,11 +271,37 @@ export default Vue.extend({
       orderType: SpotOrderSide.Buy,
       detailsDrawerOpen: true,
       status: new Status(),
-      form: initialForm()
+      form: initialForm(),
+      sliderValue:25
     }
   },
 
   computed: {
+    quoteBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const quoteBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.quoteDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
+        token: market.quoteToken,
+        denom: market.quoteDenom
+      }
+    },
+
     baseBalance(): UiSubaccountBalanceWithToken | undefined {
       const { subaccount, market } = this
 
@@ -799,6 +828,8 @@ export default Vue.extend({
      * into consideration
      */
     onMaxInput(percent = 100) {
+      //console.log("hyy",typeof('input-max'));
+      this.sliderValue=percent;
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
@@ -807,6 +838,7 @@ export default Vue.extend({
 
     onSliderValueChange(sliderValue = 25) {
       this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      this.sliderValue=sliderValue;
       console.log(sliderValue);
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(sliderValue))
@@ -825,12 +857,10 @@ export default Vue.extend({
         executionPrice,
         slippage
       } = this
-
       const percentageToNumber = new BigNumberInBase(percentage).div(100)
       const balance = orderTypeBuy
         ? quoteAvailableBalance
         : baseAvailableBalance
-
       if (!market) {
         return ''
       }
@@ -845,7 +875,6 @@ export default Vue.extend({
         const totalBalance = new BigNumberInBase(balance).times(
           percentageToNumber
         )
-
         const amount = totalFillableAmount.gte(totalBalance)
           ? totalBalance
           : totalFillableAmount
@@ -857,6 +886,7 @@ export default Vue.extend({
       }
 
       if (tradingTypeMarket) {
+        
         return getApproxAmountForMarketOrder({
           market,
           balance,
@@ -875,7 +905,6 @@ export default Vue.extend({
       }
 
       const fee = new BigNumberInBase(market.takerFeeRate)
-
       return new BigNumberInBase(balance)
         .dividedBy(executionPrice.times(fee.plus(1)))
         .times(percentageToNumber)
@@ -908,11 +937,9 @@ export default Vue.extend({
       this.tradingType = TradeExecutionType.Market
       this.orderType =
         type === SpotOrderSide.Buy ? SpotOrderSide.Sell : SpotOrderSide.Buy
-
       const amount = total
         .dividedBy(price.times(slippage).toFixed(market.priceDecimals))
         .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_FLOOR)
-
       this.$nextTick(() => {
         this.onAmountChange(amount)
       })
@@ -955,7 +982,15 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
-      this.form.amount = amount
+
+      const maxAmount=this.getMaxAmountValue(100);
+      this.sliderValue=(Number(amount)/Number(maxAmount))*100;
+      //const fee = new BigNumberInBase(this.market.takerFeeRate);
+      this.form.amount = amount;
+      //console.log(amount,"ishig");
+      //let num=Number(amount);
+      //const availB=num.times(fee.plus(1).times(price));
+      
     },
 
     submitLimitOrder() {

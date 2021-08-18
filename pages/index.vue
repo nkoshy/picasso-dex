@@ -7,7 +7,7 @@
       <div class="flex w-full z-19">
         <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
           <div class="flex items-center justify-center xl:justify-start">
-            <p class="opacity-50 font-poppins text-2xl uppercase">Powered By</p>
+            <p class="opacity-50 font-poppins text-base xl:text-base uppercase">Powered By</p>
             <!-- <img
               src="powered-by-icon.svg"
               alt="Injective Exchange"
@@ -16,13 +16,13 @@
             <img
               src="/images/secondary_logo.png"
               alt="Injective Exchange"
-              class="h-12 ml-3 w-28"
+              class="h-12 w-28"
             /> 
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
-          <div class="flex xl:mt-8 mt-14 flex-col xl:flex-row xl:justify-start justify-center items-center">
+          <div class="flex xl:mt-8 mt-14 mb-12 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
             <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
@@ -51,18 +51,18 @@
       </div>
     
       <div class="conatiner max-w-8xl m-auto relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
-        <div class=" text-white text-center md:pt-16 pt-4 md:text-2xl text-base font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center mt-10 mb-24 opacity-60">
-            <div class="md:h-24 md:mr-32 h-12">
-                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+        <div class=" text-white text-center md:pt-16 pt-4 text-2xl  font-sora font-bold">Our Supporters</div>
+        <div class=" flex flex-col items-center md:flex-row justify-center mt-10  mb-12 xl:mb-24 opacity-60">
+            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-4 h-16">
+                <img src="/images/ishi.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
-            <div class="md:h-24 md:mt-4 h-12 mt-6">
+            <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 my-6 h-16">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
          
-        <div class="flex justify-center md:pb-24 md:mt-24 pb-12 mt-16">
-          <span class="mr-16">Copyright © 2021 Picasso Exchange</span>
+        <div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
+          <span class="hidden xl:mr-16 xl:inline">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
                 <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
             </div>
@@ -75,8 +75,8 @@
             <div class="md:mr-16 md:h-8 h-6 mr-0">
                 <img src="/images/discord.svg" alt="" class="h-full cursor-pointer"  @click.stop = "godiscord">
             </div> 
-            <span class="mr-10 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
-        <span class="cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
+            <span class="hidden  xl:inline xl:mr-10 xl:cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
+        <span class="hidden xl:cursor-pointer xl:inline" @click.stop="goTerms">Terms and Conditions</span>
         </div> 
         <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
         <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
@@ -101,7 +101,8 @@ export default Vue.extend({
   },
     methods: {
       goTrade(){
-        window.open('https://trade.picasso.exchange/market','_blank');
+         this.$router.push({ name: 'market' })
+        // window.open('https://trade.picasso.exchange/market','_blank');
       },
 
       goReadMore() {

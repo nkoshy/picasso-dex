@@ -1,5 +1,5 @@
 <template>
-  <div v-if="market" class="mt-4 py-4 relative">
+  <div v-if="market" class="py-3 relative">
     
     <v-drawer
       :custom-handler="true"

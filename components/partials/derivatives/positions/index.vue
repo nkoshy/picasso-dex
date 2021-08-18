@@ -1,7 +1,7 @@
 <template>
   <v-panel :title="$t('positions')" class="h-full relative font-sora text-white">
     <div v-if="market" class="flex flex-col">
-      <div class="table-responsive table-compact">
+      <div class="table-responsive table-compact h-36">
         <table class="table">
           <thead class="border-b">
             <tr class="bg-light-purple">

@@ -78,15 +78,15 @@ export default Vue.extend({
           'flex',
           'justify-center',
           'flex-wrap',
-          '-left-20',
-          'bg-about-pattern',
+          '-left-10',
+          'bg-spot_about-pattern',
           'bg-no-repeat'
       ];
 
       if(!this.landingPage) {
         classes.push('mt-10', 'top-20')
       } else {
-        classes.push('bg-dark-main', 'top-16', 'mt-2.5')
+        classes.push('top-16', 'mt-2.5')
       }
 
       return classes.join(' ')

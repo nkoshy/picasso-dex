@@ -1,6 +1,5 @@
 <template>
-  <div class="h-full flex flex-wrap">
-    <div class="w-full bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
+  <div class="h-full flex flex-wrap  xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
     <div class="flex relative max-w-screen-2xl m-auto flex-col xl:w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
       <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
@@ -29,7 +28,6 @@
           </div>
         </div>        
       </div>
-    </div>
     </div>
       <div class="relative 2xl:ml-auto mr-auto max-w-screen-2xl flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">

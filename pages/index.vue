@@ -54,7 +54,7 @@
         <div class=" text-white text-center md:pt-16 pt-4 text-2xl  font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10  mb-12 xl:mb-24 opacity-60">
             <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-4 h-16">
-                <img src="/images/footer-injective_logo.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 my-6 h-16">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />

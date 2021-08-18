@@ -60,8 +60,8 @@
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
-         
-        <div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
+         <v-footer SpotPage=true />
+        <!--<div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
           <span class="hidden xl:mr-16 xl:inline">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
                 <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
@@ -77,7 +77,7 @@
             </div> 
             <span class="hidden  xl:inline xl:mr-10 xl:cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
         <span class="hidden xl:cursor-pointer xl:inline" @click.stop="goTerms">Terms and Conditions</span>
-        </div> 
+        </div> -->
         <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
         <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
         <span class="mr-10 pl-80 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 

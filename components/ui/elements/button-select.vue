@@ -147,7 +147,7 @@ export default Vue.extend({
       if (this.isActive) {
         if (this.primary) {
           classes.push(
-            'primary-btn',
+            'border-grade',
             'text-white',
             'font-bold'
           )

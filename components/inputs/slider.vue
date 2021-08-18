@@ -18,7 +18,7 @@
       class="range-slider-tooltip"
     >
       <span class="font-sora text-white font-bold text-xs">
-        {{ sliderValue?Number(sliderValue).toFixed(0):"" }}%
+        {{ sliderValue ? Number(sliderValue).toFixed(0) : 0 }}%
       </span>
     </div>
   </div>
@@ -46,7 +46,7 @@ export default Vue.extend({
     sliderValue: {
       required: false,
       type: Number,
-      default: 25
+      default: 0
     }
   },
 

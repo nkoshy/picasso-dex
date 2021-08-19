@@ -124,7 +124,7 @@ export default function ({
       'mainSeriesProperties.areaStyle.color2': theme.colors.red[500],
       'mainSeriesProperties.areaStyle.linecolor': theme.colors.red[500],
       // Line styles
-      'mainSeriesProperties.lineStyle.color': theme.colors.red[500],
+      'mainSeriesProperties.lineStyle.color': theme.colors['blue-main'],
       'mainSeriesProperties.lineStyle.linestyle': 0,
       'mainSeriesProperties.lineStyle.linewidth': 1,
       // Baseline styles

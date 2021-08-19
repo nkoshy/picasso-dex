@@ -126,7 +126,7 @@ export default Vue.extend({
 
   methods: {
     closeModal() {
-       this.$router.push({ name: 'index' })
+      this.$router.push({ name: 'index' })
       this.$accessor.modal.closeModal(Modal.Acknowledge)
     },
     onClose() {

@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import ledgerVue from '~/components/wallets/wallets/ledger.vue'
 export default Vue.extend({
   props: {
     leverage: {
@@ -43,6 +44,7 @@ export default Vue.extend({
 
   methods: {
     handleOnSelect(leverage: number) {
+      console.log(leverage,"wlcm");
       this.$emit('change', leverage.toString())
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <div :class="
   !spotPage
-        ? 'mb-8 mt-20 xl:my-4 xl:mx-auto xl:max-w-screen-laptop-screen xl:pb-4 xl:py-6 xl:px-8'
-        : 'mb-8 mt-20 xl:my-4 xl:w-full xl:mx-auto xl:max-w-screen-laptop-screen xl:px-32'
+        ? 'pb-4 xl:px-4 xl:mx-auto xl:max-w-screen-laptop-screen pt-11 px-6'
+        : 'mb-4 xl:mt-20 mt-16 xl:mb-4 xl:w-full xl:mx-auto xl:max-w-screen-laptop-screen xl:px-32 px-6'
     ">
-    <div class="flex justify-center w-full items-center pt-2 pb-6 border-b border-gray-500 mb-12">
+    <div class="flex justify-center w-full items-center pb-6 border-b border-gray-500 mb-4">
       <div class="h-8 w-6 md:mr-16 md:ml-0 mx-4">
         <img
           src="/images/twitter.svg"
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="flex items-center flex-nowrap">
-      <div class="flex order-1 w-1/2 xl:pl-1 pl-4 xl:w-full">
+      <div class="flex order-1 w-1/2 xl:pl-1 xl:w-full">
         <span
           :class="
             !spotPage
@@ -50,7 +50,7 @@
         >
       </div>
       <div
-        class="flex flex-col order-1 w-1/2 pr-4 xl:px-1 xl:w-full xl:flex-row xl:justify-end"
+        class="flex flex-col order-1 w-1/2 xl:px-1 xl:w-full xl:flex-row xl:justify-end"
       >
         <span :class="
             !spotPage

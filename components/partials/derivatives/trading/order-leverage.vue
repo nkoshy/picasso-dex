@@ -33,8 +33,6 @@
         >
       </div>
     </v-input-slider>
-  </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -60,6 +58,7 @@ export default Vue.extend({
 
   methods: {
     onLeverageChange(value: string) {
+      console.log(value)
       if (!Number.isNaN(value)) {
         this.$emit('change', value)
         this.$forceUpdate()

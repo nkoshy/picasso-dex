@@ -22,7 +22,7 @@
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
-          <div class="flex xl:mt-8 mt-14 mb-12 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
+          <div class="flex xl:mt-8 mt-14 mb-16 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
             <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="flex flex-col xl:mt-48 xl:ml-16 mt-2">
-          <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
+          <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl mt-20 xl:mt-0">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
             <v-ui-button home-section full hero-primary @click.stop="goTrade">Trade</v-ui-button>
@@ -50,13 +50,13 @@
         </div>
       </div>
     
-      <div class="conatiner 2xl:ml-auto mr-auto max-w-screen-laptop-screen  relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
-        <div class=" text-white text-center md:pt-16 pt-4 text-2xl  font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center mt-10  mb-12 xl:mb-16 opacity-60">
-            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-4 h-16">
+      <div class="conatiner 2xl:ml-auto mr-auto max-w-screen-laptop-screen  relative w-full md:pt-24 pt-11 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
+        <div class=" text-white text-center text-2xl font-sora font-bold">Our Supporters</div>
+        <div class=" flex flex-col items-center md:flex-row justify-center xl:mt-10 mt-11 opacity-60">
+            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 h-16">
                 <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
-            <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 my-6 h-16">
+            <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 mt-10 h-16">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>

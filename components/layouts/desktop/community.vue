@@ -90,7 +90,7 @@ export default Vue.extend({
           'flex',
           'justify-center',
           'flex-wrap',
-          'bg-common-pattern',
+          'bg-spot-common-pattern',
           'bg-no-repeat',
           'bg-contain'
       ];
@@ -98,7 +98,7 @@ export default Vue.extend({
       if(!this.landingPage) {
         classes.push('mt-10', 'top-20', '-left-1.5')
       } else {
-        classes.push('bg-dark-main', 'top-16', 'mt-2.5')
+        classes.push('top-16', 'mt-2.5')
       }
 
       return classes.join(' ')

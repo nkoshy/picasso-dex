@@ -20,7 +20,7 @@
       
     </div>
 
-    <div class="w-full flex  mt-3.5">
+    <div class="w-full flex font-sora mt-3.5">
       <v-ui-button-select
         v-model="orderType"
         :option="SpotOrderSide.Buy"
@@ -43,7 +43,7 @@
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
     </div>
-    <p slot="header" class="text-sm font-normal font-sora pb=3.5 pt-4">
+    <p slot="header" class="text-sm font-normal font-sora pb-3.5 pt-4">
         <v-ui-text muted-md>
         {{ $t(orderTypeBuy ? 'Buy' : 'Sell') }}
         {{market.baseToken.symbol}}
@@ -836,7 +836,7 @@ export default Vue.extend({
       })
     },
 
-    onSliderValueChange(sliderValue = 25) {
+    onSliderValueChange(sliderValue = 0) {
       this.onAmountChange(this.getMaxAmountValue(sliderValue));
       this.sliderValue=sliderValue;
       console.log(sliderValue);

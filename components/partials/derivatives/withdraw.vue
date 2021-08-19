@@ -1,12 +1,13 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
-    <div v-if="market" class="w-full md:w-xl flex flex-col shadow">
+    <div v-if="market" class="w-full md:w-xl flex flex-col shadow bg-model bg-no-repeat bg-cover border-solid rounded-md
+        border border-light-pink">
       <div class="my-6 flex flex-wrap">
         <div class="w-full mb-6 px-4">
-          <h3 class="text-center text-2xl uppercase">
+          <h3 class="text-center text-xl font-semibold font-sora mb-4">
             {{ $t('withdraw_modal_title') }}
           </h3>
-          <p class="text-sm text-center opacity-90 mt-4">
+          <p class="text-sm text-center opacity-60 font-sora font-normal text-white pl-24 pr-28">
             {{ $t('withdraw_modal_note') }}
           </p>
         </div>

@@ -107,9 +107,9 @@ export default Vue.extend({
         classes.push('xl:pl-8','xl:pr-8','xl:pt-0', 'pt-4', 'pr-4', 'xl:max-w-screen-xl 2xl:max-w-screen-2xl','xl:mx-auto')
       } */
       if (!this.landingPage) {
-        classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-32', 'pr-4')
+        classes.push('xl:pl-32', 'xl:pt-0', 'pt-4', 'xl:pr-32', 'pr-4','xl:max-w-screen-laptop-screen' ,'xl:mx-auto')
       } else {
-        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-4', 'xl:pl-6', 'pt-4','pr-4')
+        classes.push('xl:pt-1.5', 'pl-8', 'xl:pr-4', 'xl:pl-6', 'pt-4','pr-4','xl:max-w-screen-laptop-screen' ,'xl:mx-auto')
       }
 
       return classes.join(' ')

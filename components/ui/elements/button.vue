@@ -248,7 +248,7 @@ export default Vue.extend({
       } else if (this.red) {
         classes.push('bg-red-500', 'text-white-900', 'hover:bg-red-600')
       } else if (this.aqua) {
-        classes.push('bg-aqua-500', 'text-aqua-900', 'hover:bg-aqua-600')
+        classes.push('bg-aqua-500', 'text-white', 'hover:bg-aqua-600')
       } else if (this.dim) {
         classes.push('bg-dark-700', 'hover:bg-dark-800')
       } else if (this.hero) {

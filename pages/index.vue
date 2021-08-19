@@ -1,11 +1,11 @@
 <template>
-  <div class="h-full flex flex-wrap">
-    <div class="flex relative max-w-8xl m-auto flex-col w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
+  <div class="h-full flex flex-wrap  xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
+    <div class="flex relative max-w-screen-2xl m-auto flex-col xl:w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
       <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
-      <div class="flex w-full z-19">
-        <div class="flex flex-col z-30 mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4 2xl:mx-auto">
+      <div class="flex xl:w-full z-19 2xl:ml-auto mr-auto max-w-screen-2xl ">
+        <div class="flex flex-col z-30 xl:mx-auto tracking-loose xl:ml-32 xl:mt-24 xl:mb-48 xl:w-xl mb-4">
           <div class="flex items-center justify-center xl:justify-start">
             <p class="opacity-50 font-poppins text-base xl:text-base uppercase">Powered By</p>
             <!-- <img
@@ -29,8 +29,8 @@
         </div>        
       </div>
     </div>
-      <div class="relative max-w-8xl m-auto flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
-        <div class="flex z-30 flex-col xl:flex-row justify-center items-center 2xl:ml-auto">
+      <div class="relative 2xl:ml-auto mr-auto max-w-screen-2xl flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
+        <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
             <home-card top icon="/home/new-market-new.svg">New market listing by community governance</home-card>
@@ -40,7 +40,7 @@
             <home-card top icon="/home/zero-fee-new.svg">Zero gas fees and no front running</home-card>
           </div>
         </div>
-        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-20 2xl:mr-auto">
+        <div class="flex flex-col xl:mt-48 xl:ml-16 mt-2">
           <h1 class="text-home xl:text-5xl font-semibold xl:w-96 font-sora px-16 xl:px-0 text-center xl:text-left text-3xl">Why Picasso Exchange?</h1>
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
@@ -50,18 +50,18 @@
         </div>
       </div>
     
-      <div class="conatiner max-w-8xl m-auto relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
+      <div class="conatiner 2xl:ml-auto mr-auto max-w-screen-2xl  relative w-full md:pt-16 pt-4 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center md:pt-16 pt-4 text-2xl  font-sora font-bold">Our Supporters</div>
         <div class=" flex flex-col items-center md:flex-row justify-center mt-10  mb-12 xl:mb-24 opacity-60">
             <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-4 h-16">
-                <img src="/images/ishi.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
             <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 my-6 h-16">
                 <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
-         
-        <div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
+         <v-footer SpotPage=true />
+        <!--<div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
           <span class="hidden xl:mr-16 xl:inline">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
                 <img src="/images/twitter.svg" alt="" class="h-full cursor-pointer"  @click.stop = "gotwitter"/>
@@ -77,7 +77,7 @@
             </div> 
             <span class="hidden  xl:inline xl:mr-10 xl:cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 
         <span class="hidden xl:cursor-pointer xl:inline" @click.stop="goTerms">Terms and Conditions</span>
-        </div> 
+        </div> -->
         <!-- <div class="xl:pl-32 xl:pr-32 xl:pb-24 2xl:mr-auto 2xl:ml-auto max-w-screen-2xl 2xl:pb-12">
         <span class=pr-72>Copyright © 2021 Picasso Exchange</span>
         <span class="mr-10 pl-80 cursor-pointer"  @click.stop="goPrivacy">Privacy Policy</span> 

@@ -30,6 +30,16 @@
             }}</span>
           </v-input>
           <div class="w-full mx-auto mt-4">
+            <!-- <v-ui-button
+              :status="status"
+              full
+              :primary="valid"
+              :ghost="invalid"
+              :disabled="!form.amount || invalid"
+              @click.stop="handleWithdrawClick"
+            >
+              {{ $t('withdraw') }}
+            </v-ui-button> -->
             <v-ui-button
               :status="status"
               full

@@ -192,7 +192,7 @@ export default Vue.extend({
       }
 
       if (this.full) {
-        classes.push('w-full')
+        classes.push('w-full','font-sora')
         if (!this.sm) {
           classes.push('py-3')
         }

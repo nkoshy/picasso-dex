@@ -3,7 +3,7 @@
     <v-ui-button
       :status="status"
       full
-      aqua
+      primary
       @click.stop="handleClickSetAllowance"
     >
       {{ $t('set_allowance') }}

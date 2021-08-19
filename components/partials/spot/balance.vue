@@ -7,7 +7,7 @@
     </div>
     <div v-if="isUserWalletConnected && market" class="px-4 h-full pt-3.5 text-xs font-sora">
       <v-ui-text-info
-      class="text-sm"
+      class="text-sm py-1"
         :title="$t('balance_asset', { asset: market.baseToken.symbol })"
       >
         <v-ui-format-amount
@@ -18,7 +18,7 @@
         />
       </v-ui-text-info>
       <v-ui-text-info
-        class="mt-3 text-sm"
+        class="mt-3 text-sm py-1"
         :title="$t('balance_asset', { asset: market.quoteToken.symbol })"
       >
         <v-ui-format-amount

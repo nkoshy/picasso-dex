@@ -61,7 +61,7 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p
+       <!-- <p
           v-if="!orderTypeReduceOnly"
           class="flex justify-between group leading-6"
         >
@@ -110,7 +110,7 @@
           <v-ui-text v-else muted-sm class="group-hover:text-white opacity-40">
             &mdash;
           </v-ui-text>
-        </p>
+        </p> -->
         <p class="flex justify-between group leading-6">
           <v-ui-text muted-sm class="group-hover:text-white opacity-40">{{
             $t('notional_value')

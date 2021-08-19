@@ -205,6 +205,13 @@ export default {
     'Transfer your assets to an address on the Injective Chain',
   select_asset: 'Select Asset',
   destination: 'Destination',
+  signUp: 'SignUp',
+  login: 'Login',
+  email_id:'Email Id',
+  password:'Password',
+  submit:'Submit',
+  request_access: 'Request Access',
   disclaimer_note:
     'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.'
 }
+

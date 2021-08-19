@@ -94,7 +94,6 @@ export default Vue.extend({
     },
 
     handleChange(e: Event) {
-      console.log(typeof this.sliderValue, 'HYY ISHI')
       const target = e.target as HTMLFormElement
       const value = new BigNumber(target.value)
       const progress = target.value;

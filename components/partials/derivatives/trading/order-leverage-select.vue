@@ -44,7 +44,6 @@ export default Vue.extend({
 
   methods: {
     handleOnSelect(leverage: number) {
-      console.log(leverage,"wlcm");
       this.$emit('change', leverage.toString())
     }
   }

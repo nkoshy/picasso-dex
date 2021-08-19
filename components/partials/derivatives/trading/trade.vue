@@ -1045,6 +1045,7 @@ export default Vue.extend({
         executionPrice,
         slippage
       } = this
+      console.log(percentage);
       const percentageToNumber = new BigNumberInBase(percentage).div(100)
 
       if (!market) {
@@ -1160,9 +1161,15 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
-      const maxAmount = this.getMaxAmountValue(100);
-      this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
-      this.form.amount = amount
+      const maxAmount = this.getMaxAmountValue(20);
+      if(maxAmount){
+        this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
+
+      }
+      else{
+        this.form.leverage='0';
+      }
+       this.form.amount = amount
     },
 
     onLeverageChange(leverage: string) {

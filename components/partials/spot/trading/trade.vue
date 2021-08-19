@@ -828,7 +828,6 @@ export default Vue.extend({
      * into consideration
      */
     onMaxInput(percent = 100) {
-      //console.log("hyy",typeof('input-max'));
       this.sliderValue=percent;
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {

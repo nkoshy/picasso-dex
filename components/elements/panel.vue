@@ -65,7 +65,6 @@ export default Vue.extend({
         'rounded-t-md'
       ];
       // eslint-disable-next-line no-console
-      console.log("extraClasses", this.title, this.extraClasses);
       if(this.extraClasses) {
         classes.push(this.extraClasses);
       }

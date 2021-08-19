@@ -15,6 +15,7 @@
       :max="maxLeverage.toString()"
       step="0.01"
       :value="leverage.toString()"
+      :sliderValue="leverage"
       @input="onLeverageChange"
     >
       <div class="relative">
@@ -26,7 +27,6 @@
           step="0.01"
           max="20"
           class="leverage-input pr-4"
-          :sliderValue="leverage"
           @input="(e) => onLeverageChange(e.target.value)"
         />
         <span class="absolute top-0 right-0 text-xs text-gray-400 mt-1 mr-1"
@@ -59,7 +59,6 @@ export default Vue.extend({
 
   methods: {
     onLeverageChange(value: string) {
-      console.log(value)
       if (!Number.isNaN(value)) {
         this.$emit('change', value)
         this.$forceUpdate()

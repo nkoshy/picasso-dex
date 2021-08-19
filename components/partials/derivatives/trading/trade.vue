@@ -1160,6 +1160,8 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
+      const maxAmount = this.getMaxAmountValue(100);
+      this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
       this.form.amount = amount
     },
 
@@ -1167,7 +1169,6 @@ export default Vue.extend({
       this.onAmountChange(this.getMaxAmountValue(Number(leverage)));
       const { maxLeverageAvailable } = this
       const leverageToBigNumber = new BigNumberInBase(leverage)
-
       if (leverageToBigNumber.gte(maxLeverageAvailable)) {
         this.form.leverage = maxLeverageAvailable.toFixed()
       } else if (leverageToBigNumber.lte(1)) {

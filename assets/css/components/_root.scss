@@ -103,5 +103,22 @@ body {
       -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: destination-out;          
     }
+    .border-grade1{ 
+      position: relative;
+    }
+    .border-grade1::before {
+      @apply rounded-md;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      content:"";
+      position:absolute; 
+      border: 1px solid transparent;
+      background: linear-gradient( 180deg ,#C251F3 100%, #7230E9 100%) border-box;
+      mask-composite: exclude;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;          
+    }
   }
 }

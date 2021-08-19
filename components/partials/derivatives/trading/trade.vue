@@ -135,9 +135,15 @@
           {{ priceError }}
         </v-ui-text>
       </div>
-
-      
-
+       <div>
+      <v-ui-text class="opacity-40 font-sora text-xsm font-normal text-white"
+        muted-md
+        tag="h3"
+        v-bind="{ '2xs': true }"
+        v-html="$t('max_leverage', { max: maxLeverageAvailable.toFixed() })"
+      >
+      </v-ui-text>
+    </div>
       <v-order-leverage-select
         class="mt-2"
         :leverage="form.leverage"
@@ -1158,6 +1164,7 @@ export default Vue.extend({
     },
 
     onLeverageChange(leverage: string) {
+      this.onAmountChange(this.getMaxAmountValue(Number(leverage)));
       const { maxLeverageAvailable } = this
       const leverageToBigNumber = new BigNumberInBase(leverage)
 

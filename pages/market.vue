@@ -96,7 +96,7 @@
         </v-panel>
       </div>
     </div> -->
-    <v-footer SpotPage=true />
+    <v-footer spotPage=true />
   </div>
   
 </template>

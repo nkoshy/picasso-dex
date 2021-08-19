@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <!-- <div class="pt-1">
+  <!--<div class="pt-1">
     <div>
       <v-ui-text class="opacity-40 font-sora text-xsm font-normal text-white"
         muted-md
@@ -33,6 +33,7 @@
         >
       </div>
     </v-input-slider>
+  </div>
   </div>
 </template>
 

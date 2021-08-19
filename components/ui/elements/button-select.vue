@@ -158,7 +158,7 @@ export default Vue.extend({
         } else if (this.aqua) {
           classes.push('bg-aqua-500', 'hover:bg-aqua-600', 'text-aqua-900')
         } else if(this.leveragebtn){
-          classes.push('focus:border-pink-light', 'text-white')
+          classes.push('border-grade1', 'text-white')
         } else {
           classes.push('text-light-green', 'font-bold')
         }

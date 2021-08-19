@@ -39,7 +39,8 @@ export enum Modal {
   Withdraw = 'withdraw',
   TakeOut = 'take-out',
   Acknowledge= 'acknowledge',
-  TransferOnChain = 'transfer-on-chain'
+  TransferOnChain = 'transfer-on-chain',
+  Login = 'login'
 }
 
 export enum Breakpoint {

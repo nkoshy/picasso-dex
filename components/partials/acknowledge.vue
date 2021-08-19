@@ -65,59 +65,59 @@ export default Vue.extend({
   },
 
   computed: {
-    market(): UiSpotMarket | undefined {
-      return this.$accessor.spot.market
-    },
+    // market(): UiSpotMarket | undefined {
+    //   return this.$accessor.spot.market
+    // },
 
-    subaccount(): UiSubaccount | undefined {
-      return this.$accessor.account.subaccount
-    },
+    // subaccount(): UiSubaccount | undefined {
+    //   return this.$accessor.account.subaccount
+    // },
 
-    baseTokenBalance(): BigNumberInWei {
-      const { subaccount, market } = this
+    // baseTokenBalance(): BigNumberInWei {
+    //   const { subaccount, market } = this
 
-      if (!market) {
-        return ZERO_IN_WEI
-      }
+    //   if (!market) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      if (!subaccount) {
-        return ZERO_IN_WEI
-      }
+    //   if (!subaccount) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      const balance = subaccount.balances.find(
-        (balance) =>
-          balance.denom.toLowerCase() === market.baseToken.denom.toLowerCase()
-      )
+    //   const balance = subaccount.balances.find(
+    //     (balance) =>
+    //       balance.denom.toLowerCase() === market.baseToken.denom.toLowerCase()
+    //   )
 
-      if (!balance) {
-        return ZERO_IN_WEI
-      }
+    //   if (!balance) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      return new BigNumberInWei(balance.availableBalance || 0)
-    },
+    //   return new BigNumberInWei(balance.availableBalance || 0)
+    // },
 
-    quoteTokenBalance(): BigNumberInWei {
-      const { subaccount, market } = this
+    // quoteTokenBalance(): BigNumberInWei {
+    //   const { subaccount, market } = this
 
-      if (!market) {
-        return ZERO_IN_WEI
-      }
+    //   if (!market) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      if (!subaccount) {
-        return ZERO_IN_WEI
-      }
+    //   if (!subaccount) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      const balance = subaccount.balances.find(
-        (balance) =>
-          balance.denom.toLowerCase() === market.quoteToken.denom.toLowerCase()
-      )
+    //   const balance = subaccount.balances.find(
+    //     (balance) =>
+    //       balance.denom.toLowerCase() === market.quoteToken.denom.toLowerCase()
+    //   )
 
-      if (!balance) {
-        return ZERO_IN_WEI
-      }
+    //   if (!balance) {
+    //     return ZERO_IN_WEI
+    //   }
 
-      return new BigNumberInWei(balance.availableBalance || 0)
-    },
+    //   return new BigNumberInWei(balance.availableBalance || 0)
+    // },
 
     isModalOpen(): boolean {
       return this.$accessor.modal.modals[Modal.Acknowledge]
@@ -126,11 +126,10 @@ export default Vue.extend({
 
   methods: {
     closeModal() {
-       this.$router.push({ name: 'index' })
+      this.$router.push({ name: 'index' })
       this.$accessor.modal.closeModal(Modal.Acknowledge)
     },
     onClose() {
-      console.log("hyy");
       this.$emit('closed')
        this.$router.push({ name: 'index' })
     },

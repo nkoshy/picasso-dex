@@ -828,7 +828,6 @@ export default Vue.extend({
      * into consideration
      */
     onMaxInput(percent = 100) {
-      //console.log("hyy",typeof('input-max'));
       this.sliderValue=percent;
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
@@ -839,7 +838,6 @@ export default Vue.extend({
     onSliderValueChange(sliderValue = 0) {
       this.onAmountChange(this.getMaxAmountValue(sliderValue));
       this.sliderValue=sliderValue;
-      console.log(sliderValue);
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(sliderValue))
       })     
@@ -985,12 +983,7 @@ export default Vue.extend({
 
       const maxAmount=this.getMaxAmountValue(100);
       this.sliderValue=(Number(amount)/Number(maxAmount))*100;
-      //const fee = new BigNumberInBase(this.market.takerFeeRate);
       this.form.amount = amount;
-      //console.log(amount,"ishig");
-      //let num=Number(amount);
-      //const availB=num.times(fee.plus(1).times(price));
-      
     },
 
     submitLimitOrder() {

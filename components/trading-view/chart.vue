@@ -46,7 +46,6 @@ export default Vue.extend({
       datafeedEndpoint: this.datafeedEndpoint
     })
     // eslint-disable-next-line no-console
-    console.log({ widgetOptions });
     // @ts-ignore
     this.tradingView = new TradingWidget(widgetOptions)
     this.tradingView.onChartReady(() => {

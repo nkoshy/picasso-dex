@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div>
+ <!-- <div>
       <v-ui-text class="opacity-40 font-sora text-xsm pb-4 font-normal text-white"
         muted-md
         tag="h3"
@@ -8,7 +8,7 @@
         v-html="$t('max_leverage', { max: maxLeverage })"
       >
       </v-ui-text>
-    </div>
+    </div> -->
   <div class="flex items-center w-full">
     <v-ui-button-select
       v-for="l in leverages"
@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import ledgerVue from '~/components/wallets/wallets/ledger.vue'
 export default Vue.extend({
   props: {
     leverage: {

@@ -3,7 +3,7 @@
     <!-- <app-header /> -->
     <div class="h-full max-w-8xl m-auto w-full xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
       <app-header landingPage=true />
-      <div class="xl:p-4 pl-2 pr-1 pt-0 2xl:ml-auto mr-auto max-w-screen-2xl">
+      <div class="xl:p-4 pl-2 pr-1 pt-0 2xl:ml-auto mr-auto max-w-screen-laptop-screen">
         <grid-layout
           :layout="layout"
           :row-height="grid.rowHeight"

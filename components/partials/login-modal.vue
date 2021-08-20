@@ -6,6 +6,7 @@
         <div class="flex justify-center items-center mt-4">
         <img
         :src="`/home/header-desktop-logo.svg`"
+         alt="logo"
       />
     </div>
     <div class="text-center mt-2 font-sora font-semibold">

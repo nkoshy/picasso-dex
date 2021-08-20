@@ -105,18 +105,18 @@ export default {
     },
 
     gotwitter() {
-        window.open('https://twitter.com/PicassoExchange','_blank');
+      window.open('https://twitter.com/PicassoExchange','_blank');
     },
 
     hiddenMessage() {
-     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-     const valid = regex.test(String(this.form.email).toLowerCase());
-     if(!valid) {
-       this.showError = true;
-       this.showMessage = false;
+      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const valid = regex.test(String(this.form.email).toLowerCase());
+      if(!valid) {
+        this.showError = true;
+        this.showMessage = false;
       }
-     else {
-      this.showError = false;
+      else {
+        this.showError = false;
       }
     }
   }

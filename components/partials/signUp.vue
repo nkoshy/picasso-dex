@@ -7,12 +7,13 @@
         v-model="form.email"
         :placeholder="$t('email_id')"
         class="mt-4"
-        type="text"
+         type="email"
+        @input="hiddenMessage()"
         />
-        <div v-if="(invaildEmail === 'yes')" class="flex justify-center text-sm text-red-500 mt-2" >
+        <div v-if="form.email.length > 0 && showError" class="flex justify-start text-xs text-red-500 mt-2 font-sora" >
           <p>Invalid email address</p>
         </div>
-        <div v-if="(invaildEmail === 'no')" class="flex justify-center text-sm text-aqua-500 mt-2" >
+        <div v-if="showMessage" class="flex justify-start text-xs mt-2 font-sora text-aqua-500" >
           <p>Thanks for your interest! You are on the top of our list for early access to trade on Picasso! In the meantime, follow us on Twitter  <span class="underline cursor-pointer" @click.stop="gotwitter"> @PicassoExchange</span> for the latest updates</p>
         </div>
         <!-- <v-input
@@ -24,11 +25,12 @@
         <div class="text-sm font-sora text-white font-noraml mt-4">
           By clicking submit, you agree to our <span class="underline cursor-pointer" @click.stop="goPrivacy">Privacy Policy</span> and <span class="underline cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div>
-      <div class="w-full mx-auto mt-4">
+      <div class="w-full mx-auto mt-4 font-sora">
         <v-ui-button
           :status="status"
           full
           primary
+          :disabled="showError || form.email.length<1"
           @click.stop="onSubmit"
         >
           {{ $t('submit') }}
@@ -39,6 +41,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import { email } from 'vee-validate/dist/rules';
 
 export default {
   data() {
@@ -46,7 +49,8 @@ export default {
       form: {
         email: ""
       },
-      invaildEmail:""
+      showError: false,
+      showMessage: false
     };
   },
 
@@ -74,35 +78,47 @@ export default {
       // this.message = ''
     },
 
-    validateEmail(email) {
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(String(email).toLowerCase());
-    },
+    // validateEmail(email) {
+    //   const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //   return regex.test(String(email).toLowerCase());
+    // },
 
     onSubmit() {
         if (this.form.email) {
-          if(this.validateEmail(this.form.email)) {
+          if(!this.showError) {
         // localStorage.setItem('userData', JSON.stringify(this.form));    
         console.log("Sending email.", this.form.email);
         this.sendEmail(this.form.email);
-        this.invaildEmail = "no"
-        this.form = "";
-          }
-          else{
-            this.invaildEmail = "yes";
-            this.form.email = "";
-          }
+        this.showMessage = true;
+        }
+        this.showError = false;
+        this.form.email = "";
       }
     },
+
     goPrivacy() {
       this.$router.push({ name: 'privacy_policy' })
     },
+
     goTerms() {
       this.$router.push({ name: 'terms' })
     },
-     gotwitter(){
+
+    gotwitter() {
         window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+
+    hiddenMessage() {
+     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+     const valid = regex.test(String(this.form.email).toLowerCase());
+     if(!valid) {
+       this.showError = true;
+       this.showMessage = false;
       }
+     else {
+      this.showError = false;
+      }
+    }
   }
 };
 </script>

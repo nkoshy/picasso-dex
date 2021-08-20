@@ -2,7 +2,7 @@
   <div :class="
   !spotPage
         ? 'pb-4 xl:px-4 xl:mx-auto xl:max-w-screen-laptop-screen pt-11 px-6'
-        : 'mb-4 xl:mt-20 mt-16 xl:mb-4 xl:w-full xl:mx-auto xl:max-w-screen-laptop-screen xl:px-32 px-6'
+        : 'mb-4 xl:mt-16 mt-16 xl:mb-4 xl:w-full xl:mx-auto xl:max-w-screen-laptop-screen xl:px-32 px-6'
     ">
     <div class="flex justify-center w-full items-center pb-6 border-b border-gray-500 mb-4">
       <div class="h-8 w-6 md:mr-16 md:ml-0 mx-4">
@@ -62,7 +62,7 @@
         >
         <span
           class="cursor-pointer text-right xl:text-left whitespace-nowrap font-sora text-sm"
-          @click.stop="goDisclaimer"
+          @click.stop="goTerms"
           >Terms and Conditions</span
         >
       </div>

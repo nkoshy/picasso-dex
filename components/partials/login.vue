@@ -30,9 +30,6 @@
 
 <script>
 import { Modal } from '~/types/enums';
-import {fetchPassword} from '~/app/services/authenticate'
-
-
 export default {
   data() {
     return {
@@ -43,12 +40,11 @@ export default {
     };
   },
   methods: {
-   async onSubmit() {
+    onSubmit() {
         if (this.form.email && this.form.password) {
-        // const userData = JSON.parse(localStorage.getItem('userData'));
-        const password = await fetchPassword(this.form.email)
-          if (password) {
-            if (password === this.form.password) {
+        const userData = JSON.parse(localStorage.getItem('userData'));
+          if (userData) {
+            if (userData.email === this.form.email) {
             localStorage.setItem('register', true);
             this.$accessor.modal.closeModal(Modal.Login)
           }

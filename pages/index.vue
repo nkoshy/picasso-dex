@@ -21,7 +21,7 @@
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
-          <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
+          <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ Digital Asset markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 mb-16 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
             <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
@@ -51,12 +51,12 @@
       </div>
       <div class="conatiner 2xl:ml-auto mr-auto max-w-screen-laptop-screen  relative w-full md:pt-24 pt-11 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center text-2xl font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center xl:mt-10 mt-11 opacity-60">
-            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 h-16">
-                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+        <div class=" flex flex-col items-center md:flex-row justify-center xl:mt-14 opacity-60 xl:mb-28 mt-10">
+            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-10 h-10 w-48">
+                <img src="/images/Injective_landing.png" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
-            <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 mt-10 h-16">
-                <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
+            <div class="md:h-24 xl:h-12 h-10 w-48">
+                <img src="/images/polygon_landing.png" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
          <v-footer spotPage=true />

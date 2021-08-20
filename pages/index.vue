@@ -36,7 +36,7 @@
         <div class="absolute bottom-0 right-0 md:w-1/2">
           <img src="/home/landing-bg-bottom-right.png" />
         </div>
-        <div class="absolute bottom-0 left-4 md:w-1/2 xl:opacity-30 xl:block hidden">
+        <div class="absolute bottom-0 left-4 xl:w-1/2 xl:opacity-30 xl:block hidden">
           <img src="/home/landing-bg-bottom-left.png" />
         </div>
         <div class="absolute top-0 right-0 xl:block hidden">

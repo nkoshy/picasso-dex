@@ -22,15 +22,15 @@
       class="mt-4"
       type="password"
       />
-       <!-- <div v-if="form.password.length === 0 && onSubmitCheck" class="flex justify-start text-xs text-red-500 mt-2 font-sora">
+        <div v-if="form.password.length === 0 && onSubmitCheck" class="flex justify-start text-xs text-red-500 mt-2 font-sora">
           <p>please enter password</p>
-        </div> -->
+        </div> 
     <div class="w-full mx-auto mt-4 font-sora">
       <v-ui-button
         :status="status"
         full
         primary
-        :disabled="showError ||(form.password.length<1 || form.email.length<1)"
+        :disabled="showError ||( form.email.length<1)"
         @click.stop="onSubmit"
       >
         {{ $t('login') }}
@@ -55,13 +55,13 @@ export default {
         password: ""
       },
       showError: false,
-      invaildData:false
-      // onSubmitCheck:false
+      invaildData:false,
+      onSubmitCheck:false
     };
   },
   methods: {
    async onSubmit() {
-    //  this.onSubmitCheck = true
+     this.onSubmitCheck = true
     if (this.form.email && this.form.password) {
       // const userData = JSON.parse(localStorage.getItem('userData'));
       if(!this.showError){
@@ -78,6 +78,7 @@ export default {
             this.form.password = "";
             this.form.email = "";
             this.invaildData = true;
+            this.onSubmitCheck = false
           }
         }
       }

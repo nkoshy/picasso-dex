@@ -29,21 +29,7 @@
           <button
             v-if="close"
             type="button"
-            class="
-              w-5
-              h-5
-              align-middle
-              rounded-md
-              shadow-md
-              bg-dark-blueish
-              text-light-pink 
-              leading-none
-              hover-scale
-              outline-none
-              focus:outline-none
-              bg-close
-              bg-cover
-            "
+            :class="classes"
             @click.stop="onClose"
           >
             &times;
@@ -69,6 +55,34 @@ export default Vue.extend({
       required: false,
       default: true,
       type: Boolean
+    },
+    login: {
+       required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+  computed: {
+    classes(): string {
+      const classes = [
+            'w-5',
+            'h-5',
+            'align-middle',
+            'rounded-md',
+            'shadow-md',
+            'bg-dark-blueish',
+            'text-light-pink', 
+            'leading-none',
+            'hover-scale',
+            'outline-none',
+            'focus:outline-none',
+            'bg-close',
+            'bg-cover'
+      ]
+      if (this.login) {
+        classes.push('hidden')
+      } 
+      return classes.join(' ')
     }
   },
 

@@ -9,6 +9,9 @@
       class="mt-4"
       type="text"
       />
+       <div v-if="invaildEmail" class="flex justify-center text-sm text-red-500 mt-2" >
+          <p>Invalid email address</p>
+        </div>
       <v-input
       v-model="form.password"
       :placeholder="$t('password')"
@@ -24,6 +27,9 @@
       >
         {{ $t('login') }}
       </v-ui-button>
+       <div v-if="(invaildData ==='invalid')" class="flex justify-center text-sm text-red-500 mt-2" >
+          <p>Invalid email address Or Password</p>
+        </div>
     </div>
   </div>
 </template>
@@ -31,6 +37,7 @@
 <script>
 import { Modal } from '~/types/enums';
 import {fetchPassword} from '~/app/services/authenticate'
+import { FALSE } from 'node-sass';
 
 
 export default {
@@ -39,21 +46,39 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
+      invaildData: "",
+      invaildEmail:false
     };
   },
   methods: {
    async onSubmit() {
+     if(this.form.email){
+       this.invaildEmail = true
+     }
         if (this.form.email && this.form.password) {
         // const userData = JSON.parse(localStorage.getItem('userData'));
+        if(this.validateEmail(this.form.email)){
         const password = await fetchPassword(this.form.email)
           if (password) {
             if (password === this.form.password) {
             localStorage.setItem('register', true);
+            this.invaildData = "valid";
             this.$accessor.modal.closeModal(Modal.Login)
           }
+           else{
+          console.log("Invalid Data");
+          this.invaildEmail = false;
+          this.invaildData = "invalid";
+        }
+        }
         }
       }
+    },
+
+    validateEmail(email) {
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
     }
   }
 };

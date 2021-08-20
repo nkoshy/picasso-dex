@@ -83,7 +83,7 @@
           min="0"
           @blur="onAmountBlur"
           @input="onAmountChange"
-          @input-max="() => onMaxInput(100)"
+          @input-max="() => onMaxInput(20)"
         >
         <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs font-sora font-white">
         Max
@@ -1024,7 +1024,8 @@ export default Vue.extend({
      * and then we update the amount again to acount the fees
      * into consideration
      */
-    onMaxInput(percent = 100) {
+    onMaxInput(percent = 20) {
+      this.form.leverage = percent.toString();
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))

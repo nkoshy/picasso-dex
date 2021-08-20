@@ -36,7 +36,7 @@
         <div class="absolute bottom-0 right-0 xl:w-1/2">
           <img src="/home/landing-bg-bottom-right.png" />
         </div>
-        <div class="xl:absolute xl:bottom-0 xl:left-4 xl:w-1/2 xl:opacity-30 hidden">
+        <div class="xl:absolute xl:bottom-0 xl:left-4 xl:w-1/2 xl:opacity-30 hidden xl:block">
           <img src="/home/landing-bg-bottom-left.png" />
         </div>
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">

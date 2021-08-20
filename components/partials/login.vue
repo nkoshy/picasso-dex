@@ -37,8 +37,6 @@
 <script>
 import { Modal } from '~/types/enums';
 import {fetchPassword} from '~/app/services/authenticate'
-import { FALSE } from 'node-sass';
-
 
 export default {
   data() {

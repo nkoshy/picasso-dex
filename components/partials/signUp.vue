@@ -9,6 +9,12 @@
         class="mt-4"
         type="text"
         />
+        <div v-if="(invaildEmail === 'yes')" class="flex justify-center text-sm text-red-500 mt-2" >
+          <p>Invalid email address</p>
+        </div>
+        <div v-if="(invaildEmail === 'no')" class="flex justify-center text-sm text-aqua-500 mt-2" >
+          <p>Thanks for your interest! You are on the top of our list for early access to trade on Picasso! In the meantime, follow us on Twitter  <span class="underline cursor-pointer" @click.stop="gotwitter"> @PicassoExchange</span> for the latest updates</p>
+        </div>
         <!-- <v-input
         v-model="form.password"
         :placeholder="$t('password')"
@@ -39,10 +45,10 @@ export default {
     return {
       form: {
         email: ""
-      }
+      },
+      invaildEmail:""
     };
   },
-
 
   methods: {
 
@@ -68,12 +74,24 @@ export default {
       // this.message = ''
     },
 
+    validateEmail(email) {
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+    },
+
     onSubmit() {
         if (this.form.email) {
+          if(this.validateEmail(this.form.email)) {
         // localStorage.setItem('userData', JSON.stringify(this.form));    
         console.log("Sending email.", this.form.email);
         this.sendEmail(this.form.email);
+        this.invaildEmail = "no"
         this.form = "";
+          }
+          else{
+            this.invaildEmail = "yes";
+            this.form.email = "";
+          }
       }
     },
     goPrivacy() {
@@ -81,7 +99,10 @@ export default {
     },
     goTerms() {
       this.$router.push({ name: 'terms' })
-    }
+    },
+     gotwitter(){
+        window.open('https://twitter.com/PicassoExchange','_blank');
+      }
   }
 };
 </script>

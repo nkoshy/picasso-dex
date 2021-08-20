@@ -30,14 +30,17 @@
       </div>
     </div>
       <div class="relative 2xl:ml-auto mr-auto max-w-screen-laptop-screen flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-white">
-        <div class="absolute top-0 left-0 xl:w-1/2">
+        <div class="absolute top-0 left-0 md:w-1/2">
           <img src="/home/top-left-bg.png" />
         </div>
-        <div class="absolute bottom-0 right-0 xl:w-1/2">
+        <div class="absolute bottom-0 right-0 md:w-1/2">
           <img src="/home/landing-bg-bottom-right.png" />
         </div>
-        <div class="xl:absolute xl:bottom-0 xl:left-4 xl:w-1/2 xl:opacity-30 hidden">
+        <div class="absolute bottom-0 left-4 md:w-1/2 xl:opacity-30 xl:block hidden">
           <img src="/home/landing-bg-bottom-left.png" />
+        </div>
+        <div class="absolute top-0 right-0 xl:block hidden">
+          <img src="/home/landing-bg-top-right.png" />
         </div>
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
           <div class="flex flex-col font-sora">

@@ -63,7 +63,6 @@ export default Vue.extend({
   },
 
   updated() {
-    console.log(this.sliderValue,"ishi");
     this.setSliderPosition(this.sliderValue)
   },
 
@@ -73,8 +72,6 @@ export default Vue.extend({
       const width = document.getElementById('input')?.clientWidth ?? 0
       const toolTipElement = document.getElementById('input1')
       let actualPixels = (value / 100) * width - (toolTipElement?.clientWidth ?? 2) / 2;
-      //console.log(actualPixels,progress,value);
-      console.log("mounted",progress,width);
 
       if (progress > 96) {
         actualPixels = actualPixels - 15
@@ -98,7 +95,6 @@ export default Vue.extend({
     },
 
     handleChange(e: Event) {
-      console.log(typeof this.sliderValue, 'HYY ISHI')
       const target = e.target as HTMLFormElement
       const value = new BigNumber(target.value)
       const progress = target.value;

@@ -1014,6 +1014,7 @@ export default Vue.extend({
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
     this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
+    this.onLeverageChange("1");
   },
 
   methods: {
@@ -1045,7 +1046,6 @@ export default Vue.extend({
         executionPrice,
         slippage
       } = this
-      console.log(percentage);
       const percentageToNumber = new BigNumberInBase(percentage).div(100)
 
       if (!market) {

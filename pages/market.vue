@@ -49,14 +49,14 @@
                 >
                   <span>{{ $t('Spot Markets') }}</span>
                 </li>
-                <li
+                <!-- <li
                   role="tab"
                   :aria-selected="component === components.derviatives"
                   class="tab"
                   @click.stop.prevent="onSelect(components.derviatives)"
                 >
                   <span>{{ $t('Derviatives') }}</span>
-                </li>
+                </li> -->
               </ul>
             </div>
              <div class="hidden xl:flex">

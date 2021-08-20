@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full flex flex-wrap  xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
-    <div class="flex relative max-w-screen-laptop-screen m-auto flex-col xl:w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay bg-dark-blue">
+  <div class="h-full flex flex-wrap xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
+    <div class="flex relative max-w-screen-laptop-screen m-auto flex-col xl:w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
       <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
       <app-header />
@@ -21,7 +21,7 @@
           </div>
           <h1 class="text-white text-3xl xl:text-5xl font-bold font-sora text-center pt-3 px-6 xl:p-0 xl:text-left">Trading is an Art</h1>
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
-          <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ cryptocurrency markets in minutes.</p>
+          <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ Digital Asset markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 mb-16 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
             <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
@@ -29,7 +29,19 @@
         </div>
       </div>
     </div>
-      <div class="relative 2xl:ml-auto mr-auto max-w-screen-laptop-screen flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-middle-section_mobile xl:bg-middle-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
+      <div class="relative 2xl:ml-auto mr-auto max-w-screen-laptop-screen flex w-full xl:pl-32 xl:pt-48 xl:pb-48 xl:flex-row flex-col-reverse overflow-hidden bg-white">
+        <div class="absolute top-0 left-0 md:w-1/2">
+          <img src="/home/top-left-bg.png" />
+        </div>
+        <div class="absolute bottom-0 right-0 md:w-1/2">
+          <img src="/home/landing-bg-bottom-right.png" />
+        </div>
+        <div class="absolute bottom-0 left-4 xl:w-1/2 xl:opacity-30 xl:block hidden">
+          <img src="/home/landing-bg-bottom-left.png" />
+        </div>
+        <div class="absolute top-0 right-0 xl:block hidden">
+          <img src="/home/landing-bg-top-right.png" />
+        </div>
         <div class="flex z-30 flex-col xl:flex-row justify-center items-center">
           <div class="flex flex-col font-sora">
             <home-card icon="/home/self-custody-new.svg">Self-custody of your assets for full control</home-card>
@@ -51,12 +63,12 @@
       </div>
       <div class="conatiner 2xl:ml-auto mr-auto max-w-screen-laptop-screen  relative w-full md:pt-24 pt-11 bg-dark-blue overflow-hidden bg-footer-mobile xl:bg-footer-desktop bg-cover bg-no-repeat bg-blend-overlay">
         <div class=" text-white text-center text-2xl font-sora font-bold">Our Supporters</div>
-        <div class=" flex flex-col items-center md:flex-row justify-center xl:mt-10 mt-11 opacity-60">
-            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 h-16">
-                <img src="/images/injective.svg" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
+        <div class=" flex flex-col items-center md:flex-row justify-center xl:mt-14 opacity-60 xl:mb-28 mt-10">
+            <div class="md:h-24 md:mr-32 xl:h-12 xl:mb-0 mb-10 h-10 w-48">
+                <img src="/images/Injective_landing.png" alt="" class="h-full cursor-pointer" @click.stop = "injectiveprotocol"/>
             </div>
-            <div class="md:h-24 md:mt-4 xl:h-12 xl:mt-6 mt-10 h-16">
-                <img src="/images/polygon.svg" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
+            <div class="md:h-24 xl:h-12 h-10 w-48">
+                <img src="/images/polygon_landing.png" alt="" class="h-full cursor-pointer" @click.stop = "polygon" />
             </div>
         </div>
          <v-footer spotPage=true />
@@ -107,9 +119,7 @@ export default Vue.extend({
   mounted() {
     //  this.$accessor.modal.openModal(Modal.Acknowledge);
     const register = localStorage.getItem('register');
-    console.log("register", register)
     if (!register) {
-      console.log("open login modal")
       this.$accessor.modal.openModal(Modal.Login);
     }
   },

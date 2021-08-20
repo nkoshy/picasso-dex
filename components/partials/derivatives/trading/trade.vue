@@ -83,7 +83,7 @@
           min="0"
           @blur="onAmountBlur"
           @input="onAmountChange"
-          @input-max="() => onMaxInput(100)"
+          @input-max="() => onMaxInput(20)"
         >
         <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs font-sora font-white">
         Max
@@ -1014,6 +1014,7 @@ export default Vue.extend({
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
     this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
+    this.onLeverageChange("1");
   },
 
   methods: {
@@ -1023,7 +1024,8 @@ export default Vue.extend({
      * and then we update the amount again to acount the fees
      * into consideration
      */
-    onMaxInput(percent = 100) {
+    onMaxInput(percent = 20) {
+      this.form.leverage = percent.toString();
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
@@ -1045,7 +1047,6 @@ export default Vue.extend({
         executionPrice,
         slippage
       } = this
-      console.log(percentage);
       const percentageToNumber = new BigNumberInBase(percentage).div(100)
 
       if (!market) {
@@ -1161,21 +1162,21 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
-      const maxAmount = this.getMaxAmountValue(20);
-      if(maxAmount){
-        this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
+      // const maxAmount = this.getMaxAmountValue(20);
+      // if(maxAmount){
+      //   this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
 
-      }
-      else{
-        this.form.leverage='0';
-      }
+      // }
+      // else{
+      //   this.form.leverage='0';
+      // }
        this.form.amount = amount
     },
 
     onLeverageChange(leverage: string) {
       this.onAmountChange(this.getMaxAmountValue(Number(leverage)));
       const { maxLeverageAvailable } = this
-      const leverageToBigNumber = new BigNumberInBase(leverage)
+      const leverageToBigNumber = new BigNumberInBase(leverage);
       if (leverageToBigNumber.gte(maxLeverageAvailable)) {
         this.form.leverage = maxLeverageAvailable.toFixed()
       } else if (leverageToBigNumber.lte(1)) {

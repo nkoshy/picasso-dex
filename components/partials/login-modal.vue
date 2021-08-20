@@ -1,10 +1,21 @@
 <template>
-  <modal :is-open="isModalOpen">
+  <modal :is-open="isModalOpen" :login=true>
     <div class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover
     border-solid rounded-md
         border border-light-pink">
+        <div class="flex justify-center items-center mt-4">
+        <img
+        :src="`/home/header-desktop-logo.svg`"
+         alt="logo"
+      />
+    </div>
+    <div class="text-center mt-2 font-sora font-semibold">
+      <h3>
+        Closed Alpha Sign Up
+      </h3>
+      </div>
       <div class="mb-6 flex flex-wrap">
-        <div class="w-full mb-14 px-4 pt-14">
+        <div class="w-full mb-2 px-4 pt-10">
         </div>
        <login />
        <signUp />
@@ -35,12 +46,6 @@ export default Vue.extend({
   methods: {
     closeModal() {
       this.$accessor.modal.closeModal(Modal.Login)
-    },
-    handleSignUpClick() {
-
-    },
-    handleLoginClick (){
-
     }
   }
 })

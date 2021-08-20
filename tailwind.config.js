@@ -69,6 +69,7 @@ module.exports = {
       'light-white':'#474E61',
       'blue-light-bg': '27255D',
       'blueish-dark' : '#151239',
+      'gradient-blue': '#9CF8FF',
 
       dark: {
         border: 'rgba(210,210,225,0.05)',
@@ -168,14 +169,10 @@ module.exports = {
         'secondary-gradient': 'linear-gradient(90deg, rgba(239,121,241,1) -50%, rgba(39,37,94,1) 25%)',
         'tertiary-gradient': 'linear-gradient(90deg, rgba(0,241,182,1) -200%, rgba(39,37,94,1) 100%)',
         'hero-section_desktop': "url('/home/hero-section_desktop.jpg')",
-        'middle-section_desktop': "url('/home/bg.png')",
-        'footer-desktop': "url('/home/footer-desktop.jpg')",
         'hero-section_mobile': "url('/home/hero-section_mobile.jpg')",
-        'middle-section_mobile': "url('/home/home-middle-section-mobile.png')",
+        'footer-desktop': "url('/home/footer-desktop.jpg')",
         'footer-mobile': "url('/home/footer-mobile.jpg')",
         'spot-desktop': "url('/images/spot.jpg')",
-        'hero-section': "url('/home/Background.jpg')",
-        'middle-section': "url('/home/section2.jpg')",
         'footer': "url('/home/Footer.jpg')",
         'model': "url('/home/bg.jpg')",
         'close': "url('/home/iconclose.png')",

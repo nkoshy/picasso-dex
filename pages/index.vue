@@ -107,7 +107,9 @@ export default Vue.extend({
   mounted() {
     //  this.$accessor.modal.openModal(Modal.Acknowledge);
     const register = localStorage.getItem('register');
+    console.log("register", register)
     if (!register) {
+      console.log("open login modal")
       this.$accessor.modal.openModal(Modal.Login);
     }
   },

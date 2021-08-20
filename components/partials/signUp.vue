@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   data() {
     return {
@@ -40,10 +42,37 @@ export default {
       }
     };
   },
+
+
   methods: {
+
+     sendEmail(requester) {
+      try {
+        const templateParams = {
+         from_name: requester
+        };
+
+        emailjs.send('service_the4htc', 'template_8yxz0xc', templateParams, 'user_kr5qhWp6nbnMB6qqDHwD1')
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+          console.log('FAILED...', error);
+        });
+
+      } catch(error) {
+          console.log({error})
+      }
+      // // Reset form field
+      // this.name = ''
+      // this.email = ''
+      // this.message = ''
+    },
+
     onSubmit() {
         if (this.form.email) {
-        localStorage.setItem('userData', JSON.stringify(this.form));
+        // localStorage.setItem('userData', JSON.stringify(this.form));    
+        console.log("Sending email.", this.form.email);
+        this.sendEmail(this.form.email);
         this.form = "";
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex flex-wrap xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
+  <div class="h-full flex flex-col xl:bg-spot-desktop bg-spot bg-no-repeat bg-cover bg-blend-overlay">
     <div class="flex relative max-w-screen-laptop-screen m-auto flex-col xl:w-full overflow-hidden bg-hero-section_mobile xl:bg-hero-section_desktop bg-cover bg-no-repeat bg-blend-overlay">
       <img :src="'/images/vector-desktop.png'" class="xl:block hidden absolute bottom-0 right-0"/>
       <img :src="'/images/vector-mobile.svg'" class="block xl:hidden absolute bottom-0 right-0"/>
@@ -72,7 +72,7 @@
             </div>
         </div>
          <v-footer spotPage=true />
-         <model-login />
+         <!-- <model-login /> -->
         <!--<div class="flex justify-evenly xl:justify-center md:pb-24 md:mt-24 pb-12 mt-8">
           <span class="hidden xl:mr-16 xl:inline">Copyright © 2021 Picasso Exchange</span>
             <div class="md:mr-16 md:h-8 h-6 mr-8">
@@ -97,7 +97,7 @@
         </div> -->
        </div>
        <modal-login />
-      <modal-acknowledge />
+      <!-- <modal-acknowledge /> -->
   </div>
 </template>
 <script lang="ts">
@@ -107,13 +107,13 @@ import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
 import Footer from '~/components/partials/spot/footer.vue'
 import ModalLogin from '~/components/partials/login-modal.vue'
-import ModalAcknowledge from '~/components/partials/acknowledge.vue'
+// import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 export default Vue.extend({
   components: {
     HomeCard,
     'app-header': Header,
     'v-footer': Footer,
-    'modal-acknowledge': ModalAcknowledge,
+    // 'modal-acknowledge': ModalAcknowledge,
     'modal-login': ModalLogin
   },
   mounted() {

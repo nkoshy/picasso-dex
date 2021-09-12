@@ -1,9 +1,12 @@
 const spot = [
   'inj-usdt',
   'inj-usdc',
+  'wbtc-usdc',
+  'wbtc-usdt',
   'weth-usdt',
   'weth-usdc',
   'usdt-usdc',
+  'usdc-usdt',
   'link-usdt',
   'link-usdc',
   'aave-usdt',
@@ -17,10 +20,32 @@ const spot = [
   'uni-usdt',
   'uni-usdc',
   'snx-usdt',
-  'qnt-usdt'
+  'qnt-usdt',
+  'yfi-usdt',
+  'snx-usdt',
+  'zrx-usdt'
 ]
 
-const derivatives = ['inj-usdt-perp']
+const derivatives = [
+  'inj-usdt-perp',
+  'inj-usdt',
+  'btc-usdt-perp',
+  'btc-usdt',
+  'eth-usdt-perp',
+  'eth-usdt',
+  'link-usdt-perp',
+  'link-usdt',
+  'comp-usdt-perp',
+  'comp-usdt',
+  'uni-usdt-perp',
+  'uni-usdt',
+  'grt-usdt-perp',
+  'grt-usdt',
+  'snx-usdt-perp',
+  'snx-usdt',
+  'bat-usdt-perp',
+  'bat-usdt'
+]
 
 module.exports = [
   ...spot.map((s) => `/spot/${s}`),

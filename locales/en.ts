@@ -14,9 +14,9 @@ export default {
     'Access, create and trade unlimited decentralized finance markets',
   welcome_to_ip_sub:
     'Create any financial market on Injective’s fast, cross-chain, low fee, secure, and fully decentralized exchange protocol.',
-  maintenance_header: 'The Injective Canary Chain is now live!',
+  maintenance_header: 'Ongoing Maintenance',
   maintenance_subheader:
-    'Please propose and vote on new listings via the staking dashboard <a href="https://staking.injective.network" class="text-primary-500">here</a>. Markets that receive sufficient votes will be tradable on the Injective Exchange.',
+    'We are working on improving your experience. We will be back as soon as possible.',
   maintenance_body: '',
   token_allowance_successful: 'Token allowance set successful',
   logout: 'Logout',
@@ -48,7 +48,7 @@ export default {
   side: 'Side',
   buy: 'Buy',
   sell: 'Sell',
-  order_success_canceling: 'Order canceled',
+  order_success_canceling: 'Order Cancelled',
   actions: 'Actions',
   trades: 'Trades',
   time: 'Time',
@@ -152,9 +152,9 @@ export default {
   est_funding_rate: 'Est. Funding Rate',
   funding_rate_tooltip:
     'The interest rate paid by position holders, determined by the difference between the perpetual swap price and underlying spot price. A positive funding rate implies that longs pay shorts, whereas a negative funding rate implies that shorts pay longs.',
-  est_receiving_amount: 'Est. Receiving Amount',
+  est_receiving_amount: 'Est. Receiving Amount (Worst Case)',
   est_receiving_amount_note:
-    'This amount is the least possible to be returned after the execution of the trade',
+    'The lowest amount you can actually receive for the trade.',
   fee_order_details_note:
     "If your limit order doesn't get filled as a taker order, you will only need to pay {feeReturned} in fees",
   buy_long: 'Buy/Long',
@@ -179,7 +179,8 @@ export default {
   mark_price_invalid: 'The mark price is not valid',
   order_insufficient_margin: 'Order has insufficient margin',
   date: 'Date',
-  small_bridge_fee_note: 'Bridge fee: {fee}{asset}',
+  small_bridge_fee_note: 'Bridge fee: {fee} {asset}',
+  small_gas_fee_note: 'Gas: {fee} {asset}',
   add_margin_to_position_title: 'Add Margin',
   add_margin_to_position_note:
     'You can increase the margin your position has to prevent liquidation',
@@ -198,5 +199,9 @@ export default {
   select_asset: 'Select Asset',
   destination: 'Destination',
   disclaimer_note:
-    'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.'
+    'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.',
+  transfer_wait_time_note:
+    'Note: It should take around 4 minutes for your transfer to appear after your transaction has been confirmed on Ethereum.',
+  orderbook_liquidity_cannot_satisfy:
+    'Orderbook liquidity cannot satisfy the worst price for the specified amount'
 }

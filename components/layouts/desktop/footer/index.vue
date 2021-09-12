@@ -1,31 +1,23 @@
 <template>
   <footer
-    class="
-      h-full
-      lg:h-footer
-      w-full
-      shadow-md
-      flex flex-wrap
-      lg:justify-between
-      border-t
-    "
+    class="h-full lg:h-footer w-full shadow-md flex flex-wrap lg:justify-between border-t"
   >
-    <div class="ml-5 flex">
-      <light-logo style="height: 3.5rem; margin-top: -2px" />
-      <item class="ml-10 text-xs">
-        <span>&copy; {{ new Date().getFullYear() }} Injective Labs Inc.</span>
+    <div
+      class="flex flex-col sm:flex-row sm:ml-5 w-full lg:w-auto justify-between sm:justify-around lg:justify-start"
+    >
+      <h1
+        class="font-black text-xl uppercase flex justify-center items-center border-r sm:py-2 cursor-pointer"
+        @click.stop="goHome"
+      >
+        <logo class="mr-2 w-8 h-8" />
+        <span class="text-white"> {{ $t('injective') }} PRO </span>
+      </h1>
+      <item class="lg:ml-6 xl:ml-7 text-xs h-auto sm:h-full">
+        <span>&copy; {{ new Date().getFullYear() }} Open DeFi Foundation</span>
       </item>
     </div>
     <ul
-      class="
-        list-footer
-        justify-start
-        flex
-        lg:justify-end
-        flex-wrap
-        lg:flex-no-wrap
-        h-full
-      "
+      class="list-footer justify-center flex lg:justify-end flex-wrap lg:flex-no-wrap h-full w-full lg:w-auto"
     >
       <item>
         <div
@@ -38,19 +30,7 @@
           <div
             v-if="showLocaleDropdown"
             v-on-clickaway="onCloseLocaleDropdown"
-            class="
-              flex
-              items-center
-              absolute
-              bottom-0
-              z-10
-              bg-dark-600
-              w-24
-              p-2
-              rounded-lg
-              shadow-dimmed
-              text-center
-            "
+            class="flex items-center absolute bottom-0 z-10 bg-dark-600 w-24 p-2 rounded-lg shadow-dimmed text-center"
           >
             <a
               v-for="locale in visibleLocales"
@@ -83,12 +63,9 @@
         </div>
       </item>
       <item class="text-footer">
-        <a href="https://docs.injectiveprotocol.com/">Docs</a>
-      </item>
-      <item class="text-footer">
         <a
           class="cursor-pointer"
-          href="https://injectiveprotocol.com/privacy-policy"
+          href="https://injectivelabs.org/privacy-policy"
           target="_blank"
           >Privacy Policy</a
         >
@@ -96,7 +73,7 @@
       <item class="text-footer">
         <a
           class="cursor-pointer"
-          href="https://injectiveprotocol.com/terms-and-conditions"
+          href="https://injectivelabs.org/terms-and-conditions"
           target="_blank"
           >Terms & Conditions</a
         >
@@ -109,9 +86,9 @@
 import Vue from 'vue'
 import { directive as onClickaway } from 'vue-clickaway'
 import Item from './item.vue'
+import Logo from '~/components/layouts/logo.vue'
 import { localStorage } from '~/app/singletons/Storage'
 import { locales, Locale } from '~/locales'
-import LightLogo from '~/components/layouts/light-logo.vue'
 import { Icon } from '~/types'
 
 export default Vue.extend({
@@ -121,7 +98,7 @@ export default Vue.extend({
 
   components: {
     Item,
-    LightLogo
+    Logo
   },
 
   data() {
@@ -141,6 +118,10 @@ export default Vue.extend({
   },
 
   methods: {
+    goHome() {
+      this.$router.push({ name: 'index' })
+    },
+
     onToggleLocaleDropdown() {
       this.showLocaleDropdown = !this.showLocaleDropdown
     },

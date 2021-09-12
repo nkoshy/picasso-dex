@@ -26,13 +26,16 @@ import {
   FEE_RECIPIENT,
   CHAIN_ID,
   ZERO_IN_BASE,
-  ZERO_TO_STRING
+  ZERO_TO_STRING,
+  TRANSFER_RESTRICTIONS_ENABLED,
+  MAXIMUM_TRANSFER_ALLOWED
 } from '~/app/utils/constants'
 import {
   UiPriceLevel,
   UiDerivativeMarket,
   UiDerivativeMarketSummary,
-  BaseUiDerivativeMarketWithTokenMetaData
+  BaseUiDerivativeMarketWithTokenMetaData,
+  Token
 } from '~/types'
 import { derivativeConsumer } from '~/app/singletons/DerivativeMarketConsumer'
 import {
@@ -348,6 +351,37 @@ export const cancelMarketStreams = () => {
   streamProvider.cancel(OracleStreamType.Prices)
 }
 
+export const validateNotionalRestrictions = ({
+  price,
+  amount,
+  token
+}: {
+  price: BigNumberInBase
+  amount: BigNumberInBase
+  token: Token
+}) => {
+  if (!TRANSFER_RESTRICTIONS_ENABLED) {
+    return
+  }
+
+  const notional = price.times(amount)
+  const usdTokenSymbols = ['USDT', 'USDC']
+
+  if (usdTokenSymbols.includes(token.symbol)) {
+    if (notional.gt(MAXIMUM_TRANSFER_ALLOWED)) {
+      throw new Error(
+        `Notional of ${notional.toString()}${
+          token.symbol
+        } exceeds maximum of ${MAXIMUM_TRANSFER_ALLOWED.toString()}${
+          token.symbol
+        } allowed.`
+      )
+    }
+  } else {
+    // If token is not USDT/USDC
+  }
+}
+
 export const submitLimitOrder = async ({
   price,
   quantity,
@@ -394,7 +428,7 @@ export const submitLimitOrder = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }
@@ -445,7 +479,7 @@ export const submitMarketOrder = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }
@@ -492,7 +526,7 @@ export const closePosition = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }
@@ -529,7 +563,7 @@ export const addMarginToPosition = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }
@@ -565,7 +599,7 @@ export const cancelOrder = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }
@@ -597,7 +631,7 @@ export const batchCancelOrders = async ({
     })
 
     await txProvider.broadcast()
-  } catch (error) {
+  } catch (error: any) {
     throw new Web3Exception(error.message)
   }
 }

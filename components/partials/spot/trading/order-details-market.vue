@@ -42,7 +42,8 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p class="flex justify-between group leading-6 opacity-40">
+        <!--
+        <p class="flex justify-between group leading-6">
           <v-ui-text muted-sm class="group-hover:text-white">
             {{ $t('notional_value') }}
           </v-ui-text>
@@ -62,8 +63,11 @@
             &mdash;
           </v-ui-text>
         </p>
-        <p v-if="!orderTypeBuy" class="flex justify-between group leading-6 opacity-40">
-          <v-ui-text muted-sm class="group-hover:text-white flex items-center"
+        -->
+        <p v-if="!orderTypeBuy" class="flex justify-between group leading-6">
+          <v-ui-text
+            muted-sm
+            class="group-hover:text-white flex items-center max-w-4xs sm:max-w-lg"
             ><span class="mr-2">{{ $t('est_receiving_amount') }}</span
             ><v-ui-icon
               :icon="Icon.Info"

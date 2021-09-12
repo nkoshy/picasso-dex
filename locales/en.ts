@@ -14,7 +14,7 @@ export default {
     'Access, create and trade unlimited decentralized finance markets',
   welcome_to_ip_sub:
     'Create any financial market on Injective’s fast, cross-chain, low fee, secure, and fully decentralized exchange protocol.',
-  maintenance_header: 'The Injective Canary Chain is now live!',
+  maintenance_header: 'Ongoing Maintenance',
   maintenance_subheader:
     'Picasso Exchange - The unmatched layer-2 trading platform. Access any financial market on Injective’s fast, multi-chain, secure, and zero gas fee exchange',
   maintenance_body: 'Picasso Exchange is Launching soon!',
@@ -48,7 +48,7 @@ export default {
   side: 'Side',
   buy: 'Buy',
   sell: 'Sell',
-  order_success_canceling: 'Order canceled',
+  order_success_canceling: 'Order Cancelled',
   actions: 'Actions',
   trades: 'Trades',
   time: 'Time',
@@ -153,9 +153,9 @@ export default {
   est_funding_rate: '\ Funding Rate',
   funding_rate_tooltip:
     'The interest rate paid by position holders, determined by the difference between the perpetual swap price and underlying spot price. A positive funding rate implies that longs pay shorts, whereas a negative funding rate implies that shorts pay longs.',
-  est_receiving_amount: 'Est. Receiving Amount',
+  est_receiving_amount: 'Est. Receiving Amount (Worst Case)',
   est_receiving_amount_note:
-    'This amount is the least possible to be returned after the execution of the trade',
+    'The lowest amount you can actually receive for the trade.',
   fee_order_details_note:
     "If your limit order doesn't get filled as a taker order, you will only need to pay {feeReturned} in fees",
   buy_long: 'Buy/Long',
@@ -184,10 +184,11 @@ export default {
   date: 'Date',
   cancel: 'Cancel',
   i_agree: 'I Agree',
-  small_bridge_fee_note: 'Bridge fee: {fee}{asset}',
   acknowledge_title: 'Acknowledge terms',
   acknowledge_note: 'Picasso Exchange is a non-custodial relayer built on Injective Protocol.Injective is a decentralized sidechain relayer network which serves as a layer-2 derivatives platform, trade execution coordinator (TEC), and decentralized orderbook built on top of Tendermint using the Cosmos-SDK framework.Your use of Picasso involves various risks, including, but not limited to, losses while digital assets are being supplied to Injective order-book or losses due to the fluctuation of prices of tokens in a trading pair.  By trading on Picasso, you hereby agree, represent and warrant that',
   acknowledge_note_long:'You are not a person or company who is a resident of, national, or is located, incorporated or has a registered agent in, the United States, Canada, China, or any other country to which the United States, the United Kingdom or the European Union embargoes goods or imposes similar sanctions (collectively, “Restricted Territories”). You will not in the future access this site or trade on Picasso while located within the United States or any of the above mentioned countries.You are not using, and will not in the future use, a VPN to mask your physical location from a restricted location.You are lawfully permitted to access this site and trade on spot and derivatives markets under the laws of the jurisdiction in which you reside and are located.You understand the risks associated with entering into cryptocurrencies trading, derivative contracts and using leverage.',
+  small_bridge_fee_note: 'Bridge fee: {fee} {asset}',
+  small_gas_fee_note: 'Gas: {fee} {asset}',
   add_margin_to_position_title: 'Add Margin',
   add_margin_to_position_note:
     'You can increase the margin your position has to prevent liquidation',
@@ -212,6 +213,10 @@ export default {
   submit:'Submit',
   request_access: 'Request Access',
   disclaimer_note:
-    'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.'
+    'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.',
+  transfer_wait_time_note:
+    'Note: It should take around 4 minutes for your transfer to appear after your transaction has been confirmed on Ethereum.',
+  orderbook_liquidity_cannot_satisfy:
+    'Orderbook liquidity cannot satisfy the worst price for the specified amount'
 }
 

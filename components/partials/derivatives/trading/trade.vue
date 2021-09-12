@@ -146,6 +146,7 @@
     </div>
       <v-order-leverage-select
         class="mt-2"
+        :max-leverage="maxLeverageAvailable.toFixed()"
         :leverage="form.leverage"
         @change="onLeverageChange"
       />
@@ -573,30 +574,30 @@ export default Vue.extend({
         orderTypeBuy,
         hasPrice,
         market,
-        lastTradedPrice
+        marketMarkPrice
       } = this
 
       if (!hasPrice || !market) {
         return
       }
 
+      const leverage = new BigNumberInBase(form.leverage)
       const divisor = orderTypeBuy
-        ? new BigNumberInBase(lastTradedPrice)
+        ? new BigNumberInBase(marketMarkPrice)
             .times(market.initialMarginRatio)
-            .minus(lastTradedPrice)
+            .minus(marketMarkPrice)
             .plus(executionPrice)
-        : new BigNumberInBase(lastTradedPrice)
+        : new BigNumberInBase(marketMarkPrice)
             .times(market.initialMarginRatio)
-            .plus(lastTradedPrice)
+            .plus(marketMarkPrice)
             .minus(executionPrice)
       const maxLeverage = executionPrice.dividedBy(divisor)
 
-      if (
-        maxLeverage.gte(0) &&
-        new BigNumberInBase(form.leverage).gt(maxLeverage)
-      ) {
+      if (maxLeverage.gte(0) && leverage.gt(maxLeverage)) {
         return {
-          price: this.$t('max_leverage_warn')
+          price: leverage.eq(1)
+            ? this.$t('orderbook_liquidity_cannot_satisfy')
+            : this.$t('max_leverage_warn')
         }
       }
 

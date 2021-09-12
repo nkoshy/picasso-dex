@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import BigNumber from 'bignumber.js'
 import Vue from 'vue'
 import ledgerVue from '~/components/wallets/wallets/ledger.vue'
 export default Vue.extend({
@@ -33,12 +34,27 @@ export default Vue.extend({
     leverage: {
       type: String,
       required: true
+    },
+
+    maxLeverage: {
+      type: String,
+      required: true
     }
   },
 
   data() {
     return {
-      leverages: [1, 2, 3, 5, 10, 20]
+      leverageSteps: [1, 2, 3, 5, 10, 20, 50, 100]
+    }
+  },
+
+  computed: {
+    leverages(): number[] {
+      const { leverageSteps, maxLeverage } = this
+
+      return leverageSteps.filter((l) => {
+        return new BigNumber(l).lte(maxLeverage)
+      })
     }
   },
 

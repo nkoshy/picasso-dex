@@ -1,83 +1,67 @@
 <template>
-  <div v-if="market" class="flex flex-wrap justify-evenly -mx-2">
-     <div class="flex xl:hidden w-1/2 py-3.5">
-        <img
-          :src="market.baseToken.icon"
-          :alt="market.baseToken.name"
-          class="w-6 h-6 xl:mr-4 mr-1"
-        />
-        <div>
-          <p class="text-gray-100 font-bold font-sora text-sm">
-            {{ market.ticker }}
-          </p>
-          <p class="text-gray-500 font-sora text-xs">
-            {{ market.baseToken.name }}
-          </p>
-        </div>
-      </div>
-    <v-market-info :title="$t('last_traded_price')"  class="font-sora">
-      <v-ui-text sm class="w-full">
-        <v-ui-format-order-price
-          v-bind="{
-            value: lastPrice,
-            class: {
-              'font-sora font-bold text-base': lastPriceChange === Change.Increase,
-              'text-accent-500 font-sora font-bold': lastPriceChange === Change.Decrease
-            },
-            decimals: market.priceDecimals
-          }"
-        />
-      </v-ui-text>
-    </v-market-info>
-    <v-market-info :title="$t('market_change_24h')" class="font-sora pl-7">
-      <v-ui-text sm class="w-full">
-        <v-ui-format-percent
-          v-bind="{
-            appendPlusSign: true,
-            precision: 2,
-            value: change.toString(),
-            class: change.gte(0) ? 'font-sora text-light-green text-3xs' : 'font-sora text-accent-500'
-          }"
-        />
-      </v-ui-text>
-    </v-market-info>
-    <v-market-info :title="$t('high')"  class="font-sora">
-      <v-ui-text sm class="w-full">
-        <v-ui-format-price
-          v-if="high.gt(0)"
-          v-bind="{
-            value: high
-          }"
-          class="font-sora text-white text-3xs"
-        />
-        <span v-else class="text-gray-500">&mdash;</span>
-      </v-ui-text>
-    </v-market-info>
-    <v-market-info :title="$t('low')"  class="font-sora pl-7">
-      <v-ui-text sm class="w-full">
-        <v-ui-format-price
-          v-if="high.gt(0)"
-          v-bind="{
-            value: low
-          }"
-          class="font-sora text-white text-3xs"
-        />
-        <span v-else class="text-gray-500">&mdash;</span>
-      </v-ui-text>
-    </v-market-info>
-    <v-market-info
-      :title="$t('volume_asset', { asset: market.quoteToken.symbol })" class="font-sora"
-    >
-      <v-ui-text sm class="w-full">
-        <v-ui-format-price
-          v-bind="{
-            dontGroupValues: true,
-            value: volume
-          }"
-          class="font-sora text-white text-3xs"
-        />
-      </v-ui-text>
-    </v-market-info>
+  <div v-if="market" class="-mx-2 h-10">
+    <div class="flex overflow-x-auto overflow-y-none">
+      <v-market-info :title="$t('last_traded_price')">
+        <v-ui-text sm class="flex items-center justify-end w-full">
+          <v-ui-format-order-price
+            v-bind="{
+              value: lastPrice,
+              class: {
+                'text-aqua-500': lastPriceChange === Change.Increase,
+                'text-red-500': lastPriceChange === Change.Decrease
+              },
+              decimals: market.priceDecimals
+            }"
+          />
+        </v-ui-text>
+      </v-market-info>
+      <v-market-info :title="$t('market_change_24h')" class="">
+        <v-ui-text sm class="flex items-center justify-end w-full">
+          <v-ui-format-percent
+            v-bind="{
+              appendPlusSign: true,
+              precision: 2,
+              value: change.toString(),
+              class: change.gte(0) ? 'text-aqua-500' : 'text-red-500'
+            }"
+          />
+        </v-ui-text>
+      </v-market-info>
+      <v-market-info
+        :title="$t('volume_asset', { asset: market.quoteToken.symbol })"
+      >
+        <v-ui-text sm class="flex items-center justify-end w-full">
+          <v-ui-format-price
+            v-bind="{
+              dontGroupValues: true,
+              value: volume
+            }"
+          />
+        </v-ui-text>
+      </v-market-info>
+      <v-market-info :title="$t('high')">
+        <v-ui-text sm class="flex items-center justify-end w-full">
+          <v-ui-format-price
+            v-if="high.gt(0)"
+            v-bind="{
+              value: high
+            }"
+          />
+          <span v-else class="text-gray-500">&mdash;</span>
+        </v-ui-text>
+      </v-market-info>
+      <v-market-info :title="$t('low')">
+        <v-ui-text sm class="flex items-center justify-end w-full">
+          <v-ui-format-price
+            v-if="high.gt(0)"
+            v-bind="{
+              value: low
+            }"
+          />
+          <span v-else class="text-gray-500">&mdash;</span>
+        </v-ui-text>
+      </v-market-info>
+    </div>
   </div>
 </template>
 

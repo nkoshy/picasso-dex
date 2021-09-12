@@ -6,9 +6,12 @@ import {
 import { Wallet } from '@injectivelabs/web3-strategy'
 import { NETWORK } from '../utils/constants'
 import { localStorage } from './Storage'
+import { GeoLocation } from '~/types'
 
 class App {
   network: Network
+
+  geoLocation?: GeoLocation
 
   constructor() {
     this.network = NETWORK || Network.Local
@@ -21,6 +24,20 @@ class App {
       // exchangeUrl: 'https://exchange-api.picasso.exchange:4444',
       // explorerUrl: 'https://explorer-api.injective.network/v1',
 
+  }
+
+  setGeoLocation(geoLocation: GeoLocation) {
+    this.geoLocation = geoLocation
+  }
+
+  get regionForMetrics(): string {
+    const { geoLocation } = this
+
+    if (geoLocation && geoLocation.country) {
+      return geoLocation.country
+    }
+
+    return 'none'
   }
 
   get wallet(): Wallet {

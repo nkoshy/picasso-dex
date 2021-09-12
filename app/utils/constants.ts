@@ -37,23 +37,24 @@ export const UI_DEFAULT_PRICE_DISPLAY_DECIMALS = 4
 export const UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS = 4
 
 export const NETWORK: Network = process.env.APP_NETWORK || Network.Staking
-
-const networkIsTestnet = [
+export const IS_TESTNET = [
   Network.Staking,
   Network.Devnet,
   Network.Local
 ].includes(NETWORK)
+
 export const CHAIN_ID: ChainId = process.env.APP_CHAIN_ID
   ? parseInt(process.env.APP_CHAIN_ID.toString())
-  : parseInt((networkIsTestnet ? ChainId.Kovan : ChainId.Mainnet).toString())
+  : parseInt((IS_TESTNET ? ChainId.Kovan : ChainId.Mainnet).toString())
 
 // 6 gwei for Kovan, fetched from gasStation for Mainnet
 export const DEFAULT_GAS_PRICE = new BigNumber(6).times(GWEI_IN_WEI)
 export const DEFAULT_MAX_SLIPPAGE = new BigNumber(1) // +1% slippage
 
-export const MAXIMUM_TRANSFER_ALLOWED = 50
+export const MAXIMUM_TRANSFER_ALLOWED = 5000
 export const INJECTIVE_DENOM = 'inj'
-export const INJ_FEE_BUFFER = 0.005
+export const INJ_FEE_BUFFER = 0.01
+export const GAS_LIMIT_MULTIPLIER = 1.2
 
 // eslint-disable-next-line prefer-regex-literals
 export const NUMBER_REGEX = new RegExp(/^-?(0|[1-9]\d*)?(\.\d+)?$/)

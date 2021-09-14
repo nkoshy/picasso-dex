@@ -145,7 +145,7 @@ export default Vue.extend({
         window.open('https://injectiveprotocol.com/','_blank');
       },
       godiscord(){
-        window.open('https://discord.gg/kbqfUxaAwn','_blank');
+        window.open(' https://discord.gg/WXQpVy4qqz','_blank');
       },
       gogithub(){
         window.open('https://github.com/PicassoExchange','_blank');

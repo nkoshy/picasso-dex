@@ -1,7 +1,7 @@
 <template>
   <div class="w-full lg:w-1/2 border-l border-solid border-light-grey pl-6 pr-11">
       <h3 class="text-center text-sm font-sora text-white font-noraml">
-        {{ $t('request_access') }}
+        {{ $t('join_waitlist') }}
       </h3>
         <v-input
         v-model="form.email"

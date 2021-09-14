@@ -68,7 +68,7 @@ export default Vue.extend({
   computed: {
     classes(): string {
       const classes = [
-        'font-noraml',
+        'font-normal',
         'align-middle',
         'leading-tight',
         'bg-transparent',

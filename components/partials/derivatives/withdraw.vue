@@ -12,7 +12,7 @@
           </p>
         </div>
         <div class="w-full px-4">
-          <h3 class="text-center text-sm font-sora text-white font-noraml">
+          <h3 class="text-center text-sm font-sora text-white font-normal">
             {{ $t('withdraw_asset', { asset: market.quoteToken.symbol }) }}
           </h3>
           <v-quote :balance="quoteTokenBalance" />

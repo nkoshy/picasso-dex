@@ -1,6 +1,6 @@
 <template>
   <div class="w-full mb-2 lg:w-1/2 pl-11 pr-6">
-    <h3 class="text-center text-sm font-sora text-white font-noraml">
+    <h3 class="text-center text-sm font-sora text-white font-normal">
       {{ $t('login') }}
     </h3>
       <v-input

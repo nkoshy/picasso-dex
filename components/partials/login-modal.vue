@@ -17,8 +17,8 @@
       <div class="mb-6 flex flex-wrap">
         <div class="w-full mb-2 px-4 pt-10">
         </div>
-       <login />
-       <signUp />
+      <signUp />
+      <login />
     </div>
   </div>
   </modal>

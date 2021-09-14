@@ -68,6 +68,7 @@ import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
 import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 import { Modal } from '~/types'
+import { verifyUserAuthentication } from '~/utils/localStroage'
 
 const GRID_ROW_HEIGHT = 73
 
@@ -139,7 +140,12 @@ export default Vue.extend({
       return this.$accessor.spot.markets
     }
   },
+
   mounted() {
+    const authenticate = verifyUserAuthentication();
+    if (!authenticate) {
+         this.$router.push('/');
+    }
     const itemStr = localStorage.getItem("myLoginTime");
     if (itemStr === null) {
       this.$accessor.modal.openModal(Modal.Acknowledge)

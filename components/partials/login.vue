@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mb-2 lg:w-1/2 pl-11 pr-6">
+  <div class="w-full mb-2 lg:w-1/2 lg:pl-11 lg:pr-6 lg:mt-0 pl-6 pr-11 mt-5">
     <h3 class="text-center text-sm font-sora text-white font-normal">
       {{ $t('login') }}
     </h3>

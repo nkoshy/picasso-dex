@@ -20,6 +20,37 @@
       <signUp />
       <login />
     </div>
+    <div class="text-center font-sora font-semibold mb-2">
+      <h3>
+        Join our community
+      </h3>
+      </div>
+    <div class="flex justify-center align-center w-full mb-6 items-center">
+      <div class="h-8 w-6 md:mr-4 md:ml-0 mx-4">
+        <img
+          src="/images/twitter.svg"
+          alt="twitter"
+          class="h-full cursor-pointer"
+          @click.stop="gotwitter"
+        />
+      </div>
+      <div class="h-8 w-6 md:mr-4 md:ml-0 mx-4">
+        <img
+          src="/images/medium.svg"
+          alt="medium"
+          class="h-full cursor-pointer"
+          @click.stop="gomedium"
+        />
+      </div>
+      <div class="h-8 w-6 md:mr-4 md:ml-0 mx-4">
+        <img
+          src="/images/discord.svg"
+          alt="discord"
+          class="h-full cursor-pointer"
+          @click.stop="godiscord"
+        />
+      </div>
+    </div>
   </div>
   </modal>
 </template>

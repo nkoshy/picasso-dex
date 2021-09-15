@@ -41,7 +41,8 @@
 
 <script>
 import emailjs from 'emailjs-com';
-// import { email } from 'vee-validate/dist/rules';
+//import { email } from 'vee-validate/dist/rules';
+
 export default {
   data() {
     return {
@@ -65,11 +66,11 @@ export default {
         .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
         }, function(error) {
-          console.log('FAILED...', error);
+          //console.log('FAILED...', error);
         });
 
       } catch(error) {
-          console.log({error})
+         // console.log({error})
       }
       // // Reset form field
       // this.name = ''

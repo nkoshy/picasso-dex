@@ -54,6 +54,7 @@
     <div class="hidden xl:flex sm:ml-auto xl:ml-0">
       <wallet-connect :landingPage="this.landingPage" />
     </div>
+     <modal-login />
   </header>
 </template>
 
@@ -63,9 +64,13 @@ import VSpot from './spot.vue'
 import VDerivatives from './derivatives.vue'
 import VAbout from './about.vue'
 import VCommunity from './community.vue'
+import { Modal } from '~/types'
 // import Logo from '~/components/layouts/logo.vue'
 import MobileMenu from '~/components/layouts/mobile/menu.vue'
 import WalletConnect from '~/components/wallets/index.vue'
+import ModalLogin from '~/components/partials/login-modal.vue'
+import { verifyUserAuthentication } from '~/utils/localStroage';
+
 
 export default Vue.extend({
   components: {
@@ -75,7 +80,8 @@ export default Vue.extend({
     MobileMenu,
     WalletConnect,
     VAbout,
-    VCommunity
+    VCommunity,
+    'modal-login': ModalLogin
   },
 
   props: {
@@ -121,7 +127,13 @@ export default Vue.extend({
       this.$router.push({ name: 'index' })
     },
     handleGoToMarket() {
-      this.$router.push({ name: 'market' })
+      const authenticate = verifyUserAuthentication();
+      if (!authenticate) {
+        this.$accessor.modal.openModal(Modal.Login);
+        }
+        else{
+        this.$router.push({ name: 'market' })
+        }
     }
   }
 })

@@ -24,7 +24,8 @@
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ digital asset markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 mb-16 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
             <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
-            <v-ui-button home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
+            <v-ui-button v-if="!authenticate"  home-wait full hero-primary-wait @click.stop="goToLogin">Join Waitlist</v-ui-button>
+            <v-ui-button v-if="authenticate" home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
         </div>
       </div>
@@ -57,7 +58,7 @@
           <p class="text-home opacity-70 text-xl mt-8 xl:w-md font-poppins px-4 xl:px-0 text-center xl:text-left text-small leading-5">Picasso exchange enables users to trade spot and derivatives on Injective Chain. Injective Protocol is a decentralized, censorship-resistant order book built on top of Tendermint using the Cosmos-SDK framework.</p>
           <div class="flex xl:mt-8 mb-9 mt-9 justify-evenly xl:justify-start">
             <v-ui-button home-section full hero-primary @click.stop="goTrade">Trade</v-ui-button>
-            <v-ui-button home-section full hero-tertiary @click.stop="goReadMore">Read More</v-ui-button>
+             <v-ui-button home-section full hero-tertiary @click.stop="goReadMore">Read More</v-ui-button>
           </div>
         </div>
       </div>
@@ -117,16 +118,28 @@ export default Vue.extend({
     // 'modal-acknowledge': ModalAcknowledge,
     'modal-login': ModalLogin
   },
+
+   data() {
+    return {
+      authenticate:false
+    }
+   },
+
   mounted() {
     //  this.$accessor.modal.openModal(Modal.Acknowledge);
-    const authenticate = verifyUserAuthentication();
-    if (!authenticate) {
-      this.$accessor.modal.openModal(Modal.Login);
-    }
+    this.authenticate = verifyUserAuthentication();
+    // if (!authenticate) {
+    //   this.$accessor.modal.openModal(Modal.Login);
+    // }
   },
     methods: {
       goTrade(){
-         this.$router.push({ name: 'market' })
+        if(!this.authenticate) {
+          this.$accessor.modal.openModal(Modal.Login);
+        }
+        else {
+         this.$router.push({ name: 'market' });
+        }
         // window.open('https://trade.picasso.exchange/market','_blank');
       },
       goReadMore() {
@@ -158,6 +171,9 @@ export default Vue.extend({
       },
       goTerms() {
       this.$router.push({ name: 'terms' })
+      },
+      goToLogin(){
+        this.$accessor.modal.openModal(Modal.Login);
       }
     }
 })

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:w-1/2 border-l border-solid border-light-grey pl-6 pr-11">
+  <div class="w-full lg:w-1/2 pl-6 pr-11">
       <h3 class="text-center text-sm font-sora text-white font-normal">
         {{ $t('join_waitlist') }}
       </h3>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mb-2 lg:w-1/2 pl-11 pr-6">
+  <div class="w-full mb-2 lg:w-1/2 border-l border-solid border-light-grey pl-11 pr-6">
     <h3 class="text-center text-sm font-sora text-white font-normal">
       {{ $t('login') }}
     </h3>
@@ -70,6 +70,7 @@ export default {
             localStorage.setItem('register', true);
             this.invaildData = false;
             this.$accessor.modal.closeModal(Modal.Login)
+            window.location.reload();
           }
           else {
             console.log("Invalid Data");

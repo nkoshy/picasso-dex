@@ -104,6 +104,7 @@
       </div>
     </div>
     </transition>
+     <modal-login />
   </div>
 </template>
 
@@ -118,12 +119,15 @@ import VMetamask from './wallets/metamask.vue'
 import VLedger from './wallets/ledger.vue'
 import { TRANSFER_RESTRICTIONS_ENABLED } from '~/app/utils/constants'
 import { Icon, Modal } from '~/types'
+import ModalLogin from '~/components/partials/login-modal.vue'
+import { verifyUserAuthentication } from '~/utils/localStroage'
 
 export default Vue.extend({
   components: {
     VMetamask,
     VLedger,
-    VDisclaimer
+    VDisclaimer,
+    'modal-login': ModalLogin
   },
 
   directives: {
@@ -194,6 +198,10 @@ export default Vue.extend({
   methods: {
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen
+      const authenticate = verifyUserAuthentication();
+      if (!authenticate) {
+        this.$accessor.modal.openModal(Modal.Login);
+      }
     },
     closeDropdown() {
       if (this.isDropdownOpen) {

@@ -77,6 +77,15 @@ export default Vue.extend({
   methods: {
     closeModal() {
       this.$accessor.modal.closeModal(Modal.Login)
+    },
+    gotwitter() {
+      window.open('https://twitter.com/PicassoExchange', '_blank')
+    },
+    gomedium() {
+      window.open('https://medium.com/@picasso.exchange', '_blank')
+    },
+    godiscord() {
+      window.open('https://discord.gg/WXQpVy4qqz', '_blank')
     }
   }
 })

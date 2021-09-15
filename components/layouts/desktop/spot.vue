@@ -86,6 +86,7 @@ export default Vue.extend({
        const authenticate = verifyUserAuthentication();
        if (!authenticate) {
          this.$accessor.modal.openModal(Modal.Login);
+         document.body.style.overflow = 'hidden';
         }
     },
 

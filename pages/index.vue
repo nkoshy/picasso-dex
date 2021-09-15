@@ -23,7 +23,7 @@
           <p class="opacity-70 text-base xl:text-xl xl:mt-8 mt-9 font-poppins px-6 text-center xl:text-left xl:p-0">Picasso is a decentralized exchange to access high volume derivative markets with zero gas fee and high capital efficiency. The exchange is powered by Injective Protocol and governed by the community!</p>
           <p class="opacity-70 text-base xl:text-xl mt-8 font-poppins text-center px-6 xl:text-left xl:p-0">Connect your wallet and trade 20+ digital asset markets in minutes.</p>
           <div class="flex xl:mt-8 mt-14 mb-16 xl:mb-0 flex-col xl:flex-row xl:justify-start justify-center items-center">
-            <v-ui-button home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
+            <v-ui-button  v-if="authenticate" home full hero-primary @click.stop="goTrade">Trade </v-ui-button>
             <v-ui-button v-if="!authenticate"  home-wait full hero-primary-wait @click.stop="goToLogin">Join Waitlist</v-ui-button>
             <v-ui-button v-if="authenticate" home full hero-secondary @click.stop="goReadMore" >Read More</v-ui-button>
           </div>
@@ -174,6 +174,7 @@ export default Vue.extend({
       },
       goToLogin(){
         this.$accessor.modal.openModal(Modal.Login);
+        document.body.style.overflow = 'hidden';
       }
     }
 })

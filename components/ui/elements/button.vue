@@ -231,7 +231,7 @@ export default Vue.extend({
         classes.push('h-14', 'text-white', 'xl:w-40', 'w-60', 'text-lg', 'px-6', 'leading-normal');
       }
       else if(this.homeWait) {
-        classes.push('h-14', 'text-white', 'xl:w-44', 'xl:ml-4', 'mt-4', 'xl:mt-0', 'w-60', 'text-lg', 'px-6', 'leading-normal');
+        classes.push('h-14', 'text-white', 'xl:w-44', 'mt-4', 'xl:mt-0', 'w-60', 'text-lg', 'px-6', 'leading-normal');
       }
         else if(this.homeSection) {
         classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');

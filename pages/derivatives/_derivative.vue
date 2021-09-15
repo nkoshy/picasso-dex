@@ -68,7 +68,7 @@ import { UiDerivativeMarket, Breakpoint } from '~/types'
 import { gridLayouts } from '~/components/partials/derivatives/grid'
 import Header from '~/components/layouts/desktop/header.vue'
 import Footer from '~/components/partials/spot/footer.vue'
-
+import { verifyUserAuthentication } from '~/utils/localStroage'
 
 // const GRID_ROW_HEIGHT = 54
 const GRID_ROW_HEIGHT = 73
@@ -144,6 +144,11 @@ export default Vue.extend({
   },
 
   mounted() {
+    const authenticate = verifyUserAuthentication();
+    if (!authenticate) {
+         this.$router.push('/');
+    }
+
     this.$accessor.derivatives
       .changeMarket(this.marketFromRoute)
       .then(() => {

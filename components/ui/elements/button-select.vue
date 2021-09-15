@@ -121,9 +121,9 @@ export default Vue.extend({
         // 'first:border-l',
         // 'odd:border-r-0',
         // 'last:border-r',
-        'outline-none',
-        'focus:outline-none',
-        'rounded-md'
+          'outline-none',
+          'focus:outline-none',
+          'rounded-md'
        
       ]
       if(this.case){

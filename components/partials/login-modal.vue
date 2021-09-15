@@ -1,5 +1,5 @@
 <template>
-  <modal :is-open="isModalOpen" :login=true>
+  <modal :is-open="isModalOpen"  @closed="closeModal">
     <div class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover
     border-solid rounded-md
         border border-light-pink">
@@ -76,6 +76,7 @@ export default Vue.extend({
 
   methods: {
     closeModal() {
+      this.$router.push({ name: 'index' })
       this.$accessor.modal.closeModal(Modal.Login)
     },
     gotwitter() {

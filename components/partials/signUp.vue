@@ -22,7 +22,7 @@
         class="mt-4"
         type="password"
         /> -->
-        <div class="text-sm font-sora text-white font-normal mt-4">
+        <div class="text-xs font-sora text-white font-normal mt-4">
           By clicking submit, you agree to our <span class="underline cursor-pointer" @click.stop="goPrivacy">Privacy Policy</span> and <span class="underline cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div>
       <div class="w-full mx-auto mt-4 font-sora">
@@ -41,8 +41,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
-import { email } from 'vee-validate/dist/rules';
-
+// import { email } from 'vee-validate/dist/rules';
 export default {
   data() {
     return {

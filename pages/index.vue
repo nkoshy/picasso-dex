@@ -107,6 +107,7 @@ import Header from '~/components/layouts/desktop/header.vue'
 import { Modal } from '~/types'
 import Footer from '~/components/partials/spot/footer.vue'
 import ModalLogin from '~/components/partials/login-modal.vue'
+import { verifyUserAuthentication } from '~/utils/localStroage';
 // import ModalAcknowledge from '~/components/partials/acknowledge.vue'
 export default Vue.extend({
   components: {
@@ -118,8 +119,8 @@ export default Vue.extend({
   },
   mounted() {
     //  this.$accessor.modal.openModal(Modal.Acknowledge);
-    const register = localStorage.getItem('register');
-    if (!register) {
+    const authenticate = verifyUserAuthentication();
+    if (!authenticate) {
       this.$accessor.modal.openModal(Modal.Login);
     }
   },
@@ -144,7 +145,7 @@ export default Vue.extend({
         window.open('https://injectiveprotocol.com/','_blank');
       },
       godiscord(){
-        window.open('https://discord.gg/kbqfUxaAwn','_blank');
+        window.open('https://discord.gg/WXQpVy4qqz','_blank');
       },
       gogithub(){
         window.open('https://github.com/PicassoExchange','_blank');

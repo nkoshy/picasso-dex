@@ -1,7 +1,7 @@
 <template>
   <div class="w-full lg:w-1/2 border-l border-solid border-light-grey pl-6 pr-11">
-      <h3 class="text-center text-sm font-sora text-white font-noraml">
-        {{ $t('request_access') }}
+      <h3 class="text-center text-sm font-sora text-white font-normal">
+        {{ $t('join_waitlist') }}
       </h3>
         <v-input
         v-model="form.email"
@@ -22,7 +22,7 @@
         class="mt-4"
         type="password"
         /> -->
-        <div class="text-sm font-sora text-white font-noraml mt-4">
+        <div class="text-sm font-sora text-white font-normal mt-4">
           By clicking submit, you agree to our <span class="underline cursor-pointer" @click.stop="goPrivacy">Privacy Policy</span> and <span class="underline cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div>
       <div class="w-full mx-auto mt-4 font-sora">

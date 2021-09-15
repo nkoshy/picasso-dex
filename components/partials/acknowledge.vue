@@ -26,7 +26,9 @@
 
             You are lawfully permitted to access this site and trade on spot and derivatives markets under the laws of the jurisdiction in which you reside and are located.<br/><br/>
 
-            You understand the risks associated with entering into cryptocurrencies trading, derivative contracts and using leverage.
+            You understand the risks associated with entering into cryptocurrencies trading, derivative contracts and using leverage.<br /><br />
+
+            You understand that Picasso is not registered or licensed by the CFTC, SEC, or any financial regulatory authority.
           </p>
           </div>
         </div>

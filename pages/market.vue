@@ -108,6 +108,7 @@ import VDerivatives from '~/components/partials/derivatives/markets/index-market
 import Header from '~/components/layouts/desktop/header.vue'
 import { Icon } from '~/types'
 import Footer from '~/components/partials/spot/footer.vue'
+import { verifyUserAuthentication } from '~/utils/localStroage'
 
 const components = {
   spot: 'v-spot',
@@ -128,6 +129,14 @@ export default Vue.extend({
       Icon
     }
   },
+
+  mounted() {
+    const authenticate = verifyUserAuthentication();
+    if (!authenticate) {
+         this.$router.push('/');
+    }
+  },
+
   methods: {
     onSelect(component: string) {
       this.component = component

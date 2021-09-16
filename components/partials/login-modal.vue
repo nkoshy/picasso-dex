@@ -2,8 +2,9 @@
   <modal :is-open="isModalOpen" @closed="closeModal">
     <div class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover
     border-solid rounded-md
-        border border-light-pink">
-        <div class="flex justify-center items-center mt-4 max-h-scrollAbleLogin overflow-y-auto">
+        border border-light-pink px-1">
+        <div class="xl:max-h-scrollAbleModel max-h-scrollAbleLogin overflow-y-auto">
+        <div class="flex justify-center items-center mt-4">
         <img
         :src="`/home/header-desktop-logo.svg`"
          alt="logo"
@@ -51,6 +52,7 @@
         />
       </div>
     </div>
+        </div>
   </div>
   </modal>
 </template>

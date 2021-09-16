@@ -40,7 +40,7 @@
       <span v-else class="text-gray-500">&mdash;</span>
     </td>
     <td is="v-ui-table-td" right class="font-normal">
-      <v-ui-text sm class="text-right">
+      <v-ui-text xs class="text-right">
         <v-ui-format-percent
           v-bind="{
             appendPlusSign: true,

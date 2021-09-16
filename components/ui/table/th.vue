@@ -99,7 +99,7 @@ export default Vue.extend({
       }
 
       if (this.trades) {
-        classes.push('px-4', 'py-4')
+        classes.push('pl-4', 'py-4')
       }
       if(this.flex){
         classes.unshift('flex','items-center','w-1/4');

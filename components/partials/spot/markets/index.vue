@@ -146,7 +146,8 @@ export default Vue.extend({
           const satisfiesSearchCondition =
             baseDenom.toLowerCase().startsWith(query) ||
             quoteDenom.toLowerCase().startsWith(query) ||
-            ticker.toLowerCase().startsWith(query)
+            ticker.toLowerCase().startsWith(query) ||
+            ticker.toLowerCase().indexOf(query)>=0
 
           return satisfiesSearchCondition && summary !== undefined
         }) as UiSpotMarketAndSummary[]

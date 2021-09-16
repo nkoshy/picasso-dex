@@ -48,6 +48,17 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
+    primarylimit: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    nonprimarylimit: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
     red: {
       required: false,
       default: false,
@@ -173,6 +184,26 @@ export default Vue.extend({
             'border-r',
             'border-b',
             'bg-blueish',
+            'opacity-40',
+            'border-solid'
+          )
+        }
+      }
+
+      if (this.isActive) {
+        if (this.primarylimit) {
+          classes.push(
+            'text-light-green', 
+             'font-bold'
+          )
+        } 
+      }
+      if(!this.isActive)
+      {
+        if(this.nonprimarylimit)
+        {
+          classes.push(
+            'text-white',
             'opacity-40',
             'border-solid'
           )

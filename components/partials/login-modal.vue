@@ -3,7 +3,7 @@
     <div class="w-full md:w-3xl flex flex-col shadow bg-model bg-no-repeat bg-cover
     border-solid rounded-md
         border border-light-pink">
-        <div class="flex justify-center items-center mt-4">
+        <div class="flex justify-center items-center mt-4 max-h-scrollAbleLogin overflow-y-auto">
         <img
         :src="`/home/header-desktop-logo.svg`"
          alt="logo"
@@ -78,7 +78,7 @@ export default Vue.extend({
     closeModal() {
       this.$router.push({ name: 'index' })
       this.$accessor.modal.closeModal(Modal.Login)
-      window.location.reload();
+      // window.location.reload();
       document.body.style.overflow = 'unset';
     },
     gotwitter() {

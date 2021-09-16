@@ -82,11 +82,14 @@ export default Vue.extend({
 
   methods: {
     toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
+      // this.isDropdownOpen = !this.isDropdownOpen
        const authenticate = verifyUserAuthentication();
        if (!authenticate) {
          this.$accessor.modal.openModal(Modal.Login);
          document.body.style.overflow = 'hidden';
+        }
+        if(authenticate) {
+          this.isDropdownOpen = !this.isDropdownOpen
         }
     },
 

@@ -27,7 +27,7 @@ export const metaTags = (): {
   manifestMetaTags: () => Object
 } => {
   const title =
-    'Injective Protocol - Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
+    'Picasso Exchange - Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
   const description =
     'Picasso is a decentralized exchange built on Injective to access high volume derivative markets with zero gas fee and high capital efficiency.'
   const keywords =

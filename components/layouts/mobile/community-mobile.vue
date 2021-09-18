@@ -6,7 +6,7 @@
         :class="classes"
       >
         <div class="px-5 py-5 flex flex-col">
-          <div class="flex mb-4">
+          <div class="flex mb-4" @click.stop="gotwitter">
             <div>
               <img :src="'/home/twitter-community.svg'" />
             </div>
@@ -15,7 +15,7 @@
               <p class="font-sora text-xsm mt-1 text-white opacity-40">Stay in the pulse</p>
             </div>
           </div>
-          <div class="flex">
+          <div class="flex" @click.stop="godiscord">
             <div>
               <img :src="'/home/discord-community.svg'" />
             </div>
@@ -85,6 +85,14 @@ export default Vue.extend({
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
+    },
+
+    gotwitter(){
+      window.open('https://twitter.com/PicassoExchange','_blank');
+    },
+
+    godiscord(){
+      window.open('https://discord.gg/WXQpVy4qqz','_blank');
     }
   }
 })

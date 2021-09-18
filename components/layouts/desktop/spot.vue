@@ -51,6 +51,7 @@
         <v-spot @selected="closeDropdown" />
       </div>
     </transition>
+    <modal-login />
   </div>
 </template>
 
@@ -58,7 +59,9 @@
 import Vue from 'vue'
 import { directive as onClickaway } from 'vue-clickaway'
 import VSpot from '~/components/partials/spot/markets/index.vue'
-import { Icon } from '~/types'
+import ModalLogin from '~/components/partials/login-modal.vue'
+import { Icon,Modal } from '~/types'
+import { verifyUserAuthentication } from '~/utils/localStroage';
 
 export default Vue.extend({
   directives: {
@@ -66,7 +69,8 @@ export default Vue.extend({
   },
 
   components: {
-    VSpot
+    VSpot,
+    'modal-login': ModalLogin
   },
 
   data() {
@@ -78,7 +82,15 @@ export default Vue.extend({
 
   methods: {
     toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
+      // this.isDropdownOpen = !this.isDropdownOpen
+       const authenticate = verifyUserAuthentication();
+       if (!authenticate) {
+         this.$accessor.modal.openModal(Modal.Login);
+         document.body.style.overflow = 'hidden';
+        }
+        if(authenticate) {
+          this.isDropdownOpen = !this.isDropdownOpen
+        }
     },
 
     closeDropdown() {

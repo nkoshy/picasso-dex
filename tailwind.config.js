@@ -233,6 +233,7 @@ module.exports = {
         ...extraSizings,
         modal: '96vh',
         scrollAbleModel : '88vh',
+        scrollAbleLogin : '82vh',
         44: '11rem'
       },
 

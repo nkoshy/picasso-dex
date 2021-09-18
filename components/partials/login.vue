@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full mb-2 lg:w-1/2 pl-11 pr-6">
-    <h3 class="text-center text-sm font-sora text-white font-noraml">
+  <div class="w-full mb-2 lg:w-1/2 xl:border-l border-solid border-light-grey lg:pl-11 lg:pr-6 lg:mt-0 pl-6 pr-6 mt-5">
+    <h3 class="text-center text-sm font-sora text-white font-normal">
       {{ $t('login') }}
     </h3>
       <v-input
@@ -70,6 +70,7 @@ export default {
             localStorage.setItem('register', true);
             this.invaildData = false;
             this.$accessor.modal.closeModal(Modal.Login)
+            window.location.reload();
           }
           else {
             console.log("Invalid Data");

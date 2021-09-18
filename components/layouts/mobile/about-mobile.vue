@@ -5,7 +5,7 @@
         v-on-clickaway="closeDropdown"
         :class="classes"
       >
-        <div class="py-5 pr-10 p-3.5 flex">
+        <div class="py-5 pr-10 p-3.5 flex" @click.stop="goReadMore">
           <div>
             <img :src="'/home/blog.svg'" />
           </div>
@@ -74,6 +74,10 @@ export default Vue.extend({
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
+    },
+
+    goReadMore() {
+      window.open('https://medium.com/@picasso.exchange','_blank');
     }
   }
 })

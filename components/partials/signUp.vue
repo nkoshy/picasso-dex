@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full lg:w-1/2 border-l border-solid border-light-grey pl-6 pr-11">
-      <h3 class="text-center text-sm font-sora text-white font-noraml">
-        {{ $t('request_access') }}
+  <div class="w-full lg:w-1/2 lg:pl-6 lg:pr-11 px-6">
+      <h3 class="text-center text-sm font-sora text-white font-normal">
+        {{ $t('join_waitlist') }}
       </h3>
         <v-input
         v-model="form.email"
@@ -22,8 +22,8 @@
         class="mt-4"
         type="password"
         /> -->
-        <div class="text-sm font-sora text-white font-noraml mt-4">
-          By clicking submit, you agree to our <span class="underline cursor-pointer" @click.stop="goPrivacy">Privacy Policy</span> and <span class="underline cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
+        <div class="text-sm font-sora text-white font-normal mt-4">
+          <span class="text-xs">By clicking submit</span>, you agree to our <span class="underline cursor-pointer" @click.stop="goPrivacy">Privacy Policy</span> and <span class="underline cursor-pointer" @click.stop="goTerms">Terms and Conditions</span>
         </div>
       <div class="w-full mx-auto mt-4 font-sora">
         <v-ui-button
@@ -41,7 +41,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
-import { email } from 'vee-validate/dist/rules';
+// import { email } from 'vee-validate/dist/rules';
 
 export default {
   data() {
@@ -66,11 +66,11 @@ export default {
         .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
         }, function(error) {
-          console.log('FAILED...', error);
+          //console.log('FAILED...', error);
         });
 
       } catch(error) {
-          console.log({error})
+         // console.log({error})
       }
       // // Reset form field
       // this.name = ''

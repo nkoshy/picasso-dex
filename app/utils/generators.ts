@@ -27,9 +27,9 @@ export const metaTags = (): {
   manifestMetaTags: () => Object
 } => {
   const title =
-    'Injective Protocol - Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
+    'Picasso Exchange - Decentralized Derivatives Trading. Any Market. Anytime. Anywhere.'
   const description =
-    'Injective is the first front-running resistant, layer-2 exchange protocol that unlocks the full potential of borderless finance by supporting margin trading, derivatives, and futures.'
+    'Picasso is a decentralized exchange built on Injective to access high volume derivative markets with zero gas fee and high capital efficiency.'
   const keywords =
     'injective protocol, dapp, decentralized app, cryptocurrency, criptocurrency exchange, exchange, exchange token, ethereum, ethereum token, erc20, futures, perpetuals, futures protocol'
   const author = 'InjectiveProtocol'
@@ -47,7 +47,7 @@ export const metaTags = (): {
     {
       hid: 'og:image',
       property: 'og:image',
-      content: `${BASE_URL}/images/og.jpeg`
+      content: `${BASE_URL}/images/og.png`
     },
     {
       hid: 'og:description',
@@ -66,7 +66,7 @@ export const metaTags = (): {
     },
     {
       name: 'twitter:image',
-      content: `${BASE_URL}/images/og.jpeg`
+      content: `${BASE_URL}/images/og.png`
     },
     {
       hid: 'twitter:creator',
@@ -98,7 +98,7 @@ export const metaTags = (): {
       ogDescription: description,
       ogHost: 'https://injective.exchange',
       ogUrl: 'https://injective.exchange',
-      ogImage: `${BASE_URL}/images/og.jpeg`,
+      ogImage: `${BASE_URL}/images/og.png`,
       twitterCard: 'summary_large_image',
       twitterSite: '@InjectiveLabs',
       twitterCreator: '@InjectiveLabs'

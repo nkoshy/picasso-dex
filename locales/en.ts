@@ -21,7 +21,7 @@ export default {
   token_allowance_successful: 'Token allowance set successful',
   logout: 'Logout',
   success_connect: 'Successfully Connected',
-  market: 'Markets',
+  market: 'Market',
   last_traded_price: 'Last Traded Price',
   last_traded_price_tooltip: 'Last Traded Price',
   market_change_24h: 'Change(24h)',
@@ -212,6 +212,7 @@ export default {
   password:'Password',
   submit:'Submit',
   request_access: 'Request Access',
+  join_waitlist: 'Join WaitList',
   disclaimer_note:
     'By connecting a wallet, you agree to the Injective Labs <a href="https://injectivelabs.org/terms-and-conditions" class="text-primary-500" target="_blank" />Terms and Conditions</a> and acknowledge that you have read and understand the Injective Protocol <a href="https://injectiveprotocol.com/disclaimer" class="text-primary-500" target="_blank">disclaimer</a>.',
   transfer_wait_time_note:

@@ -5,15 +5,18 @@
       <v-ui-button-select
         v-model="tradingType"
         :option="TradeExecutionType.LimitFill"
-        small
+        class="font-sora" 
+        primarylimit
+        nonprimarylimit
       >
         {{ $t('limit') }}
       </v-ui-button-select>
       <v-ui-button-select
         v-model="tradingType"
-      
         :option="TradeExecutionType.Market"
-        small
+        class="text-xs font-sora"
+        primarylimit
+        nonprimarylimit
       >
         {{ $t('market') }}
       </v-ui-button-select>
@@ -27,7 +30,8 @@
         half
         primary
         case
-        nonprimary              
+        nonprimary  
+        class="font-sora"            
       >
         {{ $t('buy', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>
@@ -39,6 +43,7 @@
         case
         primary
         nonprimary
+        class="font-sora" 
       >
         {{ $t('sell', { asset: market.baseToken.symbol }) }}
       </v-ui-button-select>

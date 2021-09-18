@@ -48,6 +48,11 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
+     homeWait: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
 
     homeSection: {
       required: false,
@@ -56,6 +61,12 @@ export default Vue.extend({
     },
 
     heroPrimary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+     heroPrimaryWait: {
       required: false,
       default: false,
       type: Boolean
@@ -219,6 +230,9 @@ export default Vue.extend({
       } else if(this.home) {
         classes.push('h-14', 'text-white', 'xl:w-40', 'w-60', 'text-lg', 'px-6', 'leading-normal');
       }
+      else if(this.homeWait) {
+        classes.push('h-14', 'text-white', 'xl:w-44', 'mt-4', 'xl:mt-0', 'w-60', 'text-lg', 'px-6', 'leading-normal');
+      }
         else if(this.homeSection) {
         classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');
       }
@@ -265,6 +279,9 @@ export default Vue.extend({
       } else if (this.ghost) {
         classes.push('border border-dark-600 text-white font-bold font-sora hover:text-gray-300')
       } else if(this.heroPrimary) {
+        classes.push('primary-btn font-sora')
+      }
+        else if(this.heroPrimaryWait) {
         classes.push('primary-btn font-sora')
       } else if(this.heroSecondary) {
         classes.push('secondary-btn font-sora')

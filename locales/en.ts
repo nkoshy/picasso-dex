@@ -21,7 +21,7 @@ export default {
   token_allowance_successful: 'Token allowance set successful',
   logout: 'Logout',
   success_connect: 'Successfully Connected',
-  market: 'Market',
+  market: 'Markets',
   last_traded_price: 'Last Traded Price',
   last_traded_price_tooltip: 'Last Traded Price',
   market_change_24h: 'Change(24h)',

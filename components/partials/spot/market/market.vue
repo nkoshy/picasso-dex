@@ -26,7 +26,7 @@
           <p class="text-gray-100 font-bold font-sora text-sm">
             {{ market.ticker }}
           </p>
-          <p class="text-gray-500 text-xs">
+          <p class="text-gray-50 text-xs">
             {{ market.baseToken.name }}
           </p>
         </div>

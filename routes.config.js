@@ -1,6 +1,7 @@
 const spot = [
   'inj-usdt',
   'inj-usdc',
+  'axs-usdt',
   'wbtc-usdc',
   'wbtc-usdt',
   'weth-usdt',
@@ -48,6 +49,10 @@ const derivatives = [
 ]
 
 module.exports = [
+  '/',
+  '/portfolio',
+  '/wallet',
+  '/history',
   ...spot.map((s) => `/spot/${s}`),
   ...derivatives.map((d) => `/derivatives/${d}`)
 ]

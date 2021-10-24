@@ -22,6 +22,7 @@ export const tokenMetaToToken = (
       'token-metadata',
       tokenMeta.logo
     ),
+    coinGeckoId: tokenMeta.coinGeckoId,
     decimals: tokenMeta.decimals,
     address: denom ? peggyDenomToContractAddress(denom) : tokenMeta.address,
     denom: denom || tokenMeta.address
@@ -40,6 +41,7 @@ export const grpcTokenMetaToToken = (
     symbol: tokenMeta.symbol,
     name: tokenMeta.name,
     icon: tokenMeta.logo,
+    coinGeckoId: '',
     decimals: tokenMeta.decimals,
     address: denom ? peggyDenomToContractAddress(denom) : tokenMeta.address,
     denom: denom || tokenMeta.address

@@ -1,47 +1,53 @@
 <template>
-  <div v-if="market" class="p-4 w-full">
-    <div class="w-full flex">
-      <v-ui-button-select
-        v-model="orderType"
-        :option="DerivativeOrderSide.Buy"
-        half
-        aqua
-      >
-        {{ $t('long_asset', { asset: market.baseToken.symbol }) }}
-      </v-ui-button-select>
-      <v-ui-button-select
-        v-model="orderType"
-        :option="DerivativeOrderSide.Sell"
-        half
-        red
-      >
-        {{ $t('short_asset', { asset: market.baseToken.symbol }) }}
-      </v-ui-button-select>
-    </div>
-    <div class="w-full flex mt-4">
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.Market"
-        small
+  <div v-if="market" class="px-4 w-full">
+    <div class="flex items-center justify-center">
+      <v-button
+        :class="{
+          'text-gray-500': tradingType === TradeExecutionType.LimitFill
+        }"
+        text-xs
+        @click.stop="onTradingTypeToggle"
       >
         {{ $t('market') }}
-      </v-ui-button-select>
-      <v-ui-button-select
-        v-model="tradingType"
-        class="w-1/2"
-        :option="TradeExecutionType.LimitFill"
-        small
+      </v-button>
+      <div class="mx-2 w-px h-4 bg-gray-500"></div>
+      <v-button
+        sm
+        :class="{
+          'text-gray-500': tradingType === TradeExecutionType.Market
+        }"
+        text-xs
+        @click.stop="onTradingTypeToggle"
       >
         {{ $t('limit') }}
-      </v-ui-button-select>
+      </v-button>
     </div>
     <div class="mt-4">
-      <div class="mb-4">
+      <div class="bg-gray-900 rounded-2xl flex">
+        <v-button-select
+          v-model="orderType"
+          :option="DerivativeOrderSide.Buy"
+          aqua
+          class="w-1/2"
+        >
+          {{ $t('buy_asset', { asset: market.baseToken.symbol }) }}
+        </v-button-select>
+        <v-button-select
+          v-model="orderType"
+          :option="DerivativeOrderSide.Sell"
+          red
+          class="w-1/2"
+        >
+          {{ $t('sell_asset', { asset: market.baseToken.symbol }) }}
+        </v-button-select>
+      </div>
+    </div>
+    <div class="mt-8">
+      <div>
         <v-input
           ref="input-amount"
           :value="form.amount"
-          :label="$t('amount_decimals', { decimals: market.quantityDecimals })"
+          :label="$t('amount')"
           :custom-handler="true"
           :max-selector="true"
           :placeholder="$t('amount')"
@@ -54,42 +60,36 @@
         >
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
           <div slot="context" class="text-xs text-gray-400 flex items-center">
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
-              >25%</span
-            >
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
-              >50%</span
-            >
-            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
-              >75%</span
-            >
-            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
-              >100%</span
-            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)">
+              25%
+            </span>
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)">
+              50%
+            </span>
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)">
+              75%
+            </span>
+            <span class="cursor-pointer" @click.stop="onMaxInput(100)">
+              100%
+            </span>
           </div>
         </v-input>
-        <v-ui-text v-if="amountError" semibold red v-bind="{ '2xs': true }">
+        <span v-if="amountError" class="text-2xs font-semibold text-red-500">
           {{ amountError }}
-        </v-ui-text>
-        <v-ui-text
+        </span>
+        <span
           v-if="priceError && tradingTypeMarket"
-          semibold
-          red
-          v-bind="{ '2xs': true }"
+          class="text-2xs font-semibold text-red-500"
         >
           {{ priceError }}
-        </v-ui-text>
+        </span>
       </div>
-      <div v-if="!tradingTypeMarket" class="mb-4">
+      <div v-if="!tradingTypeMarket" class="mt-6">
         <v-input
           ref="input-price"
           :value="form.price"
           :placeholder="$t('price')"
-          :label="
-            $t('price_decimals', {
-              decimals: market.priceDecimals
-            })
-          "
+          :label="$t('price')"
           :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
@@ -99,19 +99,21 @@
         >
           <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
         </v-input>
-        <v-ui-text v-if="priceError" semibold red v-bind="{ '2xs': true }">
+        <span v-if="priceError" class="text-red-500 font-semibold text-2xs">
           {{ priceError }}
-        </v-ui-text>
+        </span>
       </div>
 
       <v-order-leverage
+        class="mt-6"
         :leverage="form.leverage"
         :max-leverage="maxLeverageAvailable.toFixed()"
         @change="onLeverageChange"
       />
 
       <v-order-leverage-select
-        class="mt-2"
+        v-if="false"
+        class="mt-4"
         :max-leverage="maxLeverageAvailable.toFixed()"
         :leverage="form.leverage"
         @change="onLeverageChange"
@@ -142,20 +144,25 @@
       }"
       @drawer-toggle="onDetailsDrawerToggle"
     />
-    <div class="pt-2">
-      <v-ui-button
+    <div class="mt-4">
+      <v-button
+        lg
         :status="status"
         :disabled="hasErrors || !isUserWalletConnected"
         :ghost="hasErrors"
         :aqua="!hasErrors && orderType === DerivativeOrderSide.Buy"
         :red="!hasErrors && orderType === DerivativeOrderSide.Sell"
-        class="uppercase"
-        wide
+        class="w-full"
         @click.stop="onSubmit"
       >
         {{ $t(orderTypeBuy ? 'buy_long' : 'sell_short') }}
-      </v-ui-button>
+      </v-button>
     </div>
+
+    <v-modal-order-confirm
+      @confirmed="submitLimitOrder"
+      @disabled="handleDisableAcceptHighPriceDeviations"
+    />
   </div>
 </template>
 
@@ -170,9 +177,11 @@ import OrderDetailsMarket from './order-details-market.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
-  NUMBER_REGEX
+  NUMBER_REGEX,
+  DEFAULT_PRICE_WARNING_DEVIATION
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
+import VModalOrderConfirm from '~/components/partials/modals/order-confirm.vue'
 import {
   DerivativeOrderSide,
   TradeExecutionType,
@@ -183,7 +192,8 @@ import {
   UiPosition,
   TradeDirection,
   UiDerivativeMarketSummary,
-  UiDerivativeLimitOrder
+  UiDerivativeLimitOrder,
+  Modal
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -212,7 +222,8 @@ export default Vue.extend({
     'v-order-details': OrderDetails,
     'v-order-leverage': OrderLeverage,
     'v-order-leverage-select': OrderLeverageSelect,
-    'v-order-details-market': OrderDetailsMarket
+    'v-order-details-market': OrderDetailsMarket,
+    VModalOrderConfirm
   },
 
   data() {
@@ -230,6 +241,10 @@ export default Vue.extend({
   computed: {
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
+    },
+
+    acceptHighPriceDeviations(): boolean {
+      return this.$accessor.app.acceptHighPriceDeviations
     },
 
     market(): UiDerivativeMarket | undefined {
@@ -262,6 +277,10 @@ export default Vue.extend({
 
     position(): UiPosition | undefined {
       return this.$accessor.derivatives.subaccountPosition
+    },
+
+    derivativeMarkPrice(): string {
+      return this.$accessor.derivatives.marketMarkPrice
     },
 
     availableMargin(): BigNumberInBase {
@@ -698,6 +717,38 @@ export default Vue.extend({
       }
     },
 
+    priceHasHighDeviationWarning(): boolean {
+      const {
+        price,
+        orderTypeBuy,
+        tradingTypeMarket,
+        orderTypeReduceOnly,
+        lastTradedPrice
+      } = this
+
+      if (orderTypeReduceOnly) {
+        return false
+      }
+
+      if (tradingTypeMarket) {
+        return false
+      }
+
+      if (price.lte(0)) {
+        return false
+      }
+
+      const deviation = new BigNumberInBase(1)
+        .minus(
+          orderTypeBuy
+            ? lastTradedPrice.dividedBy(price)
+            : price.dividedBy(lastTradedPrice)
+        )
+        .times(100)
+
+      return deviation.gt(DEFAULT_PRICE_WARNING_DEVIATION)
+    },
+
     amountNotValidNumberError(): TradeError | undefined {
       const { form } = this
 
@@ -843,13 +894,22 @@ export default Vue.extend({
     },
 
     notionalValue(): BigNumberInBase {
-      const { executionPrice, amount, market } = this
+      const {
+        derivativeMarkPrice,
+        tradingTypeMarket,
+        executionPrice,
+        amount,
+        market
+      } = this
 
-      if (executionPrice.isNaN() || amount.isNaN() || !market) {
+      if (amount.isNaN() || !market) {
         return ZERO_IN_BASE
       }
 
-      const notional = executionPrice.times(amount)
+      const price = tradingTypeMarket
+        ? new BigNumberInBase(derivativeMarkPrice)
+        : executionPrice
+      const notional = amount.times(price)
 
       if (notional.lt(0)) {
         return ZERO_IN_BASE
@@ -1102,6 +1162,21 @@ export default Vue.extend({
       this.form.amount = amount
     },
 
+    onTradingTypeToggle() {
+      this.tradingType =
+        this.tradingType === TradeExecutionType.LimitFill
+          ? TradeExecutionType.Market
+          : TradeExecutionType.LimitFill
+    },
+
+    handleEnableAcceptHighPriceDeviations() {
+      this.$accessor.app.setAcceptHighPriceDeviations(true)
+    },
+
+    handleDisableAcceptHighPriceDeviations() {
+      this.$accessor.app.setAcceptHighPriceDeviations(false)
+    },
+
     onLeverageChange(leverage: string) {
       const { maxLeverageAvailable } = this
       const leverageToBigNumber = new BigNumberInBase(leverage)
@@ -1188,7 +1263,9 @@ export default Vue.extend({
         hasErrors,
         maxOrdersError,
         tradingTypeMarket,
-        isUserWalletConnected
+        isUserWalletConnected,
+        priceHasHighDeviationWarning,
+        acceptHighPriceDeviations
       } = this
 
       if (!isUserWalletConnected) {
@@ -1203,9 +1280,26 @@ export default Vue.extend({
         return this.$toast.error(maxOrdersError)
       }
 
-      return tradingTypeMarket
-        ? this.submitMarketOrder()
-        : this.submitLimitOrder()
+      if (tradingTypeMarket) {
+        return this.submitMarketOrder()
+      }
+
+      if (!priceHasHighDeviationWarning) {
+        return this.submitLimitOrder()
+      }
+
+      // If price has high deviation, we open a confirm modal
+      if (acceptHighPriceDeviations) {
+        return this.$accessor.modal.openModal(Modal.OrderConfirm)
+      } else {
+        // If price has high deviation, show a confirm toast that can disable the setting
+        return this.$onConfirm(
+          this.$t('high_price_deviation_warning', {
+            percentage: DEFAULT_PRICE_WARNING_DEVIATION
+          }),
+          this.handleEnableAcceptHighPriceDeviations
+        )
+      }
     }
   }
 })

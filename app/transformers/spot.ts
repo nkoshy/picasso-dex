@@ -1,5 +1,9 @@
-import { BigNumberInWei, BigNumberInBase } from '@injectivelabs/utils'
-import { getTokenMetaData } from '../services/tokens'
+import {
+  BigNumber,
+  BigNumberInWei,
+  BigNumberInBase
+} from '@injectivelabs/utils'
+import { getCoinGeckoId, getTokenMetaData } from '../services/tokens'
 import { grpcTokenMetaToToken, tokenMetaToToken } from './token'
 import { getDecimalsFromNumber } from '~/app/utils/helpers'
 import { spot as sortSpotMarkets } from '~/routes.config'
@@ -10,7 +14,9 @@ import {
   SpotMarketMap,
   UiSpotMarketSummary,
   BaseUiSpotMarketWithPartialTokenMetaData,
-  BaseUiSpotMarketWithTokenMetaData
+  BaseUiSpotMarketWithTokenMetaData,
+  MarketType,
+  Change
 } from '~/types'
 
 export const spotMarketToUiSpotMarket = (
@@ -18,6 +24,8 @@ export const spotMarketToUiSpotMarket = (
 ): UiSpotMarket => {
   return {
     ...market,
+    type: MarketType.Spot,
+    subType: MarketType.Spot,
     priceDecimals: getDecimalsFromNumber(
       new BigNumberInWei(market.minPriceTickSize)
         .toBase(market.quoteToken.decimals - market.baseToken.decimals)
@@ -41,6 +49,14 @@ export const baseUiSpotMarketToBaseUiSpotMarketWithPartialTokenMetaData = (
   const quoteToken = market.quoteToken
     ? grpcTokenMetaToToken(market.quoteToken, market.quoteDenom)
     : tokenMetaToToken(getTokenMetaData(market.quoteDenom), market.quoteDenom)
+
+  if (baseToken && !baseToken.coinGeckoId) {
+    baseToken.coinGeckoId = getCoinGeckoId(baseToken.symbol)
+  }
+
+  if (quoteToken && !quoteToken.coinGeckoId) {
+    quoteToken.coinGeckoId = getCoinGeckoId(quoteToken.symbol)
+  }
 
   return {
     ...market,
@@ -79,7 +95,12 @@ export const marketSummaryToUiMarketSummary = (
 ): UiSpotMarketSummary => {
   return {
     ...newSummary,
-    lastPrice: oldSummary.price
+    lastPrice: oldSummary.price,
+    lastPriceChange: new BigNumber(oldSummary.price).eq(newSummary.price)
+      ? oldSummary.lastPriceChange || Change.NoChange
+      : new BigNumber(newSummary.price).gte(oldSummary.price)
+      ? Change.Increase
+      : Change.Decrease
   }
 }
 

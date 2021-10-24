@@ -1,5 +1,13 @@
-import { BigNumberInBase } from '@injectivelabs/utils'
-import { getTokenMetaData, getTokenMetaDataBySymbol } from '../services/tokens'
+import {
+  BigNumber,
+  BigNumberInBase,
+  BigNumberInWei
+} from '@injectivelabs/utils'
+import {
+  getTokenMetaData,
+  getTokenMetaDataBySymbol,
+  getCoinGeckoId
+} from '../services/tokens'
 import { grpcTokenMetaToToken, tokenMetaToToken } from './token'
 import { getDecimalsFromNumber } from '~/app/utils/helpers'
 import { derivatives as sortPerpetualMarkets } from '~/routes.config'
@@ -10,7 +18,9 @@ import {
   DerivativeMarketMap,
   UiDerivativeMarketSummary,
   BaseUiDerivativeMarketWithTokenMetaData,
-  BaseUiDerivativeMarketWithPartialTokenMetaData
+  BaseUiDerivativeMarketWithPartialTokenMetaData,
+  MarketType,
+  Change
 } from '~/types'
 
 export const derivativeMarketToUiDerivativeMarket = (
@@ -18,6 +28,8 @@ export const derivativeMarketToUiDerivativeMarket = (
 ): UiDerivativeMarket => {
   return {
     ...market,
+    type: MarketType.Derivative,
+    subType: MarketType.Perpetual,
     quantityDecimals: getDecimalsFromNumber(market.minQuantityTickSize),
     priceDecimals: getDecimalsFromNumber(
       new BigNumberInBase(market.minPriceTickSize)
@@ -36,6 +48,10 @@ export const baseUiDerivativeMarketToBaseUiDerivativeMarketWithPartialTokenMetaD
   const quoteToken = market.quoteToken
     ? grpcTokenMetaToToken(market.quoteToken, market.quoteDenom)
     : tokenMetaToToken(getTokenMetaData(market.quoteDenom), market.quoteDenom)
+
+  if (quoteToken && !quoteToken.coinGeckoId) {
+    quoteToken.coinGeckoId = getCoinGeckoId(quoteToken.symbol)
+  }
 
   return {
     ...market,
@@ -83,7 +99,12 @@ export const marketSummaryToUiMarketSummary = (
 ): UiDerivativeMarketSummary => {
   return {
     ...newSummary,
-    lastPrice: oldSummary.price
+    lastPrice: oldSummary.price,
+    lastPriceChange: new BigNumber(oldSummary.price).eq(newSummary.price)
+      ? oldSummary.lastPriceChange || Change.NoChange
+      : new BigNumber(newSummary.price).gte(oldSummary.price)
+      ? Change.Increase
+      : Change.Decrease
   }
 }
 

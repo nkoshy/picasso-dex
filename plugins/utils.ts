@@ -28,4 +28,38 @@ export default ({ app }: Context, inject: any) => {
       console.error(error)
     }
   })
+
+  inject('onError', (error: Error) => {
+    app.$toast.error(error.message)
+
+    if (IS_PRODUCTION && !isErrorExcludedFromReporting(error)) {
+      app.$bugsnag.notify(error)
+    } else {
+      console.error(error)
+    }
+  })
+
+  inject('onConfirm', <T extends Function>(message: string, callback: T) => {
+    app.$toast.clear()
+    return app.$toast.show(message, {
+      duration: 10000,
+      action: [
+        {
+          class: 'text-primary-500',
+          text: 'Confirm',
+          onClick: (_e: any, toastObject: any) => {
+            toastObject.goAway(0)
+            callback()
+          }
+        },
+        {
+          class: 'text-gray-300',
+          text: 'Cancel',
+          onClick: (_e: any, toastObject: any) => {
+            toastObject.goAway(0)
+          }
+        }
+      ]
+    })
+  })
 }

@@ -1,15 +1,72 @@
+.overflow-fix {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
+.table-orders {
+  @apply h-full min-h-orders max-h-2xs;
+
+  @screen lg {
+    @apply max-h-xs;
+  }
+
+  @screen 4xl {
+    @apply max-h-lg;
+  }
+}
+
+.orderbook-h {
+  @apply h-md;
+
+  @screen lg {
+    @apply h-xl;
+  }
+
+  @screen 4xl {
+    @apply h-3xl;
+  }
+}
+
+.orderbook-half-h {
+  @apply h-48;
+
+  @screen lg {
+    @apply h-2xs;
+  }
+
+  @screen 4xl {
+    height: 21rem;
+  }
+}
+
+.orderbook-middle-h {
+  @apply h-8;
+
+  @screen lg {
+    @apply h-8;
+  }
+
+  @screen 4xl {
+    @apply h-16;
+  }
+}
+
+.card-table-wrap-content {
+  @apply bg-gray-900 px-4 py-2 rounded-lg mt-2 flex-1 w-full;
+}
+
 .toasted.bubble {
   @apply shadow-md border;
 }
 
 .toasted.bubble.error {
-  @apply text-red-900 font-bold;
+  @apply text-gray-800 font-bold;
   background: theme('colors.red.500') !important;
 }
 
 .toasted.bubble.info {
   @apply text-gray-500 shadow-md;
-  background: theme('colors.dark.700') !important;
+  background: theme('colors.gray.700') !important;
 
   .action {
     @apply font-bold;
@@ -21,8 +78,25 @@
 }
 
 .toasted.bubble.success {
-  @apply text-aqua-900 font-bold;
-  background: theme('colors.aqua.500') !important;
+  @apply text-gray-800 font-bold;
+  background: theme('colors.primary.500') !important;
+}
+
+.toasted.bubble.default {
+  @apply text-gray-200 shadow-sm;
+  background: theme('colors.gray.600') !important;
+}
+
+.toasted-container .toasted.default .action.text-primary-500 {
+  @apply text-primary-500 font-bold;
+}
+
+.toasted-container .toasted.default .action.text-red-500 {
+  @apply text-red-500 font-bold;
+}
+
+.toasted-container .toasted.default .action.text-gray-300 {
+  @apply text-gray-300 font-bold;
 }
 
 .bg-gradient-300 {
@@ -103,7 +177,7 @@
 
   &.up {
     @apply visible;
-    fill: theme('colors.primary.500');
+    fill: theme('colors.aqua.500');
     opacity: 0.35;
     animation: sizeColUp 0.5s ease-in-out;
     color: rgb(255, 255, 255) !important;
@@ -120,7 +194,7 @@
 
 @keyframes sizeColUp {
   0% {
-    background-color: theme('colors.primary.500');
+    background-color: theme('colors.aqua.500');
   }
   100% {
     background-color: unset;
@@ -133,5 +207,11 @@
   }
   100% {
     background-color: unset;
+  }
+}
+
+nav {
+  a.is-active {
+    @apply bg-gray-950 font-semibold;
   }
 }

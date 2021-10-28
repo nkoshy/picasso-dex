@@ -98,6 +98,11 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    poppins: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
 
     muted: {
       required: false,
@@ -134,18 +139,18 @@ export default Vue.extend({
     classes(): string {
       const classes = []
 
-      if (this.mutedSm) {
-        classes.push('text-gray-400')
-      } else if (this.mutedMd) {
-        classes.push('text-gray-300')
-      } else if (this.mutedEmp || this.mutedLg) {
-        classes.push('text-gray-600')
-      } else if (this.muted) {
-        classes.push('text-gray-500')
-      }
+      // if (this.mutedSm) {
+      //   classes.push('text-gray-400')
+      // } else if (this.mutedMd) {
+      //   classes.push('text-gray-300')
+      // } else if (this.mutedEmp || this.mutedLg) {
+      //   classes.push('text-gray-600')
+      // } else if (this.muted) {
+      //   classes.push('text-gray-500')
+      // }
 
       if (this.emp) {
-        classes.push('text-white', 'font-bold')
+        classes.push('text-white', 'font-normal')
       }
 
       if (this.semibold) {
@@ -158,6 +163,10 @@ export default Vue.extend({
 
       if (this.uppercase) {
         classes.push('uppercase')
+      }
+
+      if(this.poppins){
+        classes.push('font-poppins')
       }
 
       if (this.primary) {

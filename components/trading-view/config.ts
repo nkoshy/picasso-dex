@@ -28,7 +28,11 @@ export default function ({
     interval,
     timezone,
     timeframe: '1D',
+<<<<<<< HEAD
     toolbar_bg: theme.colors.gray[900],
+=======
+    toolbar_bg: theme.colors['light-purple'],
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     height: '100%',
     width: '100%',
     container_id: 'tv_chart_container',
@@ -62,8 +66,9 @@ export default function ({
       'save_chart_properties_to_local_storage',
       'use_localstorage_for_settings'
     ],
-    client_id: 'injective.exchange',
+    client_id: 'trade.picasso.exchange',
     loading_screen: {
+<<<<<<< HEAD
       backgroundColor: theme.colors.gray[800],
       foregroundColor: theme.colors.gray[200]
     },
@@ -71,9 +76,18 @@ export default function ({
       'paneProperties.background': theme.colors.gray[900],
       'paneProperties.vertGridProperties.color': theme.colors.gray[700],
       'paneProperties.horzGridProperties.color': theme.colors.gray[700],
+=======
+      backgroundColor: theme.colors.blueish,
+      foregroundColor: theme.colors['light-purple']
+    },
+    overrides: {
+      'paneProperties.background': theme.colors['light-purple'],
+      'paneProperties.vertGridProperties.color': theme.colors.blueish,
+      'paneProperties.horzGridProperties.color': theme.colors.blueish,
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
       'paneProperties.vertGridProperties.style': 1,
       'paneProperties.horzGridProperties.style': 1,
-      'paneProperties.crossHairProperties.color': theme.colors.gray[200],
+      'paneProperties.crossHairProperties.color': theme.colors.blueish,
 
       'scalesProperties.textColor': theme.colors.gray[200],
       'scalesProperties.lineColor': theme.colors.gray[700],
@@ -83,24 +97,28 @@ export default function ({
       'mainSeriesProperties.showCountdown': false,
 
       // Bar style
-      'mainSeriesProperties.barStyle.upColor': theme.colors.aqua[500],
-      'mainSeriesProperties.barStyle.downColor': theme.colors.red[500],
+      'mainSeriesProperties.barStyle.upColor': theme.colors['neon-green-main'],
+      'mainSeriesProperties.barStyle.downColor': theme.colors['dark-red'],
       'mainSeriesProperties.barStyle.barColorsOnPrevClose': false,
       'mainSeriesProperties.barStyle.dontDrawOpen': true,
       // Candle Style
-      'mainSeriesProperties.candleStyle.upColor': theme.colors.aqua[500],
-      'mainSeriesProperties.candleStyle.borderUpColor': theme.colors.aqua[500],
-      'mainSeriesProperties.candleStyle.downColor': theme.colors.red[500],
-      'mainSeriesProperties.candleStyle.borderDownColor': theme.colors.red[500],
+      'mainSeriesProperties.candleStyle.upColor': theme.colors['neon-green-main'],
+      'mainSeriesProperties.candleStyle.borderUpColor':
+        theme.colors.primary[500],
+      'mainSeriesProperties.candleStyle.downColor': theme.colors['dark-red'],
+      'mainSeriesProperties.candleStyle.borderDownColor':
+      theme.colors.red[500],
       'mainSeriesProperties.candleStyle.drawWick': true,
       'mainSeriesProperties.candleStyle.wickUpColor': theme.colors.aqua[500],
       'mainSeriesProperties.candleStyle.wickDownColor': theme.colors.red[500],
       'mainSeriesProperties.candleStyle.barColorsOnPrevClose': false,
       // Hollow Candle Style
-      'mainSeriesProperties.hollowCandleStyle.upColor': theme.colors.aqua[500],
+      'mainSeriesProperties.hollowCandleStyle.upColor':
+      theme.colors['neon-green-main'],
       'mainSeriesProperties.hollowCandleStyle.borderUpColor':
-        theme.colors.aqua[500],
-      'mainSeriesProperties.hollowCandleStyle.downColor': theme.colors.red[500],
+        theme.colors.primary[500],
+      'mainSeriesProperties.hollowCandleStyle.downColor':
+      theme.colors['dark-red'],
       'mainSeriesProperties.hollowCandleStyle.borderDownColor':
         theme.colors.red[500],
       'mainSeriesProperties.hollowCandleStyle.drawWick': false,
@@ -120,7 +138,7 @@ export default function ({
       'mainSeriesProperties.areaStyle.color2': theme.colors.red[500],
       'mainSeriesProperties.areaStyle.linecolor': theme.colors.red[500],
       // Line styles
-      'mainSeriesProperties.lineStyle.color': theme.colors.red[500],
+      'mainSeriesProperties.lineStyle.color': theme.colors['gradient-blue'],
       'mainSeriesProperties.lineStyle.linestyle': 0,
       'mainSeriesProperties.lineStyle.linewidth': 1,
       // Baseline styles
@@ -141,7 +159,7 @@ export default function ({
       'paneProperties.legendProperties.showSeriesTitle': false,
       'paneProperties.legendProperties.showSeriesOHLC': true,
       'paneProperties.legendProperties.showStudyTitles': true,
-      'paneProperties.legendProperties.showStudyValues': true,
+      'paneProperties.legendProperties.showStudyValues': true,      
       'paneProperties.topMargin': 12,
       'paneProperties.bottomMargin': 2,
       'scalesProperties.fontSize': 12,

@@ -2,7 +2,7 @@
   <div
     id="tv_chart_container"
     ref="tradingView"
-    class="tv_chart_container h-full"
+    class="tv_chart_container bg-dark-blue h-full"
   ></div>
 </template>
 
@@ -45,7 +45,7 @@ export default Vue.extend({
       interval: this.interval,
       datafeedEndpoint: this.datafeedEndpoint
     })
-
+    // eslint-disable-next-line no-console
     // @ts-ignore
     this.tradingView = new TradingWidget(widgetOptions)
     this.tradingView.onChartReady(() => {

@@ -1,6 +1,6 @@
 <template>
-  <v-ui-card class="h-full">
-    <infinite-slide-bar duration="30s" class="mt-2">
+  <v-ui-card class="h-full bg-light-purple rounded-md">
+    <infinite-slide-bar duration="30s" class="mt-3">
       <div class="flex justify-around items-center">
         <div
           v-for="singleMarket in transformedMarkets"
@@ -12,7 +12,7 @@
             @click.stop.prevent="onClickMarket(singleMarket)"
           >
             <p class="leading-none">
-              <v-ui-text sm class="font-semibold">{{
+              <v-ui-text class="font-sora font-semibold text-sm color-white">{{
                 singleMarket.ticker
               }}</v-ui-text>
             </p>
@@ -27,7 +27,7 @@
                     ? SpotOrderSide.Buy
                     : SpotOrderSide.Sell
               }"
-              class="mr-1"
+              class="mr-1 mt-2 text-light-green"
             />
           </v-ui-text>
         </div>

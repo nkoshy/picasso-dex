@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div v-if="market" class="px-4 w-full">
     <div class="flex items-center justify-center">
       <v-button
@@ -48,6 +49,84 @@
           ref="input-amount"
           :value="form.amount"
           :label="$t('amount')"
+=======
+  <div v-if="market" class="p-3 w-full bg-light-purple">
+    <div class="w-full flex font-sora">
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.LimitFill"
+        small
+      >
+        {{ $t('limit') }}
+      </v-ui-button-select>
+
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.Market"
+        small
+      >
+        {{ $t('market') }}
+      </v-ui-button-select>
+    </div>
+
+    <div class="w-full flex mt-3.5 font-sora">
+      <v-ui-button-select
+        v-model="orderType"
+        :option="DerivativeOrderSide.Buy"
+        half
+        primary
+        case
+        nonprimary
+      >
+        {{ $t('long_asset', { asset: market.baseToken.symbol }) }}
+      </v-ui-button-select>
+      <v-ui-button-select
+        v-model="orderType"
+        :option="DerivativeOrderSide.Sell"
+        half
+        accent
+        case
+        primary
+        nonprimary
+      >
+        {{ $t('short_asset', { asset: market.baseToken.symbol }) }}
+      </v-ui-button-select>
+    </div>
+
+
+    <div class="mt-10">
+      <div
+        v-if="true"
+        slot="context"
+        class="text-xs text-gray-400 flex pb-5 justify-between"
+      >
+        <div>
+          <span class="font-sora text-xs opacity-40 text-white">Available</span>
+        </div>
+        <div class="text-xs">
+          <v-ui-format-amount v-if="quoteBalance !== undefined"
+        v-bind="{
+          value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
+        }"
+      />
+          <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
+            {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
+          </span> -->
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
+            {{market.ticker.split('/')[1]}}
+          </span>
+        </div>
+      </div>
+      <v-order-leverage
+        :leverage="form.leverage"
+        :max-leverage="maxLeverageAvailable.toFixed()"
+        @change="onLeverageChange"
+      />
+      <div class="mb-4">
+        <v-input
+          ref="input-amount"
+          :value="form.amount"
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
           :custom-handler="true"
           :max-selector="true"
           :placeholder="$t('amount')"
@@ -56,9 +135,13 @@
           min="0"
           @blur="onAmountBlur"
           @input="onAmountChange"
-          @input-max="() => onMaxInput(100)"
+          @input-max="() => onMaxInput(20)"
         >
+        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs font-sora font-white">
+        Max
+      </span>
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
+<<<<<<< HEAD
           <div slot="context" class="text-xs text-gray-400 flex items-center">
             <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)">
               25%
@@ -73,6 +156,22 @@
               100%
             </span>
           </div>
+=======
+          <!-- <div slot="context" class="text-xs text-gray-400 flex items-center">
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
+              >25%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
+              >50%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
+              >75%</span
+            >
+            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
+              >100%</span
+            >
+          </div> -->
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         </v-input>
         <span v-if="amountError" class="text-2xs font-semibold text-red-500">
           {{ amountError }}
@@ -89,7 +188,11 @@
           ref="input-price"
           :value="form.price"
           :placeholder="$t('price')"
+<<<<<<< HEAD
           :label="$t('price')"
+=======
+          :max-selector="true"
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
           :disabled="tradingTypeMarket"
           type="number"
           :step="priceStep"
@@ -103,6 +206,7 @@
           {{ priceError }}
         </span>
       </div>
+<<<<<<< HEAD
 
       <v-order-leverage
         class="mt-6"
@@ -114,6 +218,19 @@
       <v-order-leverage-select
         v-if="false"
         class="mt-4"
+=======
+       <div>
+      <v-ui-text class="opacity-40 font-sora text-xsm font-normal text-white"
+        muted-md
+        tag="h3"
+        v-bind="{ '2xs': true }"
+        v-html="$t('max_leverage', { max: maxLeverageAvailable.toFixed() })"
+      >
+      </v-ui-text>
+    </div>
+      <v-order-leverage-select
+        class="mt-2"
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         :max-leverage="maxLeverageAvailable.toFixed()"
         :leverage="form.leverage"
         @change="onLeverageChange"
@@ -155,8 +272,13 @@
         class="w-full"
         @click.stop="onSubmit"
       >
+<<<<<<< HEAD
         {{ $t(orderTypeBuy ? 'buy_long' : 'sell_short') }}
       </v-button>
+=======
+        {{ $t(orderTypeBuy ? 'buy now' : 'sell now') }}
+      </v-ui-button>
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     </div>
 
     <v-modal-order-confirm
@@ -174,11 +296,16 @@ import OrderDetails from './order-details.vue'
 import OrderLeverage from './order-leverage.vue'
 import OrderLeverageSelect from './order-leverage-select.vue'
 import OrderDetailsMarket from './order-details-market.vue'
+import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
   NUMBER_REGEX,
+<<<<<<< HEAD
   DEFAULT_PRICE_WARNING_DEVIATION
+=======
+  UI_DEFAULT_PRICE_DISPLAY_DECIMALS
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import VModalOrderConfirm from '~/components/partials/modals/order-confirm.vue'
@@ -193,7 +320,11 @@ import {
   TradeDirection,
   UiDerivativeMarketSummary,
   UiDerivativeLimitOrder,
+<<<<<<< HEAD
   Modal
+=======
+  UiSubaccountBalanceWithToken
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -223,7 +354,11 @@ export default Vue.extend({
     'v-order-leverage': OrderLeverage,
     'v-order-leverage-select': OrderLeverageSelect,
     'v-order-details-market': OrderDetailsMarket,
+<<<<<<< HEAD
     VModalOrderConfirm
+=======
+    'v-slider': Slider
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
   },
 
   data() {
@@ -239,6 +374,30 @@ export default Vue.extend({
   },
 
   computed: {
+    quoteBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const quoteBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.quoteDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
+        token: market.quoteToken,
+        denom: market.quoteDenom
+      }
+    },
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
     },
@@ -1013,6 +1172,7 @@ export default Vue.extend({
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
     this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
+    this.onLeverageChange("1");
   },
 
   methods: {
@@ -1022,7 +1182,8 @@ export default Vue.extend({
      * and then we update the amount again to acount the fees
      * into consideration
      */
-    onMaxInput(percent = 100) {
+    onMaxInput(percent = 20) {
+      this.form.leverage = percent.toString();
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
@@ -1159,7 +1320,15 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
-      this.form.amount = amount
+      // const maxAmount = this.getMaxAmountValue(20);
+      // if(maxAmount){
+      //   this.form.leverage = String((Number(amount)/Number(maxAmount))*100);
+
+      // }
+      // else{
+      //   this.form.leverage='0';
+      // }
+       this.form.amount = amount
     },
 
     onTradingTypeToggle() {
@@ -1178,9 +1347,9 @@ export default Vue.extend({
     },
 
     onLeverageChange(leverage: string) {
+      this.onAmountChange(this.getMaxAmountValue(Number(leverage)));
       const { maxLeverageAvailable } = this
-      const leverageToBigNumber = new BigNumberInBase(leverage)
-
+      const leverageToBigNumber = new BigNumberInBase(leverage);
       if (leverageToBigNumber.gte(maxLeverageAvailable)) {
         this.form.leverage = maxLeverageAvailable.toFixed()
       } else if (leverageToBigNumber.lte(1)) {

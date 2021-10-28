@@ -1,38 +1,43 @@
 <template>
-  <div class="flex justify-between items-center relative px-4 xl:w-64">
+  <div class="flex justify-between items-center relative px-3 xl:w-52 py-2">
     <div
-      id="wallet-dropdown"
+    :class="isDropdownOpen ? 'is-active' : ''"
       class="
-        items-center
-        justify-start
-        sm:justify-center
         select-none
         cursor-pointer
-        flex
+        group
+        block
         w-full
+        border-2
+        border-solid
+        rounded-md
+        border-lightBlue
+        p-4
       "
-      @click.stop="toggleDropdown"
+      @click="toggleDropdown"
     >
-      <v-ui-icon
+      <!-- <v-ui-icon
         :class="isUserWalletConnected ? 'text-primary-500' : 'text-white'"
         :icon="Icon.Wallet"
         lg
         class="mr-4 hidden md:block"
-      />
+      /> -->
       <div class="whitespace-nowrap">
         <div v-if="!isUserWalletConnected" class="w-full">
-          <p class="text-gray-500 text-2xs leading-none">
-            {{ $t('not_connected') }}
-          </p>
-          <p class="font-semibold text-white">
-            {{ $t('connect_to_wallet') }}
+            <!-- <p class="text-gray-500 text-2xs leading-none">
+              {{ $t('not_connected') }}
+            </p> -->
+          <p class="text-white text-md font-sora">
+            {{ $t('connect_wallet') }}
           </p>
         </div>
-        <div v-else>
-          <p class="text-gray-500 text-2xs leading-none">
+        <div v-else class="flex">
+          <img :src="`/home/Wallet.svg`" alt="wallet" />
+          <div class="ml-2">
+          <p class="text-white text-2xs leading-none font-sora">
             {{ $t('connected') }}
           </p>
-          <p class="font-bold text-sm text-white font-mono">
+          <p class="font-bold text-sm text-white font-sora">
             <span>
               {{ formattedAddress }}
             </span>
@@ -40,73 +45,54 @@
               v-clipboard="() => injectiveAddress"
               v-clipboard:success="() => $toast.success($t('address_copied'))"
             >
-              <v-ui-icon
+              <!-- <v-ui-icon
                 :icon="Icon.Copy"
                 :tooltip="$t('copy_address')"
                 class="text-gray-500 hover:text-primary-500"
                 stroke-only
                 xs
-              />
+              /> -->
             </span>
           </p>
+          </div>
         </div>
       </div>
       <v-ui-icon
         :icon="Icon.Dropdown"
         xs
-        class="text-gray-500 group-hover:text-gray-300 ml-4"
+        class="text-gray-500 group-hover:text-gray-300 ml-4 hidden"
       />
     </div>
-
+    <transition name="fade">
     <div
+      v-if="isDropdownOpen"
       v-on-clickaway="closeDropdown"
-      :class="isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'"
-      class="
-        absolute
-        flex
-        justify-center
-        border
-        flex-wrap
-        top-0
-        left-auto
-        mr-0
-        -mx-px
-        right-0
-        min-w-xs
-        mt-12
-        rounded rounded-tl-none
-        bg-dark-700
-        shadow-md
-      "
+      :class="classes"
     >
-      <ul v-if="!isUserWalletConnected" class="py-2 px-1">
+      <div v-if="!isUserWalletConnected" class="pt-8 pr-4 pb-3 pl-3.5 w-52 h-40">
         <v-disclaimer v-if="TRANSFER_RESTRICTIONS_ENABLED" />
         <v-metamask />
-        <v-ledger class="mt-2" />
-      </ul>
-      <div v-else class="flex flex-wrap w-full">
-        <div
+        <hr class="border border-solid border-commuity" />
+        <v-ledger />
+      </div>
+      <div v-else class="flex flex-wrap py-6 px-5">
+        <!-- <div
           class="
             w-full
-            bg-dark-700
             font-semibold
-            py-2
-            px-4
             text-sm
+            font-sora
             cursor-pointer
-            hover:bg-hover300
           "
           @click.stop="onTransferNavClick"
         >
           <span>{{ $t('transfer') }}</span>
-        </div>
+        </div> -->
         <div
           class="
             w-full
-            bg-dark-700
-            font-semibold
-            py-2
-            px-4
+            text-white
+            font-sora
             text-sm
             cursor-pointer
             hover:bg-hover300
@@ -117,6 +103,8 @@
         </div>
       </div>
     </div>
+    </transition>
+     <modal-login />
   </div>
 </template>
 
@@ -131,24 +119,35 @@ import VMetamask from './wallets/metamask.vue'
 import VLedger from './wallets/ledger.vue'
 import { TRANSFER_RESTRICTIONS_ENABLED } from '~/app/utils/constants'
 import { Icon, Modal } from '~/types'
+import ModalLogin from '~/components/partials/login-modal.vue'
+import { verifyUserAuthentication } from '~/utils/localStroage'
 
 export default Vue.extend({
   components: {
     VMetamask,
     VLedger,
-    VDisclaimer
+    VDisclaimer,
+    'modal-login': ModalLogin
   },
 
   directives: {
     onClickaway
   },
 
+  props: {
+    landingPage: {
+      required: false,
+      default: false,
+      type: Boolean
+    }
+  },
+
   data() {
     return {
       TRANSFER_RESTRICTIONS_ENABLED,
+      Icon,
       isDropdownOpen: false,
       Wallet,
-      Icon
     }
   },
 
@@ -173,20 +172,46 @@ export default Vue.extend({
       const { injectiveAddress } = this
 
       return formatWalletAddress(injectiveAddress)
+    },
+
+    classes(): string {
+      const classes = [
+        'absolute',
+        'left-auto',
+        'mr-0',
+        '-mx-px',
+        'bg-common-pattern',
+        'bg-no-repeat',
+        'bg-contain'
+      ];
+
+      if(!this.landingPage) {
+        classes.push('mt-16', 'top-14', '-right-8')
+      } else {
+        classes.push('mt-1', 'bg-dark-main', 'top-20', 'mt-2.5')
+      }
+
+      return classes.join(' ')
     }
   },
 
   methods: {
+    toggleDropdown() {
+      // this.isDropdownOpen = !this.isDropdownOpen
+      const authenticate = verifyUserAuthentication();
+      if (!authenticate) {
+        this.$accessor.modal.openModal(Modal.Login);
+         document.body.style.overflow = 'hidden';
+      }
+      if(authenticate) {
+        this.isDropdownOpen = !this.isDropdownOpen
+      }
+    },
     closeDropdown() {
       if (this.isDropdownOpen) {
         this.isDropdownOpen = false
       }
     },
-
-    toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
-    },
-
     onLogoutClick() {
       this.$accessor.wallet.logout()
     },

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="market" class="p-4">
-    <div class="px-2 -mb-2">
+  <div v-if="market" class="pt-6">
+    <div>
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="balanceToString">{{ balanceToString }}</span>
         <span v-else class="text-gray-400 font-normal text-xs">&mdash;</span>
@@ -29,7 +29,7 @@
               market ? market.quoteToken.symbol : ''
             }}</span>
           </v-input>
-          <v-ui-text xs muted class="flex items-center mt-1">
+          <v-ui-text xs muted class="flex items-center mt-1 opacity-60">
             {{
               $t('small_bridge_fee_note', {
                 fee: bridgeFee.toFixed(),
@@ -49,8 +49,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              primary
               :disabled="!form.amount || invalid"
               @click.stop="handleWithdrawClick"
             >

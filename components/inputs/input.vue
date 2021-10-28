@@ -1,46 +1,62 @@
 <template>
-  <!-- eslint-disable vue/no-v-html -->
-  <div class="w-full input-wrap" :class="classes">
-    <div>
-      <div class="flex items-center justify-between">
-        <label
-          v-if="!large"
-          :for="$attrs.id"
-          class="block text-xs font-semibold text-gray-200"
-          v-html="$attrs.label || ''"
-        >
-          <span
-            v-if="error && !errorBelow"
-            class="text-red-400 italic font-semibold"
-          >
-            * {{ error }}
-          </span>
-        </label>
-        <div v-if="$slots['context']" class="leading-none">
-          <slot name="context" />
-        </div>
+  <div :class="validationClass" class="relative">
+    <div class="flex items-center justify-between">
+      <label
+        v-if="label || error"
+        :for="`input-${uid}`"
+        class="
+          text-xs
+          mb-1
+          leading-loose
+          opacity-40
+          flex
+          items-center
+          justify-between
+          font-normal
+          font-sora
+          text-white
+        "
+      >
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <span v-if="label" :class="error ? 'mr-2' : ''" v-html="label"></span>
+        <span v-if="error" class="text-red-500 italic font-semibold">
+          * {{ error }}
+        </span>
+      </label>
+      <div v-if="$slots['context']">
+        <slot name="context" />
       </div>
-      <div class="relative" :class="{ 'mt-2': !dense }">
-        <textarea
-          v-if="multiLine"
-          v-bind="$attrs"
-          rows="6"
-          :value="value"
-          class="input textarea"
-          @input="handleChangeOnInput"
-        ></textarea>
-        <input
-          v-else
-          v-bind="$attrs"
-          class="input"
-          :value="value"
-          :class="{ 'input-large': large, 'input-round': round }"
-          @blur="handleBlur"
-          @input="handleChangeOnInput"
-        />
-        <div
-          class="addon absolute inset-y-0 right-0 flex items-center"
-          :class="{ 'pr-3': !large }"
+    </div>
+    <div :class="{ 'has-addon': addon || $slots['addon'] }" class="relative rounded-md border border-light-blue-dark border-opacity-50">
+      <input
+        :id="`input-${uid}`"
+        ref="input"
+        v-bind="$attrs"
+        class="input"
+        :class="{
+          'input-lg': lg,
+          'text-lg': lg,
+          'pr-12': maxSelector,
+          
+        }"
+        :value="value"
+        @wheel="$event.target.blur()"
+        @blur.stop="$emit('blur')"
+        @focus="$event.target.select()"
+        @input="handleChange"
+      />
+
+      <span v-if="addon" class="addon">
+        <component :is="addon" />
+      </span>
+
+      <span
+        v-if="maxSelector"
+        class="addon-max cursor-pointer"
+        @click.stop="handleMaxSelector"
+      >
+        <span
+          class="px-2 py-1 text-sm font-semibold font-sora bg-light-purple"
         >
           <span v-if="showClose" @click="handleCloseEvent">
             <v-icon-close
@@ -70,14 +86,19 @@
         * {{ error }}
       </span>
     </div>
+    
   </div>
+  
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { DOMEvent } from '~/types'
-
+import Slider  from './slider.vue'
 export default Vue.extend({
+  components: {
+    'v-slider': Slider
+  },
   inheritAttrs: false,
 
   props: {
@@ -132,6 +153,18 @@ export default Vue.extend({
     },
 
     errorBelow: {
+      type: Boolean,
+      default: false
+    },
+
+    borderWidth: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    
+    borderColor: {
+      required: false,
       type: Boolean,
       default: false
     }
@@ -189,8 +222,9 @@ export default Vue.extend({
       this.$emit('input', event.target.value)
     },
 
-    handleChangeFromString(value: string) {
-      this.$emit('input', value)
+    handleChange(event: DOMEvent<HTMLSelectElement>) {
+      this.$emit('input', event.target.value)
+      
     },
 
     handleCloseEvent() {

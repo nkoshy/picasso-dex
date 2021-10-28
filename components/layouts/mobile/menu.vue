@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-4 block lg:hidden relative pt-4">
+  <div class="ml-4 block xl:hidden relative pt-2">
     <button
       :class="isMenuOpen ? 'is-active' : ''"
       class="
@@ -7,14 +7,15 @@
         outline-none
         focus:outline-none
         block
-        lg:hidden
+        xl:hidden
       "
       type="button"
       @click.stop="toggleMenu"
     >
-      <span class="hamburger-box">
+      <img :src="!isMenuOpen ? `/home/hamburger-logo.svg` : `/home/hamburger-close.svg`" class="cursor-pointer" />
+      <!-- <span class="hamburger-box">
         <span class="hamburger-inner"></span>
-      </span>
+      </span> -->
     </button>
 
     <div
@@ -22,45 +23,64 @@
       :class="isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'"
       class="
         absolute
-        flex
-        justify-center
-        border
-        flex-wrap
-        top-0
-        left-0
-        mr-0
-        min-w-2xs
-        -ml-4
+        top-12
+        pl-4
+        pr-4
+        bg-dark-black
+        min-w-xs
         right-0
-        mt-12
-        rounded rounded-tl-none
-        bg-dark-700
-        shadow-md
+        border-2
+        border-solid
+        rounded-xl
+      border-light-blue-dark
+        flex
+        flex-col
       "
     >
-      <div class="flex w-full flex-wrap h-full border">
-        <div class="w-full hover:bg-dark-800 p-2 border-b">
+      <div class="w-full p-2 mb-4 mt-8">
+          <span slot="header" class="cursor-pointer px-2 font-sora text-lg text-white" @click.stop="handleGoToMarket">
+            {{ $t('market') }}
+          </span>
+      </div>
+      <div class="p-2 mb-4">
+        <v-drawer>
+          <span slot="header" class="cursor-pointer px-2 font-sora text-lg text-white">
+            {{ $t('spot') }}
+          </span>
+          <div class="text-xs py-1">
+            <v-spot />
+          </div>
+        </v-drawer>
+      </div>
+      <div class="mb-4 p-2">
           <v-drawer>
-            <span slot="header" class="cursor-pointer px-2 text-gray-200">
-              {{ $t('spot_markets') }}
+            <span slot="header" class="cursor-pointer px-2 font-sora text-lg text-white">
+              {{ $t('derivatives') }}
             </span>
             <div class="text-xs py-1">
-              <v-spot />
+              <v-derivatives />
             </div>
           </v-drawer>
-        </div>
-        <div class="flex w-full flex-wrap h-full border">
-          <div class="w-full hover:bg-dark-800 p-2 border-b">
-            <v-drawer>
-              <span slot="header" class="cursor-pointer px-2 text-gray-200">
-                {{ $t('derivatives') }}
-              </span>
-              <div class="text-xs py-1">
-                <v-derivatives />
-              </div>
-            </v-drawer>
-          </div>
-        </div>
+      </div>
+      <div class="mb-4 p-2">
+          <v-drawer>
+            <span slot="header" class="cursor-pointer px-2 font-sora text-lg text-white">
+              {{ $t('about') }}
+            </span>
+            <div class="text-xs">
+              <v-about />
+            </div>
+          </v-drawer>
+      </div>
+      <div class="mb-8 p-2">
+          <v-drawer>
+            <span slot="header" class="cursor-pointer px-2 font-sora text-lg text-white">
+              {{ $t('community') }}
+            </span>
+            <div class="text-xs py-1">
+              <v-community />
+            </div>
+          </v-drawer>
       </div>
     </div>
   </div>
@@ -69,6 +89,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { directive as onClickaway } from 'vue-clickaway'
+import VAbout from './about-mobile.vue';
+import VCommunity from './community-mobile.vue';
 import VSpot from '~/components/partials/spot/markets/index-mobile.vue'
 import VDerivatives from '~/components/partials/derivatives/markets/index-mobile.vue'
 import Drawer from '~/components/elements/drawer.vue'
@@ -77,7 +99,9 @@ export default Vue.extend({
   components: {
     'v-drawer': Drawer,
     VSpot,
-    VDerivatives
+    VDerivatives,
+    VAbout,
+    VCommunity
   },
 
   directives: {
@@ -99,6 +123,10 @@ export default Vue.extend({
 
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen
+    },
+
+    handleGoToMarket() {
+      this.$router.push({ name: 'market' })
     }
   }
 })

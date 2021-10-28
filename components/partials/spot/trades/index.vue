@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="flex flex-col flex-wrap h-full">
     <v-table-head :market="market" />
     <div class="flex-1 w-full overflow-y-auto">
@@ -11,6 +12,12 @@
       </ul>
     </div>
   </div>
+=======
+  <v-panel class="relativ font-sora text-small font-white"  extra-classes="bg-tertiary-gradient" :title="$t('trades')">
+    <v-trades-context slot="context" keep-alive></v-trades-context>
+    <v-trades class="flex-1" />
+  </v-panel>
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
 </template>
 
 <script lang="ts">

@@ -9,12 +9,12 @@
   >
     <span class="size-col" :class="newRecordClass"></span>
     <span
-      class="depth-col"
+      class="depth-col "
       :style="depthWidth"
       :class="type === SpotOrderSide.Buy ? 'buys' : 'sells'"
     ></span>
     <span
-      class="w-1/3 text-xs px-2 flex items-center justify-end z-10"
+      class="w-1/3 text-xs px-4 cursor-pointer items-center text-light-green justify-end z-10"
       @click.stop="onPriceClick"
     >
       <v-icon-arrow
@@ -27,6 +27,7 @@
           'text-aqua-500': recordTypeBuy,
           'text-red-500': !recordTypeBuy
         }"
+<<<<<<< HEAD
       >
         {{ priceToFormat }}
       </span>
@@ -34,13 +35,30 @@
     <span class="w-1/3 text-xs px-2 z-10" @click.stop="onQuantityClick">
       <span
         class="block text-right font-mono"
+=======
+        class="text-left block"
+      />
+    </span>
+    <span class="w-1/3 text-xs px-2 z-10  " @click.stop="onQuantityClick">
+      <v-ui-format-amount
+        v-bind="{
+          value: quantity,
+          decimals: market.quantityDecimals
+        }"
+        class="text-right block "
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         :class="{
           'text-red-500': quantityChange === Change.Decrease,
           'text-aqua-500': quantityChange === Change.Increase
         }"
+<<<<<<< HEAD
       >
         {{ quantityToFormat }}
       </span>
+=======
+        
+      />
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     </span>
     <span
       class="w-1/3 text-xs px-2 z-10 font-mono text-right"

@@ -9,6 +9,27 @@
   th {
     @apply text-gray-300 text-xs font-normal align-middle leading-tight tracking-widest bg-transparent border-none select-none px-3 py-2 whitespace-nowrap;
   }
+}
+
+.table-compact {
+  @apply w-full;
+  .table {
+    @apply border-none;
+    thead {
+      th {
+        &.sortable {
+          span {
+            @apply mr-1;
+          }
+
+          &::before {
+            border-top: 5px solid theme('colors.dark.border');
+          }
+
+          &::after {
+            border-bottom: 5px solid theme('colors.dark.border');
+          }
+        }
 
   td {
     @apply text-gray-200 text-sm font-normal leading-tight bg-transparent border-none select-none align-middle px-3 py-2 whitespace-nowrap;
@@ -26,12 +47,18 @@
         }
       }
 
-      &:nth-child(even) {
-        background-color: theme('colors.gray.1000');
-      }
+    tbody {
+      tr.orders {
+        &:nth-child(odd) {
+          background-color:rgba(33, 31, 81, 0.6);
+        }
+        &:nth-child(even) {
+          background-color: #26245F;
+        }
 
-      &:hover {
-        background-color: theme('colors.gray.850') !important;
+        // &:hover {
+        //   background-color: theme('colors.dark.hover200') !important;
+        // }
       }
     }
   }

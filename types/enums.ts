@@ -24,6 +24,7 @@ export enum Icon {
   Ledger = 'ledger',
   Reddit = 'reddit',
   Search = 'search',
+  SpotSearch = 'spotSearch',
   Trash = 'trash',
   Star = 'star',
   Sync = 'sync',
@@ -34,7 +35,8 @@ export enum Icon {
   Wallet = 'wallet',
   CloseCircle = 'close-circle',
   ExternalLink = 'external-link',
-  Sort = 'sort'
+  Sort = 'sort',
+  upAndDownSort= 'upAndDownSort'
 }
 
 export enum Modal {
@@ -49,7 +51,9 @@ export enum Modal {
   Deposit = 'deposit',
   Withdraw = 'withdraw',
   TakeOut = 'take-out',
-  TransferOnChain = 'transfer-on-chain'
+  Acknowledge= 'acknowledge',
+  TransferOnChain = 'transfer-on-chain',
+  Login = 'login'
 }
 
 export enum Breakpoint {

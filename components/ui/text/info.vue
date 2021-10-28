@@ -1,9 +1,9 @@
 <template>
-  <p class="flex items-center text-sm">
+  <p class="flex items-center text-xs font-sora font-normal text-white bg-yellow-200 ">
     <v-ui-text muted-md>
       {{ title }}
     </v-ui-text>
-    <span class="flex-grow border-b border-dashed mx-4"></span>
+    <span class="flex-grow mx-4"></span>
     <v-ui-text emp>
       <slot></slot>
     </v-ui-text>

@@ -1,23 +1,40 @@
 <template>
+<div>
+ <!-- <div>
+      <v-ui-text class="opacity-40 font-sora text-xsm pb-4 font-normal text-white"
+        muted-md
+        tag="h3"
+        v-bind="{ '2xs': true }"
+        v-html="$t('max_leverage', { max: maxLeverage })"
+      >
+      </v-ui-text>
+    </div> -->
   <div class="flex items-center w-full">
     <v-button-select
       v-for="l in leverages"
       :key="`leverage-${l}`"
       :value="leverage"
       :option="l.toString()"
+<<<<<<< HEAD
       primary
       xs
       class="flex-1 text-xs"
+=======
+      leveragebtn
+      class="flex-1 text-xsm font-sora bg-blueish mx-0.5 border border-commuity"
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
       @selected="handleOnSelect(l)"
     >
       {{ `${l}x` }}
     </v-button-select>
+  </div>
   </div>
 </template>
 
 <script lang="ts">
 import BigNumber from 'bignumber.js'
 import Vue from 'vue'
+import ledgerVue from '~/components/wallets/wallets/ledger.vue'
 export default Vue.extend({
   props: {
     leverage: {

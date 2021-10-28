@@ -3,7 +3,7 @@
     <v-ui-button
       :status="status"
       full
-      aqua
+      :class="classes"
       @click.stop="handleClickSetAllowance"
     >
       {{ $t('set_allowance') }}
@@ -21,6 +21,16 @@ export default Vue.extend({
     token: {
       required: true,
       type: Object as PropType<TokenWithBalance>
+    },
+    nonbgcolor: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    primary: {
+      required: false,
+      default: false,
+      type: Boolean
     }
   },
 
@@ -29,7 +39,24 @@ export default Vue.extend({
       status: new Status()
     }
   },
+computed: {
+     classes(): string {
+      const classes = [];
 
+      if(this.nonbgcolor){
+        classes.push(
+          'border-gradient',
+          'bg-dark-blueish'
+        )
+      }
+      if(this.primary){
+        classes.push(
+          'primary-btn'
+        )
+      }
+      return classes.join(' ')
+     }
+   },
   methods: {
     handleClickSetAllowance() {
       this.status.setLoading()
@@ -46,5 +73,6 @@ export default Vue.extend({
         })
     }
   }
+   
 })
 </script>

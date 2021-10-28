@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col flex-wrap w-full overflow-y-hidden">
+<<<<<<< HEAD
     <div ref="sellOrders" class="overflow-y-scroll w-full orderbook-half-h">
       <div class="flex h-full w-full">
         <ul
@@ -41,6 +42,67 @@
           class="font-bold font-mono text-base lg:text-lg 4xl:text-xl"
         >
           {{ lastTradedPriceToFormat }}
+=======
+    <ul
+      ref="sellOrders"
+      class="list-order-book overflow-auto w-full bg-dark-purple"
+      @mouseenter="autoScrollSellsLocked = true"
+      @mouseleave="autoScrollSellsLocked = false"
+    
+    >
+      <v-record-empty
+        v-for="(emptyOrder, index) in sellsEmptyCount"
+        :key="`order-book-sell-empty-${index}`"
+      ></v-record-empty>
+      <v-record
+        v-for="(sell, index) in sellsWithDepth"
+        :key="`order-book-sell-${index}`"
+        :type="SpotOrderSide.Sell"
+        :user-orders="sellUserOrderPrices"
+        :record="sell"
+      ></v-record>
+    </ul>
+    <div
+      v-if="market"
+      class="
+        h-14
+        flex flex-col
+        items-center
+        justify-center
+      "
+    >
+      <div class="w-full flex justify-between px-2 ">
+        <span class="font-bold font-sora w-2/3 text-right text-base text-light-green pr-2">
+          <div class="inline-block mr-1">
+
+            <div class="inline-block">
+            <v-ui-format-order-price
+              v-bind="{
+                value: lastTradedPrice,
+                type:
+                  lastTradedPriceChange !== Change.Decrease
+                    ? TradeDirection.Buy
+                    : TradeDirection.Sell
+              }"
+              class="flex justify-end "
+            />
+          </div>
+
+            <v-ui-icon
+              v-if="
+                [Change.Increase, Change.Decrease].includes(
+                  lastTradedPriceChange
+                )
+              "
+              xs
+              :rotate="lastTradedPriceChange === Change.Decrease"
+              :aqua="lastTradedPriceChange === Change.Increase"
+              :red="lastTradedPriceChange === Change.Decrease"
+              :icon="Icon.Arrow"
+            />
+          </div>
+
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         </span>
       </div>
     </div>

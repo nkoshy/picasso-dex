@@ -1,9 +1,19 @@
 <template>
+<<<<<<< HEAD
   <v-panel v-if="market" class="h-full">
     <div class="flex flex-wrap items-center mt-1 py-2 px-4 lg:py-1">
       <div
         class="
           flex
+=======
+  <v-panel v-if="market" class="h-full bg-light-purple rounded-md">
+    <div
+      class="flex flex-wrap items-center  mt-1 py-2 px-4 lg:py-1 mr-4 w-full h-full md:w-auto lg:mb-0"
+    >
+    <div
+        class="
+          hidden xl:flex
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
           items-center
           mr-4
           w-full
@@ -13,14 +23,21 @@
           lg:mb-0
         "
       >
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         <img
           :src="market.baseToken.icon"
           :alt="market.baseToken.name"
-          class="w-6 h-6 mr-4"
+          class="w-6 h-6 xl:mr-4 mr-2"
         />
-        <div class="leading-none">
-          <p class="text-gray-100 font-semibold text-sm">{{ market.ticker }}</p>
-          <p class="text-gray-500 text-xs">
+        <div>
+          <p class="text-gray-100 font-bold font-sora text-sm">
+            {{ market.ticker }}
+          </p>
+          <p class="text-gray-50 text-xs">
             {{ market.baseToken.name }}
           </p>
         </div>

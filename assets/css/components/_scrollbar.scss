@@ -11,11 +11,12 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: theme('colors.gray.900');
+  background:#121035;
+
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: theme('colors.gray.700');
+  background-color:#2A2769;
   border-radius: 20px;
   border: 2px solid theme('colors.gray.900');
 }

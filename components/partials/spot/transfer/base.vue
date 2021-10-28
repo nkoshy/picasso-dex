@@ -1,6 +1,6 @@
 <template>
-  <div v-if="market" class="p-4">
-    <div class="px-2 -mb-2">
+  <div v-if="market" class="pt-6">
+    <div>
       <v-ui-text-info :title="$t('available_balance')">
         <span v-if="hasBalance">{{ balanceToString }}</span>
         <span v-else class="text-gray-400 font-normal text-xs">&mdash;</span>
@@ -40,8 +40,7 @@
             <v-ui-button
               :status="status"
               full
-              :primary="valid"
-              :ghost="invalid"
+              
               :disabled="!form.amount || invalid"
               @click.stop="handleTransferClick"
             >
@@ -51,7 +50,8 @@
         </ValidationProvider>
       </ValidationObserver>
 
-      <v-allowance v-else :token="token"></v-allowance>
+      <v-allowance v-else :token="token" nonbgcolor></v-allowance>
+      
     </div>
   </div>
 </template>
@@ -74,7 +74,8 @@ export default Vue.extend({
     token: {
       required: true,
       type: Object as PropType<TokenWithBalance>
-    }
+    },
+    
   },
 
   data() {
@@ -88,6 +89,7 @@ export default Vue.extend({
   },
 
   computed: {
+    
     market(): UiSpotMarket | undefined {
       return this.$accessor.spot.market
     },
@@ -118,7 +120,8 @@ export default Vue.extend({
       return token.balance
         .toBase(market.baseToken.decimals)
         .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_DOWN)
-    }
+    },
+    
   },
 
   methods: {

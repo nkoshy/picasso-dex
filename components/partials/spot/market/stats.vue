@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div v-if="market" class="-mx-2 h-10">
+=======
+  <div v-if="market" class="flex flex-wrap justify-start -mx-2">
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     <div class="flex overflow-x-auto overflow-y-none">
       <v-market-info :title="$t('last_traded_price')">
         <v-ui-text sm class="flex items-center justify-end w-full">

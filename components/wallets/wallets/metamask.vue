@@ -1,17 +1,13 @@
 <template>
-  <li class="mt-2">
+  <div class="mb-3">
     <div
       class="
         block
-        bg-dark-600
-        hover:bg-dark-800
-        border
-        rounded-lg
         cursor-pointer
       "
       @click="handleConnectClick"
     >
-      <div class="flex items-center p-2">
+      <!-- <div class="flex items-center p-2">
         <div class="min-w-0 flex-1 flex items-center">
           <div class="flex-shrink-0 mr-2">
             <v-icon-metamask class="w-8 h-8" />
@@ -39,10 +35,11 @@
             :icon="Icon.Dropdown"
             class="transform -rotate-90 h-5 w-5 text-gray-400"
           />
-        </div>
-      </div>
+        </div> -->
+          <p class="font-sora text-sm text-white">Metamask</p>
+          <p class="font-sora text-xsm mt-1 text-white opacity-40">Connect Using Browser Wallet</p>
     </div>
-  </li>
+  </div>
 </template>
 
 <script lang="ts">

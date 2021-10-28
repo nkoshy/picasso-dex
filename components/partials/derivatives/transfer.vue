@@ -1,18 +1,19 @@
 <template>
   <modal :is-open="isModalOpen" @closed="closeModal">
-    <div v-if="market" class="w-full md:w-xl flex flex-col shadow min-h-3xs">
+    <div v-if="market" class="w-full md:w-xl flex flex-col shadow min-h-3xs bg-model bg-no-repeat bg-cover border-solid rounded-md
+        border border-light-pink">
       <HOCLoading :status="status">
         <div v-if="quoteTokenWithBalance" class="my-6 flex flex-wrap">
-          <div class="w-full mb-6 px-4">
-            <h3 class="text-center text-2xl uppercase">
+          <div class="w-full mb-6 px-4 pt-14">
+            <h3 class="text-center text-xl font-semibold font-sora mb-4">
               {{ $t('transfer_modal_title') }}
             </h3>
-            <p class="text-sm text-center opacity-90 mt-4">
+            <p class="text-sm text-center opacity-60 font-sora font-normal text-white">
               {{ $t('transfer_modal_note') }}
             </p>
           </div>
           <div class="w-full px-4">
-            <h3 class="text-center text-base uppercase">
+            <h3 class="text-center text-sm font-sora text-white font-normal">
               {{ $t('transfer_asset', { asset: market.quoteToken.symbol }) }}
             </h3>
             <v-quote :token="quoteTokenWithBalance" />

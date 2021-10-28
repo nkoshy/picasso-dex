@@ -44,7 +44,7 @@ export default Vue.extend({
         return createElement(
           'div',
           {
-            class: 'relative h-full w-full'
+            class: 'relative h-full w-full bg-light-purple'
           },
           [
             createElement('div', {}, [
@@ -70,7 +70,7 @@ export default Vue.extend({
         return createElement(
           'div',
           {
-            class: 'relative h-full w-full'
+            class: 'relative h-full w-full bg-light-purple'
           },
           [
             createElement('v-ui-loading', {

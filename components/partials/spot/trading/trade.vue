@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div v-if="market" class="w-full">
     <div class="flex items-center justify-center">
       <v-button
@@ -48,6 +49,127 @@
           ref="input-amount"
           :value="form.amount"
           :label="$t('amount')"
+=======
+  <div v-if="market" class="p-3 w-full bg-light-purple">
+
+    <div class="w-full flex ">
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.LimitFill"
+        class="font-sora" 
+        primarylimit
+        nonprimarylimit
+      >
+        {{ $t('limit') }}
+      </v-ui-button-select>
+      <v-ui-button-select
+        v-model="tradingType"
+        :option="TradeExecutionType.Market"
+        class="text-xs font-sora"
+        primarylimit
+        nonprimarylimit
+      >
+        {{ $t('market') }}
+      </v-ui-button-select>
+      
+    </div>
+
+    <div class="w-full flex font-sora mt-3.5">
+      <v-ui-button-select
+        v-model="orderType"
+        :option="SpotOrderSide.Buy"
+        half
+        primary
+        case
+        nonprimary  
+        class="font-sora"            
+      >
+        {{ $t('buy', { asset: market.baseToken.symbol }) }}
+      </v-ui-button-select>
+      <v-ui-button-select
+        v-model="orderType"
+        :option="SpotOrderSide.Sell"
+        half
+        accent
+        case
+        primary
+        nonprimary
+        class="font-sora" 
+      >
+        {{ $t('sell', { asset: market.baseToken.symbol }) }}
+      </v-ui-button-select>
+    </div>
+    <p slot="header" class="text-sm font-normal font-sora pb-3.5 pt-4">
+        <v-ui-text muted-md>
+        {{ $t(orderTypeBuy ? 'Buy' : 'Sell') }}
+        {{market.baseToken.symbol}}
+        </v-ui-text>
+        </p>
+    
+    <div class="mt-2">
+       <div
+        v-if="true"
+        slot="context"
+        class="text-xs text-gray-400 flex pb-5 justify-between"
+      >
+        <div class="pt-2">
+          <span class="font-sora text-xs opacity-40 text-white">Available</span>
+        </div>
+        <div class="pt-2 text-xs">
+          <v-ui-format-amount v-if="quoteBalance !== undefined"
+        v-bind="{
+          value: quoteBalance.availableBalance.toBase(quoteBalance.token.decimals)
+        }"
+      />
+          <!-- <span class="cursor-pointer text-xs font-normal text-white font-sora">
+            {{ baseBalance.availableBalance.toBase(baseBalance.token.decimals) }}
+          </span> -->
+          <span class="cursor-pointer text-xs font-bold text-white font-sora">
+            {{market.ticker.split('/')[1]}}
+          </span>
+        </div>
+      </div>
+      <v-slider @onValueChange="onSliderValueChange" :sliderValue="sliderValue" />
+
+      <div v-if="!tradingTypeMarket" class="mb-4 ">
+        <v-input
+          ref="input-price"
+          :custom-handler="true"
+          :max-selector="true"
+          :value="form.price"
+          :placeholder="$t('price')"
+          type="number"
+          :step="priceStep"
+          min="0"
+          @blur="onPriceBlur"
+          @input="onPriceChange"
+          @input-max="() => onMaxInput(100)"
+        >
+          <span slot="addon">{{ market.quoteToken.symbol.toUpperCase() }}</span>
+          
+          <!-- <div
+            v-if="true"
+            slot="context"
+            class="text-xs text-gray-400 flex items-center"
+          >
+            <span class="cursor-pointer text-xs font-normal text-white font-sora"
+              >0.000005</span
+            >
+            <span class="cursor-pointer text-xs font-bold text-white font-sora"
+              >USDT</span
+            >
+          </div> -->
+        </v-input>
+        <v-ui-text v-if="priceError" semibold accent v-bind="{ '2xs': true }">
+          {{ priceError }}
+        </v-ui-text>
+      </div>
+
+      <div class="mb-4">
+        <v-input
+          ref="input-amount"
+          :value="form.amount"
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
           :custom-handler="true"
           :max-selector="true"
           :placeholder="$t('amount')"
@@ -58,7 +180,11 @@
           @input="onAmountChange"
           @input-max="() => onMaxInput(100)"
         >
+        <span class="px-22 py-1 bg-dark-700 border border-dark-600 rounded text-xs">
+        Max
+      </span>
           <span slot="addon">{{ market.baseToken.symbol.toUpperCase() }}</span>
+<<<<<<< HEAD
           <div
             slot="context"
             class="text-xs text-gray-400 flex items-center font-mono"
@@ -76,6 +202,23 @@
               100%
             </span>
           </div>
+=======
+          <!-- <div slot="context" class="text-xs text-gray-400 flex items-center">
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(25)"
+              >25%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(50)"
+              >50%</span
+            >
+            <span class="mr-1 cursor-pointer" @click.stop="onMaxInput(75)"
+              >75%</span
+            >
+            <span class="cursor-pointer" @click.stop="onMaxInput(100)"
+              >100%</span
+            >
+          </div> -->
+          
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         </v-input>
         <span v-if="amountError" class="text-2xs font-semibold text-red-500">
           {{ amountError }}
@@ -87,7 +230,14 @@
           {{ priceError }}
         </span>
       </div>
+<<<<<<< HEAD
       <div v-if="!tradingTypeMarket" class="mt-6">
+=======
+     </div>
+      <!-- <v-slider @input="onSliderValueChange"/> -->
+      
+    <!-- <div v-if="!tradingTypeMarket" class="mb-4">
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
         <v-input
           ref="input-price"
           :value="form.price"
@@ -106,7 +256,7 @@
           {{ priceError }}
         </span>
       </div>
-    </div>
+    </div> -->
     <component
       :is="tradingTypeMarket ? `v-order-details-market` : 'v-order-details'"
       v-bind="{
@@ -131,11 +281,21 @@
         :ghost="hasErrors"
         :aqua="!hasErrors && orderType === SpotOrderSide.Buy"
         :red="!hasErrors && orderType === SpotOrderSide.Sell"
+<<<<<<< HEAD
         class="w-full"
         @click.stop="onSubmit"
       >
         {{ $t(orderTypeBuy ? 'buy' : 'sell') }}
       </v-button>
+=======
+        class="uppercase"
+        wide
+        
+        @click.stop="onSubmit"
+      >
+        {{ $t(orderTypeBuy ? 'buy now' : 'sell now') }}
+      </v-ui-button>
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     </div>
 
     <v-modal-order-confirm
@@ -151,11 +311,17 @@ import { TradeError } from 'types/errors'
 import { BigNumberInWei, Status, BigNumberInBase } from '@injectivelabs/utils'
 import OrderDetails from './order-details.vue'
 import OrderDetailsMarket from './order-details-market.vue'
+import Slider from '~/components/inputs/slider.vue'
 import {
   DEFAULT_MAX_SLIPPAGE,
   ZERO_IN_BASE,
   NUMBER_REGEX,
+<<<<<<< HEAD
   DEFAULT_PRICE_WARNING_DEVIATION
+=======
+  UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+  UI_DEFAULT_PRICE_DISPLAY_DECIMALS
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
 } from '~/app/utils/constants'
 import ButtonCheckbox from '~/components/inputs/button-checkbox.vue'
 import VModalOrderConfirm from '~/components/partials/modals/order-confirm.vue'
@@ -166,7 +332,11 @@ import {
   UiPriceLevel,
   UiSpotMarket,
   UiSubaccount,
+<<<<<<< HEAD
   Modal
+=======
+  UiSubaccountBalanceWithToken
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
 } from '~/types'
 import {
   calculateWorstExecutionPriceFromOrderbook,
@@ -188,7 +358,11 @@ export default Vue.extend({
     'v-button-checkbox': ButtonCheckbox,
     'v-order-details': OrderDetails,
     'v-order-details-market': OrderDetailsMarket,
+<<<<<<< HEAD
     VModalOrderConfirm
+=======
+    'v-slider': Slider
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
   },
 
   data() {
@@ -199,11 +373,62 @@ export default Vue.extend({
       orderType: SpotOrderSide.Buy,
       detailsDrawerOpen: true,
       status: new Status(),
-      form: initialForm()
+      form: initialForm(),
+      sliderValue:25
     }
   },
 
   computed: {
+    quoteBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const quoteBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.quoteDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          quoteBalance ? quoteBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_PRICE_DISPLAY_DECIMALS,
+        token: market.quoteToken,
+        denom: market.quoteDenom
+      }
+    },
+
+    baseBalance(): UiSubaccountBalanceWithToken | undefined {
+      const { subaccount, market } = this
+
+      if (!subaccount || !market) {
+        return undefined
+      }
+
+      const baseBalance = subaccount.balances.find(
+        (balance) =>
+          balance.denom.toLowerCase() === market.baseDenom.toLowerCase()
+      )
+
+      return {
+        totalBalance: new BigNumberInWei(
+          baseBalance ? baseBalance.totalBalance : 0
+        ),
+        availableBalance: new BigNumberInWei(
+          baseBalance ? baseBalance.availableBalance : 0
+        ),
+        displayDecimals: UI_DEFAULT_AMOUNT_DISPLAY_DECIMALS,
+        token: market.baseToken,
+        denom: market.baseDenom
+      }
+    },
+    
     isUserWalletConnected(): boolean {
       return this.$accessor.wallet.isUserWalletConnected
     },
@@ -723,6 +948,8 @@ export default Vue.extend({
     this.$root.$on('orderbook-price-click', this.onOrderbookPriceClick)
     this.$root.$on('orderbook-size-click', this.onOrderbookSizeClick)
     this.$root.$on('orderbook-notional-click', this.onOrderbookNotionalClick)
+    this.onSliderValueChange()
+    
   },
 
   methods: {
@@ -733,10 +960,19 @@ export default Vue.extend({
      * into consideration
      */
     onMaxInput(percent = 100) {
+      this.sliderValue=percent;
       this.onAmountChange(this.getMaxAmountValue(percent))
       this.$nextTick(() => {
         this.onAmountChange(this.getMaxAmountValue(percent))
       })
+    },
+
+    onSliderValueChange(sliderValue = 0) {
+      this.onAmountChange(this.getMaxAmountValue(sliderValue));
+      this.sliderValue=sliderValue;
+      this.$nextTick(() => {
+        this.onAmountChange(this.getMaxAmountValue(sliderValue))
+      })     
     },
 
     getMaxAmountValue(percentage: number): string {
@@ -751,12 +987,10 @@ export default Vue.extend({
         executionPrice,
         slippage
       } = this
-
       const percentageToNumber = new BigNumberInBase(percentage).div(100)
       const balance = orderTypeBuy
         ? quoteAvailableBalance
         : baseAvailableBalance
-
       if (!market) {
         return ''
       }
@@ -771,7 +1005,6 @@ export default Vue.extend({
         const totalBalance = new BigNumberInBase(balance).times(
           percentageToNumber
         )
-
         const amount = totalFillableAmount.gte(totalBalance)
           ? totalBalance
           : totalFillableAmount
@@ -783,6 +1016,7 @@ export default Vue.extend({
       }
 
       if (tradingTypeMarket) {
+        
         return getApproxAmountForMarketOrder({
           market,
           balance,
@@ -801,7 +1035,6 @@ export default Vue.extend({
       }
 
       const fee = new BigNumberInBase(market.takerFeeRate)
-
       return new BigNumberInBase(balance)
         .dividedBy(executionPrice.times(fee.plus(1)))
         .times(percentageToNumber)
@@ -834,11 +1067,9 @@ export default Vue.extend({
       this.tradingType = TradeExecutionType.Market
       this.orderType =
         type === SpotOrderSide.Buy ? SpotOrderSide.Sell : SpotOrderSide.Buy
-
       const amount = total
         .dividedBy(price.times(slippage).toFixed(market.priceDecimals))
         .toFixed(market.quantityDecimals, BigNumberInBase.ROUND_FLOOR)
-
       this.$nextTick(() => {
         this.onAmountChange(amount)
       })
@@ -881,7 +1112,10 @@ export default Vue.extend({
     },
 
     onAmountChange(amount: string = '') {
-      this.form.amount = amount
+
+      const maxAmount=this.getMaxAmountValue(100);
+      this.sliderValue=(Number(amount)/Number(maxAmount))*100;
+      this.form.amount = amount;
     },
 
     onTradingTypeToggle() {

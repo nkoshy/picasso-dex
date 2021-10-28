@@ -16,12 +16,12 @@
         >
         </v-select-custom>
       </div>
-      <div class="w-full px-4 mb-2">
+      <div class="w-full px-4 mb-6 mt-2">
         <div v-if="status.isNotLoading()" class="-mx-4">
           <v-ui-button
             sm
             text
-            class="text-primary-500"
+            class="text-white font-sora font-normal opacity-50"
             @click="onFetchAddresses"
           >
             {{

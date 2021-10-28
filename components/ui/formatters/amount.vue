@@ -70,7 +70,7 @@ export default Vue.extend({
     const parentAttributes = {
       attrs: this.$attrs,
       on: this.$listeners,
-      class: 'font-mono'
+      class: 'font-sora'
     }
 
     if (this.greyZeros) {

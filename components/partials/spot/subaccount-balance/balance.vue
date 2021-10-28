@@ -1,18 +1,18 @@
 <template>
   <tr>
     <td is="v-ui-table-td">
-      <p class="text-gray-200 font-semibold text-xs">
+      <p class="text-gray-200 font-semibold text-sm text-left">
         {{ balance.token.symbol }}
       </p>
     </td>
-    <td is="v-ui-table-td" xs right>
+    <td is="v-ui-table-td" sm center>
       <v-ui-format-amount
         v-bind="{
           value: balance.availableBalance.toBase(balance.token.decimals)
         }"
       />
     </td>
-    <td is="v-ui-table-td" xs right>
+    <td is="v-ui-table-td" sm right>
       <v-ui-format-amount
         v-bind="{
           value: balance.totalBalance.toBase(balance.token.decimals)

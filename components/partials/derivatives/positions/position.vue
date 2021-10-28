@@ -11,7 +11,7 @@
         ></v-ui-icon>
       </v-ui-button>
     </td>
-    <td is="v-ui-table-td" xs center>
+    <td is="v-ui-table-td" xs center class="h-8">
       <v-ui-badge
         :aqua="position.direction === TradeDirection.Long"
         :red="position.direction === TradeDirection.Short"
@@ -22,7 +22,7 @@
         </div>
       </v-ui-badge>
     </td>
-    <td is="v-ui-table-td" xs right>
+    <td is="v-ui-table-td" xs right class="h-8">
       <v-ui-format-amount
         v-bind="{
           value: quantity,

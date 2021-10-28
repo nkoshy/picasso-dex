@@ -4,7 +4,16 @@
       <label
         v-if="label || error"
         :for="`input-select-${uid}`"
-        class="block text-xs font-semibold text-gray-200"
+        class="
+          text-xs
+          leading-none
+          opacity-50
+          flex
+          items-center
+          justify-between
+          font-white
+          font-sora
+        "
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-if="label" :class="error ? 'mr-2' : ''" v-html="label"></span>

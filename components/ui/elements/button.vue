@@ -43,6 +43,47 @@ export default Vue.extend({
       type: Boolean
     },
 
+    home: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+     homeWait: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    homeSection: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroPrimary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+     heroPrimaryWait: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroSecondary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
+    heroTertiary: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     text: {
       required: false,
       default: false,
@@ -109,7 +150,23 @@ export default Vue.extend({
       type: Boolean
     },
 
+    nonbgcolor: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+
     disabled: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    background: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    withoutCorner: {
       required: false,
       default: false,
       type: Boolean
@@ -118,14 +175,13 @@ export default Vue.extend({
 
   computed: {
     classes(): string {
-      const classes = [
-        'rounded-sm',
-        'inline-block',
-        'no-underline',
-        'font-semibold',
-        'text-center',
-        'focus:outline-none'
-      ]
+      const classes = [];
+
+      if(!this.withoutCorner) {
+       classes.push('rounded-md');
+      }
+
+      classes.push('inline-block', 'no-underline', 'text-center', 'focus:outline-none', 'font-bold');
 
       if (this.hero) {
         classes.shift()
@@ -140,14 +196,14 @@ export default Vue.extend({
       }
 
       if (this.wide) {
-        classes.push('px-12', 'w-full')
+        classes.push('px-12', 'w-full','primary-btn')
         if (!this.sm) {
           classes.push('py-3')
         }
       }
 
       if (this.full) {
-        classes.push('w-full')
+        classes.push('w-full','font-sora')
         if (!this.sm) {
           classes.push('py-3')
         }
@@ -171,20 +227,32 @@ export default Vue.extend({
         }
       } else if (this.lg) {
         classes.push('h-12', 'text-lg', 'px-6', 'leading-normal')
-      } else {
-        classes.push('h-12', 'px-6', 'text-xs')
+      } else if(this.home) {
+        classes.push('h-14', 'text-white', 'xl:w-40', 'w-60', 'text-lg', 'px-6', 'leading-normal');
+      }
+      else if(this.homeWait) {
+        classes.push('h-14', 'text-white', 'xl:w-44', 'mt-4', 'xl:mt-0', 'w-60', 'text-lg', 'px-6', 'leading-normal');
+      }
+        else if(this.homeSection) {
+        classes.push('h-14', 'text-white', 'w-40', 'text-lg', 'px-6', 'leading-normal');
+      }
+      else {
+        classes.push('h-12', 'px-6', 'text-xs','text-white')
       }
 
       if (this.primary) {
-        if (this.text) {
-          classes.push('text-primary-500', 'hover:text-primary-600')
-        } else {
-          classes.push(
-            'bg-primary-500',
-            'text-primary-900',
-            'hover:bg-primary-600'
-          )
-        }
+        // if (this.text) {
+        //   classes.push('text-primary-500')
+        // } else {
+        //   classes.push(
+        //     'bg-primary-500',
+        //     'text-primary-900',
+        //     'hover:bg-primary-600'
+        //   )
+        // }
+        classes.push(
+          'primary-btn'
+        )
       } else if (this.secondary) {
         classes.push(
           'bg-secondary-500',
@@ -194,24 +262,50 @@ export default Vue.extend({
       } else if (this.red) {
         classes.push('bg-red-500', 'text-white-900', 'hover:bg-red-600')
       } else if (this.aqua) {
-        classes.push('bg-aqua-500', 'text-aqua-900', 'hover:bg-aqua-600')
+        classes.push('bg-aqua-500', 'text-white', 'hover:bg-aqua-600')
       } else if (this.dim) {
         classes.push('bg-dark-700', 'hover:bg-dark-800')
+      } else if (this.hero) {
+        classes.push(
+          'text-white',
+          'uppercase',
+          'bg-gradient-to-r',
+          'from-blue-700',
+          'to-primary-500',
+          'hover:to-blue-700',
+          'hover:from-primary-500',
+          
+        )
       } else if (this.ghost) {
-        classes.push('border border-dark-600 text-gray-500 hover:text-gray-300')
+        classes.push('border border-dark-600 text-white font-bold font-sora hover:text-gray-300')
+      } else if(this.heroPrimary) {
+        classes.push('primary-btn font-sora')
+      }
+        else if(this.heroPrimaryWait) {
+        classes.push('primary-btn font-sora')
+      } else if(this.heroSecondary) {
+        classes.push('secondary-btn font-sora')
+      } else if(this.heroTertiary) {
+        classes.push('tertiary-btn text-home font-sora')
       }
 
       if (this.status.isLoading()) {
         classes.push('pointer-events-none', 'cursor-not-allowed', 'opacity-75')
       }
 
+      if(this.nonbgcolor){
+        classes.push(
+          'border-gradient',
+          'bg-dark-blueish'
+        )
+      }
       if (this.disabled) {
         classes.push('pointer-events-none', 'cursor-disabled')
-        if (!this.ghost) {
-          classes.push('opacity-50')
-        } else {
-          classes.push('text-gray-500')
-        }
+        // if (!this.ghost) {
+        //   classes.push('opacity-50')
+        // } else {
+        //   classes.push('text-white')
+        // }
       }
 
       return classes.join(' ')

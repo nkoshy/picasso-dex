@@ -2,28 +2,27 @@
   <div class="header-nav relative">
     <div
       :class="isDropdownOpen ? 'is-active' : ''"
-      class="w-full h-full py-2 flex px-6 items-center cursor-pointer group"
+      class="w-full h-full py-2 flex px-3 items-center cursor-pointer group"
       @click="toggleDropdown"
     >
       <span
         class="
           mr-2
-          uppercase
           tracking-wider
-          text-xs
+          text-md
           flex
           items-center
           select-none
         "
       >
-        <span class="text-gray-300 group-hover:text-gray-200 font-semibold">
+        <span class="text-white group-hover:text-gray-200 font-sora">
           {{ $t('spot') }}
         </span>
       </span>
       <v-ui-icon
         :icon="Icon.Dropdown"
         xs
-        class="text-gray-500 group-hover:text-gray-300"
+        class="text-white group-hover:text-gray-300"
       />
     </div>
     <transition name="fade">
@@ -35,22 +34,24 @@
           -mx-px
           flex
           justify-center
-          border
-          max-h-xs
           flex-wrap
-          top-0
-          left-0
-          min-w-2xl
+          -left-40
+          top-12
+          min-w-xl
+          min-h-lg
           mt-12
+          py-4
+          px-0.5
           rounded rounded-tl-none
-          bg-dark-700
-          shadow-md
-          overflow-y-auto
+          bg-spot-pattern
+          bg-no-repeat
+          bg-contain
         "
       >
         <v-spot @selected="closeDropdown" />
       </div>
     </transition>
+    <modal-login />
   </div>
 </template>
 
@@ -58,7 +59,9 @@
 import Vue from 'vue'
 import { directive as onClickaway } from 'vue-clickaway'
 import VSpot from '~/components/partials/spot/markets/index.vue'
-import { Icon } from '~/types'
+import ModalLogin from '~/components/partials/login-modal.vue'
+import { Icon,Modal } from '~/types'
+import { verifyUserAuthentication } from '~/utils/localStroage';
 
 export default Vue.extend({
   directives: {
@@ -66,7 +69,8 @@ export default Vue.extend({
   },
 
   components: {
-    VSpot
+    VSpot,
+    'modal-login': ModalLogin
   },
 
   data() {
@@ -78,7 +82,15 @@ export default Vue.extend({
 
   methods: {
     toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
+      // this.isDropdownOpen = !this.isDropdownOpen
+       const authenticate = verifyUserAuthentication();
+       if (!authenticate) {
+         this.$accessor.modal.openModal(Modal.Login);
+         document.body.style.overflow = 'hidden';
+        }
+        if(authenticate) {
+          this.isDropdownOpen = !this.isDropdownOpen
+        }
     },
 
     closeDropdown() {

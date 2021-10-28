@@ -1,10 +1,15 @@
 <template>
+<<<<<<< HEAD
   <div v-if="market" class="mt-6 py-6 border-t relative">
+=======
+  <div v-if="market" class="mt-4 py-4 relative">
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     <v-drawer
       :custom-handler="true"
       :custom-is-open="detailsDrawerOpen"
       @drawer-toggle="onDrawerToggle"
     >
+<<<<<<< HEAD
       <p slot="header" class="flex justify-between text-sm">
         <v-text-info :title="$t('total')" lg>
           <span class="font-mono flex items-center">
@@ -88,6 +93,131 @@
           </span>
           <span v-else class="text-gray-500 ml-1"> &mdash; </span>
         </v-text-info>
+=======
+      <p slot="header" class="flex justify-between text-base font-normal font-sora">
+        <v-ui-text muted-md>{{ $t('total') }}</v-ui-text>
+        <v-ui-text class="flex items-center text-base font-normal font-sora">
+          <span class="mr-1">≈</span>
+          <v-ui-format-price
+            v-bind="{
+              value: extractedTotal
+            }"
+          />
+          <small class=" ml-1 pt-px text-base font-normal font-sora">{{
+            orderTypeBuy ? market.quoteToken.symbol : market.baseToken.symbol
+          }}</small>
+        </v-ui-text>
+      </p>
+      <div class="text-xs mt-2">
+        <p class="flex justify-between group leading-6">
+          <v-ui-text muted-sm class="group-hover:text-white opacity-40">
+            {{ $t('amount') }}
+          </v-ui-text>
+          <v-ui-text v-if="!amount.isNaN()" muted class="flex items-center">
+            <v-ui-format-amount
+              v-bind="{
+                value: amount
+              }"
+              class="text-gray-300"
+            />
+            <small class="opacity-75 ml-1">{{ market.baseToken.symbol }}</small>
+          </v-ui-text>
+          <v-ui-text v-else muted-sm class="group-hover:text-white opacity-40">
+            &mdash;
+          </v-ui-text>
+        </p>
+        <p class="flex justify-between group leading-6">
+          <v-ui-text muted-sm class="group-hover:text-white opacity-40">
+            {{ $t('price') }}
+          </v-ui-text>
+          <v-ui-text v-if="price.gt(0)" muted class="flex items-center">
+            <v-ui-format-price
+              v-bind="{
+                value: price
+              }"
+              class="text-gray-300"
+            />
+            <small class="opacity-75 ml-1">{{
+              market.quoteToken.symbol
+            }}</small>
+          </v-ui-text>
+          <v-ui-text v-else muted-sm class="group-hover:text-white opacity-40">
+            &mdash;
+          </v-ui-text>
+        </p>
+        <p class="flex justify-between group leading-6">
+          <v-ui-text muted-sm class="group-hover:text-white opacity-40">{{
+            $t('notional_value')
+          }}</v-ui-text>
+          <v-ui-text v-if="total.gt(0)" muted class="flex items-center">
+            <v-ui-format-price
+              v-bind="{
+                value: total
+              }"
+              class="text-gray-300"
+            />
+            <small class="opacity-75 ml-1">{{
+              market.quoteToken.symbol
+            }}</small>
+          </v-ui-text>
+          <v-ui-text v-else muted-sm class="group-hover:text-white opacity-40">
+            &mdash;
+          </v-ui-text>
+        </p>
+        <p v-if="!orderTypeBuy" class="flex justify-between group leading-6">
+          <v-ui-text muted-sm class="group-hover:text-white flex items-center opacity-40 max-w-4xs sm:max-w-lg"
+            ><span class="mr-2">{{ $t('est_receiving_amount') }}</span
+            ><v-ui-icon
+              :icon="Icon.Info"
+              class="text-gray-500 hover:text-gray-300"
+              :tooltip="$t('est_receiving_amount_note')"
+              2xs
+          /></v-ui-text>
+          <v-ui-text v-if="total.gt(0)" muted class="flex items-center">
+            <v-ui-format-price
+              v-bind="{
+                value: totalWithoutFees
+              }"
+              class="text-gray-300"
+            />
+            <small class="opacity-75 ml-1">{{
+              market.quoteToken.symbol
+            }}</small>
+          </v-ui-text>
+          <v-ui-text v-else muted-sm class="group-hover:text-white">
+            &mdash;
+          </v-ui-text>
+        </p>
+        <p class="flex justify-between group leading-6">
+          <v-ui-text muted-sm class="group-hover:text-white flex items-center opacity-40"
+            ><span class="mr-2">{{ $t('fee') }}</span
+            ><v-ui-icon
+              v-if="feeReturned.gt(0)"
+              :icon="Icon.Info"
+              class="text-gray-500 hover:text-gray-300"
+              :tooltip="
+                $t('fee_order_details_note', {
+                  feeReturned: feeReturned.toFixed()
+                })
+              "
+              2xs
+          /></v-ui-text>
+          <v-ui-text v-if="fees.gt(0)" muted class="flex items-center">
+            <v-ui-format-price
+              v-bind="{
+                value: fees
+              }"
+              class="text-gray-300"
+            />
+            <small class="opacity-75 ml-1">{{
+              market.quoteToken.symbol
+            }}</small>
+          </v-ui-text>
+          <v-ui-text v-else muted-sm class="group-hover:text-white opacity-40">
+            &mdash;
+          </v-ui-text>
+        </p>
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
       </div>
     </v-drawer>
   </div>

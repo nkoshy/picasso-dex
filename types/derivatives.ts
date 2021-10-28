@@ -41,6 +41,10 @@ export interface UiDerivativeMarketSummary
   lastPriceChange?: Change
 }
 
+export type UiDerivativeMarketSummaryVars = 'change' | 'high' | 'low' | 'open' | 'price' | 'volume' | 'lastPrice' | 'marketId';
+
+export type UiDerivativeMarketVars = UiDerivativeMarketSummaryVars | 'market';
+
 export interface UiDerivativeMarketAndSummary {
   market: UiDerivativeMarket
   summary: UiDerivativeMarketSummary

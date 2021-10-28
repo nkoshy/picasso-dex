@@ -14,7 +14,7 @@
       :class="type === DerivativeOrderSide.Buy ? 'buys' : 'sells'"
     ></span>
     <span
-      class="w-1/3 text-xs px-2 flex items-center justify-end z-10"
+      class="w-1/3 text-xs px-4 cursor-pointer text-light-green items-center justify-end z-10"
       @click.stop="onPriceClick"
     >
       <v-icon-arrow
@@ -27,9 +27,14 @@
           'text-aqua-500': recordTypeBuy,
           'text-red-500': !recordTypeBuy
         }"
+<<<<<<< HEAD
       >
         {{ priceToFormat }}
       </span>
+=======
+        class="text-left block"
+      />
+>>>>>>> 8bcd3ce76d01e7ea647c3d4b28159659310df215
     </span>
     <span class="w-1/3 text-xs px-2 z-10" @click.stop="onQuantityClick">
       <span
